@@ -27,10 +27,12 @@ main {
     display: flex;
     flex-direction: column;
 
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     text-align: center;
+
+    padding-top: 60px;
 
     padding-left: 20px;
     padding-right: 20px;
@@ -41,7 +43,7 @@ h1 {
 
     letter-spacing: 4px;
 
-    line-height: 0,75;
+    line-height: 0.75;
 
     margin-bottom: 10px;
 
@@ -178,6 +180,31 @@ body {
     background: #111;
     color: white;
     min-height: 100vh;
+
+    background-image: url("webimages/BODilne.jpg");
+    background-size: 900px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.about-page {
+    position: relative;
+}
+
+.about-page::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    z-index: 0;
+}
+.about-page > * {
+    position: relative;
+    z-index: 1;
 }
 
 .about-page h1 {
@@ -186,13 +213,13 @@ body {
 }
 
 .subtitle {
-    text-align: center;
-    color: #999;
-    margin-bottom: 50px;
+    color: #9b9b9b;
+    letter-spacing: 1px;
+    line-height: 1.7;
 }
 
 .person-card {
-    background: #1b1b1b;
+    background: rgba(27, 27, 27, 0.30);
     padding: 30px;
     margin: 20px auto;
     max-width: 700px;
@@ -231,20 +258,46 @@ body {
 .person-card {
     display: flex;
     align-items: center;
-    gap: 25px;
+    justify-content: center;
+
+    gap: 40px;
+
+    padding: 35px;
 }
 
 .person-image {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
 
     object-fit: cover;
 
     border-radius: 50%;
 
-    border: 2px solid #c59d5f;
+    border: 2px solid #d6a55c;
 
     flex-shrink: 0;
+}
+.person-card h2 {
+    font-family: 'MedievalSharp', cursive;
+
+    font-size: 2rem;
+
+    color: white;
+
+    margin-bottom: 5px;
+}
+
+.person-card .role {
+    font-family: 'MedievalSharp', cursive;
+
+    color: #d6a55c;
+
+    margin-bottom: 18px;
+}
+
+.person-card p {
+    margin-bottom: 18px;
+    line-height: 1.6;
 }
 .profile-link {
     display: inline-block;
