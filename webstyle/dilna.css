@@ -100,19 +100,12 @@ body {
     border-color: #c59d5f;
 }
 .about-page {
-    padding: 100px 20px;
-    background: #111;
-    color: white;
-    min-height: 100vh;
-
+    position: relative;
     background-image: url("../webimages/BODilne.jpg");
-    background-size: 900px;
-    background-position: center;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
-.about-page {
-    position: relative;
 }
 
 .about-page::before {
