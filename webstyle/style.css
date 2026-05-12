@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:
+        radial-gradient(circle at center, #111 0%, #000 100%);
+
+    color: #ddd;
+
+    font-family: 'MedievalSharp', cursive;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+/* HLAVNÍ BLOK */
+main {
+    position: relative;
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    text-align: center;
+
+    padding-top: 60px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h1 {
+    font-size: 64px;
+
+    letter-spacing: 4px;
+
+    line-height: 0.75;
+
+    margin-bottom: 10px;
+
+    color: #eee;
+
+    text-shadow:
+        0 0 15px rgba(255, 140, 0, 0.3);
+}
+
+.subtitle {
+    max-width: 700px;
+
+    line-height: 1.7;
+
+    opacity: 0.75;
+
+    margin-bottom: 20px;
+}
+
+/* MENU */
+nav {
+    display: flex;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+button {
+    background: rgba(20, 20, 20, 0.9);
+
+    color: #ccc;
+
+    border: 1px solid #444;
+
+    padding: 12px 24px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+
+    border-color: #888;
+
+    color: white;
+
+    box-shadow:
+        0 0 20px rgba(255, 140, 0, 0.25);
+}
+body {
+    font-family: 'MedievalSharp', cursive;
+}
+
+/* MLHA */
+.smoke {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(255,255,255,0.03), transparent 40%);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+.hero-image {
+    display: block;
+
+    width: 420px;
+    max-width: 90%;
+
+    margin-top: 10px;
+    margin-bottom: 40px;
+
+    opacity: 0.85;
+
+    filter:
+        drop-shadow(0 0 30px rgba(255,140,0,0.15));
+}
+.intro {
+    max-width: 700px;
+
+    text-align: center;
+
+    margin-top: 40px;
+    margin-bottom: 80px;
+
+    line-height: 1.8;
+
+    opacity: 0.9;
+}
+
+.intro h2 {
+    font-size: 38px;
+
+    margin-bottom: 20px;
+
+    color: #ddd;
+}
+
+.intro p {
+    margin-bottom: 20px;
+
+    color: #aaa;
+}
+.nav-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #1b1b1b;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.nav-button:hover {
+    background: #c59d5f;
+    color: black;
+}
