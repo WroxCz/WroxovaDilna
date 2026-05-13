@@ -21,7 +21,7 @@ body.hudba-page {
     background:
         linear-gradient(rgba(0,0,0,0.45),
         rgba(0,0,0,0.60)),
-        url("../webimages/ArchivBG.jpg");
+        url("../webimages/hudbaBG.jpg");
 
     background-size: cover;
     background-position: center;
