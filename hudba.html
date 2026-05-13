@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hudební přenosy</title>
+
+    <link rel="stylesheet" href="webstyle/hudba.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="hudba-page">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>Hudební přenosy</h1>
+
+        <p>
+            Archiv ambientních přenosů,
+            mechanických ozvěn a zakázaných transmisí.
+        </p>
+
+        <a href="Archiv.html" class="back-link">
+            Návrat do archivu
+        </a>
+
+        <div class="main-player">
+
+    <iframe id="main-video"
+        src=""
+        allow="autoplay"
+        allowfullscreen>
+    </iframe>
+
+    <div class="player-controls">
+
+        <button onclick="stopVideo()">
+
+            Ukončit přenos
+
+        </button>
+
+    </div>
+
+</div>
+
+    </header>
+
+    <!-- SEKCE -->
+
+    <main class="music-section">
+
+        <!-- ================================================= -->
+        <!-- WARHAMMER 40K -->
+        <!-- ================================================= -->
+
+        <details class="music-category">
+
+            <summary>Warhammer 40K</summary>
+
+            <div class="music-card">
+
+    <img src="https://img.youtube.com/vi/EDdeaK3bM-Y/maxresdefault.jpg">
+
+    <div class="music-info">
+
+        <h2>Přenos 001 - Kult Adeptus Mechanicus: Uctívači strojů</h2>
+
+        <p>Autor:<a href="https://www.youtube.com/@OspalyKnihovnik"
+       target="_blank">
+       Ospalý Knihovník</a></p>
+
+</p>
+
+        <div class="music-buttons">
+
+            <button onclick="playVideo('EDdeaK3bM-Y')">
+
+                Nahrát přenos
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="music-card">
+
+    <img src="https://img.youtube.com/vi/6Pxlq32dGtQ/maxresdefault.jpg">
+
+    <div class="music-info">
+
+        <h2>Přenos 002 - Grimdark Epic Mechanicus Music</h2>
+
+        <p>Autor:<a href="https://www.youtube.com/channel/UC-g9peLohgBWxjJSc6QgL8g"
+       target="_blank">
+       Archotechna</a></p>
+
+        <div class="music-buttons">
+
+            <button onclick="playVideo('6Pxlq32dGtQ')">
+
+                Nahrát přenos
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+        </details>
+
+        <!-- ================================================= -->
+        <!-- AMBIENT -->
+        <!-- ================================================= -->
+
+        <<details class="music-category">
+
+    <summary>Ambient Music</summary>
+
+    <div class="music-card">
+
+        <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg">
+
+        <div class="music-info">
+
+            <h2>Ambient 001</h2>
+
+            <p>Autor:<a href="https://www.youtube.com/@AtriumCarceri"
+                   target="_blank">
+                   Atrium Carceri</a></p>
+
+            <div class="music-buttons">
+
+                <button onclick="playVideo('VIDEO_ID')">
+
+                    Nahrát přenos
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</details>
+
+        <!-- ================================================= -->
+        <!-- VIKING -->
+        <!-- ================================================= -->
+
+        <details class="music-category">
+
+            <summary>Viking</summary>
+
+            <div class="music-card">
+
+        <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg">
+
+        <div class="music-info">
+
+            <h2>Viking 001</h2>
+
+            <p>Autor:<a href="https://www.youtube.com/@AtriumCarceri"
+                   target="_blank">
+                   Atrium Carceri</a></p>
+
+            <div class="music-buttons">
+
+                <button onclick="playVideo('VIDEO_ID')">
+
+                    Nahrát přenos
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</details>
+
+    </main>
+<script>
+
+function playVideo(videoId) {
+
+    const player = document.querySelector(".main-player");
+
+    player.classList.add("active");
+
+    document.getElementById("main-video").src =
+    "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+}
+function stopVideo() {
+
+    const player = document.querySelector(".main-player");
+
+    player.classList.remove("active");
+
+    document.getElementById("main-video").src = "";
+}
+
+</script>
+</body>
+
+</html>
