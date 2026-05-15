@@ -170,6 +170,14 @@ header p {
     overflow: hidden;
 
 }
+.sub-category {
+
+    margin-left: 45px;
+
+    border-left: 2px solid rgba(214,179,106,0.15);
+
+    padding-left: 10px;
+}
 
 .music-category summary {
 
@@ -490,4 +498,79 @@ header p {
     text-decoration: none;
 
     box-shadow: none !important;
+}
+/* =====================================================
+   GRID LEGIE
+===================================================== */
+
+.sub-category {
+
+    margin-left: 35px;
+
+    margin-top: 18px;
+
+    width: calc(100% - 35px);
+}
+
+/* GRID OBSAHU */
+
+.sub-category .music-card {
+
+    width: 100%;
+
+}
+
+/* KONTEJNER PRO GRID */
+
+.legion-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+    padding: 25px;
+}
+
+/* KARTA */
+
+.legion-grid .music-card {
+
+    background: rgba(0,0,0,0.18);
+
+    border: 1px solid rgba(214,179,106,0.12);
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+/* OBRÁZKY */
+
+.legion-grid .music-card img {
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    margin-bottom: 18px;
+}
+
+/* MOBIL */
+
+@media (max-width: 900px) {
+
+    .legion-grid {
+
+        grid-template-columns: 1fr;
+    }
 }
