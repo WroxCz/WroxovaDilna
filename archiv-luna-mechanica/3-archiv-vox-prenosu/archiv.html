@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archiv Vox Přenosů</title>
+
+    <link rel="stylesheet" href="vox-archiv.css">
+</head>
+
+<body class="hudba-page">
+
+    <div class="vox-terminal">
+
+        <header>
+
+            <h1>Archiv Vox Přenosů</h1>
+
+            <p>
+                Databanka archivních přenosů a lore záznamů.
+            </p>
+
+            <a href="../../archiv.html" class="back-button">
+                Návrat do archivu
+            </a>
+
+        </header>
+        <div class="vox-panel" id="voxPanel">
+
+    <div class="vox-status" id="voxStatus">
+
+    VOX TRANISSION STANDBY
+
+    </div>
+
+    <iframe
+        id="voxVideo"
+        class="vox-video"
+        allowfullscreen>
+    </iframe>
+
+    <button
+        class="stop-button"
+        onclick="stopTransmission()">
+
+        UKONČIT PŘENOS
+
+    </button>
+
+</div>
+
+
+    <details class="music-category">
+
+    <summary>Impérium</summary>
+
+    <div id="imperium-content"></div>
+
+</details>
+
+<details class="music-category">
+
+    <summary>Chaos</summary>
+
+    <div id="chaos-content"></div>
+
+</details>
+
+<details class="music-category">
+
+    <summary>Xenos</summary>
+
+    <div id="xenos-content"></div>
+
+</details>
+
+<details class="music-category">
+
+    <summary>Ambientní Přenosy</summary>
+
+    <div id="ambient-content"></div>
+
+</details>
+
+</main>
+
+    </div>
+<script>
+
+function playVideo(videoId) {
+
+    const panel =
+        document.getElementById("voxPanel");
+
+    const video =
+        document.getElementById("voxVideo");
+
+    const status =
+        document.getElementById("voxStatus");
+
+    panel.classList.add("active");
+
+    status.textContent =
+        "VOX TRANSMISSION ACTIVE";
+
+    video.src =
+        `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+}
+
+function stopTransmission() {
+
+    const panel =
+        document.getElementById("voxPanel");
+
+    const video =
+        document.getElementById("voxVideo");
+
+    const status =
+        document.getElementById("voxStatus");
+
+    panel.classList.remove("active");
+
+    status.textContent =
+        "VOX TRANSMISSION STANDBY";
+
+    video.src = "";
+}
+
+</script>
+<script>
+
+const imperiumModules = [
+
+    "1-imperium/1-cisar-lidstva.html",
+
+    "1-imperium/2-loyalisticke-legie.html",
+
+    "1-imperium/3-adeptus-mechanicus.html",
+
+    "1-imperium/4-inkvizice.html",
+
+    "1-imperium/5-vyznamne-osobnosti.html",
+];
+
+const ambientModules = [
+    "4-ambientni-prenosy/1-ambient-imperia.html",
+
+    "4-ambientni-prenosy/2-mechanicus-ambient.html",
+
+    "4-ambientni-prenosy/3-chaos-ambient.html",
+];
+
+const imperiumContent =
+    document.getElementById("imperium-content");
+
+async function loadImperiumModules() {
+
+    for (const module of imperiumModules) {
+
+        const response = await fetch(module);
+
+        const data = await response.text();
+
+        imperiumContent.innerHTML += data;
+    }
+}
+
+loadImperiumModules();
+const ambientContent =
+    document.getElementById("ambient-content");
+
+async function loadAmbientModules() {
+
+    for (const module of ambientModules) {
+
+        const response = await fetch(module);
+
+        const data = await response.text();
+
+        ambientContent.innerHTML += data;
+    }
+}
+
+loadAmbientModules();
+</script>
+</body>
+</html>
