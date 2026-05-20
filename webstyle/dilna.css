@@ -1,0 +1,172 @@
+body {
+    font-family: 'MedievalSharp', cursive;
+}
+.person-card {
+    background: rgba(27, 27, 27, 0.30);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 700px;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.role {
+    color: #c59d5f;
+    font-weight: bold;
+}
+.back-button {
+    display: block;
+
+    width: fit-content;
+
+    margin: 20px auto 50px auto;
+
+    text-decoration: none;
+    color: white;
+
+    background: rgba(27, 27, 27, 0.30);
+
+    padding: 12px 24px;
+
+    border-radius: 12px;
+    border: 1px solid #333;
+
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background: #c59d5f;
+    color: black;
+}
+.person-card{
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 35px;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 40px;
+    background: rgba(0,0,0,0.35);
+
+    backdrop-filter: blur(2px);
+
+    border: 1px solid rgba(214,165,92,0.25);
+
+    border-radius: 18px;
+}
+
+.person-images{
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    flex-shrink: 0;
+}
+
+.person-image{
+    width: 140px;
+    height: 140px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 2px solid #d6a55c;
+}
+
+.person-text{
+    flex: 1;
+
+    min-width: 0;
+}
+
+.person-text h2{
+    margin-top: 0;
+}
+
+.person-text p{
+    color: #d8d2c8;
+    text-align: left;
+
+    line-height: 1.7;
+}
+.person-card h2 {
+    font-family: 'MedievalSharp', cursive;
+
+    font-size: 2rem;
+
+    color: white;
+
+    margin-bottom: 5px;
+}
+
+.person-card .role {
+    font-family: 'MedievalSharp', cursive;
+
+    color: #d6a55c;
+
+    margin-bottom: 18px;
+}
+
+.person-card p {
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+.profile-link {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    color: #c59d5f;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid transparent;
+
+    transition: 0.3s;
+}
+
+.profile-link:hover {
+    border-color: #c59d5f;
+}
+.about-page {
+    position: relative;
+    background-image: url("../webimages/BODilne.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.about-page::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    z-index: 0;
+}
+.about-page > * {
+    position: relative;
+    z-index: 1;
+}
+
+.about-page h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+.subtitle {
+    color: #9b9b9b;
+    letter-spacing: 1px;
+    line-height: 1.7;
+}
