@@ -1,0 +1,109 @@
+[
+    {
+    "id": "pla-black",
+
+    "name": "Black - Černá",
+
+    "manufacturer": "Elegoo",
+
+    "material": "PLA",
+
+    "variant": "Standard",
+
+    "status": "available",
+
+    "statusText": "Dostupné",
+
+    "image": "matimages/materials/PLA/Elegoo/pla-black.webp"
+    }
+    ,
+{
+    "id": "pla-blue",
+
+    "name": "Blue - Modrá",
+
+    "manufacturer": "Elegoo",
+
+    "material": "PLA",
+
+    "variant": "Standard",
+
+    "status": "ordered",
+
+    "statusText": "Objednáno",
+
+    "image": "matimages/materials/PLA/Elegoo/pla-blue.webp"
+}
+    ,
+{
+    "id": "pla-grey",
+
+    "name": "Grey - Šedá",
+
+    "manufacturer": "Elegoo",
+
+    "material": "PLA",
+
+    "variant": "Standard",
+
+    "status": "unavailable",
+
+    "statusText": "Nedostupné",
+
+    "image": "matimages/materials/PLA/Elegoo/pla-grey.webp"
+}
+    ,
+{
+    "id": "pla-red",
+
+    "name": "Red - Červená",
+
+    "manufacturer": "Elegoo",
+
+    "material": "PLA",
+
+    "variant": "Standard",
+
+    "status": "unavailable",
+
+    "statusText": "Nedostupné",
+
+    "image": "matimages/materials/PLA/Elegoo/pla-red.webp"
+}
+,
+{
+    "id": "pla-white",
+
+    "name": "White - Bílá",
+
+    "manufacturer": "Elegoo",
+
+    "material": "PLA",
+
+    "variant": "Standard",
+
+    "status": "unavailable",
+
+    "statusText": "Nedostupné",
+
+    "image": "matimages/materials/PLA/Elegoo/pla-white.webp"
+}
+,
+{
+    "id": "pla-white-matte",
+
+    "name": "White Matte - Bílá matná",
+
+    "manufacturer": "Elegoo",
+
+    "material": "PLA",
+
+    "variant": "Standard",
+
+    "status": "unavailable",
+
+    "statusText": "Nedostupné",
+
+    "image": "matimages/materials/PLA/Elegoo/pla-white-matte.webp"
+}
+]
