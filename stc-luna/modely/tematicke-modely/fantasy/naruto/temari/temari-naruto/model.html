@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="cs">
 
 <head>
@@ -7,73 +8,269 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Temari Naruto</title>
+    <title> Temari </title>
 
-    <link rel="stylesheet" href="../../../../../stc-luna.css">
-    <link rel="stylesheet" href="../../../../../indexmodely.css">
+    <link rel="stylesheet" href="../../../../../model.css">
 
 </head>
 
-<body class="model-page">
+<body>
 
-    <div class="model-header">
+    <section class="split-layout">
 
-    <h1>Temari Naruto</h1>
 
-    <p>
-        Detailně zpracovaný 3D model inspirovaný světem Naruto.
-    </p>
+        <!-- LEVÁ STRANA -->
 
-    <a href="../../../../../indexmodely.html" class="return-button">
-        ← Zpět do 3D Modelů
+        <div class="split-image">
+
+            <!-- HLAVNÍ OBRÁZEK -->
+
+            <img class="main-preview"
+                 id="mainPreview"
+                 src="preview1.webp">
+
+            <!-- GALERIE -->
+
+            <div class="preview-gallery">
+
+                <img src="preview1.webp"
+                     onclick="changePreview(this.src)">
+
+                <img src="preview3.webp"
+                     onclick="changePreview(this.src)">
+
+                <img src="preview2.webp"
+                     onclick="changePreview(this.src)">
+
+            </div>
+
+        </div>
+
+
+        <!-- PRAVÁ STRANA -->
+
+        <div class="split-content">
+
+
+            <!-- ZPĚT -->
+
+            <a href="../../../../../indexmodely.html"
+               class="back-button">
+
+                ← Zpět do 3D Modelů
+
+            </a>
+
+
+            <!-- HEADER -->
+
+            <div class="model-header">
+
+                <h1>
+
+                    Temari Naruto
+
+                </h1>
+
+                <p class="model-description">
+
+                    Tento model Temari z Naruta zachycuje její ikonický vzhled a
+                     pózu a vyznačuje se detailním oblečením a doplňky.
+
+                </p>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+<div class="model-buttons">
+
+    <a href="objednavka.html"
+       class="primary-button"
+       data-print="true">    <!-- povelení tisku: data-print="true" zákaz tisku:data-print="false" > -->
+
+        Poptat tisk
+
+    </a>
+
+    <a href="https://www.printables.com/@acgames"
+       target="_blank"
+       class="secondary-button">
+
+        Autor modelu: Acgames
+
+    </a>
+        <a href="https://www.printables.com/model/1494259-temari-naruto"
+       target="_blank"
+       class="secondary-button">
+
+        Zdroj modelu: Printables
+
     </a>
 
 </div>
-    <div class="model-layout">
 
-        <div class="model-left">
+            <!-- PARAMETRY -->
 
-            <img src="preview.jpg" alt="Sakura Top Naruto">
+            <section class="model-box">
+
+                <h2>Parametry</h2>
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <span>Materiál</span>
+
+                        <strong>PLA</strong>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>Doba tisku</span>
+
+                        <strong>?</strong>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <span>Typ modelu</span>
+
+                        <strong>Figurína</strong>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>Ověření modelu</span>
+
+                        <strong>Netestováno</strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- INFORMACE -->
+
+            <section class="model-box">
+
+                <h2>Informace o modelu</h2>
+
+                <p>
+
+                    Ideální pro fanoušky anime a konkrétně Naruta. 
+                    Tento model slouží jako výstavní kus i sběratelský předmět pro nadšence.
+
+                </p>
+
+            </section>
+
+
+            <!-- LICENCE -->
+
+            <section class="model-box">
+
+                <h2>Licence</h2>
+
+
+                <div class="license-info">
+
+                    <p>
+
+                        Tento model podléhá licenci:
+
+                    </p>
+
+                    <a href="https://creativecommons.org/licenses/by/4.0/"
+                       target="_blank">
+
+                        CC BY 4.0
+
+                    </a>
+
+                    <p>
+
+                        Uveďte původ 
+
+                    </p>
+
+                </div>
+
+
+                <ul class="license-list"> <!-- <li class="forbidden"> ✖ |   <li class="allowed"> ✔ |  -->
+
+                    <li class="forbidden">
+
+                        ✖ | Sdílení bez UVEDENÍ PŮVODU
+
+                    </li>
+
+                    <li class="allowed">
+
+                        ✔ | Remixování (upravování)
+
+                    </li>
+
+                    <li class="allowed">
+
+                        ✔ | Komerční využití
+
+                    </li>
+
+                    <li class="allowed">
+
+                        ✔ | Dílo Svobodné kultury
+
+                    </li>
+
+                    <li class="allowed">
+
+                        ✔ | Splňuje Definici otevřeného díla
+
+                    </li>
+
+                </ul>
+
+            </section>
 
         </div>
 
-        <div class="model-right">
+    </section>
 
-            <h2>Informace o modelu</h2>
 
-            <p>
-                <strong>Autor modelu:</strong>
-                <a href="https://www.printables.com/@acgames" target="_blank">Acgames</a>
-            </p>
+    <!-- SCRIPT -->
 
-            <p>
-                <strong>Zdroj:</strong>
-                <a href="https://www.printables.com/model/1494259-temari-naruto" target="_blank">Printables</a>
-            </p>
+    <script>
 
-            <p>
-                <strong>Licence:</strong>
-                Creative Commons Attribution 4.0 International (CC BY 4.0)
-            </p>
+    function changePreview(imageSrc) {
 
-            <p>
-                Tento model Temari z Naruta zachycuje její ikonický vzhled a pózu, s detailním oblečením a doplňky.
-            </p>
+        document.getElementById("mainPreview").src = imageSrc;
+    }
 
-            <h2>Parametry</h2>
+    </script>
+<script>
 
-            <ul>
-                <li>Materiál: PLA</li>
-                <li>Doba tisku: ?</li>
-                <li>Výška vrstvy: ?</li>
-                <li>Typ modelu: Figurína</li>
-                <li>Status: Netestováno</li>
-            </ul>
+const printButton = document.querySelector(".primary-button");
 
-        </div>
+if (printButton.dataset.print === "false") {
 
-    </div>
+    printButton.textContent = "Tisk na zakázku není povolen";
 
+    printButton.removeAttribute("href");
+
+    printButton.classList.add("disabled-button");
+}
+
+</script>
 </body>
 
 </html>

@@ -1,57 +1,283 @@
-<link rel="stylesheet" href="../../../stc-luna.css">
-<link rel="stylesheet" href="../../indexmodely.css">
+<!DOCTYPE html>
 
-<h1>Zkouška tolerance vůle</h1>
+<html lang="cs">
 
-<a href="../../indexmodely.html" class="return-button">
-    ← Zpět do 3D Modelů
-</a>
+<head>
 
-<p>
-    Test pro určení schopnosti našeho stroje tisknout konzoly a mosty v různých úhlech.
-</p>
+    <meta charset="UTF-8">
 
-<div class="model-layout">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="model-left">
+    <title> Konzolový test </title>
 
-        <img src="preview.jpg">
+    <link rel="stylesheet" href="../../model.css">
 
-    </div>
+</head>
 
-    <div class="model-right">
+<body>
 
-        <h2>Licence modelu</h2>
+    <section class="split-layout">
 
-<p><strong>Autor modelu:</strong></p>
 
-<p>
-    <strong>Autor modelu:</strong>
-    <a href="https://www.printables.com/@Control3D" target="_blank">Control 3D</a>
-</p>
+        <!-- LEVÁ STRANA -->
 
-<p>
-    <strong>Zdroj:</strong>
-    <a href="https://www.printables.com/model/1719705-test-de-voladizos-control3d/user-gcodes" target="_blank">Printables</a>
-</p>
-        <p><strong>Licence:</strong> CC BY-SA 4.0</p>
+        <div class="split-image">
 
-        <p>
-            Model slouží pouze jako ukázka kalibrace a testu tiskárny.
-        </p>
+            <!-- HLAVNÍ OBRÁZEK -->
 
-        <h2>Parametry</h2>
+            <img class="main-preview"
+                 id="mainPreview"
+                 src="preview1.webp">
 
-        <ul>
-            <li>Materiál: PLA</li>
-            <li>Doba tisku: ~30 minut</li>
-            <li>Účel: test mostu</li>
-            <li>Výška vrstvy: 0,20 mm</li>
-            <li>Rychlost přesahu: 40-20-10 mm/s</li>
-            <li>Typ modelu: Kalibrační</li>
-            <li>Status: Ověřeno</li>
-        </ul>
+            <!-- GALERIE -->
 
-    </div>
+            <div class="preview-gallery">
+
+                <img src="preview1.webp"
+                     onclick="changePreview(this.src)">
+
+                <img src="preview2.webp"
+                     onclick="changePreview(this.src)">
+
+                <img src="preview3.webp"
+                     onclick="changePreview(this.src)">
+
+            </div>
+
+        </div>
+
+
+        <!-- PRAVÁ STRANA -->
+
+        <div class="split-content">
+
+
+            <!-- ZPĚT -->
+
+            <a href="../../indexmodely.html"
+               class="back-button">
+
+                ← Zpět do 3D Modelů
+
+            </a>
+
+
+            <!-- HEADER -->
+
+            <div class="model-header">
+
+                <h1>
+
+                    Test převisu Control3D
+
+                </h1>
+
+                <p class="model-description">
+
+                    Otestujte, zda náš stroj dokáže tisknout převisy a mosty pod různými úhly.
+
+                </p>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+<div class="model-buttons">
+
+    <a href="objednavka.html"
+       class="primary-button"
+       data-print="false">    <!-- povelení tisku: data-print="true" zákaz tisku:data-print="false" > -->
+
+        Poptat tisk
+
+    </a>
+
+    <a href="https://www.printables.com/@Control3D"
+       target="_blank"
+       class="secondary-button">
+
+        Autor modelu: Control 3D
+
+    </a>
+        <a href="https://www.printables.com/model/1719705-test-de-voladizos-control3d"
+       target="_blank"
+       class="secondary-button">
+
+        Zdroj modelu: Printables
+
+    </a>
 
 </div>
+
+            <!-- PARAMETRY -->
+
+            <section class="model-box">
+
+                <h2>Parametry</h2>
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <span>Materiál</span>
+
+                        <strong>PLA</strong>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>Výška vrstvy</span>
+
+                        <strong>0,20 mm</strong>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <span>Rych. přesahu</span>
+
+                        <strong>40-20-10 mm/s </strong>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <span>Typ modelu</span>
+
+                        <strong>Test</strong>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span>Ověření modelu</span>
+
+                        <strong>Netestováno</strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- INFORMACE -->
+
+            <section class="model-box">
+
+                <h2>Informace o modelu</h2>
+
+                <p>
+
+                    Test přesahu Control3D v Control3D jsme vytvořili definitivní test pro posouzení schopnosti vašeho stroje tisknout přesahy a můstky v různých úhlech.
+                    Pro dosažení co nejspolehlivějších výsledků je velmi důležité mít předem provedené testy filamentu.
+
+                </p>
+
+            </section>
+
+
+            <!-- LICENCE -->
+
+            <section class="model-box">
+
+                <h2>Licence</h2>
+
+
+                <div class="license-info">
+
+                    <p>
+
+                        Tento model podléhá licenci:
+
+                    </p>
+
+                    <a href="https://creativecommons.org/licenses/by/4.0/"
+                       target="_blank">
+
+                        CC BY 4.0
+
+                    </a>
+
+                    <p>
+
+                        Uveďte původ 
+
+                    </p>
+
+                </div>
+
+
+                <ul class="license-list"> <!-- <li class="forbidden"> ✖ |   <li class="allowed"> ✔ |  -->
+
+                    <li class="forbidden">
+
+                        ✖ | Sdílení bez UVEDENÍ PŮVODU
+
+                    </li>
+
+                    <li class="allowed">
+
+                        ✔ | Remixování (upravování)
+
+                    </li>
+
+                    <li class="allowed">
+
+                        ✔ | Komerční využití
+
+                    </li>
+
+                    <li class="allowed">
+
+                        ✔ | Dílo Svobodné kultury
+
+                    </li>
+
+                    <li class="allowed">
+
+                        ✔ | Splňuje Definici otevřeného díla
+
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </div>
+
+    </section>
+
+
+    <!-- SCRIPT -->
+
+    <script>
+
+    function changePreview(imageSrc) {
+
+        document.getElementById("mainPreview").src = imageSrc;
+    }
+
+    </script>
+<script>
+
+const printButton = document.querySelector(".primary-button");
+
+if (printButton.dataset.print === "false") {
+
+    printButton.textContent = "Tisk na zakázku není povolen";
+
+    printButton.removeAttribute("href");
+
+    printButton.classList.add("disabled-button");
+}
+
+</script>
+</body>
+
+</html>
