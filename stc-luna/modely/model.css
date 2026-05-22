@@ -1,0 +1,440 @@
+/* ================================================= */
+/* RESET */
+/* ================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+/* ================================================= */
+/* BODY */
+/* ================================================= */
+
+body {
+
+    background: #05070b;
+
+    color: white;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* ================================================= */
+/* MAIN LAYOUT */
+/* ================================================= */
+
+.split-layout {
+
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+
+    min-height: 100vh;
+}
+
+
+/* ================================================= */
+/* LEFT SIDE */
+/* ================================================= */
+
+.split-image {
+
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* ================================================= */
+/* MAIN IMAGE */
+/* ================================================= */
+
+.main-preview {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    max-height: 75vh;
+
+    object-fit: contain;
+
+    border-radius: 24px;
+
+    display: block;
+}
+
+
+/* ================================================= */
+/* GALLERY */
+/* ================================================= */
+
+.preview-gallery {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.preview-gallery img {
+
+    width: 110px;
+
+    height: 110px;
+
+    object-fit: cover;
+
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    border: 2px solid transparent;
+}
+
+
+.preview-gallery img:hover {
+
+    transform: scale(1.05);
+
+    border-color: #f2c46d;
+}
+/* ================================================= */
+/* RIGHT SIDE */
+/* ================================================= */
+
+.split-content {
+
+    padding: 50px 55px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+
+    background: #05070b;
+}
+
+
+/* ================================================= */
+/* BACK BUTTON */
+/* ================================================= */
+
+.back-button {
+
+    width: fit-content;
+
+    padding: 14px 22px;
+
+    background: #161616;
+
+    border: 1px solid #2a2a2a;
+
+    border-radius: 14px;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+
+.back-button:hover {
+
+    background: #232323;
+}
+
+
+/* ================================================= */
+/* HEADER */
+/* ================================================= */
+
+.model-header {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.model-category {
+
+    width: fit-content;
+
+    padding: 8px 16px;
+
+    background: #1c1c1c;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+
+    color: #b8b8b8;
+}
+
+
+.model-header h1 {
+
+    font-size: 48px;
+
+    line-height: 1.05;
+
+    color: #f2c46d;
+}
+
+
+.model-description {
+
+    font-size: 18px;
+
+    line-height: 1.4;
+
+    color: #d0d0d0;
+}
+
+
+/* ================================================= */
+/* BUTTONS */
+/* ================================================= */
+
+.model-buttons {
+
+    display: flex;
+
+    gap: 16px;
+
+    flex-wrap: wrap;
+}
+
+
+.primary-button,
+.secondary-button {
+
+    padding: 16px 28px;
+
+    border-radius: 16px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.primary-button {
+
+    background: #3a1d07;
+
+    border: 1px solid #7c4b1f;
+
+    color: #f2c46d;
+}
+
+
+.primary-button:hover {
+
+    background: #4a2509;
+}
+
+
+.secondary-button {
+
+    background: #161616;
+
+    border: 1px solid #2b2b2b;
+
+    color: white;
+}
+
+
+.secondary-button:hover {
+
+    background: #232323;
+}
+
+
+/* ================================================= */
+/* BOXES */
+/* ================================================= */
+
+.model-box {
+
+    padding: 25px;
+
+    gap: 18px;
+}
+
+
+.model-box h2 {
+
+    font-size: 32px;
+
+    margin: 0;
+}
+
+
+/* ================================================= */
+/* STATS */
+/* ================================================= */
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+
+.stat-card {
+
+    padding: 18px;
+
+    gap: 6px;
+}
+
+
+.stat-card span {
+
+    font-size: 14px;
+
+    color: #9ea6b2;
+}
+
+
+.stat-card strong {
+
+    font-size: 18px;
+
+    color: white;
+}
+
+
+/* ================================================= */
+/* LICENSE */
+/* ================================================= */
+
+.license-info {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.license-info p {
+
+    color: #d2d2d2;
+}
+
+
+.license-info a {
+
+    color: #f2c46d;
+
+    text-decoration: none;
+}
+
+
+.license-info a:hover {
+
+    text-decoration: underline;
+}
+
+
+.license-list {
+
+    padding-left: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.allowed {
+
+    color: #53d67c;
+}
+
+
+.forbidden {
+
+    color: #ff7272;
+}
+.disabled-button {
+
+    opacity: 0.5;
+
+    pointer-events: none;
+
+    cursor: not-allowed;
+
+    background: #2a2a2a !important;
+
+    color: #999 !important;
+}
+/* ================================================= */
+/* MOBILE */
+/* ================================================= */
+
+@media (max-width: 1000px) {
+
+    .split-layout {
+
+        grid-template-columns: 1fr;
+    }
+
+    .split-image {
+
+        height: 60vh;
+
+        position: relative;
+    }
+
+    .split-content {
+
+        padding: 40px 25px;
+    }
+
+    .model-header h1 {
+
+        font-size: 42px;
+    }
+
+    .model-description {
+
+        font-size: 18px;
+    }
+
+    .model-box h2 {
+
+        font-size: 32px;
+    }
+
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+    }
+}

@@ -30,7 +30,18 @@ loadHTML(
             "fantasy-list",
 
             () => {
+                loadHTML(
+                    "tematicke-modely/fantasy/funko-naruto/funko.html",
+                    "funko-list",
 
+                    () => {
+
+                        loadHTML(
+                            "tematicke-modely/fantasy/funko-naruto/funko.html",
+                            "funko-list"
+                        );
+                    }
+                );    
                 loadHTML(
                     "tematicke-modely/fantasy/naruto/naruto.html",
                     "naruto-list",
@@ -42,12 +53,12 @@ loadHTML(
                             "sakura-list"
                         );
                         loadHTML(
-                        "tematicke-modely/fantasy/naruto/temari/temari.html",
-                        "temari-list"
+                            "tematicke-modely/fantasy/naruto/temari/temari.html",
+                            "temari-list"
                         );
                     }
                 );
-
+                
             }
         );
 
