@@ -88,7 +88,7 @@
     </div>
 <script>
 
-function playVideo(videoId) {
+function playVideo(videoId, isPlaylist = false) {
 
     const panel =
         document.getElementById("voxPanel");
@@ -104,8 +104,16 @@ function playVideo(videoId) {
     status.textContent =
         "VOX TRANSMISSION ACTIVE";
 
-    video.src =
-        `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    if (isPlaylist) {
+
+        video.src =
+            `https://www.youtube.com/embed/videoseries?list=${videoId}&autoplay=1`;
+
+    } else {
+
+        video.src =
+            `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    }
 }
 
 function stopTransmission() {
