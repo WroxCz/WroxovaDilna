@@ -15,6 +15,21 @@ function loadHTML(path, targetId, callback) {
 }
 
 loadHTML(
+            "dekorace/dekorace.html",
+            "dekorace-list",
+
+            () => {
+
+                loadHTML(
+                    "dekorace/kvetiny/kvetiny.html",
+                    "kvetiny-list"
+                );
+
+            }
+        );
+
+
+loadHTML(
     "testovaci-modely/testovaci-modely.html",
     "testovaci-modely-list"
 );
