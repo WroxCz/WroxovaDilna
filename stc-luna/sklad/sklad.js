@@ -6,8 +6,13 @@ Promise.all([
         .then(response => response.json()),
 
     fetch("data/pla-alzamet.json")
-        .then(response => response.json())
+        .then(response => response.json()),
+    
+    fetch("data/pla-alzamet-mat.json")
+        .then(response => response.json()),        
 
+    fetch("data/pla-temu.json")
+        .then(response => response.json())          
 ])
 
 .then(allData => {
@@ -46,7 +51,14 @@ function renderMaterials(data){
 
                 <p>
                     ${material.material}
-                    ${material.variant}
+                    ${material.variant}            
+                </p>
+
+                <p>
+                    ${Math.round(
+                    material.price / material.weight
+                    )}
+                    Kč / kg
                 </p>
 
                 <p class="${material.status}">
