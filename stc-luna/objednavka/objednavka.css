@@ -1,0 +1,261 @@
+body{
+    margin:0;
+    padding:40px;
+    background:#0b0b0b;
+    color:#d6b98a;
+    font-family:Arial;
+
+    margin:0;
+    padding:40px;
+
+    background-image:url("../../webimages/stc-luna-objednavkaBG.jpg");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:#d6b98a;
+    font-family:Arial;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+
+    background:rgba(10,10,10,0.15);
+
+    border:1px solid rgba(212,155,60,0.25);
+
+    border-radius:16px;
+
+    padding:30px;
+}
+
+h1{
+    text-align:center;
+    color:#d89b3c;
+}
+h1{
+    margin:0;
+}
+
+.subtitle{
+    text-align:center;
+    margin-bottom:30px;
+    margin:2px 0;
+
+    text-align:center;
+
+    color:#d6b98a;
+
+    opacity:0.9;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input,
+select,
+textarea{
+
+    padding:12px;
+
+    background:rgba(8,8,8,0.55);
+
+    border:1px solid rgba(212,155,60,0.45);
+
+    color:#f1d7a3;
+
+    border-radius:10px;
+
+    transition:0.3s;
+}
+input:focus,
+select:focus,
+textarea:focus{
+
+    outline:none;
+
+    border:1px solid rgba(255,190,80,0.55);
+
+    box-shadow:0 0 10px rgba(255,190,80,0.15);
+}
+
+button{
+    padding:14px;
+    background:rgba(122,75,23,0.45);
+    border:1px solid rgba(212,155,60,0.35);
+    color:#f1d7a3;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#a8651f;
+}
+.return-button{
+
+    display:inline-block;
+
+    margin-bottom:25px;
+
+    padding:12px 24px;
+
+    color:#d89b3c;
+
+    text-decoration:none;
+
+    font-size:28px;
+
+    background:rgba(10,10,10,0.18);
+
+    border:1px solid rgba(212,155,60,0.18);
+
+    border-radius:14px;
+
+    transition:0.3s;
+}
+.return-button{
+
+    position:absolute;
+
+    left:0;
+}
+.return-button:hover{
+
+    background:rgba(122,75,23,0.35);
+
+    border-color:rgba(255,190,80,0.5);
+
+    box-shadow:0 0 12px rgba(255,190,80,0.15);
+}
+.top-bar{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:30px;
+}
+.form-section{
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    border:1px solid rgba(212,155,60,0.45);
+
+    border-radius:16px;
+
+    background:rgba(5,5,5,0.55);
+
+    backdrop-filter:blur(4px);
+
+    box-shadow:
+        0 0 12px rgba(212,155,60,0.10),
+        inset 0 0 12px rgba(212,155,60,0.04);
+}
+
+.form-section h2{
+
+    margin-top:0;
+
+    margin-bottom:20px;
+
+    color:#d89b3c;
+
+    font-size:20px;
+}
+.form-row{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:flex-start;
+}
+
+.form-group{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+}
+.price-box{
+
+    margin-top:25px;
+
+    padding:18px 22px;
+
+    border:1px solid rgba(212,155,60,0.35);
+
+    border-radius:14px;
+
+    background:rgba(8,8,8,0.45);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:
+        0 0 12px rgba(212,155,60,0.08);
+}
+
+.price-label{
+
+    color:#d6b98a;
+
+    font-size:18px;
+}
+
+.price-value{
+
+    color:#ffb84d;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    text-shadow:0 0 10px rgba(255,190,80,0.25);
+}
+input[readonly]{
+
+    opacity:0.85;
+
+    cursor:not-allowed;
+
+    background:rgba(20,20,20,0.75);
+
+    border:1px solid rgba(212,155,60,0.55);
+
+    color:#ffcc73;
+}
+.form-row{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+.price-box{
+
+    margin-top:10px;
+
+    margin-bottom:25px;
+}
+.quantity-group{
+
+    flex:0 0 120px;
+}
