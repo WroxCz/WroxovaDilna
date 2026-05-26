@@ -35,13 +35,13 @@ let allMaterials = [];
 
 Promise.all([
 
-    fetch("/stc-luna/sklad/data/pla-alzamet.json")
+    fetch("/WroxovaDilna/stc-luna/sklad/data/pla-alzamet.json")
         .then(response => response.json()),
 
-    fetch("/stc-luna/sklad/data/pla-alzamet-mat.json")
+    fetch("/WroxovaDilna/stc-luna/sklad/data/pla-alzamet-mat.json")
         .then(response => response.json()),
 
-    fetch("/stc-luna/sklad/data/pla-temu.json")
+    fetch("/WroxovaDilna/stc-luna/sklad/data/pla-temu.json")
         .then(response => response.json())
 
 ])
