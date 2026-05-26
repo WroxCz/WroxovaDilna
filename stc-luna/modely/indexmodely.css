@@ -1,0 +1,102 @@
+/* =========================
+   HLAVNÍ KATEGORIE
+========================= */
+
+.model-category {
+
+    width: 700px;
+
+    margin-top: 10px;
+
+    margin-left: 40px;
+
+    padding: 8px 20px;
+
+    border-radius: 20px;
+
+    background: rgba(10,10,10,0.18);
+
+    border: 1px solid rgba(214,177,95,0.15);
+}
+
+/* =========================
+   NADPIS KATEGORIE
+========================= */
+
+.model-category summary {
+
+    cursor: pointer;
+
+    font-size: 30px;
+
+    color: #d8c28f;
+
+    line-height: 1.2;
+
+    margin: 0;
+
+    list-style: none;
+}
+
+.model-category summary::-webkit-details-marker {
+
+    display: none;
+}
+
+/* =========================
+   BLOK POD KATEGORIÍ
+========================= */
+
+.model-links {
+
+    margin-top: 6px;
+
+    margin-left: 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1px;
+}
+
+/* =========================
+   PODKATEGORIE
+========================= */
+
+.model-links h3 {
+
+    margin: 2px 0 0 42px;
+
+    font-size: 20px;
+
+    font-weight: normal;
+
+    color: #d0d0d0;
+
+    line-height: 1.1;
+}
+
+/* =========================
+   MODELY
+========================= */
+
+.model-link {
+
+    display: block;
+
+    margin-left: 78px;
+
+    padding: 0;
+
+    font-size: 18px;
+
+    line-height: 1.05;
+}
+
+.model-link:hover {
+
+    transform: translateX(6px);
+
+    color: #fff0c2 !important;
+}

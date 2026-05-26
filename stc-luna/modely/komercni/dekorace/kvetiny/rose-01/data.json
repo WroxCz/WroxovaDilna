@@ -1,0 +1,8 @@
+{
+  "nazev": "rose-01",
+  "material": "PLA",
+  "printTime": "60",
+  "weight": "30",
+  "layerHeight": "0.20",
+  "nozzleDiameter": "0.4 mm"
+}
