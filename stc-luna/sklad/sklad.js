@@ -1,5 +1,9 @@
 let allMaterials = [];
 
+let activeMaterial = "Vše";
+let activeManufacturer = "Vše";
+let activeVariant = "Vše";
+
 Promise.all([
 
     fetch("data/pla-elegoo.json")
@@ -73,7 +77,35 @@ function renderMaterials(data){
     });
 }
 
-/* FILTRACE MATERIÁLŮ */
+function applyFilters(){
+
+    let filtered = allMaterials;
+
+    if(activeMaterial !== "Vše"){
+
+        filtered = filtered.filter(material =>
+            material.material === activeMaterial
+        );
+    }
+
+    if(activeManufacturer !== "Vše"){
+
+        filtered = filtered.filter(material =>
+            material.manufacturer === activeManufacturer
+        );
+    }
+
+    if(activeVariant !== "Vše"){
+
+        filtered = filtered.filter(material =>
+            material.variant === activeVariant
+        );
+    }
+
+    renderMaterials(filtered);
+}
+
+/* MATERIÁL */
 
 document
 .querySelectorAll(".filter-button")
@@ -91,27 +123,14 @@ document
 
         button.classList.add("active");
 
-        const filter =
+        activeMaterial =
         button.innerText;
 
-        if(filter === "Vše"){
-
-            renderMaterials(allMaterials);
-
-            return;
-        }
-
-        const filtered =
-        allMaterials.filter(material =>
-
-            material.material === filter
-        );
-
-        renderMaterials(filtered);
+        applyFilters();
     });
 });
 
-/* FILTRACE VÝROBCŮ */
+/* VÝROBCE */
 
 document
 .querySelectorAll(".manufacturer-button")
@@ -129,22 +148,34 @@ document
 
         button.classList.add("active");
 
-        const filter =
+        activeManufacturer =
         button.innerText;
 
-        if(filter === "Vše"){
+        applyFilters();
+    });
+});
 
-            renderMaterials(allMaterials);
+/* VARIANTA */
 
-            return;
-        }
+document
+.querySelectorAll(".variant-button")
 
-        const filtered =
-        allMaterials.filter(material =>
+.forEach(button => {
 
-            material.manufacturer === filter
+    button.addEventListener("click", () => {
+
+        document
+        .querySelectorAll(".variant-button")
+
+        .forEach(btn =>
+            btn.classList.remove("active")
         );
 
-        renderMaterials(filtered);
+        button.classList.add("active");
+
+        activeVariant =
+        button.innerText;
+
+        applyFilters();
     });
 });
