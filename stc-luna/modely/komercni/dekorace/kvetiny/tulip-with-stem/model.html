@@ -83,7 +83,7 @@
 
 <div class="model-buttons">
 
-    <a href="/WroxovaDilna/stc-luna/objednavka/objednavka.html"
+    <a href="../../../../objednavka/objednavka.html"
    class="primary-button"
    data-print="true">    <!-- povelení tisku: data-print="true" zákaz tisku:data-print="false" > -->
 
@@ -247,38 +247,52 @@
     <!-- SCRIPT -->
 <script>
 
-const printButton =
-document.querySelector(".primary-button");
+fetch("data.json")
+.then(response => response.json())
+.then(data => {
 
-if(printButton.dataset.print === "false"){
+    document.getElementById("model-name")
+    .textContent = data.nazev;
 
-    printButton.textContent =
-    "Tisk na zakázku není povolen";
+    document.getElementById("model-material")
+    .textContent = data.material;
 
-    printButton.removeAttribute("href");
+    document.getElementById("model-print-time")
+    .textContent = data.printTime;
 
-    printButton.classList.add(
-        "disabled-button"
-    );
-}
+    document.getElementById("model-layer-height")
+    .textContent = data.layerHeight;
 
-else{
+    document.getElementById("model-nozzle-diameter")
+    .textContent = data.nozzleDiameter;
 
-    printButton.addEventListener(
-        "click",
-        function(e){
+    document.getElementById("model-weight")
+    .textContent = data.weight;
 
-        e.preventDefault();
+    const printButton =
+    document.querySelector(".primary-button");
 
-        fetch("data.json")
+    if(printButton.dataset.print === "false"){
 
-        .then(response => response.json())
+        printButton.textContent =
+        "Tisk na zakázku není povolen";
 
-        .then(data => {
+        printButton.removeAttribute("href");
 
-            const modelName =
-            document.querySelector("h1")
-            .innerText;
+        printButton.classList.add(
+            "disabled-button"
+        );
+    }
+
+    else{
+
+        printButton.addEventListener(
+            "click",
+            function(e){
+
+            e.preventDefault();
+
+            const modelName = data.nazev;
 
             const weight = data.weight;
 
@@ -288,23 +302,21 @@ else{
 
             const url =
 
-            "/WroxovaDilna/stc-luna/objednavka/objednavka.html?" +
+"../../../../../objednavka/objednavka.html?" +
 
-            `model=${encodeURIComponent(modelName)}` +
+`model=${encodeURIComponent(modelName)}` +
 
-            `&weight=${weight}` +
+`&weight=${weight}` +
 
-            `&time=${printTime}` +
+`&time=${printTime}` +
 
-            `&material=${material}`;
+`&material=${material}`;
 
             window.location.href = url;
-
         });
+    }
 
-    });
-
-}
+});
 
 </script>
     <script>

@@ -119,8 +119,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -146,8 +146,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -173,8 +173,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -200,8 +200,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -227,8 +227,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -254,8 +254,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -281,8 +281,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -308,8 +308,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -335,8 +335,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -362,8 +362,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -389,8 +389,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -416,8 +416,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -443,8 +443,8 @@
     "price": 249,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -504,8 +504,8 @@
     "price": 319,
     "weight": 1,
     
-    "status": "available",
-    "statusText": "Dostupné",
+    "status": "ordered",
+    "statusText": "Objednáno",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "210",

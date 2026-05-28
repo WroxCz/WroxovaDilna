@@ -35,13 +35,13 @@ let allMaterials = [];
 
 Promise.all([
 
-    fetch("/WroxovaDilna/stc-luna/sklad/data/pla-alzamet.json")
+    fetch("../sklad/data/pla-alzamet.json")
         .then(response => response.json()),
 
-    fetch("/WroxovaDilna/stc-luna/sklad/data/pla-alzamet-mat.json")
+    fetch("../sklad/data/pla-temu.json")
         .then(response => response.json()),
 
-    fetch("/WroxovaDilna/stc-luna/sklad/data/pla-temu.json")
+    fetch("../sklad/data/ProfLab.json")
         .then(response => response.json())
 
 ])
@@ -98,7 +98,6 @@ function loadMaterials(){
 /* BARVY */
 document
 .querySelector("#materialSelect")
-
 .addEventListener("change", function(){
 
     const selectedMaterial =
@@ -121,9 +120,7 @@ document
             material.status !== "unavailable"
         )
 
-        .map(material =>
-            material.variant || "Standard"
-        )
+        .map(material => material.manufacturer)
     )];
 
     manufacturerSelect.innerHTML =
@@ -142,33 +139,77 @@ document
         `;
     });
 });
+
 document
 .querySelector("#manufacturerSelect")
-
 .addEventListener("change", function(){
 
     const selectedMaterial =
-    document.querySelector(
-        "#materialSelect"
-    ).value;
+    document.querySelector("#materialSelect").value;
 
     const selectedManufacturer =
     this.value;
 
+    const variantSelect =
+    document.querySelector("#variantSelect");
+
+    const variants =
+    [...new Set(
+
+        allMaterials
+
+        .filter(material =>
+
+            material.material === selectedMaterial &&
+            material.manufacturer === selectedManufacturer &&
+            material.status !== "unavailable"
+        )
+
+        .map(material =>
+            material.variant || "Standard"
+        )
+    )];
+
+    variantSelect.innerHTML =
+    `<option value="">
+        Vyberte typ materiálu
+    </option>`;
+
+    variants.forEach(variant => {
+
+        variantSelect.innerHTML += `
+
+        <option value="${variant}">
+            ${variant}
+        </option>
+
+        `;
+    });
+
+});
+document
+.querySelector("#variantSelect")
+.addEventListener("change", function(){
+
+    const selectedMaterial =
+    document.querySelector("#materialSelect").value;
+
+    const selectedManufacturer =
+    document.querySelector("#manufacturerSelect").value;
+
+    const selectedVariant =
+    this.value;
+
     const colorSelect =
-    document.querySelector(
-        "#colorSelect"
-    );
+    document.querySelector("#colorSelect");
 
     const filteredColors =
+
     allMaterials.filter(material =>
 
-        material.material === selectedMaterial
-        &&
-        (material.variant || "Standard")
-        ===
-        selectedManufacturer
-        &&
+        material.material === selectedMaterial &&
+        material.manufacturer === selectedManufacturer &&
+        material.variant === selectedVariant &&
         material.status !== "unavailable"
     );
 
@@ -176,21 +217,20 @@ document
     `<option value="">
         Vyberte barvu
     </option>`;
-filteredColors.forEach(material => {
 
-    colorSelect.innerHTML += `
+    filteredColors.forEach(material => {
 
-    <option value="${material.id}">
-        ${material.name}
-    </option>
+        colorSelect.innerHTML += `
 
-    `;
+        <option value="${material.id}">
+            ${material.name}
+        </option>
+
+        `;
+
+    });
 
 });
-    
-});
-
-
 /* VÝPOČET CENY */
 
 function calculatePrice(){
