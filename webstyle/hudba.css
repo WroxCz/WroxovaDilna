@@ -32,7 +32,13 @@ body.hudba-page {
 
     font-family: 'MedievalSharp', cursive;
 }
+@media (max-width: 768px){
 
+    *{
+        background-attachment: scroll !important;
+    }
+
+}
 /* =====================================================
    OVERLAY
 ===================================================== */

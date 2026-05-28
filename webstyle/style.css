@@ -20,7 +20,13 @@ body {
     color: white;
     overflow-x: hidden;
 }
+@media (max-width: 768px){
 
+    *{
+        background-attachment: scroll !important;
+    }
+
+}
 /* HLAVNÍ BLOK */
 main {
     position: relative;

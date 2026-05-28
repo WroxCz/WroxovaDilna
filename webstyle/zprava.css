@@ -25,7 +25,13 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+@media (max-width: 768px){
 
+    *{
+        background-attachment: scroll !important;
+    }
+
+}
 
 /* ==================================================
    TITULKY
