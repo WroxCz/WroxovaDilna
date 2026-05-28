@@ -1,0 +1,175 @@
+[
+{
+    "id": "ProfLab01",
+    "name": "bílá",
+    "image": "matimages/materials/PETG/ProfLab/ProfLab01.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Standard",
+
+    "price": 189,
+    "weight": 1,
+
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
+    "id": "ProfLab02",
+    "name": "růžová",
+    "image": "matimages/materials/PETG/ProfLab/ProfLab02.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Standard",
+
+    "price": 189,
+    "weight": 1,
+
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
+    "id": "ProfLab03",
+    "name": "modrá",
+    "image": "matimages/materials/PETG/ProfLab/ProfLab03.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Standard",
+
+    "price": 199,
+    "weight": 1,
+
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
+    "id": "ProfLab04",
+    "name": "zelená",
+    "image": "matimages/materials/PETG/ProfLab/ProfLab04.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Standard",
+
+    "price": 199,
+    "weight": 1,
+
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
+    "id": "ProfLab05",
+    "name": "hnědá",
+    "image": "matimages/materials/PETG/ProfLab/ProfLab05.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Standard",
+
+    "price": 199,
+    "weight": 1,
+
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
+    "id": "ProfLab06",
+    "name": "tmavě zelená",
+    "image": "matimages/materials/PETG/ProfLab/ProfLab06.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Matte",
+
+    "price": 199,
+    "weight": 1,
+
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}    
+]

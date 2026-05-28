@@ -1,0 +1,9 @@
+  PETG je zlatá střední cesta mezi PLA a ABS. Velmi pevný, houževnatý a odolný materiál, 
+který se snadno tiskne. Odolává UV záření, vlhkosti a chemikáliím. Ideální pro funkční a venkovní díly, 
+nádoby, kryty i mechanické součástky. Tiskne při 220 až 250 °C s vyhřívanou podložkou.
+
+Tryska: 230–250 °C
+Podložka: 70–90 °C
+Rychlost tisku: 30–70 mm/s
+Tisková komora: Ne
+Chlazení: 50%
