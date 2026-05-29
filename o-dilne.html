@@ -23,9 +23,9 @@
             ← Zpět na úvod
             </a> 
 
-
-        <div class="person-card">
-<img src="webimages/WZ.jpg" class="person-image">
+<div class="person-card">
+    <img src="webimages/WZ.jpg"
+         class="person-image admin-entry">
    
 
     <div>
@@ -108,7 +108,18 @@ Jeho původní jméno bylo během staletí ztraceno.
 </div>
 
     </section>
+    
+<script>
 
+document.querySelector(".admin-entry")
+.addEventListener("dblclick", () => {
+
+    window.location.href =
+    "admin/admin.html";
+
+});
+
+</script>
 </body>
 
 </html>
