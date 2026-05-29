@@ -48,6 +48,24 @@ if(order.created){
     .toLocaleString("cs-CZ");
 
 }
+
+let statusClass = "status-nova";
+
+switch(order.status){
+
+    case "Potvrzená":
+        statusClass = "status-potvrzena";
+        break;
+
+    case "Ve výrobě":
+        statusClass = "status-vyroba";
+        break;
+
+    case "Hotovo":
+        statusClass = "status-hotovo";
+        break;
+}
+
 html += `
 
 <div
@@ -64,7 +82,7 @@ html += `
 
     <div class="order-badges">
 
-        <span class="badge badge-status">
+        <span class="badge ${statusClass}">
             ${order.status}
         </span>
 

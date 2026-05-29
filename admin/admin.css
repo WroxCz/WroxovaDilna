@@ -226,3 +226,20 @@ h2, h3{
 
     resize:vertical;
 }
+.status-nova{
+    background:#2563eb;
+}
+
+.status-potvrzena{
+    background:#f59e0b;
+    color:black;
+}
+
+.status-vyroba{
+    background:#8b5cf6;
+}
+
+.status-hotovo{
+    background:#22c55e;
+    color:black;
+}
