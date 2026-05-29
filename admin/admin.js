@@ -40,120 +40,123 @@ if(order.created){
     .toLocaleString("cs-CZ");
 
 }
-            html += `
+html += `
 
-            <div
-                class="order-card"
-                data-id="${id}">
+<div
+    class="order-card"
+    data-id="${id}">
 
-                <h3>
-                    ${order.model || "Neznámý model"}
-                </h3>
+    <h3>
+        ${order.model || "Neznámý model"}
+    </h3>
 
-                <p>
-                    <strong>ID:</strong>
-                    ${id}
-                </p>
+    <div class="order-price">
+        ${order.price || 0} Kč
+    </div>
 
-                <p>
-                    <strong>Datum:</strong>
-                    ${created}
-                </p>
+    <div class="order-badges">
 
-                <p>
-                    <strong>Jméno:</strong>
-                    ${order.customerName || "-"}
-                </p>
+        <span class="badge badge-status">
+            ${order.status}
+        </span>
 
-                <p>
-                    <strong>Email:</strong>
-                    ${order.email || "-"}
-                </p>
+        <span class="badge badge-payment">
+            ${order.paymentStatus}
+        </span>
 
-                <p>
-                    <strong>Telefon:</strong>
-                    ${order.phone || "-"}
-                </p>
+    </div>
 
-                <p>
-                    <strong>Cena:</strong>
-                    ${order.price || 0} Kč
-                </p>
-
-                <p>
-                    <strong>Stav:</strong>
-                    ${order.status || "-"}
-                </p>
-
-<p>
-    <strong>Platba:</strong>
-    ${order.paymentStatus || "-"}
+    <p class="order-date">
+    ${created}
 </p>
 
-
-                <p>
-                    <strong>Materiál:</strong>
-                    ${order.material || "-"}
-                </p>
-
-<p>
-    <strong>Počet kusů:</strong>
-    ${order.quantity || 1}
+<p class="order-id">
+    ID: ${id}
 </p>
 
-<p>
-    <strong>Typ:</strong>
-    ${order.variant || "-"}
-</p>
+<div class="order-section">
 
-<p>
-    <strong>Barva:</strong>
-    ${order.color || "-"}
-</p>
+    <div class="two-columns">
 
-                <p>
-                    <strong>Výrobce:</strong>
-                    ${order.manufacturer || "-"}
-                </p>
+        <div>
 
-                <p>
-                    <strong>Doručení:</strong>
-                    ${order.delivery || "-"}
-                </p>
-
-                <p>
-                    <strong>Poznámka:</strong>
-                    ${order.note || "-"}
-                </p>
-
-<p>
-    <strong>Interní poznámka:</strong>
-    ${order.adminNote || "-"}
-</p>
-
-<p>
-    <strong>Dokončeno:</strong>
-    ${
-        order.completed
-        ? order.completed
-            .toDate()
-            .toLocaleString("cs-CZ")
-        : "-"
-    }
-</p>
-
-                <button
-                    class="edit-button"
-                    data-id="${id}">
-                    Upravit
-                </button>
-
-                <hr>
-
+            <div class="order-section-title">
+                Zákazník
             </div>
 
-            `;
+            <p>${order.customerName || "-"}</p>
 
+            <p>${order.email || "-"}</p>
+
+            <p>${order.phone || "-"}</p>
+
+        </div>
+
+        <div>
+
+            <div class="order-section-title">
+                Doručení
+            </div>
+
+            <p>${order.delivery || "-"}</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <div class="order-section">
+
+    <div class="order-section-title">
+        Výroba
+    </div>
+
+    <p>
+        ${order.quantity || 1} ks •
+        ${order.material || "-"}
+        ${order.variant || "-"}
+    </p>
+
+    <p>
+        ${order.manufacturer || "-"}
+    </p>
+
+    <p>
+        ${order.color || "-"}
+    </p>
+
+</div>
+
+    <div class="order-section">
+
+        <div class="order-section-title">
+            Poznámka zákazníka
+        </div>
+
+        <p>${order.note || "-"}</p>
+
+    </div>
+
+    <div class="order-section">
+
+        <div class="order-section-title">
+            Interní poznámka
+        </div>
+
+        <p>${order.adminNote || "-"}</p>
+
+    </div>
+
+    <button
+        class="edit-button"
+        data-id="${id}">
+        Upravit
+    </button>
+
+</div>
+
+`;            
         });
 
         adminPanel.innerHTML =

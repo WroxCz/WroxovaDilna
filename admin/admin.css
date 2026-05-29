@@ -17,6 +17,8 @@ body{
 }
 
 .order-card{
+    max-width: 350px;
+
     background: #2a2a2a;
 
     border: 1px solid #444;
@@ -51,6 +53,7 @@ h2, h3{
     margin-top: 30px;
 }
 .edit-button{
+    width:100%;
 
     margin-top: 15px;
 
@@ -73,4 +76,87 @@ h2, h3{
 
     opacity: 0.85;
 
+}
+.order-price{
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #d6a55c;
+
+    margin: 10px 0 15px 0;
+}
+
+.order-badges{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:20px;
+}
+
+.badge{
+
+    background:#353535;
+
+    border:1px solid
+    rgba(214,165,92,0.4);
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:14px;
+}
+
+.order-section{
+
+    margin-top:15px;
+
+    padding-top:15px;
+
+    border-top:1px solid
+    rgba(214,165,92,0.15);
+}
+
+.order-section-title{
+
+    color:#d6a55c;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    font-size:12px;
+
+    margin-bottom:10px;
+}
+
+.order-section p{
+
+    margin:4px 0;
+}
+.order-id{
+
+    margin: 0 0 20px 0;
+
+    font-size: 11px;
+
+    opacity: 0.55;
+
+    word-break: break-all;
+}
+.badge-status{
+    background:#1e3a5f;
+}
+
+.badge-payment{
+    background:#5f2a2a;
+}
+.two-columns{
+    display:grid;
+    grid-template-columns: 3fr 2fr;
+    gap:20px;
 }
