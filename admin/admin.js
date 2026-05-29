@@ -1,5 +1,4 @@
-import { db }
-from "../js/firebase.js";
+import { db } from "../js/firebase.js";
 
 import {
     collection,
@@ -48,6 +47,11 @@ async function loadOrders(){
                 </p>
 
                 <p>
+                    <strong>Telefon:</strong>
+                    ${order.phone || "-"}
+                </p>
+
+                <p>
                     <strong>Cena:</strong>
                     ${order.price || 0} Kč
                 </p>
@@ -75,7 +79,6 @@ async function loadOrders(){
         console.error(error);
 
         adminPanel.innerHTML =
-
         "<p>Chyba při načítání objednávek.</p>";
 
     }
