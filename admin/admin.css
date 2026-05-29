@@ -162,19 +162,39 @@ h2, h3{
 }
 .delete-button{
 
-    width:100%;
-
-    margin-top:10px;
-
-    padding:10px;
-
-    border:none;
-
-    border-radius:8px;
+    width:120px;
 
     background:#8b2c2c;
 
     color:white;
 
+    border:none;
+
+    border-radius:8px;
+
     cursor:pointer;
+}
+.edit-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:10px;
+}
+.save-button{
+
+    flex:1;
+
+    background:#d6a55c;
+
+    color:black;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
 }

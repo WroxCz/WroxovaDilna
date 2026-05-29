@@ -251,14 +251,16 @@ document
                         rows="4">${currentNote}</textarea>
 
                     <button
+                        class="delete-button">
+                        Smazat
+                    </button>
+
+                    <button
                         class="save-button">
                         Uložit
                     </button>
 
-                    <button
-                        class="delete-button">
-                        Smazat
-                    </button>
+                    
 
                 </div>
                 `
