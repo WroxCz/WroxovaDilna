@@ -28,6 +28,19 @@ async function loadOrders(){
             const order =
             doc.data();
 
+            const id =
+            doc.id;
+
+            let created = "-";
+
+if(order.created){
+
+    created =
+    order.created
+    .toDate()
+    .toLocaleString("cs-CZ");
+
+}
             html += `
 
             <div class="order-card">
@@ -35,6 +48,16 @@ async function loadOrders(){
                 <h3>
                     ${order.model || "Neznámý model"}
                 </h3>
+
+                <p>
+                    <strong>ID:</strong>
+                    ${id}
+                </p>
+
+                <p>
+                    <strong>Datum:</strong>
+                    ${created}
+                </p>
 
                 <p>
                     <strong>Jméno:</strong>
@@ -59,6 +82,26 @@ async function loadOrders(){
                 <p>
                     <strong>Stav:</strong>
                     ${order.status || "-"}
+                </p>
+
+                <p>
+                    <strong>Materiál:</strong>
+                    ${order.material || "-"}
+                </p>
+
+                <p>
+                    <strong>Výrobce:</strong>
+                    ${order.manufacturer || "-"}
+                </p>
+
+                <p>
+                    <strong>Doručení:</strong>
+                    ${order.delivery || "-"}
+                </p>
+
+                <p>
+                    <strong>Poznámka:</strong>
+                    ${order.note || "-"}
                 </p>
 
                 <hr>
