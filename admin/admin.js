@@ -20,8 +20,7 @@ async function loadOrders(){
             collection(db, "orders")
         );
 
-        let html =
-        "<h2>Objednávky</h2>";
+        let html = "";
 
         snapshot.forEach(doc => {
 
@@ -43,7 +42,9 @@ if(order.created){
 }
             html += `
 
-            <div class="order-card">
+            <div
+                class="order-card"
+                data-id="${id}">
 
                 <h3>
                     ${order.model || "Neznámý model"}
@@ -104,6 +105,12 @@ if(order.created){
                     ${order.note || "-"}
                 </p>
 
+                <button
+                    class="edit-button"
+                    data-id="${id}">
+                    Upravit
+                </button>
+
                 <hr>
 
             </div>
@@ -115,6 +122,27 @@ if(order.created){
         adminPanel.innerHTML =
         html;
 
+        document
+.querySelectorAll(".edit-button")
+.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            const card =
+            button.closest(".order-card");
+
+            card.style.border =
+            "2px solid #d6a55c";
+
+            button.textContent =
+            "Edituji...";
+
+        }
+    );
+
+});
     }
 
     catch(error){
