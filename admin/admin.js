@@ -246,19 +246,23 @@ document
 
                     </select>
 
-                    <textarea
-                        class="edit-note"
-                        rows="4">${currentNote}</textarea>
+                    <div class="note-row">
 
-                    <button
-                        class="delete-button">
-                        Smazat
-                    </button>
+    <textarea
+        class="edit-note"
+        rows="4">${currentNote}</textarea>
 
-                    <button
-                        class="save-button">
-                        Uložit
-                    </button>
+    <button
+        class="delete-button">
+        Smazat
+    </button>
+
+</div>
+
+<button
+    class="save-button">
+    Uložit
+</button>
 
                     
 

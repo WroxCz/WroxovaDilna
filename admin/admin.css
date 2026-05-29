@@ -162,7 +162,9 @@ h2, h3{
 }
 .delete-button{
 
-    width:120px;
+    width:100px;
+
+    height:42px;
 
     background:#8b2c2c;
 
@@ -197,4 +199,12 @@ h2, h3{
     cursor:pointer;
 
     font-weight:bold;
+}
+.note-row{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:flex-end;
 }
