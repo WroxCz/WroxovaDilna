@@ -50,10 +50,10 @@ document
                 "#variantSelect"
             ).value,
 
-            colorId:
+            color:
             document.querySelector(
                 "#colorSelect"
-            ).value,
+            ).selectedOptions[0].text,
 
             delivery:
             document.querySelector(
@@ -71,11 +71,17 @@ document
             document.querySelector(
                 "#noteInput"
             ).value,
+            adminNote: "",
 
             status: "Nová",
 
+            paymentStatus:
+            "Nezaplaceno",
+
             created:
-            serverTimestamp()
+            serverTimestamp(),
+
+            completed: null
         };
 
         await addDoc(
