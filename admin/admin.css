@@ -243,3 +243,11 @@ h2, h3{
     background:#22c55e;
     color:black;
 }
+.payment-unpaid{
+    background:#dc2626;
+}
+
+.payment-paid{
+    background:#22c55e;
+    color:black;
+}

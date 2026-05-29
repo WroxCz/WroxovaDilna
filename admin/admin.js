@@ -66,6 +66,15 @@ switch(order.status){
         break;
 }
 
+let paymentClass = "payment-unpaid";
+
+switch(order.paymentStatus){
+
+    case "Zaplaceno":
+        paymentClass = "payment-paid";
+        break;
+}
+
 html += `
 
 <div
@@ -86,7 +95,7 @@ html += `
             ${order.status}
         </span>
 
-        <span class="badge badge-payment">
+        <span class="badge ${paymentClass}">
             ${order.paymentStatus}
         </span>
 
