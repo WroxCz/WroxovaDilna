@@ -6,15 +6,104 @@ import {
     addDoc,
     serverTimestamp
 }
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";¨
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 document
 .getElementById("orderForm")
-.addEventListener("submit", function(e){
+.addEventListener("submit", async function(e){
 
     e.preventDefault();
 
-    alert("Objednávka odeslána do Forge World.");
+    try{
+
+        const orderData = {
+
+            customerName:
+            document.querySelector("#nameInput").value,
+
+            email:
+            document.querySelector("#emailInput").value,
+
+            phone:
+            document.querySelector("#phoneInput").value,
+
+            model:
+            document.querySelector("#modelInput").value,
+
+            quantity:
+            Number(
+                document.querySelector(
+                    "#quantityInput"
+                ).value
+            ),
+
+            material:
+            document.querySelector(
+                "#materialSelect"
+            ).value,
+
+            manufacturer:
+            document.querySelector(
+                "#manufacturerSelect"
+            ).value,
+
+            variant:
+            document.querySelector(
+                "#variantSelect"
+            ).value,
+
+            colorId:
+            document.querySelector(
+                "#colorSelect"
+            ).value,
+
+            delivery:
+            document.querySelector(
+                "#deliverySelect"
+            ).value,
+
+            price:
+            Number(
+                document.querySelector(
+                    "#priceInput"
+                ).value
+            ),
+
+            note:
+            document.querySelector(
+                "#noteInput"
+            ).value,
+
+            status: "Nová",
+
+            created:
+            serverTimestamp()
+        };
+
+        await addDoc(
+            collection(db, "orders"),
+            orderData
+        );
+
+        alert(
+            "Objednávka byla úspěšně odeslána."
+        );
+
+        document
+        .getElementById("orderForm")
+        .reset();
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Nepodařilo se uložit objednávku."
+        );
+    }
+
 });
 
 /* MODEL Z URL */
