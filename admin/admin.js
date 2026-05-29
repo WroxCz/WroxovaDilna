@@ -85,10 +85,31 @@ if(order.created){
                     ${order.status || "-"}
                 </p>
 
+<p>
+    <strong>Platba:</strong>
+    ${order.paymentStatus || "-"}
+</p>
+
+
                 <p>
                     <strong>Materiál:</strong>
                     ${order.material || "-"}
                 </p>
+
+<p>
+    <strong>Počet kusů:</strong>
+    ${order.quantity || 1}
+</p>
+
+<p>
+    <strong>Typ:</strong>
+    ${order.variant || "-"}
+</p>
+
+<p>
+    <strong>Barva:</strong>
+    ${order.color || "-"}
+</p>
 
                 <p>
                     <strong>Výrobce:</strong>
@@ -104,6 +125,22 @@ if(order.created){
                     <strong>Poznámka:</strong>
                     ${order.note || "-"}
                 </p>
+
+<p>
+    <strong>Interní poznámka:</strong>
+    ${order.adminNote || "-"}
+</p>
+
+<p>
+    <strong>Dokončeno:</strong>
+    ${
+        order.completed
+        ? order.completed
+            .toDate()
+            .toLocaleString("cs-CZ")
+        : "-"
+    }
+</p>
 
                 <button
                     class="edit-button"
