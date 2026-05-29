@@ -160,3 +160,21 @@ h2, h3{
     grid-template-columns: 3fr 2fr;
     gap:20px;
 }
+.delete-button{
+
+    width:100%;
+
+    margin-top:10px;
+
+    padding:10px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#8b2c2c;
+
+    color:white;
+
+    cursor:pointer;
+}

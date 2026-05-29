@@ -6,7 +6,8 @@ import {
     query,
     orderBy,
     doc,
-    updateDoc
+    updateDoc,
+    deleteDoc
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
@@ -254,6 +255,11 @@ document
                         Uložit
                     </button>
 
+                    <button
+                        class="delete-button">
+                        Smazat
+                    </button>
+
                 </div>
                 `
             );
@@ -337,7 +343,58 @@ document
 
     }
 );
+document.addEventListener(
+    "click",
+    async function(e){
 
+        if(
+            !e.target.classList.contains(
+                "delete-button"
+            )
+        ){
+            return;
+        }
+
+        const card =
+        e.target.closest(".order-card");
+
+        const id =
+        card.dataset.id;
+
+        if(
+            !confirm(
+                "Opravdu smazat objednávku?"
+            )
+        ){
+            return;
+        }
+
+        try{
+
+            await deleteDoc(
+                doc(
+                    db,
+                    "orders",
+                    id
+                )
+            );
+
+            loadOrders();
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+            alert(
+                "Smazání selhalo."
+            );
+
+        }
+
+    }
+);
     }
 
     catch(error){
