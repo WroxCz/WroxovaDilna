@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Tulip With Stem</title>
+    <title> tulipan</title>
 
     <link rel="stylesheet" href="../../../../model.css">
 
@@ -26,21 +26,23 @@
             <!-- HLAVNÍ OBRÁZEK -->
 
             <img class="main-preview"
-     id="mainPreview"
-     src="preview/preview1.webp">
+                 id="mainPreview"
+                 src="preview/preview1.webp">
 
-<div class="preview-gallery">
+            <!-- GALERIE -->
 
-    <img src="preview/preview1.webp"
-         onclick="changePreview(this.src)">
+            <div class="preview-gallery">
 
-    <img src="preview/preview2.webp"
-         onclick="changePreview(this.src)">
+                <img src="preview/preview1.webp"
+                     onclick="changePreview(this.src)">
 
-    <img src="preview/preview3.webp"
-         onclick="changePreview(this.src)">
+                <img src="preview/preview2.webp"
+                     onclick="changePreview(this.src)">
 
-</div>
+                <img src="preview/preview3.webp"
+                     onclick="changePreview(this.src)">
+
+            </div>
 
         </div>
 
@@ -64,15 +66,11 @@
 
             <div class="model-header">
 
-                <h1>
-
-                    Krásný tulipán se stonkem 
-
-                </h1>
+                <h1 id="model-name"></h1>
 
                 <p class="model-description">
 
-                    Krásný tulipán se stonkem, který je vhodný jako dekorace nebo jako dárek. Nejlepší dárek k Valentýnu
+                    Krásný tulipán se stonkem, který je vhodný jako dekorace nebo jako dárek.
 
                 </p>
 
@@ -160,7 +158,9 @@
 
                 <p>
 
-                    info
+                    Vytiskněte si jednotlivé díly samostatně.
+                    !K montáži je potřeba lepidlo, ideálně sekundové nebo jiné plastové lepidlo!
+                    V kombinaci s dalšími modely vypadá krásně jako kytice!
 
                 </p>
 
@@ -191,7 +191,7 @@
 
                     <p>
 
-                        Uveďte původ – Zachovejte licenci 
+                       Uveďte původ
 
                     </p>
 
@@ -214,19 +214,19 @@
 
                     <li class="allowed">
 
-                        ✔ | Komerční využití
+                       ✔ |  Komerční využití
 
                     </li>
 
                     <li class="allowed">
 
-                        ✔ | Dílo Svobodné kultury
+                        ✔ |  Dílo Svobodné kultury
 
                     </li>
 
                     <li class="allowed">
 
-                        ✔ | Splňuje Definici otevřeného díla
+                        ✔ |  Splňuje Definici otevřeného díla
 
                     </li>
 
@@ -322,6 +322,7 @@ fetch("data.json")
     }
 
     </script>
+
 </body>
 
 </html>
