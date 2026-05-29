@@ -18,6 +18,8 @@ const modelWeight =
 params.get("weight");
 const printTime =
 params.get("time");
+const valueFactor =
+Number(params.get("valueFactor")) || 1;
 
 if(modelName){
 
@@ -316,6 +318,7 @@ function calculatePrice(){
 
     let result =
 
+(
     (
         weight
         *
@@ -332,7 +335,11 @@ function calculatePrice(){
         (time * timeMultiplier)
         *
         0.6
-    );
+    )
+
+)
+*
+valueFactor;
 
     /* MINIMÁLNÍ CENA */
 

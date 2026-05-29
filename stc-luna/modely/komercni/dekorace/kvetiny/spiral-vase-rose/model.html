@@ -158,7 +158,7 @@
 
                 <p>
 
-                    Happy Valentines Day! I wanted to try my hand at a somewhat more complex vase mode design, so I made this rose.
+                  Tento model je dostupný v několika variantách. Nabízíme velikosti 10 cm, 7 cm a 5 cm, a to jak ve verzi se dnem, tak bez dna. Do poznámky k objednávce prosím uveďte, o kterou variantu máte zájem. Finální cenu následně upřesníme.
 
                 </p>
 
@@ -293,6 +293,8 @@ fetch("data.json")
 
             const material = data.material;
 
+            const valueFactor = data.valueFactor;
+
             const url =
 
 "../../../../../objednavka/objednavka.html?" +
@@ -303,7 +305,9 @@ fetch("data.json")
 
 `&time=${printTime}` +
 
-`&material=${material}`;
+`&material=${material}` +
+
+`&valueFactor=${valueFactor}`;
 
             window.location.href = url;
         });

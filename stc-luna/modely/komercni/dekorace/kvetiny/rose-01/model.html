@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Spiral Vase Rose</title>
+    <title> Rose</title>
 
     <link rel="stylesheet" href="../../../../model.css">
 
@@ -89,14 +89,14 @@
 
     </a>
 
-    <a href="https://www.printables.com/@lytta"
+    <a href="https://www.printables.com/@RubenJoris_2088331"
        target="_blank"
        class="secondary-button">
 
-        Autor modelu: lytta
+        Autor modelu: Ruben Joris
 
     </a>
-        <a href="https://www.printables.com/model/131488-spiral-vase-rose"
+        <a href="https://www.printables.com/model/1180740-rose"
        target="_blank"
        class="secondary-button">
 
@@ -158,7 +158,7 @@
 
                 <p>
 
-                    Happy Valentines Day! I wanted to try my hand at a somewhat more complex vase mode design, so I made this rose.
+                    Valentine rose with supports
 
                 </p>
 
@@ -183,13 +183,13 @@
                     <a href="https://creativecommons.org/licenses/by-nd/4.0/"
                        target="_blank">
 
-                        CC BY 4.0
+                        CC BY-ND 4.0
 
                     </a>
 
                     <p>
 
-                       Uveďte původ
+                       Uveďte původ – Nezpracovávejte
 
                     </p>
 
@@ -204,9 +204,9 @@
 
                     </li>
 
-                    <li class="allowed">
+                    <li class="forbidden">
 
-                        ✔ | Remixování (upravování)
+                        ✖ | Remixování (upravování)
 
                     </li>
 
@@ -293,6 +293,8 @@ fetch("data.json")
 
             const material = data.material;
 
+            const valueFactor = data.valueFactor;
+
             const url =
 
 "../../../../../objednavka/objednavka.html?" +
@@ -303,7 +305,9 @@ fetch("data.json")
 
 `&time=${printTime}` +
 
-`&material=${material}`;
+`&material=${material}` +
+
+`&valueFactor=${valueFactor}`;
 
             window.location.href = url;
         });
