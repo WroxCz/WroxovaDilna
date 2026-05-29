@@ -253,3 +253,34 @@ h2, h3{
     background:#22c55e;
     color:black;
 }
+.filters{
+
+    margin: 20px 0;
+}
+
+#status-filter{
+
+    background:#242424;
+
+    color:#e0e0e0;
+
+    border:1px solid
+    rgba(214,165,92,0.3);
+
+    border-radius:8px;
+
+    padding:10px 15px;
+
+    font-family:'MedievalSharp', cursive;
+
+    font-size:15px;
+
+    cursor:pointer;
+}
+
+#status-filter:focus{
+
+    outline:none;
+
+    border-color:#d6a55c;
+}

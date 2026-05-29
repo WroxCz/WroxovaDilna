@@ -16,6 +16,17 @@ document.querySelector("#admin-panel");
 
 loadOrders();
 
+document
+.querySelector("#status-filter")
+.addEventListener(
+    "change",
+    function(){
+
+        loadOrders();
+
+    }
+);
+
 async function loadOrders(){
 
     try{
@@ -30,10 +41,22 @@ await getDocs(q);
 
         let html = "";
 
+        const selectedStatus =
+        document.querySelector(
+            "#status-filter"
+        )?.value || "all";
+
         snapshot.forEach(doc => {
 
             const order =
             doc.data();
+
+            if(
+                selectedStatus !== "all" &&
+                order.status !== selectedStatus
+            ){
+                return;
+            }
 
             const id =
             doc.id;
