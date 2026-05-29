@@ -57,26 +57,21 @@
                     <div class="form-group">
 
                         <label>Jméno</label>
+<input
+    type="text"
+    id="nameInput"
+    required>
 
-                        <input type="text"
-                               required>
+<label>Email</label>
+<input
+    type="email"
+    id="emailInput"
+    required>
 
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Email</label>
-
-                        <input type="email"
-                               required>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Telefon</label>
-
-                        <input type="tel">
+<label>Telefon</label>
+<input
+    type="tel"
+    id="phoneInput">
 
                     </div>
 
@@ -113,9 +108,8 @@
            value="1"
            min="1">
 
-</div>
-
-</div>
+        </div>
+    </div>
 
 <!-- MATERIÁLY -->
 
@@ -146,6 +140,9 @@
                 <!-- CENA -->
 
                 <div class="price-box">
+                    <input
+    type="hidden"
+    id="priceInput">
 
                     <span class="price-label">
                         Předběžná cena
@@ -163,12 +160,55 @@
 
                     <label>Poznámka</label>
 
-                    <textarea rows="5"></textarea>
+                    <textarea
+                    id="noteInput"
+                    rows="5"></textarea>
 
                 </div>
 
             </div>
+<div class="form-section">
 
+    <h2>Doručení</h2>
+
+    <div class="form-group">
+
+        <label>Způsob převzetí</label>
+
+        <select id="deliverySelect">
+
+            <option value="Osobní převzetí">
+                Osobní převzetí
+            </option>
+
+            <option value="Zásilkovna">
+                Zásilkovna
+            </option>
+
+            <option value="Balíkovna">
+                Balíkovna
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+<div class="form-group">
+
+    <label>
+
+        <input
+            type="checkbox"
+            id="gdprCheck"
+            required>
+
+        Souhlasím se zpracováním osobních údajů
+        za účelem vyřízení poptávky.
+
+    </label>
+
+</div>
             <!-- ODESLÁNÍ -->
 
             <button type="submit">
@@ -181,7 +221,10 @@
 
     </div>
 
-    <script src="objednavka.js"></script>
+    <script
+    type="module"
+    src="objednavka.js">
+</script>
 
 </body>
 

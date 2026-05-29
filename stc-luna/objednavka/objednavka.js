@@ -1,3 +1,13 @@
+import { db }
+from "./firebase.js";
+
+import {
+    collection,
+    addDoc,
+    serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";¨
+
 document
 .getElementById("orderForm")
 .addEventListener("submit", function(e){
@@ -348,15 +358,6 @@ valueFactor;
         result = 99;
     }
 
-    /* ZOBRAZENÍ */
-
-    document.querySelector(
-        ".price-value"
-    ).innerText =
-
-    `${Math.round(result)} Kč`;
-
-
 /* ZOBRAZENÍ */
 
     document.querySelector(
@@ -364,6 +365,9 @@ valueFactor;
     ).innerText =
 
     `${Math.round(result)} Kč`;
+    document.querySelector(
+    "#priceInput"
+).value = Math.round(result);
 }
 
 /* AKTUALIZACE CENY */
