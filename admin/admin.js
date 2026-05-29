@@ -4,7 +4,9 @@ import {
     collection,
     getDocs,
     query,
-    orderBy
+    orderBy,
+    doc,
+    updateDoc
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
@@ -154,9 +156,13 @@ html += `
     </div>
 
     <button
-        class="edit-button"
-        data-id="${id}">
-        Upravit
+    class="edit-button"
+    data-id="${id}"
+    data-price="${order.price || 0}"
+    data-status="${order.status || "Nová"}"
+    data-payment="${order.paymentStatus || "Nezaplaceno"}"
+    data-note="${order.adminNote || ""}">
+    Upravit
     </button>
 
 </div>
@@ -168,6 +174,7 @@ html += `
         html;
 
         document
+document
 .querySelectorAll(".edit-button")
 .forEach(button => {
 
@@ -181,13 +188,156 @@ html += `
             card.style.border =
             "2px solid #d6a55c";
 
-            button.textContent =
-            "Edituji...";
+            const currentPrice =
+            button.dataset.price;
+
+            const currentStatus =
+            button.dataset.status;
+
+            const currentPayment =
+            button.dataset.payment;
+
+            const currentNote =
+            button.dataset.note;
+
+            button.insertAdjacentHTML(
+                "beforebegin",
+
+                `
+                <div class="edit-form">
+
+                    <input
+                        class="edit-price"
+                        type="number"
+                        value="${currentPrice}">
+
+                    <select
+                        class="edit-status">
+
+                        <option ${currentStatus === "Nová" ? "selected" : ""}>
+                            Nová
+                        </option>
+
+                        <option ${currentStatus === "Potvrzená" ? "selected" : ""}>
+                            Potvrzená
+                        </option>
+
+                        <option ${currentStatus === "Ve výrobě" ? "selected" : ""}>
+                            Ve výrobě
+                        </option>
+
+                        <option ${currentStatus === "Hotovo" ? "selected" : ""}>
+                            Hotovo
+                        </option>
+
+                    </select>
+
+                    <select
+                        class="edit-payment">
+
+                        <option ${currentPayment === "Nezaplaceno" ? "selected" : ""}>
+                            Nezaplaceno
+                        </option>
+
+                        <option ${currentPayment === "Zaplaceno" ? "selected" : ""}>
+                            Zaplaceno
+                        </option>
+
+                    </select>
+
+                    <textarea
+                        class="edit-note"
+                        rows="4">${currentNote}</textarea>
+
+                    <button
+                        class="save-button">
+                        Uložit
+                    </button>
+
+                </div>
+                `
+            );
+
+            button.remove();
 
         }
     );
-
 });
+
+document
+.addEventListener(
+    "click",
+    async function(e){
+
+        if(
+            !e.target.classList.contains(
+                "save-button"
+            )
+        ){
+            return;
+        }
+
+        const form =
+        e.target.closest(".edit-form");
+
+        const card =
+        e.target.closest(".order-card");
+
+        const id =
+        card.dataset.id;
+
+        try{
+
+            await updateDoc(
+
+                doc(
+                    db,
+                    "orders",
+                    id
+                ),
+
+                {
+                    price: Number(
+                        form.querySelector(
+                            ".edit-price"
+                        ).value
+                    ),
+
+                    status:
+                    form.querySelector(
+                        ".edit-status"
+                    ).value,
+
+                    paymentStatus:
+                    form.querySelector(
+                        ".edit-payment"
+                    ).value,
+
+                    adminNote:
+                    form.querySelector(
+                        ".edit-note"
+                    ).value
+                }
+
+            );
+
+            loadOrders();
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+            alert(
+                "Nepodařilo se uložit změny."
+            );
+
+        }
+
+    }
+);
+
     }
 
     catch(error){
