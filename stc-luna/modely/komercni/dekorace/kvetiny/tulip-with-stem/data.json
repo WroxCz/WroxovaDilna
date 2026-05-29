@@ -1,8 +1,9 @@
 {
   "nazev": "tulipán se stonkem",
-  "material": "PLA",
-  "printTime": "120",
-  "weight": "25",
+  "recommendedMaterial": "PLA",
+  "dimensions": "41 × 45 × 228 mm",
+  "printTimeMinutes": 210,
+  "weight": 25,
   "valueFactor": 1.2,
   "layerHeight": "0.20",
   "nozzleDiameter": "0.4 mm"

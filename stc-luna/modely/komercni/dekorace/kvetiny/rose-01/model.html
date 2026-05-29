@@ -114,37 +114,29 @@
 
                 <div class="stats-grid">
 
-
                     <div class="stat-card">
-                        <span>Materiál</span>
-                        <strong id="model-material"></strong>      
+                        <span>Doporučený materiál</span>
+                        <strong id="model-material"></strong>
                     </div>
-
-
+                    
                     <div class="stat-card">
-                        <span>Doba tisku</span>
+                        <span>Doba výroby</span>
                         <strong id="model-print-time"></strong>
                     </div>
 
                     <div class="stat-card">
-                        <span>Výška vrstvy</span>
-                        <strong id="model-layer-height"></strong>       
+                        <span>Rozměry</span>
+                        <strong id="model-dimensions"></strong>
                     </div>
 
                     <div class="stat-card">
-                        <span>Průměr trysky</span>
-                        <strong id="model-nozzle-diameter"></strong>
-                    </div>
-
-                    <div class="stat-card">
-                        <span>Celková váha</span>
+                        <span>Hmotnost výtisku</span>
                         <strong id="model-weight"></strong>
                     </div>
 
-                    <div class="stat-card">           
+                    <div class="stat-card">
                         <span>Ověření modelu</span>
-                        <strong>Netestováno
-                        </strong>
+                        <strong>Netestováno</strong>
                     </div>
                 </div>
             </section>
@@ -248,19 +240,25 @@ fetch("data.json")
     .textContent = data.nazev;
 
     document.getElementById("model-material")
-    .textContent = data.material;
+    .textContent = data.recommendedMaterial;
+
+    const minutes = data.printTimeMinutes;
+
+    const hours =
+    Math.floor(minutes / 60);
+
+    const remainingMinutes =
+    minutes % 60;
 
     document.getElementById("model-print-time")
-    .textContent = data.printTime;
-
-    document.getElementById("model-layer-height")
-    .textContent = data.layerHeight;
-
-    document.getElementById("model-nozzle-diameter")
-    .textContent = data.nozzleDiameter;
+    .textContent =
+    `${hours} h ${remainingMinutes} min`;
 
     document.getElementById("model-weight")
-    .textContent = data.weight;
+    .textContent = `${data.weight} g`;
+
+    document.getElementById("model-dimensions")
+    .textContent = data.dimensions;
 
     const printButton =
     document.querySelector(".primary-button");
@@ -289,9 +287,9 @@ fetch("data.json")
 
             const weight = data.weight;
 
-            const printTime = data.printTime;
+            const printTime = data.printTimeMinutes;
 
-            const material = data.material;
+            const material = data.recommendedMaterial;
 
             const valueFactor = data.valueFactor;
 

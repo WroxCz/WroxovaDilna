@@ -1,9 +1,10 @@
 {
   "nazev": "Rose-01",
-  "material": "PLA",
-  "printTime": "620",
-  "weight": "176",
-  "valueFactor": 1.6,
+  "recommendedMaterial": "PLA",
+  "dimensions": "130 × 130 × 225 mm",
+  "printTimeMinutes": 1224,
+  "weight": 317,
+  "valueFactor": 1.2,
   "layerHeight": "0.20",
   "nozzleDiameter": "0.4 mm"
 }

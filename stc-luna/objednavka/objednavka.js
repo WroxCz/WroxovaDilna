@@ -16,7 +16,7 @@ const modelName =
 params.get("model");
 const modelWeight =
 params.get("weight");
-const printTime =
+const printTimeMinutes =
 params.get("time");
 const valueFactor =
 Number(params.get("valueFactor")) || 1;
@@ -250,7 +250,7 @@ function calculatePrice(){
     console.log(selectedColorId);
     console.log(selectedMaterial);
     console.log(modelWeight);
-    console.log(printTime);
+    console.log(printTimeMinutes);
 
     /* KONTROLA */
 
@@ -275,8 +275,8 @@ function calculatePrice(){
         ).value
     ) || 1;
 
-    const time =
-    Number(printTime) || 0;
+    const timeMinutes =
+Number(printTimeMinutes) || 0;
 
     /* CENA ZA GRAM */
 
@@ -332,7 +332,7 @@ function calculatePrice(){
     +
 
     (
-        (time * timeMultiplier)
+        (timeMinutes * timeMultiplier)
         *
         0.6
     )
