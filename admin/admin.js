@@ -12,7 +12,7 @@ onAuthStateChanged(auth, (user) => {
     if(!user){
 
         window.location.href =
-        "adminLog.html";
+        "/WroxovaDilna/admin/adminLog.html";
 
         return;
 
@@ -79,7 +79,7 @@ logoutButton.addEventListener(
             await signOut(auth);
 
             window.location.href =
-            "adminLog.html";
+            "/WroxovaDilna/admin/adminLog.html";
 
         }
 
