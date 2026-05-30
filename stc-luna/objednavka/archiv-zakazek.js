@@ -1,5 +1,5 @@
 import { db, auth }
-from "../../js/firebase.js";
+from "../../firebase/firebase.js";
 
 import {
     onAuthStateChanged
