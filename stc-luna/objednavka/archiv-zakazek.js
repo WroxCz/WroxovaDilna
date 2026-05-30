@@ -20,7 +20,7 @@ from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 const adminPanel =
 document.querySelector("#admin-panel");
 
-loadOrders();
+// loadOrders();
 
 document
 .querySelector("#status-filter")
@@ -252,7 +252,9 @@ html += `
 
     </div>
 
-    <button
+${isAdmin ? `
+
+<button
     class="edit-button"
     data-id="${id}"
     data-price="${order.price || 0}"
@@ -260,9 +262,9 @@ html += `
     data-payment="${order.paymentStatus || "Nezaplaceno"}"
     data-note="${order.adminNote || ""}">
     Upravit
-    </button>
+</button>
 
-</div>
+` : ""}
 
 `;            
         });
