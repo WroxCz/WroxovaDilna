@@ -51,7 +51,7 @@ document.querySelector(
 ){
 
     welcomeTitle.textContent =
-    "📜 Vítejte, kronikářko Sambria 📜";
+    "📜 Vítejte, kronikářko Sambrio 📜";
 
     stockModule.style.display =
     "none";
