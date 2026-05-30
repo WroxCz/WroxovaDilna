@@ -1,13 +1,31 @@
 body{
-    background: #1a1a1a;
-    color: #e0e0e0;
 
-    font-family: 'MedievalSharp', cursive;
+    background-image:url("../webimages/adminBG.jpg");
 
-    margin: 0;
-    padding: 0;
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
+    color:#e0e0e0;
+
+    font-family:'MedievalSharp', cursive;
+
+    margin:0;
+    padding:0;
 }
+@media (max-width:768px){
 
+    body{
+
+        background-attachment:scroll;
+
+    }
+
+}
 #vox{
     max-width: 1200px;
 
@@ -17,30 +35,23 @@ body{
 }
 
 .order-card{
-    max-width: 350px;
 
-    background: #2a2a2a;
+    max-width:350px;
 
-    border: 1px solid #444;
+    background:rgba(36,36,36,0.60);
 
-    border-radius: 12px;
+    border:1px solid rgba(214,165,92,0.3);
 
-    padding: 20px;
+    border-radius:15px;
 
-    margin-bottom: 20px;
+    padding:20px;
+
+    margin-bottom:20px;
+
 }
 
 h2, h3{
     color: #d6a55c;
-}
-.order-card{
-    background: #242424;
-
-    border: 1px solid rgba(214,165,92,0.3);
-
-    border-radius: 15px;
-
-    padding: 20px;
 }
 #admin-panel{
     display: grid;
@@ -283,4 +294,68 @@ h2, h3{
     outline:none;
 
     border-color:#d6a55c;
+}
+.welcome-panel{
+    margin-top:80px;
+    margin-left:80px;
+}
+.welcome-panel h2{
+    font-size:48px;
+
+    color:#d6a55c;
+
+    margin-bottom:15px;
+
+}
+
+.welcome-panel p{
+    font-size:22px;
+
+    color:#e0e0e0;
+
+    margin:8px 0;
+
+}
+.admin-menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin-top:40px;
+
+    max-width:350px;
+}
+
+.admin-module{
+
+    display:inline-block;
+
+    padding:15px 25px;
+
+    background:rgba(36,36,36,0.65);
+
+    border:1px solid rgba(214,165,92,0.4);
+
+    border-radius:10px;
+
+    color:#d6a55c;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.admin-module:hover{
+
+    background:rgba(214,165,92,0.15);
+
+    box-shadow:0 0 15px rgba(214,165,92,0.3);
+
 }

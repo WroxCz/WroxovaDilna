@@ -2,81 +2,65 @@
 <html lang="cs">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Vox</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="admin.css">
+    <title>Luna Mechanica Admin</title>
+
+    <link rel="stylesheet"
+          href="admin.css">
+
 </head>
 
-<body>  
+<body>
 
 <section id="vox">
 
-    <h2>Admin Vox</h2>
+    <div class="welcome-panel">
 
-    <p>Přihlášení do archivů Luna Mechanica</p>
+        <h2 id="welcome-title">
+    ⚙️ Vítejte ⚙️
+</h2>
 
-    <form id="login-form">
+        <p>Správa zakázek byla odemčena.</p>
 
-        <input
-            type="email"
-            id="admin-email"
-            placeholder="Admin email">
+        <p>Luna Mechanica čeká na vaše příkazy.</p>
 
-        <input
-            type="password"
-            id="admin-password"
-            placeholder="Heslo">
-
-        <button type="submit">
-            Přihlásit se
-        </button>
-
-    </form>
+    </div>
     
-    <a href="index.html" class="back-link">
-    Návrat do archivu Luna Mechanica
+
+    <div class="admin-menu">
+
+<a href="../stc-luna/objednavka/archiv-zakazek.html"
+   class="admin-module"
+   id="module-orders">
+    📦 Archiv zakázek
 </a>
 
-<button id="logout-button">
-    Odhlásit
+<a href="../zprava.html"
+   class="admin-module"
+   id="module-vox">
+    📜 Vox zprávy
+</a>
+
+<a href="../stc-luna/sklad/sklad.html"
+   class="admin-module"
+   id="module-stock">
+    🏭 Materiálový sklad
+</a>
+
+<button id="logout-button"
+        class="admin-module">
+    🚪 Odhlásit se
 </button>
-
-<div class="filters">
-
-    <select id="status-filter">
-
-        <option value="all">
-            Všechny objednávky
-        </option>
-
-        <option value="Nová">
-            Nová
-        </option>
-
-        <option value="Potvrzená">
-            Potvrzená
-        </option>
-
-        <option value="Ve výrobě">
-            Ve výrobě
-        </option>
-
-        <option value="Hotovo">
-            Hotovo
-        </option>
-
-    </select>
 
 </div>
 
-<div id="admin-panel"></div>
-
 </section>
-
-<script type="module" src="admin.js"></script>
-
+<script type="module"
+        src="admin.js"></script>
 </body>
 </html>
