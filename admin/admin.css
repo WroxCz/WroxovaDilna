@@ -359,3 +359,67 @@ h2, h3{
     box-shadow:0 0 15px rgba(214,165,92,0.3);
 
 }
+.back-link{
+    display:inline-block;
+
+    padding:6px 12px;
+
+    background:rgba(20,20,20,0.6);
+
+    border:1px solid rgba(214,165,92,0.4);
+
+    border-radius:6px;
+
+    color:#d6a55c;
+    text-decoration:none;
+
+    transition:.2s;
+}
+
+.back-link:hover{
+    background:rgba(214,165,92,0.15);
+    border-color:#d6a55c;
+}
+#login-form{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-top:15px;
+}
+
+#admin-email,
+#admin-password{
+    width:220px;
+
+    background:rgba(0,0,0,0.5);
+
+    border:1px solid rgba(214,165,92,0.3);
+
+    color:white;
+
+    padding:10px;
+
+    border-radius:6px;
+
+    font-family:'MedievalSharp', cursive;
+}
+
+#login-form button{
+    padding:10px 18px;
+
+    background:#d6a55c;
+
+    color:black;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.back-link{
+    margin-top:15px;
+}
