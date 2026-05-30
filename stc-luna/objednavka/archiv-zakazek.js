@@ -32,6 +32,17 @@ document
 
     }
 );
+
+let isAdmin = false;
+
+onAuthStateChanged(auth, (user) => {
+
+    isAdmin = !!user;
+
+    loadOrders();
+
+});
+
 document
 .querySelector("#id-filter")
 .addEventListener(
@@ -374,6 +385,16 @@ document
             return;
         }
 
+        if(!isAdmin){
+
+    alert(
+        "Pro úpravu objednávek musíte být přihlášeni."
+    );
+
+    return;
+
+}
+
         const form =
         e.target.closest(".edit-form");
 
@@ -445,6 +466,16 @@ document.addEventListener(
         ){
             return;
         }
+
+        if(!isAdmin){
+
+    alert(
+        "Pro mazání objednávek musíte být přihlášeni."
+    );
+
+    return;
+
+}
 
         const card =
         e.target.closest(".order-card");
