@@ -1,0 +1,91 @@
+{
+  "id": "tulip-with-stem",
+
+  "name": "Tulip With Stem",
+
+  "description": "Elegantní tulipán se stonkem a listem.",
+
+  "preview": "preview.webp",
+
+  "groups": [
+
+    {
+      "id": "flower",
+
+      "name": "Květ",
+
+      "type": "fixed",
+
+      "defaultQuantity": 1,
+
+      "modules": [
+        {
+          "id": "flower",
+
+          "name": "Květ",
+
+          "weight": 12.4,
+
+          "printTime": 42,
+
+          "allowMaterial": true,
+          "allowColor": true
+        }
+      ]
+    },
+
+    {
+      "id": "stem",
+
+      "name": "Stonek",
+
+      "type": "fixed",
+
+      "defaultQuantity": 1,
+
+      "modules": [
+        {
+          "id": "stem",
+
+          "name": "Stonek",
+
+          "weight": 8.5,
+
+          "printTime": 31,
+
+          "allowMaterial": true,
+          "allowColor": true
+        }
+      ]
+    },
+
+    {
+      "id": "leaf",
+
+      "name": "List",
+
+      "type": "quantity",
+
+      "defaultQuantity": 1,
+
+      "min": 0,
+
+      "max": 3,
+
+      "modules": [
+        {
+          "id": "leaf",
+
+          "name": "List",
+
+          "weight": 3.2,
+
+          "printTime": 10,
+
+          "allowMaterial": true,
+          "allowColor": true
+        }
+      ]
+    }
+  ]
+}

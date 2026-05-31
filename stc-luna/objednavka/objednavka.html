@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Objednávka</title>
+
+    <link rel="stylesheet"
+          href="objednavka.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="top-bar">
+
+            <a href="../stc-luna.html"
+               class="return-button">
+
+                ← Návrat
+
+            </a>
+
+            <h1>Objednávka</h1>
+
+        </div>
+
+        <p class="subtitle">
+            Nezávazná poptávka 3D tisku
+        </p>
+
+        <p class="subtitle">
+            Po odeslání formuláře vás budeme následně kontaktovat
+        </p>
+
+        <p class="subtitle">
+            ohledně upřesnění ceny, materiálu a možností výroby.
+        </p>
+
+        <form id="orderForm">
+
+            <!-- KONTAKT -->
+
+            <div class="form-section">
+
+                <h2>Kontaktní informace</h2>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>Jméno</label>
+<input
+    type="text"
+    id="nameInput"
+    required>
+
+<label>Email</label>
+<input
+    type="email"
+    id="emailInput"
+    required>
+
+<label>Telefon</label>
+<input
+    type="tel"
+    id="phoneInput">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- MODEL -->
+
+            <div class="form-section">
+
+<h2>Informace o modelu</h2>
+
+<!-- MODEL -->
+
+<div class="form-row">
+
+    <div class="form-group">
+
+        <label>Model</label>
+
+        <input type="text"
+               id="modelInput"
+               required>
+
+    </div>
+
+    <div class="form-group quantity-group">
+
+    <label>Počet kusů</label>
+
+    <input type="number"
+           id="quantityInput"
+           value="1"
+           min="1">
+
+        </div>
+    </div>
+
+<!-- MATERIÁLY -->
+
+<div class="form-row">
+
+    <div class="form-group">
+        <label>Materiál</label>
+        <select id="materialSelect"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Výrobce</label>
+        <select id="manufacturerSelect"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Typ materiálu</label>
+        <select id="variantSelect"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Barva</label>
+        <select id="colorSelect"></select>
+    </div>
+
+</div>
+
+                <!-- CENA -->
+
+                <div class="price-box">
+                    <input
+    type="hidden"
+    id="priceInput">
+
+                    <span class="price-label">
+                        Předběžná cena
+                    </span>
+
+                    <span class="price-value">
+                        0 Kč
+                    </span>
+
+                </div>
+
+                <!-- POZNÁMKA -->
+
+                <div class="form-group">
+
+                    <label>Poznámka</label>
+
+                    <textarea
+                    id="noteInput"
+                    rows="5"></textarea>
+
+                </div>
+
+            </div>
+<div class="form-section">
+
+    <h2>Doručení</h2>
+
+    <div class="form-group">
+
+        <label>Způsob převzetí</label>
+
+        <select id="deliverySelect">
+
+            <option value="Osobní převzetí">
+                Osobní převzetí
+            </option>
+
+            <option value="Zásilkovna">
+                Zásilkovna
+            </option>
+
+            <option value="Balíkovna">
+                Balíkovna
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+<div class="form-group">
+
+    <label>
+
+        <input
+            type="checkbox"
+            id="gdprCheck"
+            required>
+
+        Souhlasím se zpracováním osobních údajů
+        za účelem vyřízení poptávky.
+
+    </label>
+
+</div>
+            <!-- ODESLÁNÍ -->
+
+            <button type="submit">
+
+                Odeslat nezávaznou objednávku
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <script type="module" src="objednavka.js"></script>
+
+</body>
+
+</html>

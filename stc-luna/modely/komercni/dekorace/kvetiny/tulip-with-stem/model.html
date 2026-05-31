@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luna Mechanica</title>
+
+<link rel="stylesheet" href="../../../../model.css">
+
+</head>
+
+<body>
+
+<section class="split-layout">
+
+    <!-- LEVÁ STRANA -->
+
+    <div class="split-image">
+
+        <img
+            id="mainPreview"
+            class="main-preview"
+            src="preview/preview1.webp">
+
+        <div class="preview-gallery">
+
+            <img
+                src="preview/preview1.webp"
+                onclick="changePreview(this.src)">
+
+            <img
+                src="preview/preview2.webp"
+                onclick="changePreview(this.src)">
+
+            <img
+                src="preview/preview3.webp"
+                onclick="changePreview(this.src)">
+
+        </div>
+
+    </div>
+
+    <!-- PRAVÁ STRANA -->
+
+    <div class="split-content">
+
+        <a
+            href="../../../../indexmodely.html"
+            class="back-button">
+
+            ← Zpět do 3D Modelů
+
+        </a>
+
+        <!-- HLAVIČKA -->
+
+        <div class="model-header">
+
+            <h1 id="model-name">
+                Načítání...
+            </h1>
+
+            <p id="model-description">
+
+            </p>
+
+        </div>
+
+        <!-- PARAMETRY -->
+
+        <section class="model-box">
+
+            <h2>Parametry</h2>
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>Hmotnost</span>
+                    <strong id="model-weight">-</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Doba tisku</span>
+                    <strong id="model-print-time">-</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- KONFIGURÁTOR -->
+
+        <section class="model-box">
+
+            <h2>Konfigurace modelu</h2>
+
+            <div id="configurator">
+
+            </div>
+
+        </section>
+
+        <!-- DEBUG -->
+
+        <section class="model-box">
+
+            <h2>Debug konfigurace</h2>
+
+            <pre id="config-debug"></pre>
+
+        </section>
+
+    </div>
+
+</section>
+
+<script>
+
+let model = null;
+
+let config = {};
+
+let leafCount = 0;
+
+let materials = [];
+
+Promise.all([
+
+    fetch("../../../../../sklad/data/pla-alzamet.json")
+    .then(response => response.json()),
+
+    fetch("../../../../../sklad/data/pla-temu.json")
+    .then(response => response.json()),
+
+    fetch("../../../../../sklad/data/ProfLab.json")
+    .then(response => response.json())
+
+])
+
+.then(allData => {
+
+    materials = allData.flat();
+
+    console.log(materials);
+
+    if(model){
+        renderConfigurator();
+    }
+
+});
+
+fetch("data.json")
+
+.then(response => response.json())
+
+.then(data => {
+
+    model = data;
+
+    renderModel();
+
+    renderConfigurator();
+
+    createDefaultConfig();
+
+});
+
+function renderModel(){
+
+    document.getElementById("model-name")
+    .textContent = model.name;
+
+    document.getElementById("model-description")
+    .textContent = model.description || "";
+
+}
+
+function renderConfigurator(){
+
+    const container =
+    document.getElementById("configurator");
+
+    container.innerHTML = "";
+
+    model.groups.forEach(group => {
+
+    const materialsList = [
+        ...new Set(
+            materials.map(
+                material => material.material
+            )
+        )
+    ];
+
+    const materialOptions =
+        materialsList.map(material =>
+            `<option>${material}</option>`
+        ).join("");
+
+    const box =
+    document.createElement("div");
+
+    box.className =
+    "config-group";
+
+    if(group.type === "quantity"){
+
+    box.innerHTML = `
+
+        <div class="config-row">
+
+            <span class="config-label">
+                ${group.name}
+            </span>
+
+            <button onclick="changeLeaf(-1)">-</button>
+
+            <span id="leaf-count">
+                ${config[group.id]?.quantity || 1}
+            </span>
+
+            <button onclick="changeLeaf(1)">+</button>
+
+        </div>
+
+        <div class="config-row">
+
+            <select onchange="changeMaterial('${group.id}', this.value)">
+
+                <option value="">
+                    Materiál
+                </option>
+
+                ${materialOptions}
+
+            </select>
+
+            <select
+                id="${group.id}-variant"
+                onchange="changeVariant('${group.id}', this.value)">
+
+                <option>
+                    Varianta
+                </option>
+
+            </select>
+
+            <select
+                id="${group.id}-color"
+                onchange="changeColor('${group.id}', this.value)">
+
+                <option>
+                    Barva
+                </option>
+
+            </select>
+<div class="material-preview">
+
+    <img
+        id="${group.id}-preview"
+        class="material-preview-image"
+        style="display:none;">
+
+</div>
+        </div>
+
+    `;
+}
+
+else{
+
+    box.innerHTML = `
+
+        <h3>${group.name}</h3>
+
+        <select onchange="changeMaterial('${group.id}', this.value)">
+
+            <option value="">
+                Materiál
+            </option>
+
+            ${materialOptions}
+
+        </select>
+        <select
+    id="${group.id}-variant"
+    onchange="changeVariant('${group.id}', this.value)">
+
+            <option>
+                Varianta
+            </option>
+
+        </select>
+        <select
+    id="${group.id}-color"
+    onchange="changeColor('${group.id}', this.value)">
+            <option>
+                Barva
+            </option>
+
+        </select>
+<div class="material-preview">
+
+    <img
+        id="${group.id}-preview"
+        class="material-preview-image"
+        style="display:none;">
+
+</div>
+    `;
+}
+        container.appendChild(box);
+
+    });
+
+}
+
+function createDefaultConfig(){
+
+    config = {};
+
+    model.groups.forEach(group => {
+
+        config[group.id] = {
+
+    quantity: group.defaultQuantity,
+
+    material: "",
+    variant: "",
+    color: ""
+
+};
+
+    });
+
+    updateDebug();
+
+}
+
+function updateDebug(){
+
+    document.getElementById("config-debug")
+    .textContent =
+    JSON.stringify(config, null, 2);
+
+}
+
+function changePreview(src){
+
+    document.getElementById("mainPreview")
+    .src = src;
+
+}
+function changeLeaf(change){
+
+    leafCount += change;
+
+    if(leafCount < 0){
+        leafCount = 0;
+    }
+
+    const leafGroup =
+    model.groups.find(
+        group => group.id === "leaf"
+    );
+
+    if(leafCount > leafGroup.max){
+        leafCount = leafGroup.max;
+    }
+
+    document.getElementById(
+        "leaf-count"
+    ).textContent = leafCount;
+
+    config.leaf.quantity = leafCount;
+
+    updateDebug();
+
+}
+function changeMaterial(groupId, value){
+
+    config[groupId].material = value;
+
+    const variants = [
+
+        ...new Set(
+
+            materials
+            .filter(material =>
+                material.material === value
+            )
+            .map(material =>
+                material.variant
+            )
+
+        )
+
+    ];
+
+    const variantSelect =
+    document.getElementById(
+        `${groupId}-variant`
+    );
+
+    variantSelect.innerHTML =
+        `<option value="">Varianta</option>`;
+
+    variants.forEach(variant => {
+
+        variantSelect.innerHTML +=
+        `<option>${variant}</option>`;
+
+    });
+
+    updateDebug();
+
+}
+function changeVariant(groupId, value){
+
+    config[groupId].variant = value;
+
+    const colors = [
+
+        ...new Set(
+
+            materials
+            .filter(material =>
+
+                material.material ===
+                config[groupId].material &&
+
+                material.variant === value
+
+            )
+            .map(material =>
+                material.name
+            )
+
+        )
+
+    ];
+
+    const colorSelect =
+    document.getElementById(
+        `${groupId}-color`
+    );
+
+    colorSelect.innerHTML =
+        `<option value="">Barva</option>`;
+
+    colors.forEach(color => {
+
+        colorSelect.innerHTML +=
+        `<option>${color}</option>`;
+
+    });
+
+    updateDebug();
+
+}
+function changeColor(groupId, value){
+
+    config[groupId].color = value;
+
+    const selectedMaterial =
+    materials.find(material =>
+
+        material.material ===
+        config[groupId].material &&
+
+        material.variant ===
+        config[groupId].variant &&
+
+        material.name === value
+
+    );
+
+    const preview =
+    document.getElementById(
+        `${groupId}-preview`
+    );
+
+if(selectedMaterial){
+
+    preview.src =
+    "../../../../../sklad/" +
+    selectedMaterial.image;
+
+    preview.style.display =
+    "block";
+
+    preview.onclick = () =>
+        changePreview(preview.src);
+}
+
+    updateDebug();
+
+}
+
+</script>
+
+</body>
+
+</html>
