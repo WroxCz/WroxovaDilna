@@ -10,6 +10,9 @@
 
     "price": 189,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "available",
     "statusText": "Dostupné",
@@ -38,6 +41,9 @@
 
     "price": 189,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "ordered",
     "statusText": "Objednáno",
@@ -66,6 +72,9 @@
 
     "price": 199,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -94,6 +103,9 @@
 
     "price": 199,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -122,6 +134,9 @@
 
     "price": 199,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -150,6 +165,9 @@
 
     "price": 189,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -178,6 +196,9 @@
 
     "price": 189,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -206,6 +227,9 @@
 
     "price": 189,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -234,6 +258,9 @@
 
     "price": 189,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -262,6 +289,9 @@
 
     "price": 189,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -290,6 +320,9 @@
 
     "price": 179,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -318,6 +351,9 @@
 
     "price": 199,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -346,6 +382,9 @@
 
     "price": 199,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -374,6 +413,9 @@
 
     "price": 199,
     "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -399,6 +441,9 @@
     "manufacturer": "ProfLab",
     "material": "PETG",
     "variant": "Standard",
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
 
     "price": 249,
     "weight": 1,
@@ -438,6 +483,9 @@
 
     "price": 209,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "available",
     "statusText": "Dostupné",
@@ -466,6 +514,9 @@
 
     "price": 209,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "ordered",
     "statusText": "Objednáno",
@@ -494,6 +545,9 @@
 
     "price": 209,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -522,6 +576,9 @@
 
     "price": 209,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -550,6 +607,9 @@
 
     "price": 209,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -578,6 +638,9 @@
 
     "price": 209,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -606,6 +669,9 @@
 
     "price": 219,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -634,6 +700,9 @@
 
     "price": 219,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -662,6 +731,9 @@
 
     "price": 209,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -696,6 +768,9 @@
 
     "price": 199,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "available",
     "statusText": "Dostupné",
@@ -724,6 +799,9 @@
 
     "price": 199,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "ordered",
     "statusText": "Objednáno",
@@ -752,6 +830,9 @@
 
     "price": 199,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -780,6 +861,9 @@
 
     "price": 199,
     "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1.2,
 
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -819,6 +903,9 @@
     "price": 379,
     "weight": 1,
 
+    "multiplier": 4.0,
+    "timeFactor": 1.3,
+
     "status": "available",
     "statusText": "Dostupné",
 
@@ -847,6 +934,9 @@
 
     "price": 379,
     "weight": 1,
+
+    "multiplier": 4.0,
+    "timeFactor": 1.3,
 
     "status": "ordered",
     "statusText": "Objednáno",
@@ -877,6 +967,9 @@
     "price": 359,
     "weight": 1,
 
+    "multiplier": 4.0,
+    "timeFactor": 1.3,
+    
     "status": "unavailable",
     "statusText": "Nedostupné",
 
@@ -902,7 +995,10 @@
     "manufacturer": "ProfLab",
     "material": "PETG",
     "variant": "CF",
-
+    
+    "multiplier": 4.0,
+    "timeFactor": 1.3,
+    
     "price": 359,
     "weight": 1,
 

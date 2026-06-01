@@ -11,6 +11,9 @@
     "price": 249,
     "weight": 1,
     
+    "multiplier": 2.4,
+    "timeFactor": 1,
+
     "status": "available",
     "statusText": "Dostupné",
 
@@ -37,6 +40,9 @@
 
     "price": 249,
     "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "ordered",
     "statusText": "Objednáno",
@@ -65,6 +71,9 @@
     "price": 249,
     "weight": 1,
     
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
     "status": "unavailable",
     "statusText": "Nedostupné",
 
@@ -91,6 +100,9 @@
 
     "price": 249,
     "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -118,7 +130,10 @@
 
     "price": 249,
     "weight": 1,
-    
+       
+    "multiplier": 2.4,
+    "timeFactor": 1,
+     
     "status": "unavailable",
     "statusText": "Nedostupné",
 
@@ -145,6 +160,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -172,6 +190,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -199,6 +220,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -226,6 +250,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -253,6 +280,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -280,6 +310,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -307,6 +340,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -334,6 +370,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -361,6 +400,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -388,6 +430,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -415,6 +460,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -442,6 +490,9 @@
 
     "price": 249,
     "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
     
     "status": "unavailable",
     "statusText": "Nedostupné",
@@ -475,7 +526,10 @@
 
     "price": 319,
     "weight": 1,
-
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
+    
     "status": "available",
     "statusText": "Dostupné",
 
@@ -503,6 +557,9 @@
     
     "price": 319,
     "weight": 1,
+        
+    "multiplier": 2.5,
+    "timeFactor": 1,
     
     "status": "ordered",
     "statusText": "Objednáno",

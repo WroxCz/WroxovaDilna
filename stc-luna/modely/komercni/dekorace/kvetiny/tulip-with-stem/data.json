@@ -7,6 +7,8 @@
 
   "preview": "preview.webp",
 
+  "valueFactor": 1.2,
+
   "groups": [
 
     {
@@ -24,9 +26,9 @@
 
           "name": "Květ",
 
-          "weight": 12.4,
+          "weight": 12.5,
 
-          "printTime": 42,
+          "printTime": 3164,
 
           "allowMaterial": true,
           "allowColor": true
@@ -49,9 +51,9 @@
 
           "name": "Stonek",
 
-          "weight": 8.5,
+          "weight": 6.09,
 
-          "printTime": 31,
+          "printTime": 5460,
 
           "allowMaterial": true,
           "allowColor": true
@@ -78,9 +80,9 @@
 
           "name": "List",
 
-          "weight": 3.2,
+          "weight": 4.56,
 
-          "printTime": 10,
+          "printTime": 5400,
 
           "allowMaterial": true,
           "allowColor": true

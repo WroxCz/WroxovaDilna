@@ -10,7 +10,10 @@
 
     "price": 214,
     "weight": 0.250,
-
+    
+    "multiplier": 3.0,
+    "timeFactor": 1,
+    
     "status": "ordered",
     "statusText": "Objednáno",
 

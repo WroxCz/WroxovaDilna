@@ -1,19 +1,21 @@
 const modely = [
 
+/*
     {
         name: "Spiral Vase Rose",
         category: "dekorace",
         subcategory: "Květiny",
         folder: "spiral-vase-rose"
-    }
-    ,
+    },
+
     {
         name: "Rose 01",
         category: "dekorace",
         subcategory: "Květiny",
         folder: "rose-01"
-    }
-    ,
+    },
+*/
+
     {
         name: "Tulipán se stonkem",
         category: "dekorace",

@@ -104,6 +104,31 @@
 
         </section>
 
+<section class="model-box">
+
+    <h2>Souhrn konfigurace</h2>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <span>Celková cena</span>
+            <strong id="total-price">Vyberte materiál</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Celková hmotnost</span>
+            <strong id="total-weight">-</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Doba tisku</span>
+            <strong id="total-print-time">-</strong>
+        </div>
+
+    </div>
+
+</section>
+
         <!-- DEBUG -->
 
         <section class="model-box">
@@ -124,7 +149,7 @@ let model = null;
 
 let config = {};
 
-let leafCount = 0;
+let leafCount = 1;
 
 let materials = [];
 
@@ -189,12 +214,19 @@ function renderConfigurator(){
     model.groups.forEach(group => {
 
     const materialsList = [
-        ...new Set(
-            materials.map(
-                material => material.material
+    ...new Set(
+        materials
+            .filter(material =>
+
+                material.status === "available" ||
+                material.status === "ordered"
+
             )
-        )
-    ];
+            .map(material =>
+                material.material
+            )
+    )
+];
 
     const materialOptions =
         materialsList.map(material =>
@@ -266,6 +298,13 @@ function renderConfigurator(){
         style="display:none;">
 
 </div>
+<div
+    class="part-price"
+    id="${group.id}-price">
+
+    Cena části: 0 Kč
+
+</div>
         </div>
 
     `;
@@ -311,6 +350,13 @@ else{
         style="display:none;">
 
 </div>
+<div
+    class="part-price"
+    id="${group.id}-price">
+
+    Cena části: 0 Kč
+
+</div>
     `;
 }
         container.appendChild(box);
@@ -332,12 +378,14 @@ function createDefaultConfig(){
     material: "",
     variant: "",
     color: ""
+    
 
 };
 
     });
 
     updateDebug();
+    updateSummary();
 
 }
 
@@ -379,23 +427,49 @@ function changeLeaf(change){
     config.leaf.quantity = leafCount;
 
     updateDebug();
+    updateSummary();
 
 }
 function changeMaterial(groupId, value){
 
     config[groupId].material = value;
 
+    config[groupId].variant = "";
+    config[groupId].color = "";
+
+    document.getElementById(
+        `${groupId}-color`
+    ).innerHTML =
+    `<option value="">Barva</option>`;
+
+    const preview =
+document.getElementById(
+    `${groupId}-preview`
+);
+
+preview.style.display = "none";
+preview.src = "";
+
+document.getElementById("mainPreview")
+.src = "preview/preview1.webp";
     const variants = [
 
         ...new Set(
 
             materials
-            .filter(material =>
-                material.material === value
-            )
-            .map(material =>
-                material.variant
-            )
+                .filter(material =>
+
+                    material.material === value &&
+
+                    (
+                        material.status === "available" ||
+                        material.status === "ordered"
+                    )
+
+                )
+                .map(material =>
+                    material.variant
+                )
 
         )
 
@@ -417,6 +491,7 @@ function changeMaterial(groupId, value){
     });
 
     updateDebug();
+    updateSummary();
 
 }
 function changeVariant(groupId, value){
@@ -425,24 +500,29 @@ function changeVariant(groupId, value){
 
     const colors = [
 
-        ...new Set(
+    ...new Set(
 
-            materials
+        materials
             .filter(material =>
 
                 material.material ===
                 config[groupId].material &&
 
-                material.variant === value
+                material.variant === value &&
+
+                (
+                    material.status === "available" ||
+                    material.status === "ordered"
+                )
 
             )
             .map(material =>
                 material.name
             )
 
-        )
+    )
 
-    ];
+];
 
     const colorSelect =
     document.getElementById(
@@ -460,6 +540,7 @@ function changeVariant(groupId, value){
     });
 
     updateDebug();
+    updateSummary();
 
 }
 function changeColor(groupId, value){
@@ -493,14 +574,158 @@ if(selectedMaterial){
     preview.style.display =
     "block";
 
+    document.getElementById(
+        "mainPreview"
+    ).src = preview.src;
+
     preview.onclick = () =>
         changePreview(preview.src);
 }
 
     updateDebug();
+    updateSummary();
 
 }
+function updateSummary(){
 
+    let totalPrice = 0;
+    let totalWeight = 0;
+    let totalPrintTime = 0;
+
+    model.groups.forEach(group => {
+
+        const module = group.modules[0];
+
+        const quantity =
+        config[group.id]?.quantity || 0;
+
+        const partPrice =
+        calculatePartPrice(group.id);
+
+        totalPrice += partPrice;
+
+        document.getElementById(
+            `${group.id}-price`
+        ).textContent =
+        `Cena části: ${partPrice} Kč`;
+
+        totalWeight +=
+        module.weight * quantity;
+
+        totalPrintTime +=
+        module.printTime * quantity;
+
+    });
+
+document.getElementById(
+    "total-price"
+).textContent =
+totalPrice > 0
+    ? totalPrice + " Kč"
+    : "Vyberte materiál";
+
+    document.getElementById(
+        "total-weight"
+    ).textContent =
+    totalWeight.toFixed(2) + " g";
+
+    document.getElementById(
+        "total-print-time"
+    ).textContent =
+    formatPrintTime(totalPrintTime);
+
+}
+function formatPrintTime(seconds){
+
+    const hours =
+    Math.floor(seconds / 3600);
+
+    const minutes =
+    Math.floor((seconds % 3600) / 60);
+
+    return `${hours} h ${minutes} min`;
+
+}
+function calculatePartPrice(groupId){
+
+    const group =
+    model.groups.find(
+        group => group.id === groupId
+    );
+
+    if(!group){
+        return 0;
+    }
+
+    const module =
+    group.modules[0];
+
+    const quantity =
+    config[groupId].quantity || 0;
+
+    const selectedMaterial =
+materials.find(material =>
+
+    material.material ===
+    config[groupId].material &&
+
+    material.variant ===
+    config[groupId].variant &&
+
+    material.name ===
+    config[groupId].color
+
+);
+
+if(!selectedMaterial){
+    return 0;
+}
+const multiplier =
+    selectedMaterial.multiplier ?? 2.4;
+
+const materialTimeFactor =
+    selectedMaterial.timeFactor ?? 1;
+
+const materialPricePerGram =
+
+selectedMaterial.price
+/
+(selectedMaterial.weight * 1000);
+const weight =
+module.weight * quantity;
+
+const timeMinutes =
+(module.printTime * quantity) / 60;
+
+return Math.round(
+
+    (
+        (
+            weight
+            *
+            materialPricePerGram
+            *
+            multiplier
+        )
+
+        +
+
+        (
+    timeMinutes
+    *
+    materialTimeFactor
+    *
+    0.6
+)
+
+    )
+
+    *
+
+    model.valueFactor
+
+);
+}
 </script>
 
 </body>
