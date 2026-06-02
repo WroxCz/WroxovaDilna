@@ -1,0 +1,36 @@
+Voronoi Mushroom Lamp
+části: 4
+Lamp Kit Adapter
+Mushroom Cap Bottom
+Mushroom Cap Top
+Mushroom Stem
+
+Modern Chess Set
+části: 7 - figurky - 2 barvy - více kusů u pešce, atd
+
+Spiral Vase Rose
+časti: 1 ; velikosi:3 ; varianty 2 s dnem a bez dna; 
+
+Tulip With Stem
+části:3 ; barvy 2 
+
+Perfektní. Tak bych si teď jako první architektonické rozhodnutí Luna Mechanica zapsal:
+
+Model
+ └ Modules
+      ├ weight
+      ├ printTime
+      ├ material
+      ├ color
+      └ quantity
+
+Tulip With Stem
+flower
+stem
+leaf
+
+Rose Spiral Vase
+vase_s
+vase_m
+vase_l
+bottom

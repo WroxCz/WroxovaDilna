@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Košík - Luna Mechanica</title>
+
+    <link
+    rel="stylesheet"
+    href="kosik.css">
+
+</head>
+
+<body>
+
+    <h1>Košík</h1>
+    <a href="../stc-luna.html" class="return-button">
+        ← Zpět na STC Luna
+    </a>
+    <div id="cart-items">
+
+    </div>
+
+<hr>
+
+<div id="cart-summary">
+
+    Celkem v košíku:
+
+    <span id="cart-total">
+        0 Kč
+    </span>
+
+</div>
+
+<script>
+
+let cart = JSON.parse(
+    localStorage.getItem("lm-cart")
+) || [];
+
+let cartTotal = 0;
+
+const container =
+    document.getElementById(
+        "cart-items"
+    );
+
+    function formatTime(seconds){
+
+    const hours =
+        Math.floor(
+            seconds / 3600
+        );
+
+    const minutes =
+        Math.floor(
+            (seconds % 3600) / 60
+        );
+
+    return `${hours} h ${minutes} min`;
+
+}
+
+cart.forEach(item => {
+    cartTotal +=
+        item.unitPrice
+        *
+        item.quantity;
+
+    container.innerHTML += `
+
+    <div class="cart-item">
+
+        <h2>
+            ${item.productName}
+        </h2>
+
+
+
+    <p>
+<button
+    onclick="decreaseQuantity('${item.uid}')">
+
+    -
+
+</button>
+
+<button
+    onclick="increaseQuantity('${item.uid}')">
+
+    +
+
+</button>
+Kusů:
+${item.quantity}
+</p>
+</p>
+
+
+<div>
+
+${Object.entries(item.config)
+.map(([partName, part]) => `
+
+    <h3>
+        ${partName}
+    </h3>
+
+    <p>
+
+        ${part.quantity ?? 1} ks
+
+    </p>
+
+    <p>
+
+        ${part.material ?? "-"}
+
+        ${part.variant ?? ""}
+
+    </p>
+
+    <p>
+
+        ${part.color ?? "-"}
+
+    </p>
+
+`)
+.join("")}
+
+</div>
+
+        <p>
+    Cena za kus:
+    ${item.unitPrice} Kč
+</p>
+
+<p>
+    Mezisoučet:
+    ${item.unitPrice * item.quantity} Kč
+</p>
+
+        <p>
+    Hmotnost:
+    ${(item.unitWeight * item.quantity).toFixed(2)} g
+</p>
+
+        
+<p>
+    Doba tisku:
+    ${formatTime(item.unitPrintTime * item.quantity)}
+</p>
+<button
+    onclick="removeItem('${item.uid}')">
+
+    Smazat
+
+</button>
+
+        <hr>
+
+    </div>
+
+`;
+
+});
+
+document.getElementById(
+    "cart-total"
+).textContent =
+    cartTotal + " Kč";
+
+console.log(cart);
+
+function removeItem(uid){
+
+    cart = cart.filter(item =>
+        item.uid !== uid
+    );
+
+    localStorage.setItem(
+        "lm-cart",
+        JSON.stringify(cart)
+    );
+
+    location.reload();
+
+}
+function increaseQuantity(uid){
+
+    const item =
+        cart.find(item =>
+            item.uid === uid
+        );
+
+    if(item){
+
+        item.quantity++;
+
+    }
+
+    localStorage.setItem(
+        "lm-cart",
+        JSON.stringify(cart)
+    );
+
+    location.reload();
+
+}
+function decreaseQuantity(uid){
+
+    const item =
+        cart.find(item =>
+            item.uid === uid
+        );
+
+    if(item && item.quantity > 1){
+
+        item.quantity--;
+
+    }
+
+    localStorage.setItem(
+        "lm-cart",
+        JSON.stringify(cart)
+    );
+
+    location.reload();
+
+}
+</script>
+</body>
+
+</html>

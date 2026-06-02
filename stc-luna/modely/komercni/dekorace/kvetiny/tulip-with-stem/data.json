@@ -1,0 +1,103 @@
+{
+  "id": "tulip-with-stem",
+
+  "name": "Tulip With Stem",
+
+  "description": "Krásný tulipán se stonkem, který je vhodný jako dekorace nebo jako dárek.",
+
+  "author": "Souky1122",
+
+  "sourceName": "Printables",
+
+  "sourceUrl": "https://www.printables.com/model/681635-beautiful-tulip-with-stem-best-valentines-day-gift",
+
+  "license": "CC BY-SA 4.0",
+
+  "commercialUse": true,
+
+  "preview": "preview.webp",
+
+  "valueFactor": 1.2,
+
+  "groups": [
+
+    {
+      "id": "flower",
+
+      "name": "Květ",
+
+      "type": "fixed",
+
+      "defaultQuantity": 1,
+
+      "modules": [
+        {
+          "id": "flower",
+
+          "name": "Květ",
+
+          "weight": 12.5,
+
+          "printTime": 3164,
+
+          "allowMaterial": true,
+          "allowColor": true
+        }
+      ]
+    },
+
+    {
+      "id": "stem",
+
+      "name": "Stonek",
+
+      "type": "fixed",
+
+      "defaultQuantity": 1,
+
+      "modules": [
+        {
+          "id": "stem",
+
+          "name": "Stonek",
+
+          "weight": 6.09,
+
+          "printTime": 5460,
+
+          "allowMaterial": true,
+          "allowColor": true
+        }
+      ]
+    },
+
+    {
+      "id": "leaf",
+
+      "name": "List",
+
+      "type": "quantity",
+
+      "defaultQuantity": 1,
+
+      "min": 0,
+
+      "max": 3,
+
+      "modules": [
+        {
+          "id": "leaf",
+
+          "name": "List",
+
+          "weight": 4.56,
+
+          "printTime": 5400,
+
+          "allowMaterial": true,
+          "allowColor": true
+        }
+      ]
+    }
+  ]
+}
