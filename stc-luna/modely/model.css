@@ -457,3 +457,26 @@ body {
 
     cursor:pointer;
 }
+.stock-preview{
+
+    width:100%;
+
+    max-width:220px;
+
+    display:block;
+
+    margin:0 auto 12px auto;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:0.2s;
+
+}
+
+.stock-preview:hover{
+
+    transform:scale(1.03);
+
+}

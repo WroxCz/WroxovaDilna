@@ -19,6 +19,94 @@
 
   "valueFactor": 1.2,
 
+"stock": [
+
+  {
+    "id": "stock-001",
+
+    "code": "V-01",
+
+    "name": "Modrý tulipán",
+
+    "quantity": 10,
+
+    "price": 185,
+
+    "image": "preview/stock-v01.webp",
+
+    "config": {
+
+      "flower": {
+        "quantity": 1,
+        "material": "PLA",
+        "variant": "Silk",
+        "color": "Modrá"
+      },
+
+      "stem": {
+        "quantity": 1,
+        "material": "PLA",
+        "variant": "Standard",
+        "color": "Zelená"
+      },
+
+      "leaf": {
+        "quantity": 1,
+        "material": "PLA",
+        "variant": "Standard",
+        "color": "Zelená"
+      }
+
+    }
+
+    
+  }
+  ,
+  {
+    "id": "stock-002",
+
+    "code": "V-02",
+
+    "name": "Červený tulipán",
+
+    "quantity": 5,
+
+    "price": 253,
+
+    "image": "preview/stock-v02.webp",
+
+    "config": {
+
+      "flower": {
+        "quantity": 1,
+        "material": "PLA",
+        "variant": "Standard",
+        "color": "Červená"
+      },
+
+      "stem": {
+        "quantity": 1,
+        "material": "PLA",
+        "variant": "Standard",
+        "color": "Zelená"
+      },
+
+      "leaf": {
+        "quantity": 2,
+        "material": "PLA",
+        "variant": "Standard",
+        "color": "Zelená"
+      }
+
+    }
+
+    
+  }
+
+]
+
+,
+
   "groups": [
 
     {

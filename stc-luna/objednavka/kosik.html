@@ -48,6 +48,12 @@ let cart = JSON.parse(
 
 let cartTotal = 0;
 
+const labels = {
+    flower: "Květ",
+    stem: "Stonek",
+    leaf: "List"
+};
+
 const container =
     document.getElementById(
         "cart-items"
@@ -82,6 +88,29 @@ cart.forEach(item => {
         <h2>
             ${item.productName}
         </h2>
+${item.type === "stock" ? `
+
+    <div class="stock-badge">
+
+        📦 Skladem
+
+        ${item.stockCode}
+
+        -
+
+        ${item.stockName}
+
+    </div>
+
+` : `
+
+    <div class="print-badge">
+
+        🖨️ Zakázkový tisk
+
+    </div>
+
+`}
 
 
 
@@ -105,39 +134,50 @@ ${item.quantity}
 </p>
 
 
+${item.type === "stock" ? `
+
+<div class="stock-info">
+
+    Varianta:
+
+    ${item.stockCode}
+
+    -
+
+    ${item.stockName}
+
+</div>
+
+` : `
+
 <div>
 
 ${Object.entries(item.config)
 .map(([partName, part]) => `
 
     <h3>
-        ${partName}
+        ${labels[partName] || partName}
     </h3>
 
     <p>
-
         ${part.quantity ?? 1} ks
-
     </p>
 
     <p>
-
         ${part.material ?? "-"}
-
         ${part.variant ?? ""}
-
     </p>
 
     <p>
-
         ${part.color ?? "-"}
-
     </p>
 
 `)
 .join("")}
 
 </div>
+
+`}
 
         <p>
     Cena za kus:
@@ -149,16 +189,28 @@ ${Object.entries(item.config)
     ${item.unitPrice * item.quantity} Kč
 </p>
 
-        <p>
+        ${item.type !== "stock" ? `
+
+<p>
     Hmotnost:
     ${(item.unitWeight * item.quantity).toFixed(2)} g
 </p>
 
-        
 <p>
     Doba tisku:
     ${formatTime(item.unitPrintTime * item.quantity)}
 </p>
+
+` : `
+
+<p>
+
+    📦 Produkt je skladem
+
+</p>
+
+`}
+
 <button
     onclick="removeItem('${item.uid}')">
 

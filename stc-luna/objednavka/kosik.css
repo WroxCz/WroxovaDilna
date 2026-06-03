@@ -68,3 +68,47 @@ button{
 
     color:#d6b15f;
 }
+.stock-badge{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    margin-bottom:12px;
+
+    border-radius:10px;
+
+    background:rgba(60,120,60,0.25);
+
+    border:1px solid rgba(100,200,100,0.4);
+
+}
+
+.print-badge{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    margin-bottom:12px;
+
+    border-radius:10px;
+
+    background:rgba(214,177,95,0.15);
+
+    border:1px solid rgba(214,177,95,0.35);
+
+}
+.stock-info{
+
+    margin:12px 0;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    background:rgba(60,120,60,0.12);
+
+    border:1px solid rgba(100,200,100,0.25);
+
+}

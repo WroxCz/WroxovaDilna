@@ -108,6 +108,7 @@
 
         </section>
 
+
 <section class="model-box">
 
     <h2>Souhrn konfigurace</h2>
@@ -137,6 +138,18 @@
     </div>
 
 </section>
+        <section
+            class="model-box"
+            id="stock-box"
+            style="display:none;">
+
+            <h2>📦 Skladem</h2>
+
+            <div id="stock-list">
+
+            </div>
+
+        </section>
 
         <!-- DEBUG -->
 
@@ -172,14 +185,26 @@ let totalPrintTime = 0;
 
 Promise.all([
 
-    fetch("../../../../../sklad/data/pla-alzamet.json")
-    .then(response => response.json()),
+    fetch("../../../../../sklad/data/pla-standard.json")
+        .then(response => response.json()),
+    
+    fetch("../../../../../sklad/data/pla-matte.json")
+        .then(response => response.json()),
+     
+    fetch("../../../../../sklad/data/pla-silk.json")
+    .then(response => response.json()),    
 
-    fetch("../../../../../sklad/data/pla-temu.json")
-    .then(response => response.json()),
+    fetch("../../../../../sklad/data/petg-standard.json")
+    .then(response => response.json()),  
 
-    fetch("../../../../../sklad/data/ProfLab.json")
-    .then(response => response.json())
+    fetch("../../../../../sklad/data/petg-matte.json")
+    .then(response => response.json()),  
+
+    fetch("../../../../../sklad/data/petg-special.json")
+    .then(response => response.json()),  
+
+    fetch("../../../../../sklad/data/petg-cf.json")
+    .then(response => response.json()), 
 
 ])
 
@@ -237,6 +262,118 @@ model.sourceUrl || "#";
 document.getElementById("model-license")
 .textContent =
 model.license || "Neuvedeno";
+
+renderStock();
+
+}
+function renderStock(){
+
+    if(
+        !model.stock ||
+        model.stock.length === 0
+    ){
+        return;
+    }
+
+    document.getElementById(
+        "stock-box"
+    ).style.display = "block";
+
+    const container =
+        document.getElementById(
+            "stock-list"
+        );
+
+    container.innerHTML = "";
+
+    model.stock.forEach(item => {
+
+        if(item.quantity <= 0){
+            return;
+        }
+
+        container.innerHTML += `
+
+            <div class="stock-item">
+
+    ${item.image ? `
+
+        <img
+    src="${item.image}"
+    class="stock-preview"
+    onclick="changePreview('${item.image}')">
+
+    ` : ""}
+
+    <h3>
+
+        ${item.code}
+
+        -
+
+        ${item.name}
+
+    </h3>
+
+                ${Object.entries(item.config)
+                .map(([partName, part]) => `
+
+                    <div class="stock-part">
+
+                        <strong>
+
+                            ${partName}
+
+                        </strong>
+
+                        <p>
+
+                            ${part.quantity ?? 1} ks
+
+                        </p>
+
+                        <p>
+
+                            ${part.material}
+                            ${part.variant}
+
+                        </p>
+
+                        <p>
+
+                            ${part.color}
+
+                        </p>
+
+                    </div>
+
+                `)
+                .join("")}
+
+                <p>
+
+                    📦 ${item.quantity} ks skladem
+
+                </p>
+
+                <p>
+
+                    💰 ${item.price} Kč
+
+                </p>
+
+                <button
+                    onclick="addStockToCart('${item.id}')">
+
+                    Přidat skladem
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
 
 }
 
@@ -801,6 +938,8 @@ function addToCart(){
 
         uid: crypto.randomUUID(),
 
+        type: "print",
+
         productId: model.id,
 
         productName: model.name,
@@ -822,6 +961,54 @@ function addToCart(){
     alert("Přidáno do košíku");
 
 }
+
+function addStockToCart(stockId){
+
+    const stockItem =
+        model.stock.find(
+            item => item.id === stockId
+        );
+
+    if(!stockItem){
+        return;
+    }
+
+    cart.push({
+
+        uid: crypto.randomUUID(),
+
+        type: "stock",
+
+        stockId: stockItem.id,
+
+        stockCode: stockItem.code,
+
+        stockName: stockItem.name,
+
+        productId: model.id,
+
+        productName: model.name,
+
+        quantity: 1,
+
+        config: structuredClone(
+            stockItem.config
+        ),
+
+        unitPrice: stockItem.price,
+
+        unitWeight: 0,
+
+        unitPrintTime: 0
+
+    });
+
+    saveCart();
+
+    alert("Skladová položka přidána");
+
+}
+
 function goToCart(){
 
     window.location.href =
