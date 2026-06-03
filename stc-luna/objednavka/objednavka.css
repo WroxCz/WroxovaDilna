@@ -83,3 +83,28 @@ textarea{
     text-align:center;
 
 }
+.terms-box{
+
+    margin-top:20px;
+
+    margin-bottom:20px;
+
+}
+
+.terms-box label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.terms-box input{
+
+    width:auto;
+
+    margin:0;
+
+}

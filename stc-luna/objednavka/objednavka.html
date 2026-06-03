@@ -68,7 +68,9 @@
 
     <h2>Doprava</h2>
 
-    <select id="delivery">
+    <select
+    id="delivery"
+    onchange="updateDelivery()">
 
         <option value="">
             Vyberte dopravu
@@ -84,6 +86,9 @@
 
         <option value="Balíkovna">
             Balíkovna
+        </option>
+        <option value="PPL"">
+            PPL
         </option>
 
     </select>
@@ -112,14 +117,40 @@
 
     <hr>
 
-    <div id="order-total">
+   <div id="order-subtotal">
 
-        Celkem: 0 Kč
+    Zboží: 0 Kč
 
-    </div>
+</div>
+
+<div id="delivery-price">
+
+    Doprava: 0 Kč
+
+</div>
+
+<hr>
+
+<div id="order-total">
+
+    Celkem: 0 Kč
+
+</div>
 
 </section>
+<div class="terms-box">
 
+    <label>
+
+        <input
+            type="checkbox"
+            id="terms">
+
+        Souhlasím s obchodními podmínkami
+
+    </label>
+
+</div>
 <button
     class="submit-button"
     onclick="submitOrder()">
@@ -141,6 +172,7 @@ if(cart.length === 0){
 
 }
 let totalPrice = 0;
+let deliveryPrice = 0;
 
 const container =
 document.getElementById(
@@ -182,9 +214,19 @@ cart.forEach(item => {
 });
 
 document.getElementById(
+    "order-subtotal"
+).textContent =
+    `Zboží: ${totalPrice} Kč`;
+
+document.getElementById(
+    "delivery-price"
+).textContent =
+    `Doprava: ${deliveryPrice} Kč`;
+
+document.getElementById(
     "order-total"
 ).textContent =
-    `Celkem: ${totalPrice} Kč`;
+    `Celkem: ${totalPrice + deliveryPrice} Kč`;
 
 function submitOrder(){
 
@@ -235,6 +277,19 @@ if(!phone){
 if(!delivery){
 
     alert("Vyberte dopravu.");
+
+    return;
+
+}
+if(
+    !document.getElementById(
+        "terms"
+    ).checked
+){
+
+    alert(
+        "Musíte souhlasit s obchodními podmínkami."
+    );
 
     return;
 
@@ -294,7 +349,13 @@ if(!delivery){
 
         items: cart,
 
-        totalPrice
+        subtotalPrice:
+    totalPrice,
+
+deliveryPrice,
+
+totalPrice:
+    totalPrice + deliveryPrice
 
     };
 
@@ -313,7 +374,41 @@ if(!delivery){
     "dekujeme.html";
 
 }
+function updateDelivery(){
 
+    const delivery =
+        document.getElementById(
+            "delivery"
+        ).value;
+
+    deliveryPrice = 0;
+
+    if(delivery === "Balíkovna"){
+
+        deliveryPrice = 99;
+
+    }
+
+    if(delivery === "Zásilkovna"){
+
+        deliveryPrice = 99;
+
+    }
+    if(delivery === "PPL"){
+    deliveryPrice = 99;
+    }
+
+    document.getElementById(
+        "delivery-price"
+    ).textContent =
+        `Doprava: ${deliveryPrice} Kč`;
+
+    document.getElementById(
+        "order-total"
+    ).textContent =
+        `Celkem: ${totalPrice + deliveryPrice} Kč`;
+
+}
 </script>
 
 </body>
