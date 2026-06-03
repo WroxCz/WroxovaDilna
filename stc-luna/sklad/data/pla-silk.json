@@ -14,8 +14,8 @@
     "multiplier": 3.0,
     "timeFactor": 1,
     
-    "status": "ordered",
-    "statusText": "Objednáno",
+    "status": "available",
+    "statusText": "Dostupné",
 
 
     "printTemperatureMin": "190",
