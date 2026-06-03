@@ -583,19 +583,23 @@ function changeColor(groupId, value){
 
     config[groupId].color = value;
 
-    const selectedMaterial =
-    materials.find(material =>
+const candidates = materials.filter(material =>
 
-        material.material ===
-        config[groupId].material &&
+    material.material ===
+    config[groupId].material &&
 
-        material.variant ===
-        config[groupId].variant &&
+    material.variant ===
+    config[groupId].variant &&
 
-        material.name === value
+    material.name ===
+    config[groupId].color
 
-    );
+);
 
+const selectedMaterial =
+    candidates.find(m => m.status === "available")
+    ||
+    candidates.find(m => m.status === "ordered");
     const preview =
     document.getElementById(
         `${groupId}-preview`

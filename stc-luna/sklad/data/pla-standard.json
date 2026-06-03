@@ -1,0 +1,512 @@
+[
+    {
+    "id": "ALZMNTB01",
+    "name": "Černá",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB01.webp",    
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
+
+    "status": "available",
+    "statusText": "Dostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+    }
+    ,
+{
+    "id": "ALZMNTB02",
+    "name": "Bílá",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB02.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"    
+}
+ ,
+{
+    "id": "ALZMNTB03",
+    "name": "Červená",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB03.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"       
+}
+ ,
+{
+    "id": "ALZMNTB04",
+    "name": "Modrá",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB04.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"     
+}
+ ,
+{
+    "id": "ALZMNTB05",
+    "name": "Žlutá",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB05.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+       
+    "multiplier": 2.4,
+    "timeFactor": 1,
+     
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"    
+}
+ ,
+{
+    "id": "ALZMNTB06",
+    "name": "Šedá",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB06.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"    
+}
+ ,
+{
+    "id": "ALZMNTB07",
+    "name": "Fialová",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB07.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+}
+ ,
+{
+    "id": "ALZMNTB08",
+    "name": "Béžová",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB08.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"    
+}
+ ,
+{
+    "id": "ALZMNTB09",
+    "name": "Mátově zelená",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB09.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+}
+ ,
+{
+    "id": "ALZMNTB10",
+    "name": "Hasičská červená",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB10.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"    
+}
+ ,
+{
+    "id": "ALZMNTB11",
+    "name": "Zlatá",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB11.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"    
+}
+ ,
+{
+    "id": "ALZMNTB12",
+    "name": "Zelená",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB12.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"    
+}
+ ,
+{
+    "id": "ALZMNTB13",
+    "name": "Hnědá",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB13.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"    
+} 
+,
+{
+    "id": "ALZMNTB14",
+    "name": "Nebeská modrá",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB14.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"     
+}
+,
+{
+    "id": "ALZMNTB15",
+    "name": "Růžová",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB15.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"    
+}
+,
+{
+    "id": "ALZMNTB16",
+    "name": "Stříbrná",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB16.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"   
+}
+,
+{
+    "id": "ALZMNTB17",
+    "name": "Průhledná",
+    "image": "matimages/materials/PLA/Alzament/ALZMNTB17.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Standard",
+
+    "price": 249,
+    "weight": 1,
+        
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"    
+}
+
+]

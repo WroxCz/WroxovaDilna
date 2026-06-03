@@ -1,0 +1,125 @@
+[
+    {
+    "id": "ProfLabSpe01",
+    "name": "Průhledná",
+    "image": "matimages/materials/PETG/ProfLab/ProfLabSpe01.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Special",
+
+    "price": 199,
+    "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
+
+    "status": "available",
+    "statusText": "Dostupné",
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
+    "id": "ProfLabSpe02",
+    "name": "Průhledná červená",
+    "image": "matimages/materials/PETG/ProfLab/ProfLabSpe02.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Special",
+
+    "price": 199,
+    "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
+
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
+    "id": "ProfLabSpe03",
+    "name": "Průhledná modrá",
+    "image": "matimages/materials/PETG/ProfLab/ProfLabSpe03.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Special",
+
+    "price": 199,
+    "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
+
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
+    "id": "ProfLabSpe04",
+    "name": "Dub",
+    "image": "matimages/materials/PETG/ProfLab/ProfLabSpe04.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Special",
+
+    "price": 199,
+    "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1.2,
+
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+]

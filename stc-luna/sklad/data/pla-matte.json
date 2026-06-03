@@ -1,0 +1,63 @@
+[
+{
+    "id": "ALZMNTM01",
+    "name": "Černá",
+    "image": "matimages/materials/PLA/Alzament-Mat/ALZMNTM01.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Matte",
+
+    "price": 319,
+    "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
+    
+    "status": "available",
+    "statusText": "Dostupné",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "210",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "40",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"    
+    
+}
+,
+{
+    "id": "ALZMNTM02",
+    "name": "Bílá",
+    "image": "matimages/materials/PLA/Alzament-Mat/ALZMNTM02.webp",
+
+    "manufacturer": "Alzamet",
+    "material": "PLA",
+    "variant": "Matte",
+    
+    "price": 319,
+    "weight": 1,
+        
+    "multiplier": 2.5,
+    "timeFactor": 1,
+    
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "210",
+
+    "bedTemperatureMin": "45",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "40",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+]

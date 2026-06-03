@@ -14,23 +14,45 @@ document.getElementById(
     "variant-bar"
 );
 
+const filterBar =
+document.getElementById(
+    "filter-bar"
+);
+
 Promise.all([
 
 
-    fetch("data/pla-alzamet.json")
+    fetch("data/pla-standard.json")
         .then(response => response.json()),
     
-    fetch("data/pla-temu.json")
+    fetch("data/pla-matte.json")
         .then(response => response.json()),
      
-    fetch("data/ProfLab.json")
-    .then(response => response.json())    
+    fetch("data/pla-silk.json")
+    .then(response => response.json()),    
+
+    fetch("data/petg-standard.json")
+    .then(response => response.json()),  
+
+    fetch("data/petg-matte.json")
+    .then(response => response.json()),  
+
+    fetch("data/petg-special.json")
+    .then(response => response.json()),  
+
+    fetch("data/petg-cf.json")
+    .then(response => response.json())  
+    
 
 ])
 
 .then(allData => {
 
     allMaterials = allData.flat();
+
+    createFilters();
+
+    bindFilterEvents();
 
     renderMaterials(allMaterials);
 
@@ -88,17 +110,38 @@ function renderMaterials(data){
     });
 }
 
+function createFilters(){
+
+    const materials = [
+
+        "Vše",
+
+        ...new Set(
+            allMaterials.map(
+                m => m.material
+            )
+        )
+    ];
+
+    filterBar.innerHTML =
+    materials.map(material => `
+
+        <button
+            class="filter-button
+            ${material === "Vše" ? "active" : ""}">
+
+            ${material}
+
+        </button>
+
+    `).join("");
+}
+
 function applyFilters(){
 
-    activeManufacturer = activeManufacturer.trim();
+activeManufacturer = activeManufacturer.trim();
 activeVariant = activeVariant.trim();
 activeMaterial = activeMaterial.trim();
-
- console.log({
-        material: activeMaterial,
-        manufacturer: activeManufacturer,
-        variant: activeVariant
-    })
 
     let filtered = allMaterials;
 
@@ -116,7 +159,11 @@ activeMaterial = activeMaterial.trim();
     );
 }
 
-    if(activeVariant !== ""){
+    if(
+    activeVariant !== ""
+    &&
+    activeVariant !== "Vše"
+){
 
     filtered = filtered.filter(material =>
         material.variant.trim() === activeVariant
@@ -127,12 +174,10 @@ activeMaterial = activeMaterial.trim();
 }
 function updateVisibleFilters(){
 
-    /* KDYŽ JE VŠE */
-
     if(activeMaterial === "Vše"){
 
     activeManufacturer = "Vše";
-    activeVariant = "Vše";
+    activeVariant = "";
 
     manufacturerBar.style.display =
     "none";
@@ -140,257 +185,204 @@ function updateVisibleFilters(){
     variantBar.style.display =
     "none";
 
-    /* OBNOVIT BUTTONY */
+    manufacturerBar.innerHTML = "";
+    variantBar.innerHTML = "";    
 
-    document
-    .querySelectorAll(
-        ".manufacturer-button"
-    )
-
-    .forEach(button => {
-
-        button.style.display =
-        "inline-block";
-    });
-
-    document
-    .querySelectorAll(
-        ".variant-button"
-    )
-
-    .forEach(button => {
-
-        button.style.display =
-        "inline-block";
-    });
+bindFilterEvents();
 
     return;
 }
 
     manufacturerBar.style.display =
+"none";
+
+variantBar.style.display =
+"flex";
+   
+const variants = [
+
+    "Vše",
+
+    ...new Set(
+
+        allMaterials
+
+        .filter(material =>
+
+            activeMaterial === "Vše"
+
+            ||
+
+            material.material === activeMaterial
+
+        )
+
+        .map(material => material.variant)
+
+    )
+
+];
+
+variantBar.innerHTML =
+
+variants.map(variant => `
+
+    <button
+        class="variant-button
+        ${variant === activeVariant ? "active" : ""}">
+
+        ${variant}
+
+    </button>
+
+`).join("");
+
+const manufacturers = [
+
+    "Vše",
+
+    ...new Set(
+
+        allMaterials
+
+        .filter(material =>
+
+            material.material === activeMaterial
+
+            &&
+
+            (
+                activeVariant === ""
+                ||
+                activeVariant === "Vše"
+                ||
+                material.variant === activeVariant
+            )
+
+        )
+
+        .map(material =>
+            material.manufacturer
+        )
+
+    )
+
+];
+
+manufacturerBar.innerHTML =
+
+manufacturers.map(manufacturer => `
+
+    <button
+        class="manufacturer-button
+        ${manufacturer === activeManufacturer ? "active" : ""}">
+
+        ${manufacturer}
+
+    </button>
+
+`).join("");
+
+manufacturerBar.style.display =
 "flex";
 
-if(activeManufacturer === "Vše"){
-
-    variantBar.style.display =
-    "none";
+bindFilterEvents();
 }
 
-else{
+function bindFilterEvents(){
 
-    variantBar.style.display =
-    "flex";
-}
-
-    /* VÝROBCI */
-
-    const availableManufacturers =
-    allMaterials
-
-    .filter(material =>
-        material.material.toLowerCase() === activeMaterial.toLowerCase()
-    )
-
-    .map(material =>
-        material.manufacturer
-    );
-
-    if(
-    activeManufacturer !== "Vše"
-    &&
-    !availableManufacturers.includes(activeManufacturer)
-){
-    activeManufacturer = "Vše";
-}
+    /* MATERIÁL */
 
     document
-    .querySelectorAll(
-        ".manufacturer-button"
-    )
+    .querySelectorAll(".filter-button")
 
     .forEach(button => {
 
-        if(
-            button.innerText.trim() === "Vše"
-            ||
-            availableManufacturers.includes(
-                button.innerText.trim()
-            )
-        ){
+        button.addEventListener("click", () => {
 
-            button.style.display =
-            "inline-block";
-        }
+            document
+            .querySelectorAll(".filter-button")
 
-        else{
+            .forEach(btn =>
+                btn.classList.remove("active")
+            );
 
-            button.style.display = "none";
-            button.classList.remove("active");
-        }
-    });
+            button.classList.add("active");
 
-    /* VARIANTY */
+            activeMaterial =
+            button.innerText.trim();
 
-    const availableVariants =
-allMaterials
+            activeManufacturer = "Vše";
+            activeVariant = "Vše";
 
-.filter(material =>
+            updateVisibleFilters();
 
-    material.material.toLowerCase() === activeMaterial.toLowerCase()
+            applyFilters();
 
-    &&
-
-    (
-        activeManufacturer === "Vše"
-        ||
-        material.manufacturer.toLowerCase() === activeManufacturer.toLowerCase()
-    )
-)
-
-.map(material =>
-    material.variant
-);
-
-if(
-    activeManufacturer !== "Vše"
-    &&
-    !availableManufacturers.includes(activeManufacturer)
-){
-    activeManufacturer = "Vše";
-}
-
-    document
-    .querySelectorAll(
-        ".variant-button"
-    )
-
-    .forEach(button => {
-
-        if(
-            button.innerText.trim() === "Vše"
-            ||
-            availableVariants.includes(
-                button.innerText.trim()
-            )
-        ){
-
-            button.style.display =
-            "inline-block";
-        }
-
-        else{
-
-            button.style.display =
-            "none";
-        }
-    });
-}
-
-/* MATERIÁL */
-
-document
-.querySelectorAll(".filter-button")
-
-.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        document
-        .querySelectorAll(".filter-button")
-
-        .forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        button.classList.add("active");
-
-        activeMaterial =
-        button.innerText.trim();
-
-        activeManufacturer = "Vše";
-        activeVariant = "";
-
-        /* RESET ACTIVE BUTTONŮ */
-
-        document
-        .querySelectorAll(".manufacturer-button")
-        .forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        document
-        .querySelectorAll(".variant-button")
-        .forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        /* AKTIVOVAT VŠE */
-
-        document
-        .querySelectorAll(".variant-button")
-        .forEach((btn) => {
-
-            if(btn.innerText.trim() === "Vše"){
-
-                btn.classList.add("active");
-            }
         });
 
-        updateVisibleFilters();
+    });
 
-        applyFilters();
+
+
+    /* VÝROBCE */
+
+    document
+    .querySelectorAll(".manufacturer-button")
+
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            document
+            .querySelectorAll(".manufacturer-button")
+
+            .forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+            button.classList.add("active");
+
+            activeManufacturer =
+            button.innerText.trim();
+
+            updateVisibleFilters();
+
+            applyFilters();
+
+        });
 
     });
-});
 
-/* VÝROBCE */
 
-document
-.querySelectorAll(".manufacturer-button")
 
-.forEach(button => {
+    /* VARIANTA */
 
-    button.addEventListener("click", () => {
+    document
+    .querySelectorAll(".variant-button")
 
-        document
-        .querySelectorAll(".manufacturer-button")
+    .forEach(button => {
 
-        .forEach(btn =>
-            btn.classList.remove("active")
-        );
+        button.addEventListener("click", () => {
 
-        button.classList.add("active");
+            document
+            .querySelectorAll(".variant-button")
 
-        activeManufacturer =
-        button.innerText.trim();
+            .forEach(btn =>
+                btn.classList.remove("active")
+            );
 
-        updateVisibleFilters();
+            button.classList.add("active");
 
-        applyFilters();
+            activeVariant =
+            button.innerText.trim();
+
+            updateVisibleFilters();
+
+            applyFilters();
+
+        });
+
     });
-});
 
-/* VARIANTA */
-
-document
-.querySelectorAll(".variant-button")
-
-.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        document
-        .querySelectorAll(".variant-button")
-
-        .forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        button.classList.add("active");
-
-        activeVariant =
-        button.innerText.trim();
-
-        applyFilters();
-    });
-});
+}
