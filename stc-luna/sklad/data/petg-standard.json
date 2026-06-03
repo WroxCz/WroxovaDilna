@@ -169,8 +169,8 @@
     "multiplier": 2.4,
     "timeFactor": 1,
 
-    "status": "unavailable",
-    "statusText": "Nedostupné",
+    "status": "ordered",
+    "statusText": "Objednáno",
 
     "printTemperatureMin": "230",
     "printTemperatureMax": "250",
@@ -386,8 +386,8 @@
     "multiplier": 2.4,
     "timeFactor": 1,
 
-    "status": "unavailable",
-    "statusText": "Nedostupné",
+    "status": "ordered",
+    "statusText": "Objednáno",
 
     "printTemperatureMin": "230",
     "printTemperatureMax": "250",
