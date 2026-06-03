@@ -40,6 +40,14 @@
 
 </div>
 
+<br>
+
+<button onclick="goToOrder()">
+
+    Pokračovat k objednávce
+
+</button>
+
 <script>
 
 let cart = JSON.parse(
@@ -287,6 +295,43 @@ function decreaseQuantity(uid){
     );
 
     location.reload();
+
+}
+function decreaseQuantity(uid){
+
+    const item =
+        cart.find(item =>
+            item.uid === uid
+        );
+
+    if(item && item.quantity > 1){
+
+        item.quantity--;
+
+    }
+
+    localStorage.setItem(
+        "lm-cart",
+        JSON.stringify(cart)
+    );
+
+    location.reload();
+
+}
+function goToOrder(){
+
+    if(cart.length === 0){
+
+        alert(
+            "Košík je prázdný."
+        );
+
+        return;
+
+    }
+
+    window.location.href =
+        "objednavka.html";
 
 }
 </script>

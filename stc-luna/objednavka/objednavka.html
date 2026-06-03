@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Objednávka - Luna Mechanica</title>
+
+<link rel="stylesheet" href="objednavka.css">
+
+</head>
+
+<body>
+
+<h1>Objednávka</h1>
+
+<a href="kosik.html" class="return-button">
+    ← Zpět do košíku
+</a>
+
+<hr>
+
+<section class="order-box">
+
+    <h2>Kontaktní údaje</h2>
+
+    <input
+        type="text"
+        id="customer-name"
+        placeholder="Jméno a příjmení">
+
+    <input
+        type="email"
+        id="customer-email"
+        placeholder="E-mail">
+
+    <input
+        type="tel"
+        id="customer-phone"
+        placeholder="Telefon">
+
+</section>
+
+<section class="order-box">
+
+    <h2>Adresa</h2>
+
+    <input
+        type="text"
+        id="customer-street"
+        placeholder="Ulice a číslo popisné">
+
+    <input
+        type="text"
+        id="customer-city"
+        placeholder="Město">
+
+    <input
+        type="text"
+        id="customer-zip"
+        placeholder="PSČ">
+
+</section>
+
+<section class="order-box">
+
+    <h2>Doprava</h2>
+
+    <select id="delivery">
+
+        <option value="">
+            Vyberte dopravu
+        </option>
+
+        <option value="Osobní odběr">
+            Osobní odběr
+        </option>
+
+        <option value="Zásilkovna">
+            Zásilkovna
+        </option>
+
+        <option value="Balíkovna">
+            Balíkovna
+        </option>
+
+    </select>
+
+</section>
+
+<section class="order-box">
+
+    <h2>Poznámka</h2>
+
+    <textarea
+        id="customer-note"
+        rows="5"
+        placeholder="Poznámka k objednávce">
+    </textarea>
+
+</section>
+
+<section class="order-box">
+
+    <h2>Rekapitulace objednávky</h2>
+
+    <div id="order-items">
+
+    </div>
+
+    <hr>
+
+    <div id="order-total">
+
+        Celkem: 0 Kč
+
+    </div>
+
+</section>
+
+<button
+    class="submit-button"
+    onclick="submitOrder()">
+
+    Odeslat objednávku
+
+</button>
+
+<script>
+let cart =
+JSON.parse(
+    localStorage.getItem("lm-cart")
+) || [];
+
+if(cart.length === 0){
+
+    window.location.href =
+        "kosik.html";
+
+}
+let totalPrice = 0;
+
+const container =
+document.getElementById(
+    "order-items"
+);
+
+cart.forEach(item => {
+
+    const subtotal =
+        item.unitPrice *
+        item.quantity;
+
+    totalPrice += subtotal;
+
+    container.innerHTML += `
+
+        <div class="order-item">
+
+            <h3>
+                ${item.productName}
+            </h3>
+
+            <p>
+                Kusů:
+                ${item.quantity}
+            </p>
+
+            <p>
+                Cena:
+                ${subtotal} Kč
+            </p>
+
+        </div>
+
+        <hr>
+
+    `;
+
+});
+
+document.getElementById(
+    "order-total"
+).textContent =
+    `Celkem: ${totalPrice} Kč`;
+
+function submitOrder(){
+
+const name =
+document.getElementById(
+    "customer-name"
+).value.trim();
+
+const email =
+document.getElementById(
+    "customer-email"
+).value.trim();
+
+const phone =
+document.getElementById(
+    "customer-phone"
+).value.trim();
+
+const delivery =
+document.getElementById(
+    "delivery"
+).value;
+
+if(!name){
+
+    alert("Vyplňte jméno.");
+
+    return;
+
+}
+
+if(!email){
+
+    alert("Vyplňte e-mail.");
+
+    return;
+
+}
+
+if(!phone){
+
+    alert("Vyplňte telefon.");
+
+    return;
+
+}
+
+if(!delivery){
+
+    alert("Vyberte dopravu.");
+
+    return;
+
+}
+
+    const order = {
+
+        id:
+            crypto.randomUUID(),
+
+        created:
+            new Date().toISOString(),
+
+        customer: {
+
+            name:
+                document.getElementById(
+                    "customer-name"
+                ).value,
+
+            email:
+                document.getElementById(
+                    "customer-email"
+                ).value,
+
+            phone:
+                document.getElementById(
+                    "customer-phone"
+                ).value,
+
+            street:
+                document.getElementById(
+                    "customer-street"
+                ).value,
+
+            city:
+                document.getElementById(
+                    "customer-city"
+                ).value,
+
+            zip:
+                document.getElementById(
+                    "customer-zip"
+                ).value
+
+        },
+
+        delivery:
+            document.getElementById(
+                "delivery"
+            ).value,
+
+        note:
+            document.getElementById(
+                "customer-note"
+            ).value,
+
+        items: cart,
+
+        totalPrice
+
+    };
+
+    localStorage.setItem(
+        "lm-last-order",
+        JSON.stringify(order)
+    );
+
+    console.log(order);
+
+    localStorage.removeItem(
+        "lm-cart"
+    );
+
+    window.location.href =
+    "dekujeme.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
