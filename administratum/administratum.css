@@ -317,6 +317,9 @@ button:hover,
 
     margin-top:20px;
 }
+.scroll-single .scroll-link{
+    width:290px;
+}
 details{
     margin-top:15px;
 
