@@ -1,5 +1,5 @@
 import { db, auth }
-from "../firebase/firebase.js";
+from "../../firebase/firebase.js";
 
 import {
     collection,
