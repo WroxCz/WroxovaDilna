@@ -1,0 +1,153 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:
+        radial-gradient(circle at top,#2a1d10 0%,#120d08 30%,#080606 100%);
+    color:#d7c6a0;
+    font-family:Georgia, "Times New Roman", serif;
+    min-height:100vh;
+    padding:50px 20px;
+}
+
+.svitek{
+    max-width:900px;
+    margin:auto;
+    background:#18120c;
+    border:1px solid #6c542d;
+    padding:70px;
+    box-shadow:
+        0 0 30px rgba(0,0,0,0.7),
+        inset 0 0 60px rgba(255,210,120,0.05);
+}
+
+.svitek-header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.svitek-header h1{
+    font-size:2.8rem;
+    font-weight:normal;
+    color:#e7d7b2;
+    margin-bottom:20px;
+}
+
+.ornament{
+    color:#a98a4f;
+    letter-spacing:10px;
+    font-size:1.2rem;
+}
+
+.ornament.large{
+    text-align:center;
+    margin:60px 0;
+}
+
+.obsah{
+    text-align:center;
+    line-height:2.2;
+    font-size:1.15rem;
+}
+
+.obsah p{
+    margin-bottom:22px;
+}
+
+.vyznamny-odstavec{
+    font-size:1.35rem;
+    color:#f0e1be;
+    margin:40px 0;
+}
+
+.zaver{
+    margin-top:40px;
+    font-style:italic;
+}
+
+.podpisy{
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+    margin-top:40px;
+}
+
+.podpis{
+    width:50%;
+    text-align:center;
+}
+
+.podpis h3{
+    color:#e3d3ad;
+    font-weight:normal;
+    margin-bottom:12px;
+}
+
+.podpis p{
+    color:#b79c68;
+    font-style:italic;
+}
+
+.archiv{
+    margin-top:80px;
+    padding-top:30px;
+    border-top:1px solid #5d4826;
+    text-align:center;
+}
+
+.archiv p{
+    margin-bottom:12px;
+    color:#b89f70;
+}
+
+.evidence{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    font-size:0.9rem;
+    color:#9d8458;
+}
+
+strong{
+    color:#f1e4c3;
+}
+
+@media(max-width:700px){
+
+    .svitek{
+        padding:40px 25px;
+    }
+
+    .svitek-header h1{
+        font-size:2rem;
+    }
+
+    .podpisy{
+        flex-direction:column;
+    }
+
+    .podpis{
+        width:100%;
+    }
+
+}
+.return-bottom{
+    text-align:center;
+    margin-top:40px;
+}
+
+.return-button{
+    color:#b89f70;
+    text-decoration:none;
+    font-style:italic;
+    transition:0.3s;
+}
+
+.return-button:hover{
+    color:#f1e4c3;
+}
