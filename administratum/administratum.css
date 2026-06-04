@@ -317,3 +317,25 @@ button:hover,
 
     margin-top:20px;
 }
+details{
+    margin-top:15px;
+
+    background:rgba(0,0,0,0.25);
+
+    border:1px solid rgba(214,165,92,0.3);
+    border-radius:12px;
+
+    padding:15px;
+}
+
+summary{
+    cursor:pointer;
+
+    color:#d6a55c;
+
+    font-weight:bold;
+}
+
+details p{
+    margin-top:15px;
+}
