@@ -93,6 +93,37 @@
 }
 ,
 {
+    "id": "ProfLabSpe05",
+    "name": "Průhledná žlutá",
+    "image": "matimages/materials/PETG/ProfLab/ProfLabSpe05.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Special",
+
+    "price": 199,
+    "weight": 1,
+    
+    "multiplier": 2.5,
+    "timeFactor": 1,
+
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
     "id": "ProfLabSpe04",
     "name": "Dub",
     "image": "matimages/materials/PETG/ProfLab/ProfLabSpe04.webp",
