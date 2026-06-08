@@ -20,7 +20,8 @@ const modely = [
         name: "Tulipán se stonkem",
         category: "dekorace",
         subcategory: "Květiny",
-        folder: "tulip-with-stem"
+        folder: "tulip-with-stem",
+        path: "./komercni/dekorace/kvetiny/tulip-with-stem/model.html"
     }
     ,
 
@@ -30,14 +31,24 @@ const modely = [
         name: "Piraten Benchy",
         category: "testovaci-modely",
         subcategory: "Benchy",
-        folder: "piraten-benchy"
+        folder: "piraten-benchy",
+        path: "./testovaci-modely/Benchy/Piraten Benchy/model.html"
     }
+    ,
+    {
+        name: "Benchy Wikinger2",
+        category: "testovaci-modely",
+        subcategory: "Benchy",
+        folder: "piraten-benchy",
+        path: "./testovaci-modely/Benchy/Benchy Wikinger2/model.html"
+    }
+
 
 ];
 
 function vytvorModel(model) {
 
-    const container = document.getElementById("dekorace-list");
+    const container = document.getElementById(model.category + "-list");
 
     let sub = document.getElementById("sub-" + model.subcategory);
 
@@ -60,8 +71,7 @@ function vytvorModel(model) {
 
     const link = document.createElement("a");
 
-    link.href =
-        `./komercni/${model.category}/kvetiny/${model.folder}/model.html`;
+    link.href = model.path;
 
     link.textContent = model.name;
 
