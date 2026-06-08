@@ -14,8 +14,8 @@
     "multiplier": 2.4,
     "timeFactor": 1,
 
-    "status": "ordered",
-    "statusText": "Objednáno",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -44,8 +44,8 @@
     "multiplier": 2.4,
     "timeFactor": 1,
     
-    "status": "ordered",
-    "statusText": "Objednáno",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -74,8 +74,8 @@
     "multiplier": 2.4,
     "timeFactor": 1,
     
-    "status": "ordered",
-    "statusText": "Objednáno",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -104,8 +104,8 @@
     "multiplier": 2.4,
     "timeFactor": 1,
     
-    "status": "ordered",
-    "statusText": "Objednáno",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -134,8 +134,8 @@
     "multiplier": 2.4,
     "timeFactor": 1,
      
-    "status": "ordered",
-    "statusText": "Objednáno",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -164,8 +164,8 @@
     "multiplier": 2.4,
     "timeFactor": 1,
     
-    "status": "ordered",
-    "statusText": "Objednáno",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",
@@ -344,8 +344,8 @@
     "multiplier": 2.4,
     "timeFactor": 1,
     
-    "status": "ordered",
-    "statusText": "Objednáno",
+    "status": "unavailable",
+    "statusText": "Nedostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "220",

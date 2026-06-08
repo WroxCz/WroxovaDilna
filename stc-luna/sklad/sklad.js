@@ -21,28 +21,35 @@ document.getElementById(
 
 Promise.all([
 
-
-    fetch("data/pla-standard.json")
-        .then(response => response.json()),
-    
-    fetch("data/pla-matte.json")
-        .then(response => response.json()),
-     
-    fetch("data/pla-silk.json")
-    .then(response => response.json()),    
-
-    fetch("data/petg-standard.json")
-    .then(response => response.json()),  
+    fetch("data/petg-cf.json")
+    .then(response => response.json()),
 
     fetch("data/petg-matte.json")
     .then(response => response.json()),  
 
     fetch("data/petg-special.json")
-    .then(response => response.json()),  
+    .then(response => response.json()),
 
-    fetch("data/petg-cf.json")
-    .then(response => response.json())  
+    fetch("data/petg-standard.json")
+    .then(response => response.json()),
+
+
+
+    fetch("data/pla-matte.json")
+    .then(response => response.json()),
+
+    fetch("data/pla-plus.json")
+    .then(response => response.json()), 
+
+    fetch("data/pla-silk.json")
+    .then(response => response.json()),    
+
+    fetch("data/pla-standard.json")
+        .then(response => response.json()),
     
+    fetch("data/pla-standard.json")
+        .then(response => response.json()) 
+ 
 
 ])
 

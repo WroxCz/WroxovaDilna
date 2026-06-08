@@ -1,0 +1,318 @@
+[
+    {
+    "id": "ELEEG250807",
+    "name": "Black - Černá",
+    "image": "matimages/materials/PLA/Elegoo/ELEEG250807.webp",    
+
+    "manufacturer": "Elegoo",
+    "material": "PLA",
+    "variant": "+",
+
+    "price": 292,
+    "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
+
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "200",
+    "printTemperatureMax": "230",
+
+    "bedTemperatureMin": "35",
+    "bedTemperatureMax": "65",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "280",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+    }
+    ,
+{
+    "id": "ELEEG250810",
+    "name": "Průsvitná",
+    "image": "matimages/materials/PLA/Elegoo/ELEEG250810.webp",
+
+    "manufacturer": "Elegoo",
+    "material": "PLA",
+    "variant": "+",
+
+    "price": 292,
+    "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "200",
+    "printTemperatureMax": "230",
+
+    "bedTemperatureMin": "35",
+    "bedTemperatureMax": "65",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "280",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]" 
+}
+    ,
+{
+    "id": "ELEEG250808",
+    "name": "Šedá",
+    "image": "matimages/materials/PLA/Elegoo/ELEEG250808.webp",
+
+    "manufacturer": "Elegoo",
+    "material": "PLA",
+    "variant": "+",
+
+    "price": 295,
+    "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "200",
+    "printTemperatureMax": "230",
+
+    "bedTemperatureMin": "35",
+    "bedTemperatureMax": "65",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "280",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]" 
+}
+    ,
+{
+    "id": "ELEEG250806",
+    "name": "Bílá",
+    "image": "matimages/materials/PLA/Elegoo/ELEEG250806.webp",
+
+    "manufacturer": "Elegoo",
+    "material": "PLA",
+    "variant": "+",
+
+    "price": 319,
+    "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "200",
+    "printTemperatureMax": "230",
+
+    "bedTemperatureMin": "35",
+    "bedTemperatureMax": "65",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "280",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]" 
+}
+    ,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    "id": "ELEEG240427",
+    "name": "Bílá",
+    "image": "matimages/materials/PLA/Elegoo/ELEEG240427.webp",
+
+    "manufacturer": "Elegoo",
+    "material": "PLA",
+    "variant": "Rapid",
+
+    "price": 324,
+    "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+    "printTemperatureMin": "200",
+    "printTemperatureMax": "230",
+
+    "bedTemperatureMin": "35",
+    "bedTemperatureMax": "65",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "600",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]" 
+}
+    ,
+{
+    "id": "ELEEG240426",
+    "name": "Černá",
+    "image": "matimages/materials/PLA/Elegoo/ELEEG240426.webp",
+
+    "manufacturer": "Elegoo",
+    "material": "PLA",
+    "variant": "Rapid",
+
+    "price": 345,
+    "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+    "printTemperatureMin": "200",
+    "printTemperatureMax": "230",
+
+    "bedTemperatureMin": "35",
+    "bedTemperatureMax": "65",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "600",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]" 
+}
+    ,
+{
+    "id": "ELEEG240428",
+    "name": "Šedá",
+    "image": "matimages/materials/PLA/Elegoo/ELEEG240428.webp",
+
+    "manufacturer": "Elegoo",
+    "material": "PLA",
+    "variant": "Rapid",
+
+    "price": 353,
+    "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+    "printTemperatureMin": "200",
+    "printTemperatureMax": "230",
+
+    "bedTemperatureMin": "35",
+    "bedTemperatureMax": "65",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "600",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]" 
+}
+    ,
+{
+    "id": "ELEEG240429",
+    "name": "Modrá",
+    "image": "matimages/materials/PLA/Elegoo/ELEEG240429.webp",
+
+    "manufacturer": "Elegoo",
+    "material": "PLA",
+    "variant": "Rapid",
+
+    "price": 354,
+    "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "200",
+    "printTemperatureMax": "230",
+
+    "bedTemperatureMin": "35",
+    "bedTemperatureMax": "65",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "600",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]" 
+}
+    ,
+{
+    "id": "ELEEG240430",
+    "name": "Žlutá",
+    "image": "matimages/materials/PLA/Elegoo/ELEEG240430.webp",
+
+    "manufacturer": "Elegoo",
+    "material": "PLA",
+    "variant": "Rapid",
+
+    "price": 354,
+    "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+    "printTemperatureMin": "200",
+    "printTemperatureMax": "230",
+
+    "bedTemperatureMin": "35",
+    "bedTemperatureMax": "65",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "600",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]" 
+}
+    ,
+{
+    "id": "ELEEG240431",
+    "name": "Červená",
+    "image": "matimages/materials/PLA/Elegoo/ELEEG240431.webp",
+
+    "manufacturer": "Elegoo",
+    "material": "PLA",
+    "variant": "Rapid",
+
+    "price": 364,
+    "weight": 1,
+
+    "multiplier": 2.4,
+    "timeFactor": 1,
+    
+    "status": "unavailable",
+    "statusText": "Nedostupné",
+
+    "printTemperatureMin": "200",
+    "printTemperatureMax": "230",
+
+    "bedTemperatureMin": "35",
+    "bedTemperatureMax": "65",
+
+    "printSpeedMin": "50",
+    "printSpeedMax": "600",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]" 
+}
+]

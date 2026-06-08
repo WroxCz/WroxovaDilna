@@ -185,26 +185,34 @@ let totalPrintTime = 0;
 
 Promise.all([
 
-    fetch("../../../../../sklad/data/pla-standard.json")
-        .then(response => response.json()),
-    
-    fetch("../../../../../sklad/data/pla-matte.json")
-        .then(response => response.json()),
-     
-    fetch("../../../../../sklad/data/pla-silk.json")
-    .then(response => response.json()),    
-
-    fetch("../../../../../sklad/data/petg-standard.json")
-    .then(response => response.json()),  
+    fetch("../../../../../sklad/data/petg-cf.json")
+    .then(response => response.json()),
 
     fetch("../../../../../sklad/data/petg-matte.json")
     .then(response => response.json()),  
 
     fetch("../../../../../sklad/data/petg-special.json")
-    .then(response => response.json()),  
+    .then(response => response.json()),
 
-    fetch("../../../../../sklad/data/petg-cf.json")
+    fetch("../../../../../sklad/data/petg-standard.json")
+    .then(response => response.json()),
+
+
+
+    fetch("../../../../../sklad/data/pla-matte.json")
+    .then(response => response.json()),
+
+    fetch("../../../../../sklad/data/pla-plus.json")
     .then(response => response.json()), 
+
+    fetch("../../../../../sklad/data/pla-silk.json")
+    .then(response => response.json()),    
+
+    fetch("../../../../../sklad/data/pla-standard.json")
+        .then(response => response.json()),
+    
+    fetch("../../../../../sklad/data/pla-standard.json")
+        .then(response => response.json()) 
 
 ])
 

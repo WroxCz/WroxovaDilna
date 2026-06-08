@@ -1,0 +1,12 @@
+[
+    {
+    "status": "unavailable",
+    "statusText": "Nedostupné"
+    },{    
+    "status": "ordered",
+    "statusText": "Objednáno"
+    },{
+    "status": "available",
+    "statusText": "Dostupné"
+    }
+]
