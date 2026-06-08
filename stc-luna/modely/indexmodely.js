@@ -22,6 +22,16 @@ const modely = [
         subcategory: "Květiny",
         folder: "tulip-with-stem"
     }
+    ,
+
+
+
+     {
+        name: "Piraten Benchy",
+        category: "testovaci-modely",
+        subcategory: "Benchy",
+        folder: "piraten-benchy"
+    }
 
 ];
 
