@@ -31,6 +31,37 @@
 }
 ,
 {
+    "id": "ProfLab13",
+    "name": "Bílá",
+    "image": "matimages/materials/PETG/Elegoo/ELEEG240444.webp",
+
+    "manufacturer": "ProfLab",
+    "material": "PETG",
+    "variant": "Rapid",
+
+    "price": 308,
+    "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
+
+    "status": "ordered",
+    "statusText": "Objednáno",
+
+    "printTemperatureMin": "240",
+    "printTemperatureMax": "270",
+
+    "bedTemperatureMin": "65",
+    "bedTemperatureMax": "75",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "600",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
     "id": "ProfLab02",
     "name": "Růžová",
     "image": "matimages/materials/PETG/ProfLab/ProfLab02.webp",
