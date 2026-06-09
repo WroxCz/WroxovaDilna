@@ -185,8 +185,10 @@ if(
             zip:
                 document.getElementById(
                     "customer-zip"
-                ).value
+                ).value,
 
+                status: "NOVÁ",
+                paymentStatus: "NEZAPLACENO",
         },
 
         delivery:

@@ -438,3 +438,38 @@ a:hover {
 
     box-shadow: none;
 }
+.orders-card{
+
+    cursor: pointer;
+
+}
+
+.orders-menu{
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+}
+
+.orders-menu a{
+
+    margin-top: 0;
+
+    width: fit-content;
+
+    font-size: 18px;
+
+    padding: 10px 18px;
+
+}
+
+.orders-card.open .orders-menu{
+
+    display: flex;
+
+}

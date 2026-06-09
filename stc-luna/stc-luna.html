@@ -49,20 +49,56 @@
             </a>
 
             <!-- Objednávka -->
-            <a href="objednavka/kosik.html"" class="stc-card">
+            <div class="stc-card orders-card">
 
-                <h2>📦 Objednávky</h2>
+    <div class="orders-header">
 
-                <p>
-                    Správa a přehled výrobních zakázek.
-                </p>
+        <h2>📦 Objednávkový terminál</h2>
 
-            </a>
+        <p>
+            Správa a přehled výrobních zakázek.
+        </p>
+
+    </div>
+
+    <div class="orders-menu">
+
+        <a href="objednavka/kosik.html">
+            🛒 Košík
+        </a>
+
+        <a href="objednavka/archiv/archiv.html">
+            📜 Archiv objednávek
+        </a>
+
+    </div>
+
+</div>
 
         </div>
 
     </div>
 
+
+<script>
+
+const ordersCard =
+document.querySelector(
+    ".orders-card"
+);
+
+ordersCard.addEventListener(
+    "click",
+    () => {
+
+        ordersCard.classList.toggle(
+            "open"
+        );
+
+    }
+);
+
+</script>    
 </body>
 
 </html>
