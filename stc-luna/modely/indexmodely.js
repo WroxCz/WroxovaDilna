@@ -48,6 +48,10 @@ const testovaci =
     await import("./testovaci-modely/testovaci.js");
 const ukazkove =
     await import("./ukazkovy-tisk/ukazkove.js");
+const projekty =
+    await import("./projekty/projekty.js");
+
+
 
 console.log("Dekorace:", dekorace.sekce);
 
@@ -139,4 +143,11 @@ const ukazkoveContainer =
 vykresliStrom(
     ukazkove.sekce,
     ukazkoveContainer
+);
+const projektyContainer =
+    document.getElementById("projekty-list");
+
+vykresliStrom(
+    projekty.sekce,
+    projektyContainer
 );
