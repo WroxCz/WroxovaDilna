@@ -39,11 +39,49 @@ const modely = [
         name: "Benchy Wikinger2",
         category: "testovaci-modely",
         subcategory: "Benchy",
-        folder: "piraten-benchy",
+        folder: "Benchy Wikinger2",
         path: "./testovaci-modely/Benchy/Benchy Wikinger2/model.html"
     }
-
-
+    ,
+    {
+        name: "test převisu",
+        category: "testovaci-modely",
+        subcategory: "Mosty",
+        folder: "test-previsu",
+        path: "./testovaci-modely/Mosty/test-previsu/model.html"
+    }
+,
+    {
+        name: "Benchy + test převisu",
+        category: "testovaci-modely",
+        subcategory: "Mosty",
+        folder: "benchy-test-previsu",
+        path: "./testovaci-modely/Mosty/benchy-test-previsu/model.html"
+    }
+    ,
+    {
+        name: "Clearance Tolerance Test",
+        category: "testovaci-modely",
+        subcategory: "Tolerance",
+        folder: "Clearance Tolerance Test",
+        path: "./testovaci-modely/Tolerance/Clearance Tolerance Test/model.html"
+    }
+        ,
+    {
+        name: "Print in Place Tolerance Test",
+        category: "testovaci-modely",
+        subcategory: "Tolerance",
+        folder: "Print in Place Tolerance Test",
+        path: "./testovaci-modely/Tolerance/Print in Place Tolerance Test/model.html"
+    }
+            ,
+    {
+        name: "Tolerance gauge  Fidget toy",
+        category: "testovaci-modely",
+        subcategory: "Tolerance",
+        folder: "Tolerance gauge  Fidget toy",
+        path: "./testovaci-modely/Tolerance/Tolerance gauge  Fidget toy/model.html"
+    }
 ];
 
 function vytvorModel(model) {
