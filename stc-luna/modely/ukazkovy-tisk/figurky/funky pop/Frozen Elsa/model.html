@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Frozen Elsa funko POP</title>
+
+    <link rel="stylesheet" href="../../../../model.css">
+
+</head>
+
+<body>
+
+    <section class="split-layout">
+
+
+        <!-- LEVÁ STRANA -->
+
+        <div class="split-image">
+
+            <!-- HLAVNÍ OBRÁZEK -->
+
+            <img class="main-preview"
+                 id="mainPreview"
+                 src="preview/preview1.webp">
+
+            <!-- GALERIE -->
+
+            <div class="preview-gallery">
+
+                <img src="preview/preview1.webp"
+                     onclick="changePreview(this.src)">
+
+                <img src="preview/preview2.webp"
+                     onclick="changePreview(this.src)">
+
+                <img src="preview/preview3.webp"
+                     onclick="changePreview(this.src)">
+
+            </div>
+
+        </div>
+
+
+        <!-- PRAVÁ STRANA -->
+
+        <div class="split-content">
+
+
+            <!-- ZPĚT -->
+
+            <a href="../../../../indexmodely.html"
+               class="back-button">
+
+                ← Zpět do 3D Modelů
+
+            </a>
+
+
+            <!-- HEADER -->
+
+            <div class="model-header">
+
+                <h1 id="model-name"></h1>
+
+                <p class="model-description">
+
+                    Frozen Elsa funko POP
+
+                </p>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+<div class="model-buttons">
+
+
+    <a href="https://www.printables.com/@SnuffKlko"
+       target="_blank"
+       class="secondary-button">
+
+        Autor modelu: Snuff Klko
+
+    </a>
+        <a href="https://www.printables.com/model/1173431-frozen-elsa-funko-pop/files"
+       target="_blank"
+       class="secondary-button">
+
+        Zdroj modelu: Printables
+
+    </a>
+
+</div>
+
+            <!-- PARAMETRY -->
+
+            <section class="model-box">
+
+                <h2>Parametry</h2>
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <span>Materiál</span>
+                        <strong>PLA Rapid</strong>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <span>Doba výroby</span>
+                        <strong>30 minut</strong>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>Rozměry</span>
+                        <strong> neměřeno </strong>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>Hmotnost</span>
+                        <strong> neváženo </strong>
+                    </div>
+
+                    <div class="stat-card">
+                        <span>Ověření modelu</span>
+                        <strong>Netestováno</strong>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- INFORMACE -->
+
+            <section class="model-box">
+
+                <h2>Informace o modelu</h2>
+
+                <p>
+
+                </p>
+
+            </section>
+
+
+            <!-- LICENCE -->
+
+            <section class="model-box">
+
+                <h2>Licence</h2>
+
+
+                <div class="license-info">
+
+                    <p>
+
+                        Tento model podléhá licenci:
+
+                    </p>
+
+                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
+                       target="_blank">
+
+                        CC BY-NC-ND 4.0
+
+                    </a>
+
+                    <p>
+
+                       Uveďte původ – Neužívejte komerčně – Nezpracovávejte
+
+                    </p>
+
+                </div>
+
+
+                <ul class="license-list"> <!-- <li class="forbidden"> ✖ |   <li class="allowed"> ✔ |  -->
+
+                    <li class="forbidden">
+
+                        ✖ | Sdílení bez UVEDENÍ PŮVODU
+
+                    </li>
+
+                    <li class="forbidden">
+
+                        ✖ | Remixování (upravování)
+
+                    </li>
+
+                    <li class="forbidden">
+
+                       ✖ |  Komerční využití
+
+                    </li>
+
+                    <li class="forbidden">
+
+                        ✖ |  Dílo Svobodné kultury
+
+                    </li>
+
+                    <li class="forbidden">
+
+                        ✖ |  Splňuje Definici otevřeného díla
+
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </div>
+
+    </section>
+
+
+    <!-- SCRIPT -->
+<script>
+
+fetch("data.json")
+.then(response => response.json())
+.then(data => {
+
+    document.getElementById("model-name")
+    .textContent = data.nazev;
+
+    document.getElementById("model-material")
+    .textContent = data.recommendedMaterial;
+
+    const minutes = data.printTimeMinutes;
+
+    const hours =
+    Math.floor(minutes / 60);
+
+    const remainingMinutes =
+    minutes % 60;
+
+    document.getElementById("model-print-time")
+    .textContent =
+    `${hours} h ${remainingMinutes} min`;
+
+    document.getElementById("model-weight")
+    .textContent = `${data.weight} g`;
+
+    document.getElementById("model-dimensions")
+    .textContent = data.dimensions;
+
+    const printButton =
+    document.querySelector(".primary-button");
+
+    if(printButton.dataset.print === "false"){
+
+        printButton.textContent =
+        "Tisk na zakázku není povolen";
+
+        printButton.removeAttribute("href");
+
+        printButton.classList.add(
+            "disabled-button"
+        );
+    }
+
+    else{
+
+        printButton.addEventListener(
+            "click",
+            function(e){
+
+            e.preventDefault();
+
+            const modelName = data.nazev;
+
+            const weight = data.weight;
+
+            const printTime = data.printTimeMinutes;
+
+            const material = data.recommendedMaterial;
+
+            const valueFactor = data.valueFactor;
+
+            const url =
+
+"../../../../../objednavka/objednavka.html?" +
+
+`model=${encodeURIComponent(modelName)}` +
+
+`&weight=${weight}` +
+
+`&time=${printTime}` +
+
+`&material=${material}` +
+
+`&valueFactor=${valueFactor}`;
+
+            window.location.href = url;
+        });
+    }
+
+});
+
+</script>
+    <script>
+
+    function changePreview(imageSrc) {
+
+        document.getElementById("mainPreview").src = imageSrc;
+    }
+
+    </script>
+
+</body>
+
+</html>

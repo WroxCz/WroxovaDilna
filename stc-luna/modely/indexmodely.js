@@ -27,6 +27,11 @@ const modely = [
 
 
 
+
+
+
+
+
      {
         name: "Piraten Benchy",
         category: "testovaci-modely",
@@ -81,6 +86,52 @@ const modely = [
         subcategory: "Tolerance",
         folder: "Tolerance gauge  Fidget toy",
         path: "./testovaci-modely/Tolerance/Tolerance gauge  Fidget toy/model.html"
+    }
+             ,
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    {
+        name: "Frozen Elsa funko POP",
+        category: "ukazkovy-tisk",
+        subcategory: "figurky funky pop",
+        folder: "funky pop",
+        path: "./ukazkovy-tisk/figurky/funky pop/Frozen Elsa/model.html"
+    }
+    ,
+    {
+        name: "Jack Skellington",
+        category: "ukazkovy-tisk",
+        subcategory: "figurky funky pop",
+        folder: "funky pop",
+        path: "./ukazkovy-tisk/figurky/funky pop/Jack Skellington/model.html"
+    }
+        ,
+    {
+        name: "Goku Super",
+        category: "ukazkovy-tisk",
+        subcategory: "figurky funky pop",
+        folder: "funky pop",
+        path: "./ukazkovy-tisk/figurky/funky pop/Goku Super Saiyajin/model.html"
+    }
+            ,
+    {
+        name: "GOKU SSJ-4",
+        category: "ukazkovy-tisk",
+        subcategory: "figurky funky pop",
+        folder: "funky pop",
+        path: "./ukazkovy-tisk/figurky/funky pop/GOKU SSJ-4/model.html"
     }
 ];
 
