@@ -16,15 +16,61 @@
 
 <section class="left-panel">
 
-    <section class="hero-section">
-        <img src="images/hero.png" alt="Imperial General">
-    </section>
+<section class="gallery-section">
+    <h2>
+        Imperial General
 
-    <section class="gallery-section">
-        <h2>Rozložené díly</h2>
-    <section class="hero-section">
-        <img src="images/dily.png" alt="Imperial General">
-    </section>
+        <button
+            class="hero-reset"
+            onclick="zobrazDil('images/hero.png')">
+            ...
+        </button>
+    </h2>
+
+<section class="hero-section">
+    <img
+        id="hero-image"
+        src="images/hero.png"
+        alt="Imperial General">
+</section>
+
+<section class="gallery-section">
+    <h2>Rozložené díly</h2>
+
+<div class="parts-map">
+
+    <img
+        src="images/dily.png"
+        alt="Rozložené díly">
+
+    <div class="part head"
+         onclick="zobrazDil('rozlozene-dily/head-complet.png')">
+    </div>
+
+    <div class="part shoulder-left"
+         onclick="zobrazDil('rozlozene-dily/shoulder-pad-left.png')">
+    </div>
+
+    <div class="part shoulder-right"
+         onclick="zobrazDil('rozlozene-dily/shoulder-pad-right.png')">
+    </div>
+
+    <div class="part hammer-head"
+         onclick="zobrazDil('rozlozene-dily/hammer-head.png')">
+    </div>
+    <div class="part hand-right"
+         onclick="zobrazDil('rozlozene-dily/hand-right.png')">
+    </div>
+    <div class="part hand-left"
+         onclick="zobrazDil('rozlozene-dily/hand-left.png')">
+    </div>
+
+
+
+
+</div>
+</section>
+
     </section>
 
 </section>
@@ -118,6 +164,12 @@
 </aside>
 
     </main>
+
+<script>
+function zobrazDil(obrazek) {
+    document.getElementById("hero-image").src = obrazek;
+}
+</script>
 
 </body>
 
