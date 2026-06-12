@@ -4,6 +4,10 @@ export const sekce = [
         file: "./testovaci-modely/Benchy/benchy.js"
     },
     {
+        name: "Kostka",
+        file: "./testovaci-modely/Kostka/kostka.js"
+    },
+    {
         name: "Mosty",
         file: "./testovaci-modely/Mosty/mosty.js"
     },
