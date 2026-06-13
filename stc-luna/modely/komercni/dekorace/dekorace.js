@@ -1,8 +1,10 @@
-import { modely as kvetiny } from "./kvetiny/kvetiny.js";
-
 export const sekce = [
     {
         name: "Květiny",
-        children: kvetiny
+        file: "./komercni/dekorace/kvetiny/kvetiny.js"
+    },
+    {
+        name: "Lodě",
+        file: "./komercni/dekorace/lode/lode.js"
     }
 ];

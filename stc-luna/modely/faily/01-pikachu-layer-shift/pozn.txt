@@ -1,0 +1,16 @@
+Je vidět, že:
+
+kolem odhazovacího místa je nalepený shluk purge odpadu,
+visí tam nitky filamentu,
+část plastu zůstala zachycená nahoře místo aby spadla do koše.
+
+A přesně při vícebarevném tisku je tohle průšvih, protože tiskárna tam zajíždí stovkykrát.
+
+Můj odhad:
+
+Purge odpad se začal hromadit.
+Jeden kus zůstal viset.
+Hlava do něj při některém přejezdu narazila.
+Přeskočila o pár kroků.
+Vznikl layer shift.
+Tisk pokračoval dál.

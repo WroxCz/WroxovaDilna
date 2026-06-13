@@ -4,324 +4,998 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna Mechanica</title>
 
-    <title> Spiral Vase Rose</title>
-
-    <link rel="stylesheet" href="../../../../model.css">
+<link rel="stylesheet" href="../../../../model.css">
 
 </head>
 
 <body>
 
-    <section class="split-layout">
+<section class="split-layout">
 
+    <!-- LEVÁ STRANA -->
 
-        <!-- LEVÁ STRANA -->
+    <div class="split-image">
 
-        <div class="split-image">
+        <img
+            id="mainPreview"
+            class="main-preview"
+            src="preview/preview1.webp">
 
-            <!-- HLAVNÍ OBRÁZEK -->
+        <div class="preview-gallery">
 
-            <img class="main-preview"
-                 id="mainPreview"
-                 src="preview/preview1.webp">
+            <img
+                src="preview/preview1.webp"
+                onclick="changePreview(this.src)">
 
-            <!-- GALERIE -->
+            <img
+                src="preview/preview2.webp"
+                onclick="changePreview(this.src)">
 
-            <div class="preview-gallery">
-
-                <img src="preview/preview1.webp"
-                     onclick="changePreview(this.src)">
-
-                <img src="preview/preview2.webp"
-                     onclick="changePreview(this.src)">
-
-                <img src="preview/preview3.webp"
-                     onclick="changePreview(this.src)">
-
-            </div>
+            <img
+                src="preview/preview3.webp"
+                onclick="changePreview(this.src)">
 
         </div>
 
+    </div>
 
-        <!-- PRAVÁ STRANA -->
+    <!-- PRAVÁ STRANA -->
 
-        <div class="split-content">
+    <div class="split-content">
 
+        <a
+            href="../../../../indexmodely.html"
+            class="back-button">
 
-            <!-- ZPĚT -->
+            ← Zpět do 3D Modelů
 
-            <a href="../../../../indexmodely.html"
-               class="back-button">
+        </a>
 
-                ← Zpět do 3D Modelů
+        <!-- HLAVIČKA -->
 
-            </a>
+        <div class="model-header">
 
+            <h1 id="model-name">
+                Načítání...
+            </h1>
 
-            <!-- HEADER -->
+            <p id="model-description">
 
-            <div class="model-header">
-
-                <h1 id="model-name"></h1>
-
-                <p class="model-description">
-
-                    A rose designed to print in spiral vase mode.
-
-                </p>
-
-            </div>
-
-
-            <!-- BUTTONS -->
-
-<div class="model-buttons">
-
-    <a href="../../../../objednavka/objednavka.html"
-   class="primary-button"
-   data-print="true">    <!-- povelení tisku: data-print="true" zákaz tisku:data-print="false" > -->
-
-        Poptat tisk
-
-    </a>
-
-    <a href="https://www.printables.com/@lytta"
-       target="_blank"
-       class="secondary-button">
-
-        Autor modelu: lytta
-
-    </a>
-        <a href="https://www.printables.com/model/131488-spiral-vase-rose"
-       target="_blank"
-       class="secondary-button">
-
-        Zdroj modelu: Printables
-
-    </a>
-
-</div>
-
-            <!-- PARAMETRY -->
-
-            <section class="model-box">
-
-                <h2>Parametry</h2>
-
-                <div class="stats-grid">
-
-                    <div class="stat-card">
-                        <span>Doporučený materiál</span>
-                        <strong id="model-material"></strong>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <span>Orientační doba výroby</span>
-                        <strong id="model-print-time"></strong>
-                    </div>
-
-                    <div class="stat-card">
-                        <span>Rozměry</span>
-                        <strong id="model-dimensions"></strong>
-                    </div>
-
-                    <div class="stat-card">
-                        <span>Orientační hmotnost</span>
-                        <strong id="model-weight"></strong>
-                    </div>
-
-                    <div class="stat-card">
-                        <span>Ověření modelu</span>
-                        <strong>Netestováno</strong>
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- INFORMACE -->
-
-            <section class="model-box">
-
-                <h2>Informace o modelu</h2>
-
-                <p>
-
-                  Tento model je dostupný v několika variantách. Nabízíme velikosti 10 cm, 7 cm a 5 cm, a to jak ve verzi se dnem, tak bez dna. Do poznámky k objednávce prosím uveďte, o kterou variantu máte zájem. Finální cenu následně upřesníme.
-
-                </p>
-
-            </section>
-
-
-            <!-- LICENCE -->
-
-            <section class="model-box">
-
-                <h2>Licence</h2>
-
-
-                <div class="license-info">
-
-                    <p>
-
-                        Tento model podléhá licenci:
-
-                    </p>
-
-                    <a href="https://creativecommons.org/licenses/by-nd/4.0/"
-                       target="_blank">
-
-                        CC BY 4.0
-
-                    </a>
-
-                    <p>
-
-                       Uveďte původ
-
-                    </p>
-
-                </div>
-
-
-                <ul class="license-list"> <!-- <li class="forbidden"> ✖ |   <li class="allowed"> ✔ |  -->
-
-                    <li class="forbidden">
-
-                        ✖ | Sdílení bez UVEDENÍ PŮVODU
-
-                    </li>
-
-                    <li class="allowed">
-
-                        ✔ | Remixování (upravování)
-
-                    </li>
-
-                    <li class="allowed">
-
-                       ✔ |  Komerční využití
-
-                    </li>
-
-                    <li class="allowed">
-
-                        ✔ |  Dílo Svobodné kultury
-
-                    </li>
-
-                    <li class="allowed">
-
-                        ✔ |  Splňuje Definici otevřeného díla
-
-                    </li>
-
-                </ul>
-
-            </section>
+            </p>
 
         </div>
 
-    </section>
+        <!-- PARAMETRY -->
+
+        <section class="model-box">
+
+    <h2>Autor a licence</h2>
+
+    <p>
+        <strong>Autor:</strong>
+        <span id="model-author"></span>
+    </p>
+
+    <p>
+        <strong>Zdroj:</strong>
+        <a
+            id="model-source"
+            target="_blank">
+        </a>
+    </p>
+
+    <p>
+        <strong>Licence:</strong>
+        <span id="model-license"></span>
+    </p>
+
+</section>
+
+        <!-- KONFIGURÁTOR -->
+
+        <section class="model-box">
+
+            <h2>Konfigurace modelu</h2>
+
+            <div id="configurator">
+
+            </div>
+
+        </section>
 
 
-    <!-- SCRIPT -->
+<section class="model-box">
+
+    <h2>Souhrn konfigurace</h2>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <span>Celková cena</span>
+            <strong id="total-price">Vyberte materiál</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Celková hmotnost</span>
+            <strong id="total-weight">-</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Doba tisku</span>
+            <strong id="total-print-time">-</strong>
+        </div>
+        <button onclick="addToCart()">
+            Přidat do košíku
+        </button>
+        <button onclick="goToCart()">
+            Přejít do košíku
+        </button>   
+    </div>
+
+</section>
+        <section
+            class="model-box"
+            id="stock-box"
+            style="display:none;">
+
+            <h2>📦 Skladem</h2>
+
+            <div id="stock-list">
+
+            </div>
+
+        </section>
+
+        <!-- DEBUG -->
+
+<section
+    class="model-box"
+    style="display:none;">
+
+    <h2>Debug konfigurace</h2>
+
+    <pre id="config-debug"></pre>
+
+</section>
+
+    </div>
+
+</section>
+
 <script>
 
-fetch("data.json")
-.then(response => response.json())
-.then(data => {
+let model = null;
 
-    document.getElementById("model-name")
-    .textContent = data.nazev;
+let config = {
 
-    document.getElementById("model-material")
-    .textContent = data.recommendedMaterial;
+    size: "m",
 
-    const minutes = data.printTimeMinutes;
+    bottom: false,
 
-    const hours =
-    Math.floor(minutes / 60);
+    material: "",
 
-    const remainingMinutes =
-    minutes % 60;
+    variant: "",
 
-    document.getElementById("model-print-time")
-    .textContent =
-    `${hours} h ${remainingMinutes} min`;
+    color: ""
 
-    document.getElementById("model-weight")
-    .textContent = `${data.weight} g`;
+};
 
-    document.getElementById("model-dimensions")
-    .textContent = data.dimensions;
+let leafCount = 1;
 
-    const printButton =
-    document.querySelector(".primary-button");
+let materials = [];
 
-    if(printButton.dataset.print === "false"){
+let cart = [];
 
-        printButton.textContent =
-        "Tisk na zakázku není povolen";
+let totalPrice = 0;
 
-        printButton.removeAttribute("href");
+let totalWeight = 0;
 
-        printButton.classList.add(
-            "disabled-button"
-        );
-    }
+let totalPrintTime = 0;
 
-    else{
+Promise.all([
 
-        printButton.addEventListener(
-            "click",
-            function(e){
+    fetch("../../../../../sklad/data/petg-cf.json")
+    .then(response => response.json()),
 
-            e.preventDefault();
+    fetch("../../../../../sklad/data/petg-matte.json")
+    .then(response => response.json()),  
 
-            const modelName = data.nazev;
+    fetch("../../../../../sklad/data/petg-special.json")
+    .then(response => response.json()),
 
-            const weight = data.weight;
+    fetch("../../../../../sklad/data/petg-standard.json")
+    .then(response => response.json()),
 
-            const printTime = data.printTimeMinutes;
 
-            const material = data.recommendedMaterial;
 
-            const valueFactor = data.valueFactor;
+    fetch("../../../../../sklad/data/pla-matte.json")
+    .then(response => response.json()),
 
-            const url =
+    fetch("../../../../../sklad/data/pla-plus.json")
+    .then(response => response.json()), 
 
-"../../../../../objednavka/objednavka.html?" +
+    fetch("../../../../../sklad/data/pla-silk.json")
+    .then(response => response.json()),    
 
-`model=${encodeURIComponent(modelName)}` +
+    fetch("../../../../../sklad/data/pla-standard.json")
+        .then(response => response.json()),
+    
+    fetch("../../../../../sklad/data/pla-standard.json")
+        .then(response => response.json()) 
 
-`&weight=${weight}` +
+])
 
-`&time=${printTime}` +
+.then(allData => {
 
-`&material=${material}` +
+    materials = allData.flat();
 
-`&valueFactor=${valueFactor}`;
+    console.log(materials);
 
-            window.location.href = url;
-        });
+    if(model){
+        renderConfigurator();
     }
 
 });
 
-</script>
-    <script>
+fetch("data.json")
 
-    function changePreview(imageSrc) {
+.then(response => response.json())
 
-        document.getElementById("mainPreview").src = imageSrc;
+.then(data => {
+
+    model = data;
+
+    loadCart();
+
+    renderModel();
+
+    renderConfigurator();
+
+    createDefaultConfig();
+
+});
+
+function renderModel(){
+
+    document.getElementById("model-name")
+    .textContent = model.name;
+
+    document.getElementById("model-description")
+    .textContent = model.description || "";
+
+
+    document.getElementById("model-author")
+.textContent =
+model.author || "Neuvedeno";
+
+document.getElementById("model-source")
+.textContent =
+model.sourceName || "Neuvedeno";
+
+document.getElementById("model-source")
+.href =
+model.sourceUrl || "#";
+
+document.getElementById("model-license")
+.textContent =
+model.license || "Neuvedeno";
+
+renderStock();
+
+}
+function renderStock(){
+
+    if(
+        !model.stock ||
+        model.stock.length === 0
+    ){
+        return;
     }
 
-    </script>
+    document.getElementById(
+        "stock-box"
+    ).style.display = "block";
+
+    const container =
+        document.getElementById(
+            "stock-list"
+        );
+
+    container.innerHTML = "";
+
+    model.stock.forEach(item => {
+
+        if(item.quantity <= 0){
+            return;
+        }
+
+        container.innerHTML += `
+
+            <div class="stock-item">
+
+    ${item.image ? `
+
+        <img
+    src="${item.image}"
+    class="stock-preview"
+    onclick="changePreview('${item.image}')">
+
+    ` : ""}
+
+    <h3>
+
+        ${item.code}
+
+        -
+
+        ${item.name}
+
+    </h3>
+
+                ${Object.entries(item.config)
+                .map(([partName, part]) => `
+
+                    <div class="stock-part">
+
+                        <strong>
+
+                            ${partName}
+
+                        </strong>
+
+                        <p>
+
+                            ${part.quantity ?? 1} ks
+
+                        </p>
+
+                        <p>
+
+                            ${part.material}
+                            ${part.variant}
+
+                        </p>
+
+                        <p>
+
+                            ${part.color}
+
+                        </p>
+
+                    </div>
+
+                `)
+                .join("")}
+
+                <p>
+
+                    📦 ${item.quantity} ks skladem
+
+                </p>
+
+                <p>
+
+                    💰 ${item.price} Kč
+
+                </p>
+
+                <button
+                    onclick="addStockToCart('${item.id}')">
+
+                    Přidat skladem
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+function renderConfigurator(){
+
+    const container =
+    document.getElementById("configurator");
+
+const materialsList = [
+    ...new Set(
+        materials
+            .filter(material =>
+
+                material.status === "available" ||
+                material.status === "ordered"
+
+            )
+            .map(material =>
+                material.material
+            )
+    )
+];
+
+const materialOptions =
+    materialsList.map(material =>
+        `<option>${material}</option>`
+    ).join("");
+    
+    container.innerHTML = `
+
+        <h3>Velikost</h3>
+
+        <select
+            id="size-select"
+            onchange="changeSize(this.value)">
+
+            ${model.sizes.map(size => `
+
+                <option value="${size.id}">
+                    ${size.name}
+                </option>
+
+            `).join("")}
+
+        </select>
+
+        <br><br>
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="bottom-checkbox"
+                onchange="changeBottom(this.checked)">
+
+            Přidat dno
+
+        </label>
+<br><br>
+
+<h3>Materiál</h3>
+
+<select
+    id="material-select"
+    onchange="changeMaterial(this.value)">
+
+    <option value="">
+        Materiál
+    </option>
+
+    ${materialOptions}
+
+</select>
+
+<select
+    id="variant-select"
+    onchange="changeVariant(this.value)">
+
+    <option value="">
+        Varianta
+    </option>
+
+</select>
+
+<select
+    id="color-select"
+    onchange="changeColor(this.value)">
+
+    <option value="">
+        Barva
+    </option>
+
+</select>
+<div class="material-preview">
+
+    <img
+        id="material-preview"
+        class="material-preview-image"
+        style="display:none;">
+
+</div>
+    `;
+
+}
+function changeSize(value){
+
+    config.size = value;
+
+    updateSummary();
+
+}
+
+function changeBottom(value){
+
+    config.bottom = value;
+
+    updateSummary();
+
+}
+function changeVariant(value){
+
+    config.variant = value;
+
+    const colors = [
+
+        ...new Set(
+
+            materials
+                .filter(material =>
+
+                    material.material ===
+                    config.material &&
+
+                    material.variant === value &&
+
+                    (
+                        material.status === "available" ||
+                        material.status === "ordered"
+                    )
+
+                )
+                .map(material =>
+                    material.name
+                )
+
+        )
+
+    ];
+
+    const colorSelect =
+    document.getElementById(
+        "color-select"
+    );
+
+    colorSelect.innerHTML =
+        `<option value="">Barva</option>`;
+
+    colors.forEach(color => {
+
+        colorSelect.innerHTML +=
+        `<option>${color}</option>`;
+
+    });
+
+    console.log(config);
+
+}
+function changeMaterial(value){
+
+    config.material = value;
+
+    const variants = [
+
+    ...new Set(
+
+        materials
+            .filter(material =>
+
+                material.material === value &&
+
+                (
+                    material.status === "available" ||
+                    material.status === "ordered"
+                )
+
+            )
+            .map(material =>
+                material.variant
+            )
+
+    )
+
+];
+
+const variantSelect =
+document.getElementById(
+    "variant-select"
+);
+
+variantSelect.innerHTML =
+    `<option value="">Varianta</option>`;
+
+variants.forEach(variant => {
+
+    variantSelect.innerHTML +=
+    `<option>${variant}</option>`;
+
+});
+
+    console.log(config);
+
+}
+
+function createDefaultConfig(){
+
+    config = {
+
+        size: "s",
+
+        bottom: false,
+
+        material: "",
+
+        variant: "",
+
+        color: ""
+
+    };
+
+    updateDebug();
+    updateSummary();
+
+}
+
+function updateDebug(){
+
+    document.getElementById("config-debug")
+    .textContent =
+    JSON.stringify(config, null, 2);
+
+}
+
+function changePreview(src){
+
+    document.getElementById("mainPreview")
+    .src = src;
+
+}
+function changeColor(value){
+
+    config.color = value;
+
+    const selectedMaterial =
+    materials.find(material =>
+
+        material.material ===
+        config.material &&
+
+        material.variant ===
+        config.variant &&
+
+        material.name ===
+        config.color
+
+    );
+
+    const preview =
+    document.getElementById(
+        "material-preview"
+    );
+
+if(selectedMaterial){
+
+    preview.src =
+    "../../../../../sklad/" +
+    selectedMaterial.image;
+
+    preview.style.display =
+    "block";
+
+    document.getElementById(
+        "mainPreview"
+    ).src = preview.src;
+
+}
+    updateSummary();
+    console.log(config);
+
+}
+
+function updateSummary(){
+
+    const selectedSize =
+        model.sizes.find(
+            size => size.id === config.size
+        );
+
+    if(!selectedSize){
+        return;
+    }
+
+    totalWeight =
+        selectedSize.weight;
+
+    totalPrintTime =
+        selectedSize.printTime;
+
+    if(config.bottom){
+
+        totalWeight +=
+            model.bottom.weight;
+
+        totalPrintTime +=
+            model.bottom.printTime;
+
+    }
+
+    const selectedMaterial =
+        materials.find(material =>
+
+            material.material ===
+            config.material &&
+
+            material.variant ===
+            config.variant &&
+
+            material.name ===
+            config.color
+
+        );
+
+    if(selectedMaterial){
+
+        const materialPricePerGram =
+
+            selectedMaterial.price
+            /
+            (selectedMaterial.weight * 1000);
+
+        totalPrice = Math.round(
+
+            (
+
+                (
+                    totalWeight
+                    *
+                    materialPricePerGram
+                    *
+                    selectedMaterial.multiplier
+                )
+
+                +
+
+                (
+                    (totalPrintTime / 60)
+                    *
+                    selectedMaterial.timeFactor
+                    *
+                    0.6
+                )
+
+            )
+
+            *
+
+            model.valueFactor
+
+        );
+
+    }
+
+    else{
+
+        totalPrice = 0;
+
+    }
+
+    document.getElementById(
+        "total-price"
+    ).textContent =
+
+    totalPrice > 0
+        ? totalPrice + " Kč"
+        : "Vyberte materiál";
+
+    document.getElementById(
+        "total-weight"
+    ).textContent =
+    totalWeight.toFixed(2) + " g";
+
+    document.getElementById(
+        "total-print-time"
+    ).textContent =
+    formatPrintTime(totalPrintTime);
+
+}
+function formatPrintTime(seconds){
+
+    const hours =
+    Math.floor(seconds / 3600);
+
+    const minutes =
+    Math.floor((seconds % 3600) / 60);
+
+    return `${hours} h ${minutes} min`;
+
+}
+function calculatePartPrice(groupId){
+
+    const group =
+    model.groups.find(
+        group => group.id === groupId
+    );
+
+    if(!group){
+        return 0;
+    }
+
+    const module =
+    group.modules[0];
+
+    const quantity =
+    config[groupId].quantity || 0;
+
+    const selectedMaterial =
+materials.find(material =>
+
+    material.material ===
+    config[groupId].material &&
+
+    material.variant ===
+    config[groupId].variant &&
+
+    material.name ===
+    config[groupId].color
+
+);
+
+if(!selectedMaterial){
+    return 0;
+}
+const multiplier =
+    selectedMaterial.multiplier ?? 2.4;
+
+const materialTimeFactor =
+    selectedMaterial.timeFactor ?? 1;
+
+const materialPricePerGram =
+
+selectedMaterial.price
+/
+(selectedMaterial.weight * 1000);
+const weight =
+module.weight * quantity;
+
+const timeMinutes =
+(module.printTime * quantity) / 60;
+
+return Math.round(
+
+    (
+        (
+            weight
+            *
+            materialPricePerGram
+            *
+            multiplier
+        )
+
+        +
+
+        (
+    timeMinutes
+    *
+    materialTimeFactor
+    *
+    0.6
+)
+
+    )
+
+    *
+
+    model.valueFactor
+
+);
+}
+function saveCart(){
+
+    localStorage.setItem(
+        "lm-cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+function loadCart(){
+
+    const saved =
+        localStorage.getItem(
+            "lm-cart"
+        );
+
+    if(saved){
+
+        cart = JSON.parse(saved);
+
+    }
+
+}
+function addToCart(){
+
+    console.log(
+        totalPrice,
+        totalWeight,
+        totalPrintTime
+    );
+
+    cart.push({
+
+        uid: crypto.randomUUID(),
+
+        type: "print",
+
+        productId: model.id,
+
+        productName: model.name,
+
+        quantity: 1,
+
+        config: structuredClone(config),
+
+        unitPrice: totalPrice,
+
+        unitWeight: totalWeight,
+
+        unitPrintTime: totalPrintTime
+
+    });
+
+    saveCart();
+
+    alert("Přidáno do košíku");
+
+}
+
+function addStockToCart(stockId){
+
+    const stockItem =
+        model.stock.find(
+            item => item.id === stockId
+        );
+
+    if(!stockItem){
+        return;
+    }
+
+    cart.push({
+
+        uid: crypto.randomUUID(),
+
+        type: "stock",
+
+        stockId: stockItem.id,
+
+        stockCode: stockItem.code,
+
+        stockName: stockItem.name,
+
+        productId: model.id,
+
+        productName: model.name,
+
+        quantity: 1,
+
+        config: structuredClone(
+            stockItem.config
+        ),
+
+        unitPrice: stockItem.price,
+
+        unitWeight: 0,
+
+        unitPrintTime: 0
+
+    });
+
+    saveCart();
+
+    alert("Skladová položka přidána");
+
+}
+
+function goToCart(){
+
+    window.location.href =
+        "../../../../../objednavka/kosik.html";
+
+}
+</script>
 
 </body>
 
