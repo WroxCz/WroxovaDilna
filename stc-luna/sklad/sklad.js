@@ -48,7 +48,10 @@ Promise.all([
         .then(response => response.json()),
     
     fetch("data/pla-standard.json")
-        .then(response => response.json()) 
+        .then(response => response.json()),
+         
+    fetch("data/pla-wood.json")
+        .then(response => response.json())        
  
 
 ])

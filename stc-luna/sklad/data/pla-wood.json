@@ -1,0 +1,33 @@
+[
+{
+    "id": "fg-p44-e1fg-p44-e1",
+    "name": "dřevo",
+    "image": "matimages/materials/PLA/ProfLab/drevo/fg-p44-e1fg-p44-e1.webp",
+
+    "manufacturer": "Prof. Lab",
+    "material": "PLA",
+    "variant": "Dřevo",
+
+    "price": 209,
+    "weight": 1,
+    
+    "multiplier": 3.0,
+    "timeFactor": 1,
+    
+    "status": "available",
+    "statusText": "Dostupné",
+
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "220",
+
+    "bedTemperatureMin": "40",
+    "bedTemperatureMax": "60",
+
+    "printSpeedMin": "40",
+    "printSpeedMax": "100",
+    
+    "printheadDiameter": "[0.4, 0.8]"
+
+}
+]

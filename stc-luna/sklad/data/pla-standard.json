@@ -2,7 +2,7 @@
     {
     "id": "ALZMNTB01",
     "name": "Černá",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB01.webp",    
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB01.webp",    
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -32,7 +32,7 @@
 {
     "id": "ALZMNTB02",
     "name": "Bílá",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB02.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB02.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -62,7 +62,7 @@
 {
     "id": "ALZMNTB03",
     "name": "Červená",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB03.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB03.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -92,7 +92,7 @@
 {
     "id": "ALZMNTB04",
     "name": "Modrá",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB04.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB04.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -122,7 +122,7 @@
 {
     "id": "ALZMNTB05",
     "name": "Žlutá",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB05.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB05.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -152,7 +152,7 @@
 {
     "id": "ALZMNTB06",
     "name": "Šedá",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB06.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB06.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -182,7 +182,7 @@
 {
     "id": "ALZMNTB07",
     "name": "Fialová",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB07.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB07.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -212,7 +212,7 @@
 {
     "id": "ALZMNTB08",
     "name": "Béžová",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB08.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB08.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -242,7 +242,7 @@
 {
     "id": "ALZMNTB09",
     "name": "Mátově zelená",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB09.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB09.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -272,7 +272,7 @@
 {
     "id": "ALZMNTB10",
     "name": "Hasičská červená",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB10.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB10.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -302,7 +302,7 @@
 {
     "id": "ALZMNTB11",
     "name": "Zlatá",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB11.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB11.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -332,7 +332,7 @@
 {
     "id": "ALZMNTB12",
     "name": "Zelená",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB12.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB12.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -362,7 +362,7 @@
 {
     "id": "ALZMNTB13",
     "name": "Hnědá",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB13.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB13.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -392,7 +392,7 @@
 {
     "id": "ALZMNTB14",
     "name": "Nebeská modrá",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB14.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB14.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -422,7 +422,7 @@
 {
     "id": "ALZMNTB15",
     "name": "Růžová",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB15.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB15.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -452,7 +452,7 @@
 {
     "id": "ALZMNTB16",
     "name": "Stříbrná",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB16.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB16.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -482,7 +482,7 @@
 {
     "id": "ALZMNTB17",
     "name": "Průhledná",
-    "image": "matimages/materials/PLA/Alzament/ALZMNTB17.webp",
+    "image": "matimages/materials/PLA/Alzament/standart/ALZMNTB17.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",

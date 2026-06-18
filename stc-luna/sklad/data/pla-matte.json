@@ -2,7 +2,7 @@
 {
     "id": "ALZMNTM01",
     "name": "Černá",
-    "image": "matimages/materials/PLA/Alzament-Mat/ALZMNTM01.webp",
+    "image": "matimages/materials/PLA/Alzament/matte/ALZMNTM01.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -33,7 +33,7 @@
 {
     "id": "ALZMNTM02",
     "name": "Bílá",
-    "image": "matimages/materials/PLA/Alzament-Mat/ALZMNTM02.webp",
+    "image": "matimages/materials/PLA/Alzament/matte/ALZMNTM02.webp",
 
     "manufacturer": "Alzamet",
     "material": "PLA",
@@ -76,8 +76,8 @@
     "multiplier": 2.5,
     "timeFactor": 1,
     
-    "status": "ordered",
-    "statusText": "Objednáno",
+    "status": "available",
+    "statusText": "Dostupné",
 
     "printTemperatureMin": "190",
     "printTemperatureMax": "230",

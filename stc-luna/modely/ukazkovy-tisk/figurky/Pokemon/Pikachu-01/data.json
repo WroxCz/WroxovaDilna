@@ -1,0 +1,56 @@
+{
+  "id": "Pikachu01",
+
+  "name": "Pikachu",
+
+  "groups": [
+
+    {
+      "id": "size",
+
+      "name": "Velikost",
+
+      "type": "exclusive",
+
+      "modules": [
+
+        {
+          "id": "vase_s",
+
+          "name": "S",
+
+          "weight": 120,
+
+          "printTime": 360,
+
+          "allowMaterial": true,
+          "allowColor": true
+        }
+      ]
+    },
+
+    {
+      "id": "bottom",
+
+      "name": "Dno",
+
+      "type": "optional",
+
+      "modules": [
+
+        {
+          "id": "bottom_plate",
+
+          "name": "Dno",
+
+          "weight": 20,
+
+          "printTime": 40,
+
+          "allowMaterial": true,
+          "allowColor": true
+        }
+      ]
+    }
+  ]
+}

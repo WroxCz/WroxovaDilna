@@ -31,11 +31,11 @@
 }
 ,
 {
-    "id": "ProfLab13",
+    "id": "ELEEG240444",
     "name": "Bílá",
     "image": "matimages/materials/PETG/Elegoo/ELEEG240444.webp",
 
-    "manufacturer": "ProfLab",
+    "manufacturer": "Elegoo",
     "material": "PETG",
     "variant": "Rapid",
 
@@ -45,8 +45,8 @@
     "multiplier": 2.4,
     "timeFactor": 1,
 
-    "status": "ordered",
-    "statusText": "Objednáno",
+    "status": "available",
+    "statusText": "Dostupné",
 
     "printTemperatureMin": "240",
     "printTemperatureMax": "270",
