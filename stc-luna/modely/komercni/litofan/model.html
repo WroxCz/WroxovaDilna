@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luna Mechanica</title>
+
+<link rel="stylesheet" href="../../../../model.css">
+
+</head>
+
+<body>
+
+<section class="split-layout">
+
+    <!-- LEVÁ STRANA -->
+
+    <div class="split-image">
+
+        <img
+            id="mainPreview"
+            class="main-preview"
+            src="preview/preview1.webp">
+
+        <div class="preview-gallery">
+
+            <img
+                src="preview/preview1.webp"
+                onclick="changePreview(this.src)">
+
+            <img
+                src="preview/preview2.webp"
+                onclick="changePreview(this.src)">
+
+            <img
+                src="preview/preview3.webp"
+                onclick="changePreview(this.src)">
+
+        </div>
+
+    </div>
+
+    <!-- PRAVÁ STRANA -->
+
+    <div class="split-content">
+
+        <a
+            href="../../../../indexmodely.html"
+            class="back-button">
+
+            ← Zpět do 3D Modelů
+
+        </a>
+
+        <!-- HLAVIČKA -->
+
+        <div class="model-header">
+
+            <h1 id="model-name">
+                Načítání...
+            </h1>
+
+            <p id="model-description">
+
+            </p>
+
+        </div>
+
+        <!-- PARAMETRY -->
+
+        <section class="model-box">
+
+    <h2>Autor a licence</h2>
+
+    <p>
+        <strong>Autor:</strong>
+        <span id="model-author"></span>
+    </p>
+
+    <p>
+        <strong>Zdroj:</strong>
+        <a
+            id="model-source"
+            target="_blank">
+        </a>
+    </p>
+
+    <p>
+        <strong>Licence:</strong>
+        <span id="model-license"></span>
+    </p>
+
+</section>
+
+        <!-- KONFIGURÁTOR -->
+
+        <section class="model-box">
+
+            <h2>Konfigurace modelu</h2>
+
+            <div id="configurator">
+
+            </div>
+
+        </section>
+
+
+<section class="model-box">
+
+    <h2>Souhrn konfigurace</h2>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <span>Celková cena</span>
+            <strong id="total-price">Vyberte materiál</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Celková hmotnost</span>
+            <strong id="total-weight">-</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Doba tisku</span>
+            <strong id="total-print-time">-</strong>
+        </div>
+        <button onclick="addToCart()">
+            Přidat do košíku
+        </button>
+        <button onclick="goToCart()">
+            Přejít do košíku
+        </button>   
+    </div>
+
+</section>
+        <section
+            class="model-box"
+            id="stock-box"
+            style="display:none;">
+
+            <h2>📦 Skladem</h2>
+
+            <div id="stock-list">
+
+            </div>
+
+        </section>
+
+        <!-- DEBUG -->
+
+<section
+    class="model-box"
+    style="display:none;">
+
+    <h2>Debug konfigurace</h2>
+
+    <pre id="config-debug"></pre>
+
+</section>
+
+    </div>
+
+</section>
+
+<script>
+
+let model = null;
+
+let config = {};
+
+let leafCount = 1;
+
+let materials = [];
+
+let cart = [];
+
+let totalPrice = 0;
+
+let totalWeight = 0;
+
+let totalPrintTime = 0;
+
+Promise.all([
+
+    fetch("../../../../../sklad/data/petg-cf.json")
+    .then(response => response.json()),
+
+    fetch("../../../../../sklad/data/petg-matte.json")
+    .then(response => response.json()),  
+
+    fetch("../../../../../sklad/data/petg-special.json")
+    .then(response => response.json()),
+
+    fetch("../../../../../sklad/data/petg-standard.json")
+    .then(response => response.json()),
+
+
+
+    fetch("../../../../../sklad/data/pla-matte.json")
+    .then(response => response.json()),
+
+    fetch("../../../../../sklad/data/pla-plus.json")
+    .then(response => response.json()), 
+
+    fetch("../../../../../sklad/data/pla-silk.json")
+    .then(response => response.json()),    
+
+    fetch("../../../../../sklad/data/pla-standard.json")
+        .then(response => response.json()),
+    
+    fetch("../../../../../sklad/data/pla-standard.json")
+        .then(response => response.json()) 
+
+])
+
+.then(allData => {
+
+    materials = allData.flat();
+
+    console.log(materials);
+
+    if(model){
+        renderConfigurator();
+    }
+
+});
+
+fetch("data.json")
+
+.then(response => response.json())
+
+.then(data => {
+
+    model = data;
+
+    loadCart();
+
+    renderModel();
+
+    renderConfigurator();
+
+    createDefaultConfig();
+
+});
+
+function renderModel(){
+
+    document.getElementById("model-name")
+    .textContent = model.name;
+
+    document.getElementById("model-description")
+    .textContent = model.description || "";
+
+
+    document.getElementById("model-author")
+.textContent =
+model.author || "Neuvedeno";
+
+document.getElementById("model-source")
+.textContent =
+model.sourceName || "Neuvedeno";
+
+document.getElementById("model-source")
+.href =
+model.sourceUrl || "#";
+
+document.getElementById("model-license")
+.textContent =
+model.license || "Neuvedeno";
+
+renderStock();
+
+}
+function renderStock(){
+
+    if(
+        !model.stock ||
+        model.stock.length === 0
+    ){
+        return;
+    }
+
+    document.getElementById(
+        "stock-box"
+    ).style.display = "block";
+
+    const container =
+        document.getElementById(
+            "stock-list"
+        );
+
+    container.innerHTML = "";
+
+    model.stock.forEach(item => {
+
+        if(item.quantity <= 0){
+            return;
+        }
+
+        container.innerHTML += `
+
+            <div class="stock-item">
+
+    ${item.image ? `
+
+        <img
+    src="${item.image}"
+    class="stock-preview"
+    onclick="changePreview('${item.image}')">
+
+    ` : ""}
+
+    <h3>
+
+        ${item.code}
+
+        -
+
+        ${item.name}
+
+    </h3>
+
+                ${Object.entries(item.config)
+                .map(([partName, part]) => `
+
+                    <div class="stock-part">
+
+                        <strong>
+
+                            ${partName}
+
+                        </strong>
+
+                        <p>
+
+                            ${part.quantity ?? 1} ks
+
+                        </p>
+
+                        <p>
+
+                            ${part.material}
+                            ${part.variant}
+
+                        </p>
+
+                        <p>
+
+                            ${part.color}
+
+                        </p>
+
+                    </div>
+
+                `)
+                .join("")}
+
+                <p>
+
+                    📦 ${item.quantity} ks skladem
+
+                </p>
+
+                <p>
+
+                    💰 ${item.price} Kč
+
+                </p>
+
+                <button
+                    onclick="addStockToCart('${item.id}')">
+
+                    Přidat skladem
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+function renderConfigurator(){
+
+    const container =
+    document.getElementById("configurator");
+
+    container.innerHTML = "";
+
+    model.groups.forEach(group => {
+
+    const materialsList = [
+    ...new Set(
+        materials
+            .filter(material =>
+
+                material.status === "available" ||
+                material.status === "ordered"
+
+            )
+            .map(material =>
+                material.material
+            )
+    )
+];
+
+    const materialOptions =
+        materialsList.map(material =>
+            `<option>${material}</option>`
+        ).join("");
+
+    const box =
+    document.createElement("div");
+
+    box.className =
+    "config-group";
+
+    if(group.type === "quantity"){
+
+    box.innerHTML = `
+
+        <div class="config-row">
+
+            <span class="config-label">
+                ${group.name}
+            </span>
+
+            <button onclick="changeLeaf(-1)">-</button>
+
+            <span id="leaf-count">
+                ${config[group.id]?.quantity || 1}
+            </span>
+
+            <button onclick="changeLeaf(1)">+</button>
+
+        </div>
+
+        <div class="config-row">
+
+            <select onchange="changeMaterial('${group.id}', this.value)">
+
+                <option value="">
+                    Materiál
+                </option>
+
+                ${materialOptions}
+
+            </select>
+
+            <select
+                id="${group.id}-variant"
+                onchange="changeVariant('${group.id}', this.value)">
+
+                <option>
+                    Varianta
+                </option>
+
+            </select>
+
+            <select
+                id="${group.id}-color"
+                onchange="changeColor('${group.id}', this.value)">
+
+                <option>
+                    Barva
+                </option>
+
+            </select>
+<div class="material-preview">
+
+    <img
+        id="${group.id}-preview"
+        class="material-preview-image"
+        style="display:none;">
+
+</div>
+<div
+    class="part-price"
+    id="${group.id}-price">
+
+    Cena části: 0 Kč
+
+</div>
+        </div>
+
+    `;
+}
+
+else{
+
+    box.innerHTML = `
+
+        <h3>${group.name}</h3>
+
+        <select onchange="changeMaterial('${group.id}', this.value)">
+
+            <option value="">
+                Materiál
+            </option>
+
+            ${materialOptions}
+
+        </select>
+        <select
+    id="${group.id}-variant"
+    onchange="changeVariant('${group.id}', this.value)">
+
+            <option>
+                Varianta
+            </option>
+
+        </select>
+        <select
+    id="${group.id}-color"
+    onchange="changeColor('${group.id}', this.value)">
+            <option>
+                Barva
+            </option>
+
+        </select>
+<div class="material-preview">
+
+    <img
+        id="${group.id}-preview"
+        class="material-preview-image"
+        style="display:none;">
+
+</div>
+<div
+    class="part-price"
+    id="${group.id}-price">
+
+    Cena části: 0 Kč
+
+</div>
+    `;
+}
+        container.appendChild(box);
+
+    });
+
+}
+
+function createDefaultConfig(){
+
+    config = {};
+
+    model.groups.forEach(group => {
+
+        config[group.id] = {
+
+    quantity: group.defaultQuantity,
+
+    material: "",
+    variant: "",
+    color: ""
+    
+
+};
+
+    });
+
+    updateDebug();
+    updateSummary();
+
+}
+
+function updateDebug(){
+
+    document.getElementById("config-debug")
+    .textContent =
+    JSON.stringify(config, null, 2);
+
+}
+
+function changePreview(src){
+
+    document.getElementById("mainPreview")
+    .src = src;
+
+}
+function changeLeaf(change){
+
+    leafCount += change;
+
+    if(leafCount < 0){
+        leafCount = 0;
+    }
+
+    const leafGroup =
+    model.groups.find(
+        group => group.id === "leaf"
+    );
+
+    if(leafCount > leafGroup.max){
+        leafCount = leafGroup.max;
+    }
+
+    document.getElementById(
+        "leaf-count"
+    ).textContent = leafCount;
+
+    config.leaf.quantity = leafCount;
+
+    updateDebug();
+    updateSummary();
+
+}
+function changeMaterial(groupId, value){
+
+    config[groupId].material = value;
+
+    config[groupId].variant = "";
+    config[groupId].color = "";
+
+    document.getElementById(
+        `${groupId}-color`
+    ).innerHTML =
+    `<option value="">Barva</option>`;
+
+    const preview =
+document.getElementById(
+    `${groupId}-preview`
+);
+
+preview.style.display = "none";
+preview.src = "";
+
+document.getElementById("mainPreview")
+.src = "preview/preview1.webp";
+    const variants = [
+
+        ...new Set(
+
+            materials
+                .filter(material =>
+
+                    material.material === value &&
+
+                    (
+                        material.status === "available" ||
+                        material.status === "ordered"
+                    )
+
+                )
+                .map(material =>
+                    material.variant
+                )
+
+        )
+
+    ];
+
+    const variantSelect =
+    document.getElementById(
+        `${groupId}-variant`
+    );
+
+    variantSelect.innerHTML =
+        `<option value="">Varianta</option>`;
+
+    variants.forEach(variant => {
+
+        variantSelect.innerHTML +=
+        `<option>${variant}</option>`;
+
+    });
+
+    updateDebug();
+    updateSummary();
+
+}
+function changeVariant(groupId, value){
+
+    config[groupId].variant = value;
+
+    const colors = [
+
+    ...new Set(
+
+        materials
+            .filter(material =>
+
+                material.material ===
+                config[groupId].material &&
+
+                material.variant === value &&
+
+                (
+                    material.status === "available" ||
+                    material.status === "ordered"
+                )
+
+            )
+            .map(material =>
+                material.name
+            )
+
+    )
+
+];
+
+    const colorSelect =
+    document.getElementById(
+        `${groupId}-color`
+    );
+
+    colorSelect.innerHTML =
+        `<option value="">Barva</option>`;
+
+    colors.forEach(color => {
+
+        colorSelect.innerHTML +=
+        `<option>${color}</option>`;
+
+    });
+
+    updateDebug();
+    updateSummary();
+
+}
+function changeColor(groupId, value){
+
+    config[groupId].color = value;
+
+const candidates = materials.filter(material =>
+
+    material.material ===
+    config[groupId].material &&
+
+    material.variant ===
+    config[groupId].variant &&
+
+    material.name ===
+    config[groupId].color
+
+);
+
+const selectedMaterial =
+    candidates.find(m => m.status === "available")
+    ||
+    candidates.find(m => m.status === "ordered");
+    const preview =
+    document.getElementById(
+        `${groupId}-preview`
+    );
+
+if(selectedMaterial){
+
+    preview.src =
+    "../../../../../sklad/" +
+    selectedMaterial.image;
+
+    preview.style.display =
+    "block";
+
+    document.getElementById(
+        "mainPreview"
+    ).src = preview.src;
+
+    preview.onclick = () =>
+        changePreview(preview.src);
+}
+
+    updateDebug();
+    updateSummary();
+
+}
+function updateSummary(){
+
+    totalPrice = 0;
+    totalWeight = 0;
+    totalPrintTime = 0;
+
+    model.groups.forEach(group => {
+
+        const module = group.modules[0];
+
+        const quantity =
+        config[group.id]?.quantity || 0;
+
+        const partPrice =
+        calculatePartPrice(group.id);
+
+        totalPrice += partPrice;
+
+        document.getElementById(
+            `${group.id}-price`
+        ).textContent =
+        `Cena části: ${partPrice} Kč`;
+
+        totalWeight +=
+        module.weight * quantity;
+
+        totalPrintTime +=
+        module.printTime * quantity;
+
+    });
+
+document.getElementById(
+    "total-price"
+).textContent =
+totalPrice > 0
+    ? totalPrice + " Kč"
+    : "Vyberte materiál";
+
+    document.getElementById(
+        "total-weight"
+    ).textContent =
+    totalWeight.toFixed(2) + " g";
+
+    document.getElementById(
+        "total-print-time"
+    ).textContent =
+    formatPrintTime(totalPrintTime);
+
+}
+function formatPrintTime(seconds){
+
+    const hours =
+    Math.floor(seconds / 3600);
+
+    const minutes =
+    Math.floor((seconds % 3600) / 60);
+
+    return `${hours} h ${minutes} min`;
+
+}
+function calculatePartPrice(groupId){
+
+    const group =
+    model.groups.find(
+        group => group.id === groupId
+    );
+
+    if(!group){
+        return 0;
+    }
+
+    const module =
+    group.modules[0];
+
+    const quantity =
+    config[groupId].quantity || 0;
+
+    const selectedMaterial =
+materials.find(material =>
+
+    material.material ===
+    config[groupId].material &&
+
+    material.variant ===
+    config[groupId].variant &&
+
+    material.name ===
+    config[groupId].color
+
+);
+
+if(!selectedMaterial){
+    return 0;
+}
+const multiplier =
+    selectedMaterial.multiplier ?? 2.4;
+
+const materialTimeFactor =
+    selectedMaterial.timeFactor ?? 1;
+
+const materialPricePerGram =
+
+selectedMaterial.price
+/
+(selectedMaterial.weight * 1000);
+const weight =
+module.weight * quantity;
+
+const timeMinutes =
+(module.printTime * quantity) / 60;
+
+return Math.round(
+
+    (
+        (
+            weight
+            *
+            materialPricePerGram
+            *
+            multiplier
+        )
+
+        +
+
+        (
+    timeMinutes
+    *
+    materialTimeFactor
+    *
+    0.6
+)
+
+    )
+
+    *
+
+    model.valueFactor
+
+);
+}
+function saveCart(){
+
+    localStorage.setItem(
+        "lm-cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+function loadCart(){
+
+    const saved =
+        localStorage.getItem(
+            "lm-cart"
+        );
+
+    if(saved){
+
+        cart = JSON.parse(saved);
+
+    }
+
+}
+function addToCart(){
+
+    console.log(
+        totalPrice,
+        totalWeight,
+        totalPrintTime
+    );
+
+    cart.push({
+
+        uid: crypto.randomUUID(),
+
+        type: "print",
+
+        productId: model.id,
+
+        productName: model.name,
+
+        quantity: 1,
+
+        config: structuredClone(config),
+
+        unitPrice: totalPrice,
+
+        unitWeight: totalWeight,
+
+        unitPrintTime: totalPrintTime
+
+    });
+
+    saveCart();
+
+    alert("Přidáno do košíku");
+
+}
+
+function addStockToCart(stockId){
+
+    const stockItem =
+        model.stock.find(
+            item => item.id === stockId
+        );
+
+    if(!stockItem){
+        return;
+    }
+
+    cart.push({
+
+        uid: crypto.randomUUID(),
+
+        type: "stock",
+
+        stockId: stockItem.id,
+
+        stockCode: stockItem.code,
+
+        stockName: stockItem.name,
+
+        productId: model.id,
+
+        productName: model.name,
+
+        quantity: 1,
+
+        config: structuredClone(
+            stockItem.config
+        ),
+
+        unitPrice: stockItem.price,
+
+        unitWeight: 0,
+
+        unitPrintTime: 0
+
+    });
+
+    saveCart();
+
+    alert("Skladová položka přidána");
+
+}
+
+function goToCart(){
+
+    window.location.href =
+        "../../../../../objednavka/kosik.html";
+
+}
+</script>
+
+</body>
+
+</html>

@@ -4,7 +4,7 @@ export const sekce = [
         file: "./komercni/dekorace/dekorace.js"
     },
     {
-        name: "Lodě",
-        file: "./komercni/lode/lode.js"
+        name: "Litofan",
+        file: "./komercni/litofan/litofan.js"
     }
 ];
