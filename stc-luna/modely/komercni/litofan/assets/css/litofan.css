@@ -1,0 +1,602 @@
+/* ==========================================
+   Projekt HELENKA
+========================================== */
+
+
+/* ==========================================
+   Pozadí stránky
+========================================== */
+
+body{
+
+    background:
+        linear-gradient(
+            rgba(5,7,11,.25),
+            rgba(5,7,11,.45)
+        ),
+        url("../../bg_helenka.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}
+
+
+/* ==========================================
+   Stránka projektu
+========================================== */
+
+.project-page{
+
+    width:min(1400px, 92%);
+
+    margin:60px auto;
+
+}
+
+
+/* ==========================================
+   Hlavička projektu
+========================================== */
+
+.project-panel{
+
+    padding:40px;
+
+    background:rgba(10,10,10,.35);
+
+    border:1px solid rgba(255,199,102,.15);
+
+    border-radius:12px;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.35);
+
+}
+
+.project-panel h1{
+
+    margin-bottom:20px;
+
+    color:#ffc766;
+
+    font-size:3rem;
+
+    font-family:'MedievalSharp', cursive;
+
+}
+
+.project-panel p{
+
+    max-width:900px;
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    color:#cfcfcf;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+
+/* ==========================================
+   Galerie
+========================================== */
+
+.project-gallery{
+
+    margin-top:60px;
+
+}
+
+.project-gallery h2{
+
+    margin-bottom:20px;
+
+    color:#ffc766;
+
+    font-size:2rem;
+
+    font-family:'MedievalSharp', cursive;
+
+}
+
+.project-gallery p{
+
+    margin-bottom:30px;
+
+    max-width:900px;
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+    color:#cfcfcf;
+
+}
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+.gallery-grid img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:10px;
+
+    border:1px solid rgba(255,199,102,.15);
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.gallery-grid img:hover{
+
+    transform:scale(1.03);
+
+    border-color:#ffc766;
+
+}
+.gallery-item{
+
+    text-align:center;
+
+}
+
+.gallery-item span{
+
+    display:block;
+
+    margin-top:12px;
+
+    color:#cfcfcf;
+
+    font-size:.95rem;
+
+}
+.gallery-item img{
+
+    width:100%;
+
+    aspect-ratio:9 / 8;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:10px;
+
+    border:1px solid rgba(255,199,102,.15);
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.gallery-item img:hover{
+
+    transform:scale(1.03);
+
+    border-color:#ffc766;
+
+}
+/* ==========================================
+   Konfigurace
+========================================== */
+
+.project-config{
+
+    margin-top:60px;
+
+}
+
+.project-config h2{
+
+    margin-bottom:20px;
+
+    color:#ffc766;
+
+    font-size:2rem;
+
+    font-family:'MedievalSharp', cursive;
+
+}
+
+.project-config > .project-panel > p{
+
+    margin-bottom:40px;
+
+    max-width:900px;
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+    color:#cfcfcf;
+
+}
+
+.config-section{
+
+    margin-top:40px;
+
+}
+
+.config-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.config-header h3{
+
+    color:#ffc766;
+
+    font-size:1.4rem;
+
+    font-family:'MedievalSharp', cursive;
+
+}
+
+.config-actions{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.config-actions button{
+
+    padding:10px 18px;
+
+    background:rgba(255,199,102,.10);
+
+    color:#ffc766;
+
+    border:1px solid rgba(255,199,102,.20);
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    font-size:.95rem;
+
+}
+
+.config-actions button:hover{
+
+    background:rgba(255,199,102,.18);
+
+    border-color:#ffc766;
+
+}
+/* ==========================================
+   Litofánová destička
+========================================== */
+
+.plate-card{
+
+    margin-top:25px;
+
+    padding:25px;
+
+    background:rgba(10,10,10,.25);
+
+    border:1px solid rgba(255,199,102,.15);
+
+    border-radius:10px;
+
+}
+
+.plate-title{
+
+    margin-bottom:20px;
+
+}
+
+.plate-title h4{
+
+    color:#ffc766;
+
+    font-family:'MedievalSharp', cursive;
+
+    font-size:1.3rem;
+
+}
+
+.plate-content{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr;
+
+    gap:40px;
+
+    align-items:center;
+
+}
+
+.plate-photo,
+.plate-orientation{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+.preview-mode{
+
+    margin-top:20px;
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+
+}
+
+.preview-mode span{
+
+    margin-bottom:4px;
+
+    color:#ffffff;
+    font-weight:bold;
+
+}
+
+.preview-mode label{
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    color:#cfcfcf;
+
+    cursor:pointer;
+
+}
+.plate-photo label,
+.plate-orientation > label{
+
+    margin-bottom:10px;
+
+    font-weight:bold;
+
+    color:#ffffff;
+
+}
+
+.plate-orientation label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+.upload-box{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    min-height:180px;
+
+    border:2px dashed rgba(255,199,102,.25);
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    text-align:center;
+
+}
+.upload-box{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+.upload-box:hover{
+
+    border-color:#ffc766;
+
+    background:rgba(255,199,102,.05);
+
+}
+
+.upload-box input{
+
+    display:none;
+
+}
+
+.upload-box{
+
+    position:relative;
+
+}
+
+.photo-image{
+
+    display:none;
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+    pointer-events:none;
+
+}
+
+.upload-text{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    color:#cfcfcf;
+
+    text-align:center;
+
+    pointer-events:none;
+
+}
+/* ==========================================
+   Náhled
+========================================== */
+
+.plate-preview{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+.preview-mode{
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+
+    margin-bottom:12px;
+
+}
+
+.preview-mode label{
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    cursor:pointer;
+
+    color:#cfcfcf;
+    font-size:.9rem;
+
+}
+.preview-box{
+
+    width:180px;
+
+    height:240px;
+
+    border:1px solid rgba(255,199,102,.2);
+
+    border-radius:10px;
+
+    background:rgba(0,0,0,.2);
+
+}
+.preview-box{
+
+    width:180px;
+
+    height:240px;
+
+    border:1px solid rgba(255,199,102,.2);
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.08);
+
+    overflow:hidden;
+
+    transition:.3s;
+
+}
+
+.preview-box.landscape{
+
+    width:240px;
+
+    height:180px;
+
+}
+
+.preview-canvas{
+
+    width:100%;
+    height:100%;
+    display:block;
+    border-radius:10px;
+
+}
+/* ==========================================
+   Shrnutí
+========================================== */
+
+
+
+/* ==========================================
+   Košík
+========================================== */
+
+
+
+/* ==========================================
+   Zpět
+========================================== */
+
+
+
+/* ==========================================
+   Responsive
+========================================== */

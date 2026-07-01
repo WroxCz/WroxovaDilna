@@ -42,6 +42,8 @@ console.log("Komerční:", komercni);
 
 
 
+const litofan =
+    await import("./komercni/litofan/litofan.js");
 const dekorace = 
     await import("./komercni/dekorace/dekorace.js");
 const testovaci = 
@@ -123,6 +125,13 @@ else if (item.file) {
         }
     });
 }
+const litofanContainer =
+    document.getElementById("litofan");
+
+vykresliStrom(
+    litofan.sekce,
+    litofanContainer
+);
 const dekoraceContainer =
     document.getElementById("dekorace-list");
 
