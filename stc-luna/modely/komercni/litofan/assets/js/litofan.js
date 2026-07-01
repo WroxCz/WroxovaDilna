@@ -3,6 +3,25 @@
 // ==========================================
 "use strict";
 import { loadMaterials } from "../../../../../sklad/materialLoader.js";
+import { Summary } from "./summary.js";
+
+
+// ==========================================
+// Aktualizace shrnutí
+// ==========================================
+
+function refreshSummary() {
+
+    if (!summary || !plateManager || !frameManager) return;
+
+    summary.update(
+        plateManager.plates,
+        frameManager.frames
+    );
+
+}
+
+
 /* =========================================
    PLATE COMPONENT
 ========================================= */
@@ -25,10 +44,35 @@ class Plate {
         this.modeInputs = fragment.querySelectorAll(".preview-mode-radio");
 
         this.state = {
-            image: null,
-            orientation: "portrait",
-            mode: "unlit"
-        };
+
+    image: null,
+    imageName: "",
+
+    orientation: "portrait",
+
+    mode: "unlit",
+
+    width: 150,
+    height: 112.5,
+    thickness: 3,
+
+    material: null,
+
+    weight: 0,
+
+    printTime: 0,
+
+    price: {
+
+        material: 0,
+
+        print: 0,
+
+        total: 0
+
+    }
+
+};
 
         this.setTitle(index);
         this.setupCanvas();
@@ -63,6 +107,8 @@ class Plate {
                 this.previewBox.classList.toggle("landscape", r.value === "landscape");
 
                 this.render();
+
+                refreshSummary();
             });
         });
 
@@ -72,6 +118,7 @@ class Plate {
 
                 this.state.mode = r.value;
                 this.render();
+                refreshSummary();
             });
         });
     }
@@ -81,6 +128,7 @@ class Plate {
     ------------------------- */
     loadImage(e) {
         const file = e.target.files[0];
+        this.state.imageName = file.name;
         if (!file) return;
 
         const url = URL.createObjectURL(file);
@@ -92,9 +140,14 @@ class Plate {
         const image = new Image();
 
         image.onload = () => {
-            this.state.image = image;
-            this.render();
-        };
+
+    this.state.image = image;
+
+    this.render();
+
+    refreshSummary();
+
+};
 
         image.src = url;
     }
@@ -248,32 +301,57 @@ class PlateManager {
         this.addBtn.addEventListener("click", () => this.addPlate());
         this.removeBtn.addEventListener("click", () => this.removePlate());
     }
+addPlate() {
 
-    addPlate() {
-        const fragment = this.template.content.cloneNode(true);
-        const plate = new Plate(fragment, this.plates.length + 1);
+    const fragment = this.template.content.cloneNode(true);
 
-        this.plates.push(plate);
-        this.container.appendChild(fragment);
+    const plate = new Plate(
+        fragment,
+        this.plates.length + 1
+    );
 
-        this.sync(); // 👈 SEM (po přidání)
-    }
+    this.plates.push(plate);
 
-    removePlate() {
-        if (this.plates.length <= 0) return;
+    this.container.appendChild(fragment);
 
-        const plate = this.plates.pop();
-        plate.root.remove();
+    this.sync();
 
-        this.sync(); // 👈 SEM (po smazání)
-    }
-
-    sync() {
-        this.plates.forEach((p, i) => {
-            p.setTitle(i + 1);
-        });
-    }
 }
+
+removePlate() {
+
+    if (this.plates.length <= 0) return;
+
+    const plate = this.plates.pop();
+
+    plate.root.remove();
+
+    this.sync();
+
+}
+
+sync() {
+
+    this.plates.forEach((p, i) => {
+
+        p.setTitle(i + 1);
+
+    });
+
+    if (summary && frameManager) {
+
+        summary.update(
+
+            this.plates,
+
+            frameManager.frames
+
+        );
+
+    }
+
+}
+} 
 /* =========================================
    FRAME COMPONENT
 ========================================= */
@@ -459,10 +537,21 @@ class FrameManager {
    INIT
 ========================================= */
 
+let summary;
+let plateManager;
+let frameManager;
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    new PlateManager();
-    new FrameManager();
+    summary = new Summary("summary-container");
+
+    plateManager = new PlateManager();
+
+    frameManager = new FrameManager();
+
+    summary.update(
+        plateManager.plates,
+        frameManager.frames
+    );
 
 });
-
