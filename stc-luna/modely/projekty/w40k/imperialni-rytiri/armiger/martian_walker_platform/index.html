@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Martian Walker Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="project-container">
+
+<section class="left-panel">
+
+<section class="gallery-section">
+
+    <h2>Martian Walker Platform</h2>
+
+    <section class="hero-section">
+        <img
+            id="hero-image"
+            src="images/IMG_20260618_113138.jpg"
+            alt="Martian Walker Platform">
+    </section>
+
+    <div class="gallery-thumbs">
+
+        <img src="images/IMG_20260618_113138.jpg" class="active">
+        <img src="images/IMG_20260618_112750.jpg">
+        <img src="images/IMG_20260618_112740.jpg">
+        <img src="images/IMG_20260618_112722.jpg">
+        <img src="images/IMG_20260618_003149.jpg">
+        <img src="images/IMG_20260614_205651.jpg">
+
+    </div>
+
+</section>
+
+</div>
+</section>
+
+    </section>
+
+</section>
+
+<aside class="right-panel">
+
+    <h1>Martian Walker Platform</h1>
+
+    <p><strong>Stav:</strong> Hotovo</p>
+
+
+    <section class="about-project">
+
+        <h2>O projektu</h2>
+
+<p>
+    Čerstvě z Forge World Diodelosus umožňuje jednotka Walker Platform rychle přesouvat těžké děla přes obtížný terén ve zvýšené výšce. S dvěma těžkými zbraněmi a dělem na pintlu může toto vozidlo opravdu způsobit škody!
+</p>
+
+<p>
+    Tato varianta nabízí možnosti pro Laser-Blade nebo Lance-Beam jako hlavní zbraně a těžkou dvouhlavňovou makrovlnovou palbou pro horní část.
+</p>
+
+<p>
+    Navíc je k dispozici 3 možnosti ramenního plátu a 2 možnosti nožního plátu. 
+</p>
+
+<p>
+    <strong>Autor:</strong>
+    <a href="https://cults3d.com/en/users/Magos_Datasmith_Diodelosus/3d-models"
+       target="_blank">
+        Magos_Datasmith_Diodelosus
+    </a>
+</p>
+
+<p>
+    <strong>Zdroj:</strong>
+    <a href="https://cults3d.com/en/3d-model/game/martian-walker-platform"
+       target="_blank">
+        Cults3d
+    </a>
+</p>
+
+
+
+        <a
+            href="../../../../../indexmodely.html"
+            class="back-button">
+
+            ← Zpět
+
+        </a>
+    </section>
+
+</aside>
+
+    </main>
+<script>
+
+const hero = document.getElementById("hero-image");
+const thumbs = document.querySelectorAll(".gallery-thumbs img");
+
+thumbs.forEach(img => {
+
+    img.addEventListener("click", function(){
+
+        hero.src = this.src;
+
+        thumbs.forEach(i => i.classList.remove("active"));
+
+        this.classList.add("active");
+
+    });
+
+});
+
+</script>
+
+
+</body>
+

@@ -164,41 +164,33 @@ body {
     width: 28.8%;
     height: 9.1%;
 }
-.hero-section{
-    margin-bottom:20px;
-}
-
-.hero-section img{
-    width:100%;
-    display:block;
-    border-radius:12px;
-    cursor:pointer;
-}
-
 .gallery-thumbs{
     display:flex;
     gap:10px;
     flex-wrap:wrap;
-    justify-content:center;
+    margin-top:15px;
 }
 
 .gallery-thumbs img{
-    width:90px;
-    height:90px;
+    width:100px;
+    height:100px;
+
     object-fit:cover;
+
+    border:2px solid #333;
     border-radius:8px;
+
     cursor:pointer;
-    border:2px solid transparent;
-    opacity:.75;
+
     transition:.2s;
 }
 
 .gallery-thumbs img:hover{
-    opacity:1;
+    border-color:#d6a23a;
     transform:scale(1.05);
 }
 
 .gallery-thumbs img.active{
-    border-color:#c99b42;
-    opacity:1;
+    border-color:#d6a23a;
+    box-shadow:0 0 12px rgba(214,162,58,.7);
 }

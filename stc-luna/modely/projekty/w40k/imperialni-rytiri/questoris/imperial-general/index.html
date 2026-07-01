@@ -170,6 +170,25 @@ function zobrazDil(obrazek) {
     document.getElementById("hero-image").src = obrazek;
 }
 </script>
+<script>
 
+const hero = document.getElementById("hero-image");
+const thumbs = document.querySelectorAll(".gallery-thumbs img");
+
+thumbs.forEach(img=>{
+
+    img.addEventListener("click",()=>{
+
+        hero.src = img.src;
+
+        thumbs.forEach(i=>i.classList.remove("active"));
+
+        img.classList.add("active");
+
+    });
+
+});
+
+</script>
 </body>
 
