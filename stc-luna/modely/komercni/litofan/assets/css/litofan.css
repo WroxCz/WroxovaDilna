@@ -580,6 +580,124 @@ body{
 
 }
 /* ==========================================
+   Rámeček
+========================================== */
+
+.frame-card{
+
+    margin-top:25px;
+
+    padding:25px;
+
+    background:rgba(10,10,10,.25);
+
+    border:1px solid rgba(255,199,102,.15);
+
+    border-radius:10px;
+
+}
+
+.frame-title{
+
+    margin-bottom:20px;
+
+}
+
+.frame-title h4{
+
+    color:#ffc766;
+
+    font-family:'MedievalSharp', cursive;
+
+    font-size:1.3rem;
+
+}
+
+
+.frame-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.frame-group label{
+
+    color:#ffffff;
+
+    font-weight:bold;
+
+}
+
+.frame-group select{
+
+    padding:10px;
+
+    background:rgba(0,0,0,.25);
+
+    color:#ffffff;
+
+    border:1px solid rgba(255,199,102,.2);
+
+    border-radius:8px;
+
+    font-size:15px;
+
+}
+.frame-adapter{
+
+    display:none;
+
+}
+/* ==========================================
+   Rozložení rámečku
+========================================== */
+
+.frame-content{
+
+    display:flex;
+
+    gap:40px;
+
+    align-items:flex-start;
+
+}
+
+.frame-left,
+.frame-right{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+.frame-column-title{
+
+    color:#ffc766;
+
+    font-family:'MedievalSharp', cursive;
+
+    font-size:1rem;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    margin-bottom:8px;
+
+    padding-bottom:8px;
+
+    border-bottom:1px solid rgba(255,199,102,.2);
+
+}
+/* ==========================================
    Shrnutí
 ========================================== */
 

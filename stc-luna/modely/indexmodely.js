@@ -151,3 +151,15 @@ vykresliStrom(
     projekty.sekce,
     projektyContainer
 );
+
+
+
+document
+    .querySelector("#litofan-link summary")
+    .addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        window.location.href = "./komercni/litofan/model.html";
+
+    });

@@ -2,7 +2,7 @@
 // HELENKA – litofan.js (clean rebuild)
 // ==========================================
 "use strict";
-
+import { loadMaterials } from "../../../../../sklad/materialLoader.js";
 /* =========================================
    PLATE COMPONENT
 ========================================= */
@@ -274,11 +274,195 @@ class PlateManager {
         });
     }
 }
+/* =========================================
+   FRAME COMPONENT
+========================================= */
 
+class Frame {
+
+    constructor(fragment, index) {
+
+        this.root = fragment.querySelector(".frame-card");
+this.title = fragment.querySelector(".frame-title h4");
+
+this.materialSelect =
+    fragment.querySelector(".frame-material");
+ this.colorSelect =
+    fragment.querySelector(".frame-color");
+
+this.materials = [];   
+
+this.ledSelect =
+    fragment.querySelector(".frame-led");
+
+this.adapterGroup =
+    fragment.querySelector(".frame-adapter");
+
+this.powerSelect =
+    fragment.querySelector(".frame-power");
+
+this.setTitle(index);
+
+this.loadMaterials();
+
+this.bindLed();
+    }
+
+    setTitle(i) {
+
+        this.title.textContent = `Rámeček ${i}`;
+    }
+    async loadMaterials() {
+
+    this.materials = await loadMaterials();
+
+    const materialTypes = [
+        ...new Set(
+            this.materials.map(m => m.material)
+        )
+    ];
+
+    this.materialSelect.innerHTML =
+        `<option value="">-- Vyberte materiál --</option>`;
+
+    materialTypes.forEach(type => {
+
+        const option = document.createElement("option");
+
+        option.value = type;
+        option.textContent = type;
+
+        this.materialSelect.appendChild(option);
+
+    });
+
+    this.materialSelect.addEventListener("change", () => {
+
+        this.updateColors();
+
+    });
+
+}
+updateColors() {
+
+    const material =
+        this.materialSelect.value;
+
+    this.colorSelect.innerHTML = `
+
+        <option value="">
+            -- Vyberte barvu --
+        </option>
+
+    `;
+
+    if (!material) return;
+
+    const colors = this.materials.filter(m =>
+
+        m.material === material
+        &&
+        m.status !== "unavailable"
+
+    );
+
+    colors.forEach(color => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = color.id;
+
+        option.textContent =
+            `${color.name} (${color.manufacturer})`;
+
+        this.colorSelect.appendChild(option);
+
+    });
+
+}
+bindLed() {
+
+    this.ledSelect.addEventListener("change", () => {
+
+        this.adapterGroup.style.display =
+            this.ledSelect.value === "basic"
+                ? "flex"
+                : "none";
+
+    });
+
+}
+
+}
+
+/* =========================================
+   FRAME MANAGER
+========================================= */
+
+class FrameManager {
+
+    constructor() {
+
+        this.container = document.getElementById("frames-container");
+        this.template = document.getElementById("frame-template");
+
+        this.addBtn = document.querySelector(".btn-add-frame");
+        this.removeBtn = document.querySelector(".btn-remove-frame");
+
+        this.frames = [];
+
+        this.bind();
+    }
+
+    bind() {
+
+        this.addBtn.addEventListener("click", () => this.addFrame());
+        this.removeBtn.addEventListener("click", () => this.removeFrame());
+    }
+
+    addFrame() {
+
+        const fragment = this.template.content.cloneNode(true);
+
+        const frame = new Frame(fragment, this.frames.length + 1);
+
+        this.frames.push(frame);
+
+        this.container.appendChild(fragment);
+
+        this.sync();
+    }
+
+    removeFrame() {
+
+        if (this.frames.length === 0) return;
+
+        const frame = this.frames.pop();
+
+        frame.root.remove();
+
+        this.sync();
+    }
+
+    sync() {
+
+        this.frames.forEach((f, i) => {
+
+            f.setTitle(i + 1);
+
+        });
+    }
+    
+}
 /* =========================================
    INIT
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
     new PlateManager();
+    new FrameManager();
+
 });
+

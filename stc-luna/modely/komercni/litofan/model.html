@@ -273,11 +273,122 @@
 
             </div>
 
+<template id="frame-template">
+
+    <div class="frame-card">
+
+        <div class="frame-title">
+
+            <h4></h4>
+
+        </div>
+
+        <div class="frame-content">
+
+            <!-- ==========================
+                 LEVÝ SLOUPEC
+            ========================== -->
+
+            <div class="frame-left">
+
+                <!-- Model rámečku -->
+                <div class="frame-group">
+
+                    <label>Model rámečku</label>
+
+                    <select class="frame-model">
+
+                        <option value="basic">
+                            Basic
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Materiál -->
+                <div class="frame-group">
+
+                    <label>Materiál</label>
+
+                    <select class="frame-material">
+
+                        <option value="">
+                            -- Vyberte materiál --
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Barva -->
+                <div class="frame-group">
+
+                    <label>Barva</label>
+
+                    <select class="frame-color">
+
+                        <option value="">
+                            -- Vyberte barvu --
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <!-- ==========================
+                 PRAVÝ SLOUPEC
+            ========================== -->
+
+            <div class="frame-right">
+
+                <!-- Podsvícení -->
+                <div class="frame-group">
+
+                    <label>Podsvícení</label>
+
+                    <select class="frame-led">
+
+                        <option value="none">
+                            Bez podsvícení
+                        </option>
+
+                        <option value="basic">
+                            LED panel Basic
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Síťový adaptér -->
+                <div class="frame-group frame-adapter">
+
+                    <label>Síťový adaptér</label>
+
+                    <select class="frame-power">
+
+                        <option value="no">
+                            Ne
+                        </option>
+
+                        <option value="yes">
+                            Ano
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-</section>
+</template>
 
     <!-- ==========================================
          Shrnutí
@@ -319,7 +430,7 @@
 
 </main>
 
-<script src="assets/js/litofan.js"></script>
+<script type="module" src="assets/js/litofan.js"></script>
 
 </body>
 </html>
