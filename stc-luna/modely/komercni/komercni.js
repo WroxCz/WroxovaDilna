@@ -1,10 +1,10 @@
 export const sekce = [
     {
         name: "Dekorace",
-        file: "./komercni/dekorace/dekorace.js"
+        file: "modely/komercni/dekorace/dekorace.js"
     },
     {
         name: "Litofan",
-        file: "./komercni/litofan/litofan.js"
+        file: "modely/komercni/litofan/lit.js"
     }
 ];
