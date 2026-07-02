@@ -2,7 +2,7 @@
 // Firebase Storage Manager
 // ==========================================
 
-import { storage } from "../../../../../firebase/firebase.js";
+import { storage } from "../../../../../../firebase/firebase.js";
 
 import {
     ref,
