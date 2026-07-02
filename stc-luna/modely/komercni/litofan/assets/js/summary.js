@@ -16,13 +16,58 @@ function formatPrice(price) {
 
 }
 
+function formatPrintTime(minutes) {
+
+    const hours = Math.floor(minutes / 60);
+
+    const mins = minutes % 60;
+
+    if (hours === 0) {
+
+        return `${mins} min`;
+
+    }
+
+    if (mins === 0) {
+
+        return `${hours} h`;
+
+    }
+
+    return `${hours} h ${mins} min`;
+
+}
+
 export class Summary {
 
     constructor(containerId) {
 
-        this.container = document.getElementById(containerId);
+    this.container = document.getElementById(containerId);
 
-    }
+    this.container.innerHTML = `
+
+        <div class="summary-grid">
+
+            <div class="summary-plates"></div>
+
+            <div class="summary-frames"></div>
+
+        </div>
+
+        <div class="summary-total"></div>
+
+    `;
+
+    this.platesContainer =
+        this.container.querySelector(".summary-plates");
+
+    this.framesContainer =
+        this.container.querySelector(".summary-frames");
+
+    this.totalContainer =
+        this.container.querySelector(".summary-total");
+
+}
 
     // ======================================
     // Veřejná metoda
@@ -44,11 +89,15 @@ export class Summary {
     // Vymazání
     // ======================================
 
-    clear() {
+clear() {
 
-        this.container.innerHTML = "";
+    this.platesContainer.innerHTML = "";
 
-    }
+    this.framesContainer.innerHTML = "";
+
+    this.totalContainer.innerHTML = "";
+
+}
 
     // ======================================
     // Litofánové destičky
@@ -56,61 +105,69 @@ export class Summary {
 
     renderPlates(plates) {
 
-        if (!plates.length) return;
+    if (!plates.length) return;
 
-        const section = document.createElement("div");
+    const section = document.createElement("div");
 
-        section.className = "summary-section";
+    section.className = "summary-section";
 
-        section.innerHTML = `
-            <h3>📷 Litofánové destičky</h3>
+    section.innerHTML = `
+        <h3>📷 Litofánové destičky</h3>
+    `;
+
+    plates.forEach((plate, index) => {
+
+        const item = document.createElement("div");
+
+        item.className = "summary-item";
+
+        item.innerHTML = `
+
+            <h4>Destička ${index + 1}</h4>
+
+            <div>
+                Fotografie:
+                ${plate.state.imageName || "Nevybrána"}
+            </div>
+
+            <div>
+                Orientace:
+                ${
+                    plate.state.orientation === "landscape"
+                        ? "Na šířku"
+                        : "Na výšku"
+                }
+            </div>
+
+            <div>
+                Výroba destičky:
+                ${formatPrice(
+                    plate.state.price.material +
+                    plate.state.price.printing
+                )} Kč
+            </div>
+
+            <hr>
+
+            <div>
+
+                <strong>Celkem:</strong>
+
+                <strong>
+                    ${formatPrice(plate.state.price.total)} Kč
+                </strong>
+
+            </div>
+
         `;
 
-        plates.forEach((plate, index) => {
+        section.appendChild(item);
 
-            const item = document.createElement("div");
+    });
 
-            item.className = "summary-item";
+    this.platesContainer.appendChild(section);
 
-            item.innerHTML = `
-
-                <h4>Destička ${index + 1}</h4>
-
-                <div>Fotografie:
-                    ${plate.state.imageName || "Nevybrána"}
-                </div>
-
-                <div>Orientace:
-                    ${plate.state.orientation === "landscape"
-                        ? "Na šířku"
-                        : "Na výšku"}
-                </div>
-
-                <div><div>
-    Cena materiálu:
-    ${formatPrice(plate.state.price.material)} Kč
-</div>
-
-<div>
-    Cena tisku:
-    ${formatPrice(plate.state.price.printing)} Kč
-</div>
-
-<div>
-    Celkem:
-    ${formatPrice(plate.state.price.total)} Kč
-</div>
-                </div>
-
-            `;
-
-            section.appendChild(item);
-
-        });
-
-        this.container.appendChild(section);
-
-    }
+}
 
     // ======================================
     // Rámečky
@@ -118,72 +175,97 @@ export class Summary {
 
     renderFrames(frames) {
 
-        if (!frames.length) return;
+    if (!frames.length) return;
 
-        const section = document.createElement("div");
+    const section = document.createElement("div");
 
-        section.className = "summary-section";
+    section.className = "summary-section";
 
-        section.innerHTML = `
-            <h3>🖼️ Rámečky</h3>
+    section.innerHTML = `
+        <h3>🖼️ Rámečky</h3>
+    `;
+
+    frames.forEach((frame, index) => {
+
+        const item = document.createElement("div");
+
+        item.className = "summary-item";
+
+        item.innerHTML = `
+
+            <h4>Rámeček ${index + 1}</h4>
+
+            <div>
+                Model:
+                ${frame.state.model || "Basic"}
+            </div>
+
+            <div>
+                Materiál:
+                ${frame.state.filament?.material || "-"}
+            </div>
+
+            <div>
+                Barva:
+                ${frame.state.filament?.name || "-"}
+            </div>
+
+            <div>
+                Podsvícení:
+                ${frame.state.ledPanel?.name || "Bez podsvícení"}
+            </div>
+
+            <div>
+                Výroba rámečku:
+                ${formatPrice(
+                    frame.state.price.material +
+                    frame.state.price.printing
+                )} Kč
+            </div>
+
+            ${
+                frame.state.ledPanel
+                ? `
+                <div>
+                    LED panel:
+                    ${formatPrice(frame.state.price.led)} Kč
+                </div>
+                `
+                : ""
+            }
+
+            ${
+                frame.state.adapter
+                ? `
+                <div>
+                    Síťový adaptér:
+                    ${formatPrice(frame.state.price.adapter)} Kč
+                </div>
+                `
+                : ""
+            }
+
+            <hr>
+
+            <div>
+
+                <strong>Celkem:</strong>
+
+                <strong>
+                    ${formatPrice(frame.state.price.total)} Kč
+                </strong>
+
+            </div>
+
         `;
 
-        frames.forEach((frame, index) => {
+        section.appendChild(item);
 
-            const item = document.createElement("div");
+    });
 
-            item.className = "summary-item";
+    this.framesContainer.appendChild(section);
 
-            item.innerHTML = `
-
-                <h4>Rámeček ${index + 1}</h4>
-
-                <div>Model:
-                    ${frame.state?.model || "Basic"}
-                </div>
-
-                <div>Materiál:
-                    ${frame.state.filament?.material || "-"}
-                </div>
-
-                <div>Barva:
-                    ${frame.state.filament?.name || "-"}
-                </div>
-
-<div>Podsvícení:
-    ${frame.state.led === "basic"
-        ? "LED panel Basic"
-        : "Bez podsvícení"}
-</div>
-
-<div>Adaptér:
-    ${frame.state.adapter ? "Ano" : "Ne"}
-</div>
-
-                <div>
-    Cena materiálu:
-    ${formatPrice(frame.state.price.material)} Kč
-</div>
-
-<div>
-    Cena tisku:
-    ${formatPrice(frame.state.price.printing)} Kč
-</div>
-
-<div>
-    Celkem:
-    ${formatPrice(frame.state.price.total)} Kč
-</div>
-
-            `;
-
-            section.appendChild(item);
-
-        });
-
-        this.container.appendChild(section);
-
-    }
+}
 
     // ======================================
     // Součty
@@ -193,30 +275,30 @@ export class Summary {
 
     const section = document.createElement("div");
 
-    section.className = "summary-total";
+    section.className = "summary-total-card";
 
     section.innerHTML = `
 
-        <hr>
+        <h3>📊 Celkový souhrn</h3>
 
         <div>
-            Celková cena:
-${formatPrice(totals.price)} Kč
+            <strong>Celková cena:</strong>
+            ${formatPrice(totals.price)} Kč
         </div>
 
         <div>
-            Celková hmotnost:
+            <strong>Celková hmotnost:</strong>
             ${totals.weight} g
         </div>
 
         <div>
-            Celková doba tisku:
-            ${totals.printTime} min
+            <strong>Celková doba tisku:</strong>
+            ${formatPrintTime(totals.printTime)}
         </div>
 
     `;
 
-    this.container.appendChild(section);
+    this.totalContainer.appendChild(section);
 
 }
 }

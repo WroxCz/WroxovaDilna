@@ -13,9 +13,6 @@
 // Cena provozu tiskárny za minutu
 const MACHINE_COST_PER_MINUTE = 0.5;
 
-// Síťový adaptér
-const POWER_ADAPTER_COST = 0;
-
 function calculateMaterialAndPrinting(item) {
 
     const filament = item.state.filament;
@@ -89,9 +86,7 @@ frame.state.price.led =
     frame.state.ledPanel?.price || 0;
 
 frame.state.price.adapter =
-    frame.state.adapter
-        ? POWER_ADAPTER_COST
-        : 0;
+    frame.state.adapter?.price || 0;
 
     frame.state.price.total +=
 

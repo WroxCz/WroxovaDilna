@@ -7,6 +7,7 @@ import { Summary } from "./summary.js";
 import { calculateProject } from "./priceCalculator.js";
 import { loadModelData, loadPlateData } from "./dataLoader.js";
 import { loadLedPanels } from "./ledLoader.js";
+import { loadAdapters } from "./adapterLoader.js";
 
 // ==========================================
 // Aktualizace shrnutí
@@ -109,7 +110,7 @@ this.renderBlank();
         this.canvas.height = 800;
     }
 
-    async loadData() {
+async loadData() {
 
     const data = await loadPlateData();
 
@@ -117,16 +118,10 @@ this.renderBlank();
 
     this.state.printTime = data.printTime;
 
-const ledPanels = await loadLedPanels();
-
-this.ledPanels = ledPanels;
-
     const materials = await loadMaterials();
 
     this.state.filament = materials.find(
-
         m => m.id === data.defaultFilament
-
     ) || null;
 
     refreshSummary();
@@ -405,6 +400,9 @@ this.materialSelect =
 
 this.materials = [];   
 
+this.adapters = [];
+this.ledPanels = [];
+
 this.ledSelect =
     fragment.querySelector(".frame-led");
 
@@ -422,7 +420,7 @@ this.state = {
 
     ledPanel: null,
 
-    adapter: false,
+    adapter: null,
 
     weight: 0,
 
@@ -502,6 +500,11 @@ async loadData() {
 
     this.state.printTime = data.printTime;
 
+    this.ledPanels = await loadLedPanels();
+this.adapters = await loadAdapters();
+
+    console.log("Frame LED loaded:", this.ledPanels);
+
     refreshSummary();
 
 }
@@ -565,41 +568,48 @@ bindColor() {
 }
 bindLed() {
 
+    console.log("LED cache:", this.ledPanels);
+
     this.ledSelect.addEventListener("change", () => {
 
-        const panel = this.ledPanels.find(
+    const panel = this.ledPanels.find(
+        p => p.id === this.ledSelect.value
+    ) || null;
 
-            p => p.id === this.ledSelect.value
+    this.state.ledPanel = panel;
 
-        );
+    console.log(this.state.ledPanel);
 
-        this.state.ledPanel = panel || null;
+    this.adapterGroup.style.display =
+        panel ? "flex" : "none";
 
-        this.adapterGroup.style.display =
+    if (!panel) {
 
-            panel ? "flex" : "none";
+    this.powerSelect.value = "no";
+    this.state.adapter = null;
 
-        if (!panel) {
+}
 
-            this.powerSelect.value = "no";
+    refreshSummary();
 
-            this.state.adapter = false;
-
-        }
-
-        refreshSummary();
-
-    });
+});
 
     this.powerSelect.addEventListener("change", () => {
 
+    if (this.powerSelect.value === "yes") {
+
         this.state.adapter =
+            this.adapters.find(a => a.id !== "none") || null;
 
-            this.powerSelect.value === "yes";
+    } else {
 
-        refreshSummary();
+        this.state.adapter = null;
 
-    });
+    }
+
+    refreshSummary();
+
+});
 
 }
 

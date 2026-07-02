@@ -1,0 +1,16 @@
+[
+    {
+        "id": "none",
+        "name": "Bez adaptéru",
+        "price": 0
+    },
+    {
+    "id": "alza-a300-10w",
+    "name": "AlzaPower Compact A300 10W Bílá",
+    "price": 149,
+    "power": 10,
+    "voltage": 5,
+    "current": 2.1,
+    "url": "https://www.alza.cz/alzapower-compact-a300-10w-bila-d5321578.htm"
+}
+]
