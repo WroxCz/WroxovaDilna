@@ -886,7 +886,7 @@ localStorage.setItem(
 alert("Projekt byl přidán do košíku.");
 
 window.location.href =
-    "../../../kosik.html";
+    "../../../objednavka/kosik.html";
 
 });
 });
