@@ -152,9 +152,6 @@ if(
         id:
             crypto.randomUUID(),
 
-        created:
-            new Date().toISOString(),
-
         customer: {
 
             name:

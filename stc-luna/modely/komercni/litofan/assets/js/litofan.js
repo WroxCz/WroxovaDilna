@@ -711,6 +711,59 @@ class FrameManager {
     
 }
 /* =========================================
+   VALIDACE KONFIGURACE
+========================================= */
+
+function validateConfiguration() {
+
+    // Musí existovat alespoň jeden modul
+    if (
+        plateManager.plates.length === 0 &&
+        frameManager.frames.length === 0
+    ) {
+
+        alert(
+            "Přidejte alespoň jednu litofánovou destičku nebo rámeček."
+        );
+
+        return false;
+
+    }
+
+    // Kontrola destiček
+    for (const plate of plateManager.plates) {
+
+        if (!plate.state.imageUrl) {
+
+            alert(
+                `${plate.title.textContent} neobsahuje fotografii.`
+            );
+
+            return false;
+
+        }
+
+    }
+
+    // Kontrola rámečků
+    for (const frame of frameManager.frames) {
+
+        if (!frame.state.filament) {
+
+            alert(
+                `${frame.title.textContent} nemá vybraný materiál a barvu.`
+            );
+
+            return false;
+
+        }
+
+    }
+
+    return true;
+
+}
+/* =========================================
    INIT
 ========================================= */
 
@@ -728,4 +781,98 @@ document.addEventListener("DOMContentLoaded", () => {
 
     refreshSummary();
 
+    const cartButton =
+    document.querySelector(".cart-button");
+
+cartButton.addEventListener("click", () => {
+
+    if (!validateConfiguration()) return;
+
+    if (plateManager.plates.length > 0) {
+
+        const consent =
+            document.getElementById("photoConsent");
+
+        if (!consent.checked) {
+
+            alert(
+                "Pro pokračování musíte souhlasit se zpracováním fotografií."
+            );
+
+            return;
+
+        }
+
+    }
+
+    const totals = calculateProject(
+
+        plateManager.plates,
+
+        frameManager.frames
+
+    );
+
+    const cartItem = {
+
+        uid: crypto.randomUUID(),
+
+        type: "helenka",
+
+        productName: "Projekt Helenka",
+
+        quantity: 1,
+
+        unitPrice: totals.price,
+
+        unitWeight: totals.weight,
+
+        unitPrintTime: totals.printTime,
+
+        plates: plateManager.plates.map(plate => ({
+
+            imageName: plate.state.imageName,
+
+            imageUrl: plate.state.imageUrl,
+
+            storagePath: plate.state.storagePath,
+
+            orientation: plate.state.orientation,
+
+            mode: plate.state.mode,
+
+            weight: plate.state.weight,
+
+            printTime: plate.state.printTime,
+
+            price: plate.state.price
+
+        })),
+
+        frames: frameManager.frames.map(frame => ({
+
+            model: frame.state.model,
+
+            filament: frame.state.filament,
+
+            ledPanel: frame.state.ledPanel,
+
+            adapter: frame.state.adapter,
+
+            weight: frame.state.weight,
+
+            printTime: frame.state.printTime,
+
+            price: frame.state.price
+
+        })),
+
+        photoConsent:
+            plateManager.plates.length > 0
+
+    };
+
+    console.log(cartItem);
+
+});
 });

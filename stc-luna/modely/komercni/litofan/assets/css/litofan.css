@@ -783,7 +783,45 @@ body{
     font-size:1.05rem;
 
 }
+/* ==========================================
+   Souhlas
+========================================== */
 
+.project-consent{
+
+    margin-top:40px;
+
+}
+
+.photo-consent{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    cursor:pointer;
+
+    color:#d8d8d8;
+
+    line-height:1.7;
+
+}
+
+.photo-consent input{
+
+    margin-top:5px;
+
+    transform:scale(1.2);
+
+}
+
+.photo-consent span{
+
+    flex:1;
+
+}
 /* ==========================================
    Košík
 ========================================== */
