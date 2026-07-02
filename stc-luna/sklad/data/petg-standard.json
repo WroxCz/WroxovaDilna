@@ -62,6 +62,37 @@
 }
 ,
 {
+    "id": "fg-s27-e1fg-s27-e1",
+    "name": "Bílá",
+    "image": "matimages/materials/PETG/Smart Print/fg-s27-e1fg-s27-e1.webp",
+
+    "manufacturer": "Smart Print",
+    "material": "PETG",
+    "variant": "Standard",
+
+    "price": 179,
+    "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
+
+    "status": "available",
+    "statusText": "Dostupné",
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
     "id": "ProfLab02",
     "name": "Růžová",
     "image": "matimages/materials/PETG/ProfLab/ProfLab02.webp",
@@ -202,6 +233,37 @@
 
     "status": "unavailable",
     "statusText": "Nedostupné",
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
+    "id": "ffg-s26-e1fg-s26-e1",
+    "name": "Černá",
+    "image": "matimages/materials/PETG/Smart Print/fg-s26-e1fg-s26-e1.webp",
+
+    "manufacturer": "Smart Print",
+    "material": "PETG",
+    "variant": "Standard",
+
+    "price": 179,
+    "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
+
+    "status": "available",
+    "statusText": "Dostupné",
 
     "printTemperatureMin": "230",
     "printTemperatureMax": "250",
@@ -419,6 +481,37 @@
 
     "status": "unavailable",
     "statusText": "Nedostupné",
+
+    "printTemperatureMin": "230",
+    "printTemperatureMax": "250",
+
+    "bedTemperatureMin": "70",
+    "bedTemperatureMax": "90",
+
+    "printSpeedMin": "30",
+    "printSpeedMax": "70",
+    
+    "printheadDiameter": "[0.2, 0.4, 0.8]"
+
+}
+,
+{
+    "id": "fg-s28-e1fg-s28-e1",
+    "name": "Šedá",
+    "image": "matimages/materials/PETG/Smart Print/fg-s28-e1fg-s28-e1.webp",
+
+    "manufacturer": "Smart Print",
+    "material": "PETG",
+    "variant": "Standard",
+
+    "price": 199,
+    "weight": 1,
+    
+    "multiplier": 2.4,
+    "timeFactor": 1,
+
+    "status": "available",
+    "statusText": "Dostupné",
 
     "printTemperatureMin": "230",
     "printTemperatureMax": "250",

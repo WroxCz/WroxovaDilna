@@ -1,48 +1,88 @@
-const projectState = {
+// ==========================================
+// HELENKA - Price Calculator
+// ==========================================
 
-    plates: [
+"use strict";
+// ==========================================
+// Nastavení kalkulace
+// ==========================================
 
-        {
-            id: 1,
+// Cena tisku za minutu
+const PRINT_PRICE_PER_MINUTE = 0;
 
-            image: null,
-            imageName: "",
+// LED panel Basic
+const LED_BASIC_PRICE = 0;
 
-            orientation: "portrait",
+// Síťový adaptér
+const POWER_ADAPTER_PRICE = 0;
+/* =========================================
+   LITOFÁNOVÁ DESTIČKA
+========================================= */
 
-            width: 150,
-            height: 112.5,
-            thickness: 3,
+export function calculatePlate(plate) {
 
-            material: null,
+    // zatím nic
 
-            weight: 0,
-            printTime: 0,
+    return plate;
 
-            price: 0
-        }
+}
 
-    ],
+/* =========================================
+   RÁMEČEK
+========================================= */
 
-    frames: [
+export function calculateFrame(frame) {
 
-        {
-            id: 1,
+    frame.state.price.total = 0;
 
-            model: "basic",
+    return frame;
 
-            material: null,
-            color: null,
+}
 
-            led: "none",
-            adapter: false,
+/* =========================================
+   CELÝ PROJEKT
+========================================= */
 
-            weight: 0,
-            printTime: 0,
+export function calculateProject(plates, frames) {
 
-            price: 0
-        }
+    let totalPrice = 0;
 
-    ]
+    let totalWeight = 0;
 
-};
+    let totalPrintTime = 0;
+
+    plates.forEach(plate => {
+
+        calculatePlate(plate);
+
+        totalPrice += plate.state.price.total;
+
+        totalWeight += plate.state.weight;
+
+        totalPrintTime += plate.state.printTime;
+
+    });
+
+    frames.forEach(frame => {
+
+        calculateFrame(frame);
+
+        totalPrice += frame.state.price.total;
+
+        totalWeight += frame.state.weight;
+
+        totalPrintTime += frame.state.printTime;
+
+    });
+
+    return {
+
+        price: totalPrice,
+
+        weight: totalWeight,
+
+        printTime: totalPrintTime
+
+    };
+
+}

@@ -678,25 +678,7 @@ body{
     gap:20px;
 
 }
-.frame-column-title{
 
-    color:#ffc766;
-
-    font-family:'MedievalSharp', cursive;
-
-    font-size:1rem;
-
-    font-weight:bold;
-
-    letter-spacing:1px;
-
-    margin-bottom:8px;
-
-    padding-bottom:8px;
-
-    border-bottom:1px solid rgba(255,199,102,.2);
-
-}
 /* ==========================================
    Shrnutí
 ========================================== */

@@ -1,0 +1,16 @@
+{
+    "id": "basic",
+    "name": "Basic",
+
+    "category": "frame",
+
+    "dimensions": {
+        "width": 173,
+        "height": 135,
+        "depth": 18
+    },
+
+    "weight": 287,
+
+    "printTime": 1122
+}

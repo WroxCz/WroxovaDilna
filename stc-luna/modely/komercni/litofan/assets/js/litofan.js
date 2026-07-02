@@ -4,7 +4,8 @@
 "use strict";
 import { loadMaterials } from "../../../../../sklad/materialLoader.js";
 import { Summary } from "./summary.js";
-
+import { calculateProject } from "./priceCalculator.js";
+import { loadModelData } from "./dataLoader.js";
 
 // ==========================================
 // Aktualizace shrnutí
@@ -14,9 +15,22 @@ function refreshSummary() {
 
     if (!summary || !plateManager || !frameManager) return;
 
-    summary.update(
+    const totals = calculateProject(
+
         plateManager.plates,
+
         frameManager.frames
+
+    );
+
+    summary.update(
+
+        plateManager.plates,
+
+        frameManager.frames,
+
+        totals
+
     );
 
 }
@@ -45,18 +59,13 @@ class Plate {
 
         this.state = {
 
-    image: null,
-    imageName: "",
+    model: "basic",
 
-    orientation: "portrait",
+    filament: null,
 
-    mode: "unlit",
+    led: "none",
 
-    width: 150,
-    height: 112.5,
-    thickness: 3,
-
-    material: null,
+    adapter: false,
 
     weight: 0,
 
@@ -66,7 +75,11 @@ class Plate {
 
         material: 0,
 
-        print: 0,
+        printing: 0,
+
+        led: 0,
+
+        adapter: 0,
 
         total: 0
 
@@ -379,9 +392,45 @@ this.adapterGroup =
 this.powerSelect =
     fragment.querySelector(".frame-power");
 
+this.state = {
+
+    model: "basic",
+
+    material: "",
+
+    color: "",
+
+    led: "none",
+
+    adapter: false,
+
+    weight: 0,
+
+    printTime: 0,
+
+    price: {
+
+        material: 0,
+
+        printing: 0,
+
+        led: 0,
+
+        adapter: 0,
+
+        total: 0
+
+    }
+
+};
+
 this.setTitle(index);
 
+this.loadData();
+
 this.loadMaterials();
+
+this.bindColor();
 
 this.bindLed();
     }
@@ -416,9 +465,24 @@ this.bindLed();
 
     this.materialSelect.addEventListener("change", () => {
 
-        this.updateColors();
+    this.state.filament = null;
 
-    });
+    this.updateColors();
+
+    refreshSummary();
+
+});
+
+}
+async loadData() {
+
+    const data = await loadModelData();
+
+    this.state.weight = data.weight;
+
+    this.state.printTime = data.printTime;
+
+    refreshSummary();
 
 }
 updateColors() {
@@ -433,6 +497,7 @@ updateColors() {
         </option>
 
     `;
+this.state.color = "";
 
     if (!material) return;
 
@@ -457,16 +522,62 @@ updateColors() {
         this.colorSelect.appendChild(option);
 
     });
+this.colorSelect.addEventListener("change", () => {
+
+    this.state.color =
+        this.colorSelect.options[
+            this.colorSelect.selectedIndex
+        ].text;
+
+    refreshSummary();
+
+});
+this.colorSelect.selectedIndex = 0;
+refreshSummary();
+}
+bindColor() {
+
+    this.colorSelect.addEventListener("change", () => {
+
+        this.state.color =
+            this.colorSelect.options[
+                this.colorSelect.selectedIndex
+            ].text;
+
+        refreshSummary();
+
+    });
 
 }
 bindLed() {
 
     this.ledSelect.addEventListener("change", () => {
 
+        this.state.led = this.ledSelect.value;
+
         this.adapterGroup.style.display =
             this.ledSelect.value === "basic"
                 ? "flex"
                 : "none";
+
+        if (this.ledSelect.value !== "basic") {
+
+            this.powerSelect.value = "no";
+
+            this.state.adapter = false;
+
+        }
+
+        refreshSummary();
+
+    });
+
+    this.powerSelect.addEventListener("change", () => {
+
+        this.state.adapter =
+            this.powerSelect.value === "yes";
+
+        refreshSummary();
 
     });
 
@@ -521,6 +632,8 @@ class FrameManager {
         frame.root.remove();
 
         this.sync();
+
+        refreshSummary();
     }
 
     sync() {
@@ -549,9 +662,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     frameManager = new FrameManager();
 
-    summary.update(
-        plateManager.plates,
-        frameManager.frames
-    );
+    refreshSummary();
 
 });

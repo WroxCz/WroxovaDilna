@@ -30,4 +30,36 @@
     "printheadDiameter": "[0.2, 0.4]"
 
 }
+,
+{
+    "id": "ELEEG250805",
+    "name": "Černo-červená",
+    "image": "matimages/materials/PLA/Elegoo/silk/ELEEG250805.webp",
+
+    "manufacturer": "Elegoo",
+    "material": "PLA",
+    "variant": "Silk",
+
+    "price": 369,
+    "weight": 1,
+    
+    "multiplier": 3.0,
+    "timeFactor": 1,
+    
+    "status": "available",
+    "statusText": "Dostupné",
+
+
+    "printTemperatureMin": "190",
+    "printTemperatureMax": "230",
+
+    "bedTemperatureMin": "35",
+    "bedTemperatureMax": "65",
+
+    "printSpeedMin": "40",
+    "printSpeedMax": "220",
+    
+    "printheadDiameter": "[0.2, 0.4]"
+
+}
 ]

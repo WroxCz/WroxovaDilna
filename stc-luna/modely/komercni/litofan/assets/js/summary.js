@@ -16,7 +16,7 @@ export class Summary {
     // Veřejná metoda
     // ======================================
 
-    update(plates, frames) {
+    update(plates, frames, totals) {
 
         this.clear();
 
@@ -24,7 +24,7 @@ export class Summary {
 
 this.renderFrames(frames);
 
-this.renderTotals();
+this.renderTotals(totals);
 
     }
 
@@ -119,20 +119,22 @@ this.renderTotals();
                 </div>
 
                 <div>Materiál:
-                    ${frame.state?.material || "-"}
-                </div>
+    ${frame.state.material || "-"}
+</div>
 
-                <div>Barva:
-                    ${frame.state?.color || "-"}
-                </div>
+<div>Barva:
+    ${frame.state.color || "-"}
+</div>
 
-                <div>Podsvícení:
-                    ${frame.state?.led || "Bez podsvícení"}
-                </div>
+<div>Podsvícení:
+    ${frame.state.led === "basic"
+        ? "LED panel Basic"
+        : "Bez podsvícení"}
+</div>
 
-                <div>Adaptér:
-                    ${frame.state?.adapter ? "Ano" : "Ne"}
-                </div>
+<div>Adaptér:
+    ${frame.state.adapter ? "Ano" : "Ne"}
+</div>
 
                 <div>Cena:
                     bude doplněna
@@ -152,35 +154,34 @@ this.renderTotals();
     // Součty
     // ======================================
 
-    renderTotals(projectState) {
+    renderTotals(totals) {
 
-        const section = document.createElement("div");
+    const section = document.createElement("div");
 
-        section.className = "summary-total";
+    section.className = "summary-total";
 
-        section.innerHTML = `
+    section.innerHTML = `
 
-            <hr>
+        <hr>
 
-            <div>
-                Celková cena:
-                bude doplněna
-            </div>
+        <div>
+            Celková cena:
+            ${totals.price} Kč
+        </div>
 
-            <div>
-                Celková hmotnost:
-                bude doplněna
-            </div>
+        <div>
+            Celková hmotnost:
+            ${totals.weight} g
+        </div>
 
-            <div>
-                Celková doba tisku:
-                bude doplněna
-            </div>
+        <div>
+            Celková doba tisku:
+            ${totals.printTime} min
+        </div>
 
-        `;
+    `;
 
-        this.container.appendChild(section);
+    this.container.appendChild(section);
 
-    }
-
+}
 }
