@@ -872,7 +872,21 @@ cartButton.addEventListener("click", () => {
 
     };
 
-    console.log(cartItem);
+   let cart = JSON.parse(
+    localStorage.getItem("lm-cart")
+) || [];
+
+cart.push(cartItem);
+
+localStorage.setItem(
+    "lm-cart",
+    JSON.stringify(cart)
+);
+
+alert("Projekt byl přidán do košíku.");
+
+window.location.href =
+    "../../../kosik.html";
 
 });
 });

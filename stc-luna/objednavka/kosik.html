@@ -110,6 +110,14 @@ ${item.type === "stock" ? `
 
     </div>
 
+` : item.type === "helenka" ? `
+
+    <div class="print-badge">
+
+        🖼️ Projekt Helenka
+
+    </div>
+
 ` : `
 
     <div class="print-badge">
@@ -156,6 +164,74 @@ ${item.type === "stock" ? `
 
 </div>
 
+` : item.type === "helenka" ? `
+
+<div class="helenka-config">
+
+    <h3>Litofánové destičky</h3>
+
+    ${item.plates.length === 0
+        ? "<p>Žádné</p>"
+        : item.plates.map((plate, index) => `
+
+            <div class="helenka-plate">
+
+                <strong>Destička ${index + 1}</strong>
+
+                <p>📷 ${plate.imageName}</p>
+
+                <p>Orientace:
+                    ${plate.orientation === "portrait"
+                        ? "Na výšku"
+                        : "Na šířku"}
+                </p>
+
+                <p>Cena:
+                    ${plate.price.total} Kč
+                </p>
+
+            </div>
+
+        `).join("")
+    }
+
+    <h3>Rámečky</h3>
+
+    ${item.frames.length === 0
+        ? "<p>Žádné</p>"
+        : item.frames.map((frame, index) => `
+
+            <div class="helenka-frame">
+
+                <strong>Rámeček ${index + 1}</strong>
+
+                <p>
+                    Materiál:
+                    ${frame.filament?.name ?? "-"}
+                </p>
+
+                <p>
+                    LED:
+                    ${frame.ledPanel?.name ?? "Bez LED"}
+                </p>
+
+                <p>
+                    Adaptér:
+                    ${frame.adapter?.name ?? "Bez adaptéru"}
+                </p>
+
+                <p>
+                    Cena:
+                    ${frame.price.total} Kč
+                </p>
+
+            </div>
+
+        `).join("")
+    }
+
+</div>
+
 ` : `
 
 <div>
@@ -164,20 +240,29 @@ ${Object.entries(item.config)
 .map(([partName, part]) => `
 
     <h3>
+
         ${labels[partName] || partName}
+
     </h3>
 
     <p>
+
         ${part.quantity ?? 1} ks
+
     </p>
 
     <p>
+
         ${part.material ?? "-"}
+
         ${part.variant ?? ""}
+
     </p>
 
     <p>
+
         ${part.color ?? "-"}
+
     </p>
 
 `)
