@@ -67,19 +67,17 @@ const container =
         "cart-items"
     );
 
-    function formatTime(seconds){
+    function formatTime(minutes){
 
     const hours =
         Math.floor(
-            seconds / 3600
+            minutes / 60
         );
 
-    const minutes =
-        Math.floor(
-            (seconds % 3600) / 60
-        );
+    const mins =
+        minutes % 60;
 
-    return `${hours} h ${minutes} min`;
+    return `${hours} h ${mins} min`;
 
 }
 
