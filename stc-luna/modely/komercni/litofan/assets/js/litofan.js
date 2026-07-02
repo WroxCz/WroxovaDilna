@@ -8,6 +8,7 @@ import { calculateProject } from "./priceCalculator.js";
 import { loadModelData, loadPlateData } from "./dataLoader.js";
 import { loadLedPanels } from "./ledLoader.js";
 import { loadAdapters } from "./adapterLoader.js";
+import { uploadPhoto } from "./storageManager.js";
 
 // ==========================================
 // Aktualizace shrnutí
@@ -64,6 +65,10 @@ class Plate {
     image: null,
 
     imageName: "",
+
+    imageUrl: "",
+
+    storagePath: "",
 
     orientation: "portrait",
 
@@ -162,10 +167,37 @@ async loadData() {
     /* -------------------------
        IMAGE LOAD
     ------------------------- */
-    loadImage(e) {
-        const file = e.target.files[0];
-        this.state.imageName = file.name;
-        if (!file) return;
+    async loadImage(e) {
+
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    this.state.imageName = file.name;
+
+    try {
+
+        const projectId = window.helenkaProjectId ??
+            (window.helenkaProjectId = crypto.randomUUID());
+
+        const upload = await uploadPhoto(file, projectId);
+
+        this.state.imageUrl = upload.url;
+
+        this.state.storagePath = upload.path;
+
+        console.log("Fotografie nahrána:", upload);
+
+    }
+    catch (err) {
+
+        console.error(err);
+
+        alert("Fotografii se nepodařilo nahrát.");
+
+        return;
+
+    }
 
         const url = URL.createObjectURL(file);
 
