@@ -3,37 +3,101 @@
 // ==========================================
 
 "use strict";
+
+
+
 // ==========================================
 // Nastavení kalkulace
 // ==========================================
 
-// Cena tisku za minutu
-const PRINT_PRICE_PER_MINUTE = 0;
-
-// LED panel Basic
-const LED_BASIC_PRICE = 0;
+// Cena provozu tiskárny za minutu
+const MACHINE_COST_PER_MINUTE = 0.5;
 
 // Síťový adaptér
-const POWER_ADAPTER_PRICE = 0;
+const POWER_ADAPTER_COST = 0;
+
+function calculateMaterialAndPrinting(item) {
+
+    const filament = item.state.filament;
+
+    if (!filament) {
+
+        item.state.price.material = 0;
+        item.state.price.printing = 0;
+        item.state.price.total = 0;
+
+        return;
+
+    }
+
+    const pricePerGram =
+
+        filament.price /
+
+        (filament.weight * 1000);
+
+    item.state.price.material = Math.round(
+
+        item.state.weight *
+
+        pricePerGram *
+
+        filament.multiplier
+
+    );
+
+    item.state.price.printing = Math.round(
+
+item.state.printTime *
+
+filament.timeFactor *
+
+MACHINE_COST_PER_MINUTE
+
+    );
+
+    item.state.price.total =
+
+        item.state.price.material +
+
+        item.state.price.printing;
+
+}
+
+
 /* =========================================
    LITOFÁNOVÁ DESTIČKA
 ========================================= */
 
 export function calculatePlate(plate) {
 
-    // zatím nic
+    calculateMaterialAndPrinting(plate);
 
     return plate;
 
 }
-
 /* =========================================
    RÁMEČEK
 ========================================= */
 
 export function calculateFrame(frame) {
 
-    frame.state.price.total = 0;
+    calculateMaterialAndPrinting(frame);
+
+frame.state.price.led =
+
+    frame.state.ledPanel?.price || 0;
+
+frame.state.price.adapter =
+    frame.state.adapter
+        ? POWER_ADAPTER_COST
+        : 0;
+
+    frame.state.price.total +=
+
+        frame.state.price.led +
+
+        frame.state.price.adapter;
 
     return frame;
 

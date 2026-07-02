@@ -21,3 +21,20 @@ export async function loadModelData() {
     return modelData;
 
 }
+let plateData = null;
+
+export async function loadPlateData() {
+
+    if (plateData) {
+
+        return plateData;
+
+    }
+
+    const response = await fetch("./assets/json/plate-data.json");
+
+    plateData = await response.json();
+
+    return plateData;
+
+}

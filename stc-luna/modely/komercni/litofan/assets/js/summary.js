@@ -4,6 +4,18 @@
 
 "use strict";
 
+function formatPrice(price) {
+
+    return new Intl.NumberFormat("cs-CZ", {
+
+        minimumFractionDigits: 2,
+
+        maximumFractionDigits: 2
+
+    }).format(price);
+
+}
+
 export class Summary {
 
     constructor(containerId) {
@@ -22,9 +34,9 @@ export class Summary {
 
         this.renderPlates(plates);
 
-this.renderFrames(frames);
+        this.renderFrames(frames);
 
-this.renderTotals(totals);
+        this.renderTotals(totals);
 
     }
 
@@ -74,8 +86,20 @@ this.renderTotals(totals);
                         : "Na výšku"}
                 </div>
 
-                <div>Cena:
-                    bude doplněna
+                <div><div>
+    Cena materiálu:
+    ${formatPrice(plate.state.price.material)} Kč
+</div>
+
+<div>
+    Cena tisku:
+    ${formatPrice(plate.state.price.printing)} Kč
+</div>
+
+<div>
+    Celkem:
+    ${formatPrice(plate.state.price.total)} Kč
+</div>
                 </div>
 
             `;
@@ -119,12 +143,12 @@ this.renderTotals(totals);
                 </div>
 
                 <div>Materiál:
-    ${frame.state.material || "-"}
-</div>
+                    ${frame.state.filament?.material || "-"}
+                </div>
 
-<div>Barva:
-    ${frame.state.color || "-"}
-</div>
+                <div>Barva:
+                    ${frame.state.filament?.name || "-"}
+                </div>
 
 <div>Podsvícení:
     ${frame.state.led === "basic"
@@ -136,9 +160,20 @@ this.renderTotals(totals);
     ${frame.state.adapter ? "Ano" : "Ne"}
 </div>
 
-                <div>Cena:
-                    bude doplněna
-                </div>
+                <div>
+    Cena materiálu:
+    ${formatPrice(frame.state.price.material)} Kč
+</div>
+
+<div>
+    Cena tisku:
+    ${formatPrice(frame.state.price.printing)} Kč
+</div>
+
+<div>
+    Celkem:
+    ${formatPrice(frame.state.price.total)} Kč
+</div>
 
             `;
 
@@ -166,7 +201,7 @@ this.renderTotals(totals);
 
         <div>
             Celková cena:
-            ${totals.price} Kč
+${formatPrice(totals.price)} Kč
         </div>
 
         <div>

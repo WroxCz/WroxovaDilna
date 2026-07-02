@@ -5,7 +5,8 @@
 import { loadMaterials } from "../../../../../sklad/materialLoader.js";
 import { Summary } from "./summary.js";
 import { calculateProject } from "./priceCalculator.js";
-import { loadModelData } from "./dataLoader.js";
+import { loadModelData, loadPlateData } from "./dataLoader.js";
+import { loadLedPanels } from "./ledLoader.js";
 
 // ==========================================
 // Aktualizace shrnutí
@@ -59,13 +60,15 @@ class Plate {
 
         this.state = {
 
-    model: "basic",
+    image: null,
+
+    imageName: "",
+
+    orientation: "portrait",
+
+    mode: "lit",
 
     filament: null,
-
-    led: "none",
-
-    adapter: false,
 
     weight: 0,
 
@@ -77,10 +80,6 @@ class Plate {
 
         printing: 0,
 
-        led: 0,
-
-        adapter: 0,
-
         total: 0
 
     }
@@ -88,9 +87,14 @@ class Plate {
 };
 
         this.setTitle(index);
-        this.setupCanvas();
-        this.bind(index);
-        this.renderBlank();
+
+this.loadData();
+
+this.setupCanvas();
+
+this.bind(index);
+
+this.renderBlank();
     }
 
     /* -------------------------
@@ -104,6 +108,30 @@ class Plate {
         this.canvas.width = 600;
         this.canvas.height = 800;
     }
+
+    async loadData() {
+
+    const data = await loadPlateData();
+
+    this.state.weight = data.weight;
+
+    this.state.printTime = data.printTime;
+
+const ledPanels = await loadLedPanels();
+
+this.ledPanels = ledPanels;
+
+    const materials = await loadMaterials();
+
+    this.state.filament = materials.find(
+
+        m => m.id === data.defaultFilament
+
+    ) || null;
+
+    refreshSummary();
+
+}
 
     bind(index) {
 
@@ -353,13 +381,7 @@ sync() {
 
     if (summary && frameManager) {
 
-        summary.update(
-
-            this.plates,
-
-            frameManager.frames
-
-        );
+        refreshSummary();
 
     }
 
@@ -396,11 +418,9 @@ this.state = {
 
     model: "basic",
 
-    material: "",
+    filament: null,
 
-    color: "",
-
-    led: "none",
+    ledPanel: null,
 
     adapter: false,
 
@@ -497,7 +517,7 @@ updateColors() {
         </option>
 
     `;
-this.state.color = "";
+this.state.filament = null;
 
     if (!material) return;
 
@@ -522,16 +542,7 @@ this.state.color = "";
         this.colorSelect.appendChild(option);
 
     });
-this.colorSelect.addEventListener("change", () => {
 
-    this.state.color =
-        this.colorSelect.options[
-            this.colorSelect.selectedIndex
-        ].text;
-
-    refreshSummary();
-
-});
 this.colorSelect.selectedIndex = 0;
 refreshSummary();
 }
@@ -539,10 +550,13 @@ bindColor() {
 
     this.colorSelect.addEventListener("change", () => {
 
-        this.state.color =
-            this.colorSelect.options[
-                this.colorSelect.selectedIndex
-            ].text;
+        const filament = this.materials.find(
+
+            m => m.id === this.colorSelect.value
+
+        );
+
+        this.state.filament = filament || null;
 
         refreshSummary();
 
@@ -553,14 +567,19 @@ bindLed() {
 
     this.ledSelect.addEventListener("change", () => {
 
-        this.state.led = this.ledSelect.value;
+        const panel = this.ledPanels.find(
+
+            p => p.id === this.ledSelect.value
+
+        );
+
+        this.state.ledPanel = panel || null;
 
         this.adapterGroup.style.display =
-            this.ledSelect.value === "basic"
-                ? "flex"
-                : "none";
 
-        if (this.ledSelect.value !== "basic") {
+            panel ? "flex" : "none";
+
+        if (!panel) {
 
             this.powerSelect.value = "no";
 
@@ -575,6 +594,7 @@ bindLed() {
     this.powerSelect.addEventListener("change", () => {
 
         this.state.adapter =
+
             this.powerSelect.value === "yes";
 
         refreshSummary();
@@ -621,6 +641,8 @@ class FrameManager {
         this.container.appendChild(fragment);
 
         this.sync();
+
+        refreshSummary();
     }
 
     removeFrame() {

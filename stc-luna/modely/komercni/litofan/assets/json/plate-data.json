@@ -1,0 +1,17 @@
+{
+    "id": "plate150x112",
+
+    "name": "Litofánová destička",
+
+    "defaultFilament": "ELEEG240427",
+
+    "dimensions": {
+        "width": 150,
+        "height": 112.5,
+        "depth": 3
+    },
+
+    "weight": 50,
+
+    "printTime": 420
+}
