@@ -804,7 +804,7 @@ cartButton.addEventListener("click", () => {
         }
 
     }
-
+// tady je problém
     const totals = calculateProject(
 
         plateManager.plates,
