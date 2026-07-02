@@ -23,7 +23,7 @@ export async function loadMaterials() {
 
         materialFiles.map(file =>
 
-            fetch(`/stc-luna/sklad/data/${file}`)
+            fetch(`../../sklad/data/${file}`)
                 .then(r => r.json())
 
         )
