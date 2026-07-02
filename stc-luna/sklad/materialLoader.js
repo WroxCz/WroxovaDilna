@@ -17,22 +17,7 @@ const materialFiles = [
 
 ];
 
-export async function loadMaterials() {
 
-    const data = await Promise.all(
-
-        materialFiles.map(file =>
-
-            fetch(`../../sklad/data/${file}`)
-                .then(r => r.json())
-
-        )
-
-    );
-
-    return data.flat();
-
-}
 const BASE =
     window.location.hostname === "wroxcz.github.io"
         ? "/WroxovaDilna/stc-luna/sklad/data/"
