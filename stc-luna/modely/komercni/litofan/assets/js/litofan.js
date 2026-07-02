@@ -804,6 +804,9 @@ cartButton.addEventListener("click", () => {
         }
 
     }
+    console.log("Celkové součty:", totals);
+    console.log("Destičky:", plateManager.plates);
+    console.log("Rámečky:", frameManager.frames);
 
     const totals = calculateProject(
 
