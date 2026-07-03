@@ -178,7 +178,7 @@ Zatím není nastaven
 
 let historyHtml = "";
 
-order.history.forEach(item => {
+(order.history ?? []).forEach(item => {
 
     historyHtml += `
 
