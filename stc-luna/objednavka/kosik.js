@@ -294,7 +294,50 @@ console.log(cart);
 console.log(container.innerHTML);
 console.log("unitPrintTime:", cart[0]?.unitPrintTime);
 
-function removeItem(uid){
+async function removeItem(uid){
+
+    const item =
+        cart.find(item =>
+            item.uid === uid
+        );
+
+    if(item?.plates){
+
+        for(const plate of item.plates){
+
+            if(!plate.storagePath){
+                continue;
+            }
+
+            try{
+
+                await deleteObject(
+                    ref(
+                        storage,
+                        plate.storagePath
+                    )
+                );
+
+                console.log(
+                    "Smazána fotografie:",
+                    plate.storagePath
+                );
+
+            }
+
+            catch(error){
+
+                console.warn(
+                    "Mazání fotografie selhalo:",
+                    plate.storagePath,
+                    error
+                );
+
+            }
+
+        }
+
+    }
 
     cart = cart.filter(item =>
         item.uid !== uid
