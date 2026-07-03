@@ -1,0 +1,75 @@
+body{
+
+    background:#050b14;
+
+    color:white;
+
+    font-family:Arial,sans-serif;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:40px;
+
+}
+
+h1{
+
+    text-align:center;
+
+    color:#d8ae5f;
+
+    margin-bottom:40px;
+
+}
+
+.order-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+    border:1px solid rgba(216,174,95,.30);
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.03);
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.order-card:hover{
+
+    border-color:#d8ae5f;
+
+    background:rgba(216,174,95,.08);
+
+}
+
+.order-number{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#d8ae5f;
+
+}
+
+.order-status{
+
+    font-size:16px;
+
+    color:#cfcfcf;
+
+}

@@ -255,8 +255,15 @@ const orderNumber =
 deliveryPrice,
 
 totalPrice:
-    totalPrice + deliveryPrice
-
+    totalPrice + deliveryPrice,
+history: [
+    {
+        date: new Date().toISOString(),
+        action: "Zakázka vytvořena",
+        status: "Přijato",
+        user: "Systém"
+    }
+]
     };
 
     try{

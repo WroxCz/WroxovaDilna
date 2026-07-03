@@ -1,0 +1,53 @@
+body{
+
+    background:#050b14;
+
+    color:white;
+
+    font-family:Arial,sans-serif;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:40px;
+
+}
+
+h1{
+
+    color:#d8ae5f;
+
+    margin-bottom:40px;
+
+}
+
+.section{
+
+    margin-bottom:20px;
+
+    border:1px solid rgba(216,174,95,.30);
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+.section-title{
+
+    background:rgba(216,174,95,.08);
+
+    padding:15px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+.section-content{
+
+    padding:20px;
+
+}
