@@ -402,7 +402,7 @@ addPlate() {
 }
 
 async removePlate() {
-
+console.log("removePlate()");
     if (this.plates.length <= 0) return;
 
     const plate = this.plates[this.plates.length - 1];
@@ -410,7 +410,7 @@ async removePlate() {
     if (plate.state.storagePath) {
 
         try {
-
+console.log("StoragePath:", plate.state.storagePath);
             await deleteObject(
                 ref(
                     storage,
@@ -427,10 +427,7 @@ async removePlate() {
 
         catch (error) {
 
-            console.warn(
-                "Mazání fotografie selhalo:",
-                error
-            );
+            console.error("Mazání fotografie selhalo:", error);
 
         }
 
