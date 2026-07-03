@@ -19,7 +19,7 @@ from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 import {
     storage
 }
-from "../../../../../firebase/firebase.js";
+from "../../../../../../firebase/firebase.js";
 
 // ==========================================
 // Aktualizace shrnutí
