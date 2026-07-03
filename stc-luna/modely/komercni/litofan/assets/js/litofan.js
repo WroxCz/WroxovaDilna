@@ -10,6 +10,17 @@ import { loadLedPanels } from "./ledLoader.js";
 import { loadAdapters } from "./adapterLoader.js";
 import { uploadPhoto } from "./storageManager.js";
 
+import {
+    ref,
+    deleteObject
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+
+import {
+    storage
+}
+from "../../../../../firebase/firebase.js";
+
 // ==========================================
 // Aktualizace shrnutí
 // ==========================================
@@ -390,11 +401,42 @@ addPlate() {
 
 }
 
-removePlate() {
+async removePlate() {
 
     if (this.plates.length <= 0) return;
 
-    const plate = this.plates.pop();
+    const plate = this.plates[this.plates.length - 1];
+
+    if (plate.state.storagePath) {
+
+        try {
+
+            await deleteObject(
+                ref(
+                    storage,
+                    plate.state.storagePath
+                )
+            );
+
+            console.log(
+                "Fotografie smazána:",
+                plate.state.storagePath
+            );
+
+        }
+
+        catch (error) {
+
+            console.warn(
+                "Mazání fotografie selhalo:",
+                error
+            );
+
+        }
+
+    }
+
+    this.plates.pop();
 
     plate.root.remove();
 
