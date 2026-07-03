@@ -1,5 +1,11 @@
-import { auth }
+import { auth, db }
 from "../firebase/firebase.js";
+
+import {
+    doc,
+    getDoc
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 import {
     onAuthStateChanged,
@@ -7,7 +13,7 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
 
     if(!user){
 
@@ -38,32 +44,56 @@ document.querySelector(
     "#module-stock"
 );
 
-    if(user.email === "linyvlk@gmail.com"){
+   const userRef = doc(db, "users", user.uid);
 
-        welcomeTitle.textContent =
-        "⚙️ Vítejte, Magosi Wroxi ⚙️";
+const userSnap = await getDoc(userRef);
 
-    }
+if(!userSnap.exists()){
 
-    else if(
-    user.email ===
-    "ranshu@seznam.cz"
-){
+    alert("Nemáte oprávnění ke vstupu.");
 
-    welcomeTitle.textContent =
-    "📜 Vítejte, kronikářko Sambrio 📜";
+    await signOut(auth);
 
-    stockModule.style.display =
-    "none";
+    return;
 
 }
 
-    else{
+const userData = userSnap.data();
 
-        welcomeTitle.textContent =
-        "⚙️ Vítejte, správce Luna Mechanica ⚙️";
+if(!userData.active){
 
-    }
+    alert("Účet je deaktivovaný.");
+
+    await signOut(auth);
+
+    return;
+
+}
+
+welcomeTitle.textContent =
+`⚙️ Vítejte, ${userData.name} ⚙️`;
+
+switch(userData.role){
+
+    case "magos":
+
+        break;
+
+    case "admin":
+
+        stockModule.style.display = "none";
+
+        break;
+
+    default:
+
+        alert("Neplatná role.");
+
+        await signOut(auth);
+
+        return;
+
+} 
 
 });
 
