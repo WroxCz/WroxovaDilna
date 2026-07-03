@@ -187,6 +187,37 @@ async loadData() {
 
     if (!file) return;
 
+// Pokud už byla nahraná jiná fotografie,
+// smažeme ji ze Storage.
+if (this.state.storagePath) {
+
+    try {
+
+        await deleteObject(
+            ref(
+                storage,
+                this.state.storagePath
+            )
+        );
+
+        console.log(
+            "Původní fotografie smazána:",
+            this.state.storagePath
+        );
+
+    }
+
+    catch (error) {
+
+        console.warn(
+            "Nepodařilo se smazat původní fotografii:",
+            error
+        );
+
+    }
+
+}
+
     try {
 
         const projectId = window.helenkaProjectId ??
