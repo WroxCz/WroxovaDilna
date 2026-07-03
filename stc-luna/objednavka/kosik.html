@@ -176,7 +176,7 @@ ${item.type === "stock" ? `
 
                 <strong>Destička ${index + 1}</strong>
 
-                <p>📷 ${plate.imageName}</p>
+                <p>📷 ${plate.originalFileName}</p>
 
                 <p>Orientace:
                     ${plate.orientation === "portrait"
@@ -349,27 +349,6 @@ function increaseQuantity(uid){
     if(item){
 
         item.quantity++;
-
-    }
-
-    localStorage.setItem(
-        "lm-cart",
-        JSON.stringify(cart)
-    );
-
-    location.reload();
-
-}
-function decreaseQuantity(uid){
-
-    const item =
-        cart.find(item =>
-            item.uid === uid
-        );
-
-    if(item && item.quantity > 1){
-
-        item.quantity--;
 
     }
 
