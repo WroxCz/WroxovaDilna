@@ -149,8 +149,7 @@ if(
 
     const order = {
 
-        id:
-            crypto.randomUUID(),
+        orderNumber: null,
 
         customer: {
 
@@ -213,19 +212,24 @@ totalPrice:
     try{
 
     await addDoc(
-        collection(
-            db,
-            "orders"
-        ),
-        {
-            ...order,
+    collection(
+        db,
+        "orders"
+    ),
+    {
+        ...order,
 
-            status: "Přijato",
+        orderNumber: null,
 
-            created:
-            serverTimestamp()
-        }
-    );
+        status: "Přijato",
+
+        created:
+        serverTimestamp(),
+
+        updated:
+        serverTimestamp()
+    }
+);
 
     localStorage.setItem(
         "lm-last-order",
