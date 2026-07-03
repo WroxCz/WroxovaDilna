@@ -178,11 +178,26 @@ ${item.type === "stock" ? `
 
                 <p>📷 ${plate.originalFileName}</p>
 
-                <p>Orientace:
-                    ${plate.orientation === "portrait"
-                        ? "Na výšku"
-                        : "Na šířku"}
-                </p>
+<p>
+    <strong>Storage soubor:</strong><br>
+    ${plate.storageFileName ?? "-"}
+</p>
+
+<p>
+    <strong>Storage cesta:</strong><br>
+    ${plate.storagePath ?? "-"}
+</p>
+
+<p>
+    <strong>Image URL:</strong><br>
+    ${plate.imageUrl ?? "-"}
+</p>
+
+<p>Orientace:
+    ${plate.orientation === "portrait"
+        ? "Na výšku"
+        : "Na šířku"}
+</p>
 
                 <p>Cena:
                     ${plate.price.total} Kč
