@@ -112,7 +112,50 @@ if(order.created?.toDate){
         });
 
     }
+let helenkaHtml = "";
 
+if (item.type === "helenka") {
+
+    helenkaHtml = `
+
+        <h4>Litofánové destičky</h4>
+
+        ${(item.plates || []).map((plate, index) => `
+
+            <div class="helenka-plate">
+
+                <strong>Destička ${index + 1}</strong>
+
+                <p>
+                    📷 ${plate.originalFileName}
+                </p>
+
+                <p>
+                    Orientace:
+                    ${plate.orientation === "portrait"
+                        ? "Na výšku"
+                        : "Na šířku"}
+                </p>
+
+                <p>
+                    Režim:
+                    ${plate.mode === "lit"
+                        ? "Litofán"
+                        : "Bez podsvícení"}
+                </p>
+
+                <p>
+                    Cena:
+                    ${plate.price.total} Kč
+                </p>
+
+            </div>
+
+        `).join("")}
+
+    `;
+
+}
     return `
 
         <div class="item-card">
@@ -137,6 +180,8 @@ if(order.created?.toDate){
             </p>
 
             ${configHtml}
+            
+            ${helenkaHtml}
 
         </div>
 
