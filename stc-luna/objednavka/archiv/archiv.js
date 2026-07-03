@@ -131,6 +131,15 @@ if (item.type === "helenka") {
                 </p>
 
                 <p>
+                    <strong>Storage:</strong>
+                    ☁️ ${plate.storageFileName}
+                </p>
+
+                <p>
+                    📂 ${plate.storagePath}
+                </p>
+
+                <p>
                     Orientace:
                     ${plate.orientation === "portrait"
                         ? "Na výšku"
@@ -180,7 +189,7 @@ if (item.type === "helenka") {
             </p>
 
             ${configHtml}
-            
+
             ${helenkaHtml}
 
         </div>
