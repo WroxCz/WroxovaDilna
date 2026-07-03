@@ -35,13 +35,17 @@ export async function uploadPhoto(file, projectId) {
     const url =
         await getDownloadURL(storageRef);
 
-    return {
+return {
 
-        path,
-        url,
-        fileName
+    originalFileName: file.name,
 
-    };
+    storageFileName: fileName,
+
+    storagePath: path,
+
+    imageUrl: url
+
+};
 
 }
 

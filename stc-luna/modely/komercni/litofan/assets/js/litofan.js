@@ -64,7 +64,9 @@ class Plate {
 
     image: null,
 
-    imageName: "",
+    originalFileName: "",
+
+    storageFileName: "",
 
     imageUrl: "",
 
@@ -173,8 +175,6 @@ async loadData() {
 
     if (!file) return;
 
-    this.state.imageName = file.name;
-
     try {
 
         const projectId = window.helenkaProjectId ??
@@ -182,9 +182,13 @@ async loadData() {
 
         const upload = await uploadPhoto(file, projectId);
 
-        this.state.imageUrl = upload.url;
+        this.state.originalFileName = upload.originalFileName;
 
-        this.state.storagePath = upload.path;
+        this.state.storageFileName = upload.storageFileName;
+
+        this.state.imageUrl = upload.imageUrl;
+
+        this.state.storagePath = upload.storagePath;
 
         console.log("Fotografie nahrána:", upload);
 
@@ -829,25 +833,27 @@ cartButton.addEventListener("click", () => {
 
         unitPrintTime: totals.printTime,
 
-        plates: plateManager.plates.map(plate => ({
+plates: plateManager.plates.map(plate => ({
 
-            imageName: plate.state.imageName,
+    originalFileName: plate.state.originalFileName,
 
-            imageUrl: plate.state.imageUrl,
+    storageFileName: plate.state.storageFileName,
 
-            storagePath: plate.state.storagePath,
+    imageUrl: plate.state.imageUrl,
 
-            orientation: plate.state.orientation,
+    storagePath: plate.state.storagePath,
 
-            mode: plate.state.mode,
+    orientation: plate.state.orientation,
 
-            weight: plate.state.weight,
+    mode: plate.state.mode,
 
-            printTime: plate.state.printTime,
+    weight: plate.state.weight,
 
-            price: plate.state.price
+    printTime: plate.state.printTime,
 
-        })),
+    price: plate.state.price
+
+})),
 
         frames: frameManager.frames.map(frame => ({
 
