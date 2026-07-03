@@ -1,3 +1,7 @@
+import { storage } from "../../firebase/firebase.js";
+
+import { ref, deleteObject } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+
 
 let cart = JSON.parse(
     localStorage.getItem("lm-cart")
@@ -362,3 +366,8 @@ function goToOrder(){
         "objednavka.html";
 
 }
+
+window.removeItem = removeItem;
+window.increaseQuantity = increaseQuantity;
+window.decreaseQuantity = decreaseQuantity;
+window.goToOrder = goToOrder;
