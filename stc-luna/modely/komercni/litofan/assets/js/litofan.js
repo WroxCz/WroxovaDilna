@@ -189,6 +189,8 @@ async loadData() {
 
 // Pokud už byla nahraná jiná fotografie,
 // smažeme ji ze Storage.
+console.log("Před nahráním nové fotky:");
+console.log("storagePath =", this.state.storagePath);
 if (this.state.storagePath) {
 
     try {
@@ -233,6 +235,8 @@ if (this.state.storagePath) {
 
         this.state.storagePath = upload.storagePath;
 
+        console.log("Po nahrání nové fotky:");
+        console.log("storagePath =", this.state.storagePath);
         console.log("Fotografie nahrána:", upload);
 
     }
