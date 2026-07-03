@@ -4,13 +4,60 @@ from "../../firebase/firebase.js";
 import {
     collection,
     addDoc,
-    serverTimestamp
+    serverTimestamp,
+    doc,
+    getDoc,
+    updateDoc
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
 // tesetststs
+async function generateOrderNumber(){
 
+    const counterRef =
+        doc(db, "system", "orderCounter");
+
+    const snapshot =
+        await getDoc(counterRef);
+
+    const data =
+        snapshot.data();
+
+    const today =
+        new Date();
+
+    const day =
+        String(today.getDate()).padStart(2, "0");
+
+    const month =
+        String(today.getMonth() + 1).padStart(2, "0");
+
+    const year =
+        String(today.getFullYear()).slice(-2);
+
+    const todayString =
+        `${day}${month}${year}`;
+
+    let current = 1;
+
+    if(data.lastDate === todayString){
+
+        current = data.current + 1;
+
+    }
+
+    await updateDoc(counterRef, {
+
+        lastDate: todayString,
+
+        current: current
+
+    });
+
+    return `LM-${todayString}-${String(current).padStart(2,"0")}`;
+
+}
 
 let cart =
 JSON.parse(
@@ -147,6 +194,9 @@ if(
 
 }
 
+const orderNumber =
+    await generateOrderNumber();
+
     const order = {
 
         orderNumber: null,
@@ -219,7 +269,7 @@ totalPrice:
     {
         ...order,
 
-        orderNumber: null,
+        orderNumber,
 
         status: "Přijato",
 
