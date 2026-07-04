@@ -28,7 +28,9 @@ if(!id){
 
 }
 
-checkAccess(() => {
+checkAccess((userData) => {
+
+    applyRolePermissions(userData.role);
 
     loadOrder();
 
@@ -277,3 +279,23 @@ document
     );
 
 });
+function applyRolePermissions(role){
+
+    document
+        .querySelectorAll(".section")
+        .forEach(section => {
+
+            const roles =
+                section.dataset.roles
+                    .split(",");
+
+            if(!roles.includes(role)){
+
+                section.style.display =
+                    "none";
+
+            }
+
+        });
+
+}
