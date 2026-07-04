@@ -2,6 +2,11 @@ import { db }
 from "../../../firebase/firebase.js";
 
 import {
+    checkAccess
+}
+from "../../../firebase/authGuard.js";
+
+import {
     doc,
     getDoc
 }
@@ -23,7 +28,11 @@ if(!id){
 
 }
 
-loadOrder();
+checkAccess(() => {
+
+    loadOrder();
+
+});
 
 async function loadOrder(){
 
@@ -253,3 +262,18 @@ document.getElementById(
 
 `;
 }
+document
+.querySelectorAll(".section-title")
+.forEach(title => {
+
+    title.addEventListener(
+        "click",
+        () => {
+
+            title.parentElement
+            .classList.toggle("open");
+
+        }
+    );
+
+});

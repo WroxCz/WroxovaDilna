@@ -1,5 +1,10 @@
-import { auth, db }
+import { auth }
 from "../firebase/firebase.js";
+
+import {
+    checkAccess
+}
+from "../firebase/authGuard.js";
 
 import {
     doc,
@@ -13,87 +18,41 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-onAuthStateChanged(auth, async (user) => {
-
-    if(!user){
-
-        window.location.href =
-        "adminLog.html";
-
-        return;
-
-    }
+checkAccess((userData) => {
 
     const welcomeTitle =
-    document.querySelector(
-        "#welcome-title"
-    );
+        document.querySelector(
+            "#welcome-title"
+        );
 
-    const ordersModule =
-document.querySelector(
-    "#module-orders"
-);
+    const stockModule =
+        document.querySelector(
+            "#module-stock"
+        );
 
-const voxModule =
-document.querySelector(
-    "#module-vox"
-);
+    welcomeTitle.textContent =
+        `⚙️ Vítejte, ${userData.name} ⚙️`;
 
-const stockModule =
-document.querySelector(
-    "#module-stock"
-);
+    switch(userData.role){
 
-   const userRef = doc(db, "users", user.uid);
+        case "magos":
 
-const userSnap = await getDoc(userRef);
+            break;
 
-if(!userSnap.exists()){
+        case "admin":
 
-    alert("Nemáte oprávnění ke vstupu.");
+            stockModule.style.display =
+                "none";
 
-    await signOut(auth);
+            break;
 
-    return;
+        default:
 
-}
+            alert("Neplatná role.");
 
-const userData = userSnap.data();
+            return;
 
-if(!userData.active){
-
-    alert("Účet je deaktivovaný.");
-
-    await signOut(auth);
-
-    return;
-
-}
-
-welcomeTitle.textContent =
-`⚙️ Vítejte, ${userData.name} ⚙️`;
-
-switch(userData.role){
-
-    case "magos":
-
-        break;
-
-    case "admin":
-
-        stockModule.style.display = "none";
-
-        break;
-
-    default:
-
-        alert("Neplatná role.");
-
-        await signOut(auth);
-
-        return;
-
-} 
+    }
 
 });
 

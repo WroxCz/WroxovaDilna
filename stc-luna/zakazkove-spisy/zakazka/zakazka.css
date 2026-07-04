@@ -51,3 +51,22 @@ h1{
     padding:20px;
 
 }
+.section-title{
+
+    cursor:pointer;
+
+    user-select:none;
+
+}
+
+.section-content{
+
+    display:none;
+
+}
+
+.section.open .section-content{
+
+    display:block;
+
+}

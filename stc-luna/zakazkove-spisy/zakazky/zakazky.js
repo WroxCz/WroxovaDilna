@@ -2,6 +2,11 @@ import { db }
 from "../../../firebase/firebase.js";
 
 import {
+    checkAccess
+}
+from "../../../firebase/authGuard.js";
+
+import {
     collection,
     getDocs,
     query,
@@ -14,7 +19,11 @@ document.getElementById(
     "orders-list"
 );
 
-loadOrders();
+checkAccess(() => {
+
+    loadOrders();
+
+});
 
 async function loadOrders(){
 
