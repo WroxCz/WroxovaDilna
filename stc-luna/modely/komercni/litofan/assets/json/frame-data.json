@@ -1,0 +1,21 @@
+{
+  "id": "basic",
+  "name": "Basic",
+
+  "description": "Základní rámeček pro litofánové destičky.",
+
+  "weight": 300,
+
+  "printTime": 510,
+
+  "defaultFilament": "pla_elegoo_black",
+
+  "valueFactor": 1.0,
+
+  "supports": {
+    "material": true,
+    "color": true,
+    "led": true,
+    "adapter": true
+  }
+}

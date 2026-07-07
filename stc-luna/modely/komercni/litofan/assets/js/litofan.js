@@ -8,7 +8,6 @@ import { loadMaterials } from "../../../../../sklad/materialLoader.js";
 import { Summary } from "./summary.js";
 import { calculateProject } from "./priceCalculator.js";
 import {
-    loadModelData,
     getGroup,
     loadModule
 }
@@ -548,7 +547,7 @@ this.powerSelect =
 
 this.state = {
 
-    model: "basic",
+    model: null,
 
     filament: null,
 
@@ -628,22 +627,29 @@ this.bindLed();
 }
 async loadData() {
 
-    const data = await loadModelData();
+    const group = await getGroup("frames");
+
+    const module = group.modules[0];
+
+    this.state.model = module.id;
+
+    const data = await loadModule(module.source);
 
     this.state.weight = data.weight;
 
     this.state.printTime = data.printTime;
 
     this.ledPanels = await loadLedPanels();
-this.adapters = await loadAdapters();
 
-    console.log("Frame LED loaded:", this.ledPanels);
+    this.adapters = await loadAdapters();
+
+this.ledSelect.parentElement.style.display =
+    data.supports.led ? "" : "none";
+
+this.adapterGroup.style.display =
+    data.supports.adapter ? "flex" : "none";
 
     refreshSummary();
-
-    console.log("FRAME GROUP:", group);
-console.log("FRAME MODULE:", module);
-console.log("FRAME DATA:", data);
 
 }
 updateColors() {
