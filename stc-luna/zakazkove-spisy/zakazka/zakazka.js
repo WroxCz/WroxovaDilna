@@ -223,6 +223,16 @@ async function loadOrder(){
         "order-number"
     ).textContent =
         order.orderNumber;
+
+const overviewStatus =
+    document.getElementById(
+        "overview-status"
+    );
+
+overviewStatus.textContent =
+    order.status;
+
+updateProductionColor(overviewStatus);        
      
     document.getElementById(
     "overview"
@@ -595,7 +605,9 @@ document
 
 function updateProductionColor(select){
 
-    select.classList.remove(
+    const element = select;
+
+element.classList.remove(
     "waiting",
     "printing",
     "finished",
@@ -607,22 +619,22 @@ switch(select.value){
     case "Čeká":
     case "Přijato":
     case "NEZAPLACENO":
-        select.classList.add("waiting");
+        element.classList.add("waiting");
         break;
 
     case "Tisk":
     case "Potvrzeno":
-        select.classList.add("printing");
+        element.classList.add("printing");
         break;
 
     case "Hotovo":
     case "Dokončeno":
     case "ZAPLACENO":
-        select.classList.add("finished");
+        element.classList.add("finished");
         break;
 
     case "VRACENA_PLATBA":
-        select.classList.add("returned");
+        element.classList.add("returned");
         break;
 
 }
