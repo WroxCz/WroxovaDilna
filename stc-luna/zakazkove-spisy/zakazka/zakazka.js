@@ -283,6 +283,8 @@ orderStatus.addEventListener("change", async () => {
 
     updateProductionColor(orderStatus);
 
+    updateOverviewStatus(orderStatus.value);
+
     try{
 
         await updateDoc(orderRef, {

@@ -109,27 +109,55 @@ h1{
     box-shadow:0 0 6px rgba(214,164,74,.35);
 
 }
+.production-status.waiting,
+.production-status.printing,
+.production-status.finished,
+.production-status.returned{
 
-.production-status.waiting{
+    background:#1b2433;
 
-    background:#d97706;
-
-}
-
-.production-status.printing{
-
-    background:#2563eb;
+    color:#fff;
 
 }
 
-.production-status.finished{
-
-    background:#16a34a;
-
-}
 .returned{
 
     background: #5a2d91;
     color: white;
+
+}
+.status-badge{
+
+    padding:4px 10px;
+
+    border-radius:6px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+}
+
+.status-waiting{
+
+    background:#d97706;
+
+    color:white;
+
+}
+
+.status-printing{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.status-finished{
+
+    background:#16a34a;
+
+    color:white;
 
 }
