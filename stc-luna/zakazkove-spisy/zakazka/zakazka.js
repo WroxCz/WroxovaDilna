@@ -110,6 +110,9 @@ function renderHelenka(item) {
 Fotografie:
 ${plate.originalFileName}<br>
 
+Storage soubor:
+${plate.storageFileName ?? "-"}<br>
+
 Orientace:
 ${plate.orientation}<br>
 
