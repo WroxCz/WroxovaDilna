@@ -197,9 +197,6 @@ if(
 const orderNumber =
     await generateOrderNumber();
 
-const orderNumber =
-    await generateOrderNumber();
-
 const orderItems = cart.map(item => ({
 
     ...item,
