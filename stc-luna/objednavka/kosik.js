@@ -173,6 +173,11 @@ ${item.type === "stock" ? `
 
                 <p>
                     Materiál:
+                    ${frame.filament?.material ?? "-"}
+                </p>
+
+                <p>
+                    Barva:
                     ${frame.filament?.name ?? "-"}
                 </p>
 
