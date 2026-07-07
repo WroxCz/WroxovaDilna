@@ -197,6 +197,17 @@ if(
 const orderNumber =
     await generateOrderNumber();
 
+const orderNumber =
+    await generateOrderNumber();
+
+const orderItems = cart.map(item => ({
+
+    ...item,
+
+    productionStatus: "Čeká"
+
+}));
+
     const order = {
 
         orderNumber: null,
@@ -247,7 +258,9 @@ const orderNumber =
                 "customer-note"
             ).value,
 
-        items: cart,
+
+            
+        items: orderItems,
 
         subtotalPrice:
     totalPrice,

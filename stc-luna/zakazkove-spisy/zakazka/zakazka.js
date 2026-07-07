@@ -257,7 +257,7 @@ ${order.customer.zip}
 `;
 let itemsHtml = "";
 
-order.items.forEach(item => {
+order.items.forEach((item, index) => {
 
     if (item.type === "helenka") {
 
@@ -328,21 +328,51 @@ document.getElementById(
     "history"
 ).innerHTML = historyHtml;
 
-document.getElementById(
-    "production"
-).innerHTML = `
 
-<b>Stav výroby:</b>
 
-Čeká
+let productionHtml = "";
 
-<br><br>
+order.items.forEach(item => {
 
-<b>Poznámka:</b>
+    productionHtml += `
 
--
+<div style="margin-bottom:15px; display:flex; align-items:center; gap:12px;">
+
+<select class="production-status" data-index="${index}">
+
+    <option
+        value="Čeká"
+        ${item.productionStatus === "Čeká" ? "selected" : ""}>
+        Čeká
+    </option>
+
+    <option
+        value="Tisk"
+        ${item.productionStatus === "Tisk" ? "selected" : ""}>
+        Tisk
+    </option>
+
+    <option
+        value="Hotovo"
+        ${item.productionStatus === "Hotovo" ? "selected" : ""}>
+        Hotovo
+    </option>
+
+</select>
+
+    <b>${item.productName}</b>
+
+</div>
 
 `;
+
+});
+
+document.getElementById(
+    "production"
+).innerHTML = productionHtml;
+
+
 
 document.getElementById(
     "shipping"
