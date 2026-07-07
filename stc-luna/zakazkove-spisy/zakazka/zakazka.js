@@ -208,35 +208,6 @@ async function loadOrder(){
     "overview"
 ).innerHTML = `
 
-const orderStatus =
-    document.getElementById("order-status");
-
-updateProductionColor(orderStatus);
-
-orderStatus.addEventListener("change", async () => {
-
-    updateProductionColor(orderStatus);
-
-    try{
-
-        await updateDoc(orderRef,{
-
-            status: orderStatus.value
-
-        });
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-        alert("Nepodařilo se uložit stav zakázky.");
-
-    }
-
-});
-
 
 <b>Číslo zakázky:</b>
 ${order.orderNumber}
@@ -273,6 +244,35 @@ ${order.created?.toDate().toLocaleString("cs-CZ") ?? "-"}
 </select>
 
 `;        
+const orderStatus =
+    document.getElementById("order-status");
+
+updateProductionColor(orderStatus);
+
+orderStatus.addEventListener("change", async () => {
+
+    updateProductionColor(orderStatus);
+
+    try{
+
+        await updateDoc(orderRef, {
+
+            status: orderStatus.value
+
+        });
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert("Nepodařilo se uložit stav zakázky.");
+
+    }
+
+});
+
 
 document.getElementById(
     "customer"
@@ -425,7 +425,7 @@ document.getElementById(
 ).innerHTML = productionHtml;
 
 document
-    .querySelectorAll(".production-status")
+    .querySelectorAll("#production .production-status")
     .forEach(select => {
 
         updateProductionColor(select);
