@@ -1,16 +1,95 @@
 {
-    "id": "basic",
-    "name": "Basic",
+  "id": "helenka",
 
-    "category": "frame",
+  "name": "Projekt Helenka",
 
-    "dimensions": {
-        "width": 173,
-        "height": 135,
-        "depth": 18
+  "description": "Konfigurátor litofánových projektů.",
+
+  "valueFactor": 1.0,
+
+  "groups": [
+
+    {
+      "id": "plates",
+
+      "name": "Litofánové destičky",
+
+      "type": "multiple",
+
+      "defaultQuantity": 1,
+
+      "min": 0,
+
+      "max": 20,
+
+      "modules": [
+
+        {
+          "id": "plate",
+
+          "name": "Litofánová destička",
+
+          "source": "plate-data.json",
+
+          "allowPhoto": true,
+
+          "allowOrientation": true,
+
+          "allowPreviewMode": true
+        }
+
+      ]
     },
 
-    "weight": 300,
+    {
+      "id": "frames",
 
-    "printTime": 510
+      "name": "Rámečky",
+
+      "type": "multiple",
+
+      "defaultQuantity": 0,
+
+      "min": 0,
+
+      "max": 20,
+
+      "modules": [
+
+        {
+          "id": "basic",
+
+          "name": "Basic",
+
+          "source": "frame-data.json",
+
+          "allowMaterial": true,
+
+          "allowColor": true
+        }
+
+      ],
+
+      "addons": [
+
+        {
+          "id": "led",
+
+          "name": "LED panel",
+
+          "source": "led-panels.json"
+        },
+
+        {
+          "id": "adapter",
+
+          "name": "Síťový adaptér",
+
+          "source": "adapters.json"
+        }
+
+      ]
+    }
+
+  ]
 }
