@@ -377,7 +377,11 @@ document
     .querySelectorAll(".production-status")
     .forEach(select => {
 
+        updateProductionColor(select);
+
         select.addEventListener("change", async () => {
+
+            updateProductionColor(select);
 
             const itemIndex =
                 Number(select.dataset.index);
@@ -409,7 +413,7 @@ document
 
     });
 
-    
+
 
 document.getElementById(
     "shipping"
@@ -450,6 +454,33 @@ document
     );
 
 });
+
+function updateProductionColor(select){
+
+    select.classList.remove(
+        "waiting",
+        "printing",
+        "finished"
+    );
+
+    switch(select.value){
+
+        case "Čeká":
+            select.classList.add("waiting");
+            break;
+
+        case "Tisk":
+            select.classList.add("printing");
+            break;
+
+        case "Hotovo":
+            select.classList.add("finished");
+            break;
+
+    }
+
+}
+
 function applyRolePermissions(role){
 
     document

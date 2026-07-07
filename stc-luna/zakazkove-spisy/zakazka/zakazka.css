@@ -70,3 +70,38 @@ h1{
     display:block;
 
 }
+.production-status{
+
+    min-width:120px;
+
+    padding:6px 10px;
+
+    border:none;
+
+    border-radius:8px;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.production-status.waiting{
+
+    background:#d97706;
+
+}
+
+.production-status.printing{
+
+    background:#2563eb;
+
+}
+
+.production-status.finished{
+
+    background:#16a34a;
+
+}
