@@ -8,7 +8,8 @@ from "../../../firebase/authGuard.js";
 
 import {
     doc,
-    getDoc
+    getDoc,
+    updateDoc
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
@@ -372,7 +373,43 @@ document.getElementById(
     "production"
 ).innerHTML = productionHtml;
 
+document
+    .querySelectorAll(".production-status")
+    .forEach(select => {
 
+        select.addEventListener("change", async () => {
+
+            const itemIndex =
+                Number(select.dataset.index);
+
+            order.items[itemIndex].productionStatus =
+                select.value;
+
+            try{
+
+                await updateDoc(orderRef, {
+
+                    items: order.items
+
+                });
+
+                console.log("Výroba uložena.");
+
+            }
+
+            catch(error){
+
+                console.error(error);
+
+                alert("Nepodařilo se uložit stav výroby.");
+
+            }
+
+        });
+
+    });
+
+    
 
 document.getElementById(
     "shipping"
