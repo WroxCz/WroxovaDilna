@@ -6,6 +6,12 @@
 
 let modelData = null;
 
+let plateData = null;
+
+// ==========================================
+// Manifest projektu
+// ==========================================
+
 export async function loadModelData() {
 
     if (modelData) {
@@ -14,14 +20,19 @@ export async function loadModelData() {
 
     }
 
-    const response = await fetch("./assets/json/data.json");
+    const response =
+        await fetch("./assets/json/data.json");
 
-    modelData = await response.json();
+    modelData =
+        await response.json();
 
     return modelData;
 
 }
-let plateData = null;
+
+// ==========================================
+// Data litofánové destičky
+// ==========================================
 
 export async function loadPlateData() {
 
@@ -31,10 +42,52 @@ export async function loadPlateData() {
 
     }
 
-    const response = await fetch("./assets/json/plate-data.json");
+    const response =
+        await fetch("./assets/json/plate-data.json");
 
-    plateData = await response.json();
+    plateData =
+        await response.json();
 
     return plateData;
+
+}
+
+// ==========================================
+// Vyhledání skupiny podle ID
+// ==========================================
+
+export async function getGroup(groupId) {
+
+    const model =
+        await loadModelData();
+
+    return model.groups.find(
+
+        g => g.id === groupId
+
+    );
+
+}
+// ==========================================
+// Načtení modulu podle source
+// ==========================================
+
+const moduleCache = {};
+
+export async function loadModule(source) {
+
+    if (moduleCache[source]) {
+
+        return moduleCache[source];
+
+    }
+
+    const response =
+        await fetch(`./assets/json/${source}`);
+
+    moduleCache[source] =
+        await response.json();
+
+    return moduleCache[source];
 
 }

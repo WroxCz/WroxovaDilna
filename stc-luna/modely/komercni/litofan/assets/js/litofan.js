@@ -7,7 +7,12 @@ console.log("LITOFAN.JS VERZE 2026-07-03 A");
 import { loadMaterials } from "../../../../../sklad/materialLoader.js";
 import { Summary } from "./summary.js";
 import { calculateProject } from "./priceCalculator.js";
-import { loadModelData, loadPlateData } from "./dataLoader.js";
+import {
+    loadModelData,
+    getGroup,
+    loadModule
+}
+from "./dataLoader.js";
 import { loadLedPanels } from "./ledLoader.js";
 import { loadAdapters } from "./adapterLoader.js";
 import { uploadPhoto } from "./storageManager.js";
@@ -132,7 +137,17 @@ this.renderBlank();
 
 async loadData() {
 
-    const data = await loadPlateData();
+    // Manifest projektu
+    const group = await getGroup("plates");
+
+    const module = group.modules[0];
+
+    // Zatím stále načítáme data modulu
+    // Později to bude univerzální loader.
+    const data =
+    await loadModule(
+        module.source
+    );
 
     this.state.weight = data.weight;
 
@@ -141,8 +156,15 @@ async loadData() {
     const materials = await loadMaterials();
 
     this.state.filament = materials.find(
+
         m => m.id === data.defaultFilament
+
     ) || null;
+
+    console.log(
+        "Načten modul:",
+        module.name
+    );
 
     refreshSummary();
 
