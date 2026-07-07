@@ -617,9 +617,36 @@ ${order.delivery}
 
 <b>Stav:</b>
 
-Neodesláno
+<select id="shipping-status">
+
+    <option value="NEODESLANO">
+        Neodesláno
+    </option>
+
+    <option value="ODESLANO">
+        Odesláno
+    </option>
+
+</select>
 
 `;
+
+const shippingStatus =
+    document.getElementById(
+        "shipping-status"
+    );
+
+updateShippingStatus(
+    shippingStatus.value
+);
+
+shippingStatus.addEventListener("change", () => {
+
+    updateShippingStatus(
+        shippingStatus.value
+    );
+
+});
 
 document.getElementById(
     "attachments"
