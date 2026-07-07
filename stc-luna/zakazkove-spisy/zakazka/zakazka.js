@@ -399,12 +399,53 @@ ${getPaymentMethodName(order.paymentMethod)}
 </button>
 `;
 
+function updatePaymentStatus(status){
+
+    const badge =
+        document.getElementById(
+            "payment-status-badge"
+        );
+
+    badge.className = "status-badge";
+
+    switch(status){
+
+        case "NEZAPLACENO":
+
+            badge.textContent = "Nezaplaceno";
+            badge.classList.add("status-waiting");
+            break;
+
+        case "ZAPLACENO":
+
+            badge.textContent = "Zaplaceno";
+            badge.classList.add("status-finished");
+            break;
+
+        case "VRACENA_PLATBA":
+
+            badge.textContent = "Vrácena platba";
+            badge.classList.add("returned");
+            break;
+
+    }
+
+}
+
 const paymentStatus =
     document.getElementById(
         "payment-status"
     );
 
+updatePaymentStatus(
+    order.customer.paymentStatus
+);    
+
 paymentStatus.addEventListener("change", async () => {
+
+    updatePaymentStatus(
+    paymentStatus.value
+);
 
     try{
 
