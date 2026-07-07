@@ -641,6 +641,10 @@ this.adapters = await loadAdapters();
 
     refreshSummary();
 
+    console.log("FRAME GROUP:", group);
+console.log("FRAME MODULE:", module);
+console.log("FRAME DATA:", data);
+
 }
 updateColors() {
 
