@@ -13,6 +13,26 @@ import {
 }
 from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
+function getPaymentMethodName(method){
+
+    switch(method){
+
+        case "bankovni-prevod":
+            return "Bankovní převod";
+
+        case "dobirka":
+            return "Dobírka";
+
+        case "hotove":
+            return "Hotově při osobním převzetí";
+
+        default:
+            return "-";
+
+    }
+
+}
+
 const params =
     new URLSearchParams(
         window.location.search
@@ -333,15 +353,74 @@ document.getElementById(
 
 <b>Stav platby:</b>
 
-${order.customer.paymentStatus ?? "-"}
+<select id="payment-status">
+
+    <option
+        value="NEZAPLACENO"
+        ${order.customer.paymentStatus === "NEZAPLACENO" ? "selected" : ""}>
+        Nezaplaceno
+    </option>
+
+    <option
+        value="ZAPLACENO"
+        ${order.customer.paymentStatus === "ZAPLACENO" ? "selected" : ""}>
+        Zaplaceno
+    </option>
+
+    <option
+        value="VRACENA_PLATBA"
+        ${order.customer.paymentStatus === "VRACENA_PLATBA" ? "selected" : ""}>
+        Vrácena platba
+    </option>
+
+</select>
 
 <br><br>
 
 <b>Způsob platby:</b>
 
-Zatím není nastaven
+${
+    order.paymentMethod === "bankovni-prevod"
+        ? "Bankovní převod"
+
+    : order.paymentMethod === "dobirka"
+        ? "Dobírka"
+
+    : order.paymentMethod === "hotove"
+        ? "Hotově při osobním převzetí"
+
+    : "-"
+}
 
 `;
+
+const paymentStatus =
+    document.getElementById(
+        "payment-status"
+    );
+
+paymentStatus.addEventListener("change", async () => {
+
+    try{
+
+        await updateDoc(orderRef, {
+
+            "customer.paymentStatus":
+                paymentStatus.value
+
+        });
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert("Nepodařilo se uložit stav platby.");
+
+    }
+
+});
 
 let historyHtml = "";
 

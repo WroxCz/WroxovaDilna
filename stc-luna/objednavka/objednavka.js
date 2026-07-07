@@ -246,14 +246,19 @@ const orderItems = cart.map(item => ({
         },
 
         delivery:
-            document.getElementById(
-                "delivery"
-            ).value,
+    document.getElementById(
+        "delivery"
+    ).value,
 
-        note:
-            document.getElementById(
-                "customer-note"
-            ).value,
+paymentMethod:
+    document.getElementById(
+        "paymentMethod"
+    ).value,
+
+note:
+    document.getElementById(
+        "customer-note"
+    ).value,
 
 
             
