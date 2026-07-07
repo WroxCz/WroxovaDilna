@@ -127,7 +127,7 @@ clear() {
 
             <div>
                 Fotografie:
-                ${plate.state.imageName || "Nevybrána"}
+                ${plate.state.originalFileName || "Nevybrána"}
             </div>
 
             <div>
