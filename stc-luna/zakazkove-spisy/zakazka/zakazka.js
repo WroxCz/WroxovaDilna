@@ -379,19 +379,15 @@ document.getElementById(
 
 <b>Způsob platby:</b>
 
-${
-    order.paymentMethod === "bankovni-prevod"
-        ? "Bankovní převod"
+${getPaymentMethodName(order.paymentMethod)}
 
-    : order.paymentMethod === "dobirka"
-        ? "Dobírka"
+<br><br>
 
-    : order.paymentMethod === "hotove"
-        ? "Hotově při osobním převzetí"
+<button id="send-payment-request">
 
-    : "-"
-}
+    Odeslat výzvu k platbě
 
+</button>
 `;
 
 const paymentStatus =
@@ -419,6 +415,18 @@ paymentStatus.addEventListener("change", async () => {
         alert("Nepodařilo se uložit stav platby.");
 
     }
+
+});
+
+const sendPaymentRequest =
+    document.getElementById(
+        "send-payment-request"
+    );
+
+sendPaymentRequest.addEventListener("click", () => {
+
+    window.location.href =
+    `../platby/platba.html?id=${id}`;
 
 });
 
@@ -588,15 +596,17 @@ document
 function updateProductionColor(select){
 
     select.classList.remove(
-        "waiting",
-        "printing",
-        "finished"
-    );
+    "waiting",
+    "printing",
+    "finished",
+    "returned"
+);
 
-    switch(select.value){
+switch(select.value){
 
     case "Čeká":
     case "Přijato":
+    case "NEZAPLACENO":
         select.classList.add("waiting");
         break;
 
@@ -607,7 +617,12 @@ function updateProductionColor(select){
 
     case "Hotovo":
     case "Dokončeno":
+    case "ZAPLACENO":
         select.classList.add("finished");
+        break;
+
+    case "VRACENA_PLATBA":
+        select.classList.add("returned");
         break;
 
 }
