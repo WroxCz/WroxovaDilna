@@ -72,19 +72,41 @@ h1{
 }
 .production-status{
 
-    min-width:120px;
+    width:130px;
 
-    padding:6px 10px;
+    height:34px;
 
-    border:none;
+    padding:0 10px;
 
-    border-radius:8px;
+    border:1px solid #555;
 
-    color:white;
+    border-radius:6px;
 
-    font-weight:bold;
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:600;
 
     cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.production-status:hover{
+
+    border-color:#d6a44a;
+
+}
+
+.production-status:focus{
+
+    outline:none;
+
+    border-color:#d6a44a;
+
+    box-shadow:0 0 6px rgba(214,164,74,.35);
 
 }
 
