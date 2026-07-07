@@ -208,18 +208,69 @@ async function loadOrder(){
     "overview"
 ).innerHTML = `
 
+const orderStatus =
+    document.getElementById("order-status");
+
+updateProductionColor(orderStatus);
+
+orderStatus.addEventListener("change", async () => {
+
+    updateProductionColor(orderStatus);
+
+    try{
+
+        await updateDoc(orderRef,{
+
+            status: orderStatus.value
+
+        });
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert("Nepodařilo se uložit stav zakázky.");
+
+    }
+
+});
+
+
 <b>Číslo zakázky:</b>
 ${order.orderNumber}
 
 <br><br>
 
-<b>Stav:</b>
-${order.status}
+<b>Vytvořeno:</b>
+${order.created?.toDate().toLocaleString("cs-CZ") ?? "-"}
 
 <br><br>
 
-<b>Vytvořeno:</b>
-${order.created?.toDate().toLocaleString("cs-CZ") ?? "-"}
+<b>Stav:</b>
+
+<select id="order-status" class="production-status">
+
+    <option
+        value="Přijato"
+        ${order.status === "Přijato" ? "selected" : ""}>
+        Přijato
+    </option>
+
+    <option
+        value="Potvrzeno"
+        ${order.status === "Potvrzeno" ? "selected" : ""}>
+        Potvrzeno
+    </option>
+
+    <option
+        value="Dokončeno"
+        ${order.status === "Dokončeno" ? "selected" : ""}>
+        Dokončeno
+    </option>
+
+</select>
 
 `;        
 
@@ -465,19 +516,22 @@ function updateProductionColor(select){
 
     switch(select.value){
 
-        case "Čeká":
-            select.classList.add("waiting");
-            break;
+    case "Čeká":
+    case "Přijato":
+        select.classList.add("waiting");
+        break;
 
-        case "Tisk":
-            select.classList.add("printing");
-            break;
+    case "Tisk":
+    case "Potvrzeno":
+        select.classList.add("printing");
+        break;
 
-        case "Hotovo":
-            select.classList.add("finished");
-            break;
+    case "Hotovo":
+    case "Dokončeno":
+        select.classList.add("finished");
+        break;
 
-    }
+}
 
 }
 
