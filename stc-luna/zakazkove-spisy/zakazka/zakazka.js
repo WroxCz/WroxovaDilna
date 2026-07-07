@@ -601,7 +601,9 @@ document
 
     });
 
-
+updateShippingStatus(
+    "NEODESLANO"
+);
 
 document.getElementById(
     "shipping"
@@ -707,6 +709,33 @@ switch(select.value){
         break;
 
 }
+
+}
+
+function updateShippingStatus(status){
+
+    const badge =
+        document.getElementById(
+            "shipping-status-badge"
+        );
+
+    badge.className = "status-badge";
+
+    switch(status){
+
+        case "NEODESLANO":
+
+            badge.textContent = "Neodesláno";
+            badge.classList.add("status-waiting");
+            break;
+
+        case "ODESLANO":
+
+            badge.textContent = "Odesláno";
+            badge.classList.add("status-finished");
+            break;
+
+    }
 
 }
 
