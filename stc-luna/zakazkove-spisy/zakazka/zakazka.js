@@ -332,7 +332,7 @@ document.getElementById(
 
 let productionHtml = "";
 
-order.items.forEach(item => {
+order.items.forEach((item, index) => {
 
     productionHtml += `
 
