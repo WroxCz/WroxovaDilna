@@ -229,10 +229,7 @@ const overviewStatus =
         "overview-status"
     );
 
-overviewStatus.textContent =
-    order.status;
-
-updateProductionColor(overviewStatus);        
+updateOverviewStatus(order.status);       
      
     document.getElementById(
     "overview"
@@ -604,6 +601,35 @@ document
     );
 
 });
+
+function updateOverviewStatus(status){
+
+    const badge =
+        document.getElementById(
+            "overview-status"
+        );
+
+    badge.textContent = status;
+
+    badge.className = "status-badge";
+
+    switch(status){
+
+        case "Přijato":
+            badge.classList.add("status-waiting");
+            break;
+
+        case "Potvrzeno":
+            badge.classList.add("status-printing");
+            break;
+
+        case "Dokončeno":
+            badge.classList.add("status-finished");
+            break;
+
+    }
+
+}
 
 function updateProductionColor(select){
 
