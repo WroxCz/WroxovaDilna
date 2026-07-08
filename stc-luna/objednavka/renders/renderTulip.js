@@ -24,7 +24,7 @@ export function renderTulip(item) {
         type="checkbox"
         class="production-part"
         data-uid="${item.uid}"
-        data-part="flower">
+        data-part="flower"
         ${item.production?.flower ? "checked" : ""}>
     Hotovo
 </h3>
@@ -48,13 +48,13 @@ export function renderTulip(item) {
 
             <hr>
 
-            <h3>
-            Stonek
+<h3>
+    Stonek
     <input
         type="checkbox"
         class="production-part"
         data-uid="${item.uid}"
-        data-part="flower">
+        data-part="stem"
         ${item.production?.stem ? "checked" : ""}>
     Hotovo
 </h3>
@@ -77,14 +77,15 @@ export function renderTulip(item) {
 
             <hr>
 
-            <h3>
-            List
+<h3>
+    List
     <input
         type="checkbox"
         class="production-part"
         data-uid="${item.uid}"
-        data-part="flower">
-        ${item.production?.flower ? "checked" : ""}>Hotovo
+        data-part="leaf"
+        ${item.production?.leaf ? "checked" : ""}>
+    Hotovo
 </h3>
 
 
