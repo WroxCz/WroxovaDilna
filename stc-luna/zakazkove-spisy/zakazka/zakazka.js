@@ -10,8 +10,10 @@ import {
     doc,
     getDoc,
     updateDoc
-}
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+
 
 function getPaymentMethodName(method){
 
@@ -56,146 +58,7 @@ checkAccess((userData) => {
     loadOrder();
 
 });
-function renderTulipan(item) {
 
-    return `
-
-<div style="margin-bottom:25px;">
-
-    <h3>${item.productName}</h3>
-
-    <b>Květ</b><br>
-
-    Materiál: ${item.config.flower.material}<br>
-    Varianta: ${item.config.flower.variant}<br>
-    Barva: ${item.config.flower.color}<br>
-    Kusů: ${item.config.flower.quantity}
-
-    <br><br>
-
-    <b>Stonek</b><br>
-
-    Materiál: ${item.config.stem.material}<br>
-    Varianta: ${item.config.stem.variant}<br>
-    Barva: ${item.config.stem.color}<br>
-    Kusů: ${item.config.stem.quantity}
-
-    <br><br>
-
-    <b>List</b><br>
-
-    Materiál: ${item.config.leaf.material}<br>
-    Varianta: ${item.config.leaf.variant}<br>
-    Barva: ${item.config.leaf.color}<br>
-    Kusů: ${item.config.leaf.quantity}
-
-    <br><br>
-
-    <b>Počet výrobků:</b> ${item.quantity}
-
-    <br>
-
-    <b>Cena za kus:</b> ${item.unitPrice} Kč
-
-</div>
-
-<hr>
-
-`;
-
-}
-function renderHelenka(item) {
-
-    let html = `
-
-<div style="margin-bottom:25px;">
-
-<h3>${item.productName}</h3>
-
-`;
-
-    // ==========================
-    // Litofánové destičky
-    // ==========================
-
-    if (item.plates?.length) {
-
-        html += `<h4>📷 Litofánové destičky</h4>`;
-
-        item.plates.forEach((plate, index) => {
-
-            html += `
-
-<b>Destička ${index + 1}</b><br>
-
-Fotografie:
-${plate.originalFileName}<br>
-
-Storage soubor:
-${plate.storageFileName ?? "-"}<br>
-
-Orientace:
-${plate.orientation}<br>
-
-Cena:
-${plate.price.total} Kč
-
-<br><br>
-
-`;
-
-        });
-
-    }
-
-    // ==========================
-    // Rámečky
-    // ==========================
-
-    if (item.frames?.length) {
-
-        html += `<h4>🖼️ Rámečky</h4>`;
-
-        item.frames.forEach((frame, index) => {
-
-            html += `
-
-<b>Rámeček ${index + 1}</b><br>
-
-Materiál:
-${frame.filament?.material ?? "-"}<br>
-
-Barva:
-${frame.filament?.name ?? "-"}<br>
-
-LED:
-${frame.ledPanel?.name ?? "Bez LED"}<br>
-
-Adaptér:
-${frame.adapter?.name ?? "Bez adaptéru"}<br>
-
-Cena:
-${frame.price.total} Kč
-
-<br><br>
-
-`;
-
-        });
-
-    }
-
-    html += `
-
-</div>
-
-<hr>
-
-`;
-
-    return html;
-
-}
 async function loadOrder(){
 
     const orderRef =
@@ -336,25 +199,36 @@ ${order.customer.city}
 ${order.customer.zip}
 
 `;
+
 let itemsHtml = "";
 
-order.items.forEach((item, index) => {
+order.items.forEach(item => {
 
-    if (item.type === "helenka") {
+    switch (item.productId) {
 
-        itemsHtml += renderHelenka(item);
+        case "tulip-with-stem":
+            itemsHtml += renderTulipan(item);
+            break;
 
-    } else {
+        case "rose-spiral-vase":
+            itemsHtml += renderRose(item);
+            break;
 
-        itemsHtml += renderTulipan(item);
+        default:
+
+            if (item.type === "helenka") {
+
+                itemsHtml += renderHelenka(item);
+
+            }
+
+            break;
 
     }
 
 });
 
-document.getElementById(
-    "items"
-).innerHTML = itemsHtml;
+document.getElementById("items").innerHTML = itemsHtml;
 
 document.getElementById(
     "payment"
