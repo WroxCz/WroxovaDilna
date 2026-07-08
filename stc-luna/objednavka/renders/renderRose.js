@@ -10,6 +10,10 @@ export function renderRose(item) {
         l: "10 cm"
     };
 
+item.production ??= {};
+
+item.production.rose ??= false;
+
     return `
 
         <div class="cart-item">
@@ -40,7 +44,16 @@ export function renderRose(item) {
                 <strong>Barva:</strong>
                 ${item.config.color}
             </p>
-
+<h3>
+    Růže
+    <input
+        type="checkbox"
+        class="production-part"
+        data-uid="${item.uid}"
+        data-part="rose"
+        ${item.production?.rose ? "checked" : ""}>
+    Hotovo
+</h3>
             <hr>
 
 <p>
