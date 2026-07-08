@@ -251,7 +251,7 @@ switch (item.productId) {
         itemsHtml += renderRose(item);
         break;
 
-    case "projekt-helenka":
+    case "helenka":
         itemsHtml += renderHelenka(item);
         break;
 
