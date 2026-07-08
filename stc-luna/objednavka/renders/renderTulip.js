@@ -19,21 +19,13 @@ export function renderTulip(item) {
             <div class="part-header">
 
 <h3>
-
     Květ
-
-    <label style="margin-left:10px; font-size:16px; font-weight:normal;">
-
-        <input
-            type="checkbox"
-            class="production-part"
-            data-uid="${item.uid}"
-            data-part="flower">
-
-        Hotovo
-
-    </label>
-
+    <input
+        type="checkbox"
+        class="production-part"
+        data-uid="${item.uid}"
+        data-part="flower">
+    Hotovo
 </h3>
 
 </div>
@@ -57,20 +49,14 @@ export function renderTulip(item) {
 
             <h3>
             Stonek
-
-    <label style="margin-left:10px; font-size:16px; font-weight:normal;">
-
-        <input
-            type="checkbox"
-            class="production-part"
-            data-uid="${item.uid}"
-            data-part="flower">
-
-        Hotovo
-
-    </label>
-
+    <input
+        type="checkbox"
+        class="production-part"
+        data-uid="${item.uid}"
+        data-part="flower">
+    Hotovo
 </h3>
+
 
             <p>
                 <strong>Materiál:</strong>
@@ -91,20 +77,14 @@ export function renderTulip(item) {
 
             <h3>
             List
-            
-    <label style="margin-left:10px; font-size:16px; font-weight:normal;">
-
-        <input
-            type="checkbox"
-            class="production-part"
-            data-uid="${item.uid}"
-            data-part="flower">
-
-        Hotovo
-
-    </label>
-
+    <input
+        type="checkbox"
+        class="production-part"
+        data-uid="${item.uid}"
+        data-part="flower">
+    Hotovo
 </h3>
+
 
 
             <p>
