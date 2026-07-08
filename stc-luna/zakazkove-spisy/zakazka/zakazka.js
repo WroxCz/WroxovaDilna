@@ -210,27 +210,27 @@ let itemsHtml = "";
 
 order.items.forEach(item => {
 
-    switch (item.productId) {
+switch (item.productId) {
 
-        case "tulip-with-stem":
-            itemsHtml += renderTulip(item);
-            break;
+    case "stock":
+        itemsHtml += renderStock(item);
+        break;
 
-        case "rose-spiral-vase":
-            itemsHtml += renderRose(item);
-            break;
+    case "tulip-with-stem":
+        itemsHtml += renderTulip(item);
+        break;
 
-        default:
+    case "rose-spiral-vase":
+        itemsHtml += renderRose(item);
+        break;
 
-            if (item.type === "helenka") {
+    case "projekt-helenka":
+        itemsHtml += renderHelenka(item);
+        break;
 
-                itemsHtml += renderHelenka(item);
-
-            }
-
-            break;
-
-    }
+    default:
+        itemsHtml += renderUnknown(item);
+}
 
 });
 
