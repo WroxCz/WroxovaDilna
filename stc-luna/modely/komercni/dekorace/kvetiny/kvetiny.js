@@ -4,10 +4,6 @@ export const modely = [
         path: "./komercni/dekorace/kvetiny/tulip-with-stem/model.html"
     },
     {
-        name: "Rose 01",
-        path: "./komercni/dekorace/kvetiny/rose-01/model.html"
-    },
-    {
         name: "Spiral Vase Rose",
         path: "./komercni/dekorace/kvetiny/spiral-vase-rose/model.html"
     }
