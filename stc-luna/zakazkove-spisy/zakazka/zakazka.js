@@ -260,19 +260,20 @@ switch (item.productId ?? item.type) {
 document.getElementById("items").innerHTML = itemsHtml;
 
 document
-    .querySelectorAll(".production-part")
-    .forEach(checkbox => {
+    .querySelectorAll(".part-status")
+    .forEach(select => {
 
-        checkbox.addEventListener("change", async () => {
+        updateProductionColor(select);
+
+        select.addEventListener("change", async () => {
+
+            updateProductionColor(select);
 
             const uid =
-                checkbox.dataset.uid;
+                select.dataset.uid;
 
             const part =
-                checkbox.dataset.part;
-
-            const index =
-                checkbox.dataset.index;
+                select.dataset.part;
 
             const item =
                 order.items.find(
@@ -281,19 +282,8 @@ document
 
             if (!item) return;
 
-            if (index !== undefined) {
-
-                item.production[part][Number(index)] =
-                    checkbox.checked;
-
-            }
-
-            else {
-
-                item.production[part] =
-                    checkbox.checked;
-
-            }
+            item.production[part] =
+                select.value;
 
             try{
 

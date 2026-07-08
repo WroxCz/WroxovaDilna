@@ -35,9 +35,23 @@ ${showProduction ? `
         data-uid="${item.uid}"
         data-part="flower">
 
-        <option value="Čeká">Čeká</option>
-        <option value="Tisk">Tisk</option>
-        <option value="Hotovo">Hotovo</option>
+<option
+    value="Čeká"
+    ${item.production.flower === "Čeká" ? "selected" : ""}>
+    Čeká
+</option>
+
+<option
+    value="Tisk"
+    ${item.production.flower === "Tisk" ? "selected" : ""}>
+    Tisk
+</option>
+
+<option
+    value="Hotovo"
+    ${item.production.flower === "Hotovo" ? "selected" : ""}>
+    Hotovo
+</option>
 
     </select>
 
@@ -76,9 +90,23 @@ ${showProduction ? `
         data-uid="${item.uid}"
         data-part="stem">
 
-        <option value="Čeká">Čeká</option>
-        <option value="Tisk">Tisk</option>
-        <option value="Hotovo">Hotovo</option>
+<option
+    value="Čeká"
+    ${item.production.stem === "Čeká" ? "selected" : ""}>
+    Čeká
+</option>
+
+<option
+    value="Tisk"
+    ${item.production.stem === "Tisk" ? "selected" : ""}>
+    Tisk
+</option>
+
+<option
+    value="Hotovo"
+    ${item.production.stem === "Hotovo" ? "selected" : ""}>
+    Hotovo
+</option>
 
     </select>
 
@@ -115,9 +143,23 @@ ${showProduction ? `
         data-uid="${item.uid}"
         data-part="leaf">
 
-        <option value="Čeká">Čeká</option>
-        <option value="Tisk">Tisk</option>
-        <option value="Hotovo">Hotovo</option>
+<option
+    value="Čeká"
+    ${item.production.leaf === "Čeká" ? "selected" : ""}>
+    Čeká
+</option>
+
+<option
+    value="Tisk"
+    ${item.production.leaf === "Tisk" ? "selected" : ""}>
+    Tisk
+</option>
+
+<option
+    value="Hotovo"
+    ${item.production.leaf === "Hotovo" ? "selected" : ""}>
+    Hotovo
+</option>
 
     </select>
 
