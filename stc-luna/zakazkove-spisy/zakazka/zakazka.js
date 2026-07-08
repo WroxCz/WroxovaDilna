@@ -88,6 +88,20 @@ async function loadOrder(){
     const order =
         snapshot.data();
 
+order.items.forEach(item => {
+
+    if (!item.production) {
+
+        item.production = {
+            flower: false,
+            stem: false,
+            leaf: false
+        };
+
+    }
+
+});
+
     document.getElementById(
         "order-number"
     ).textContent =
@@ -237,20 +251,43 @@ switch (item.productId) {
 document.getElementById("items").innerHTML = itemsHtml;
 
 document
-    .querySelectorAll(".production-part")
-    .forEach(checkbox => {
+    checkbox.addEventListener("change", async () => {
 
-        checkbox.addEventListener("change", () => {
+    const uid =
+        checkbox.dataset.uid;
 
-            console.log(
-                checkbox.dataset.uid,
-                checkbox.dataset.part,
-                checkbox.checked
-            );
+    const part =
+        checkbox.dataset.part;
+
+    const item =
+        order.items.find(
+            item => item.uid === uid
+        );
+
+    if (!item) return;
+
+    item.production[part] =
+        checkbox.checked;
+
+    try{
+
+        await updateDoc(orderRef, {
+
+            items: order.items
 
         });
 
-    });
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert("Nepodařilo se uložit stav výroby.");
+
+    }
+
+});
 
 document.getElementById(
     "payment"

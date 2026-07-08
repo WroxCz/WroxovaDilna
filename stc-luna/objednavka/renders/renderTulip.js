@@ -25,6 +25,7 @@ export function renderTulip(item) {
         class="production-part"
         data-uid="${item.uid}"
         data-part="flower">
+        ${item.production?.flower ? "checked" : ""}>
     Hotovo
 </h3>
 
@@ -54,6 +55,7 @@ export function renderTulip(item) {
         class="production-part"
         data-uid="${item.uid}"
         data-part="flower">
+        ${item.production?.stem ? "checked" : ""}>
     Hotovo
 </h3>
 
@@ -82,6 +84,7 @@ export function renderTulip(item) {
         class="production-part"
         data-uid="${item.uid}"
         data-part="flower">
+        ${item.production?.leaf ? "checked" : ""}>
     Hotovo
 </h3>
 
