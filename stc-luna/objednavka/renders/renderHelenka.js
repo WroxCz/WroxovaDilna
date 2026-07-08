@@ -92,7 +92,17 @@ while (item.production.frames.length < frameCount) {
                         <div class="cart-subitem">
 
                             <p>
-                                <strong>Rámeček ${index + 1}</strong>
+                                <h3>
+    Rámeček ${index + 1}
+    <input
+        type="checkbox"
+        class="production-part"
+        data-uid="${item.uid}"
+        data-part="frames"
+        data-index="${index}"
+        ${item.production.frames[index] ? "checked" : ""}>
+    Hotovo
+</h3>
                             </p>
 
                             <p>
