@@ -18,6 +18,20 @@ export function renderTulip(item) {
 
             <h3>Květ</h3>
 
+<label>
+
+    <input
+        type="checkbox"
+        class="production-part"
+        data-uid="${item.uid}"
+        data-part="flower">
+
+    Hotovo
+
+</label>
+
+<br><br>
+
             <p>
                 <strong>Materiál:</strong>
                 ${flower.material}
@@ -37,6 +51,20 @@ export function renderTulip(item) {
 
             <h3>Stonek</h3>
 
+<label>
+
+    <input
+        type="checkbox"
+        class="production-part"
+        data-uid="${item.uid}"
+        data-part="stem">
+
+    Hotovo
+
+</label>
+
+<br><br>
+
             <p>
                 <strong>Materiál:</strong>
                 ${stem.material}
@@ -55,6 +83,20 @@ export function renderTulip(item) {
             <hr>
 
             <h3>List</h3>
+
+<label>
+
+    <input
+        type="checkbox"
+        class="production-part"
+        data-uid="${item.uid}"
+        data-part="leaf">
+
+    Hotovo
+
+</label>
+
+<br><br>            
 
             <p>
                 <strong>Počet:</strong>
@@ -114,48 +156,8 @@ export function renderTulip(item) {
 
 <hr>
 
-<h3>Výroba</h3>
 
-<div class="production-panel">
 
-    <label>
-<input
-    type="checkbox"
-    class="production-part"
-    data-uid="${item.uid}"
-    data-part="flower">
-
-        Květ
-    </label>
-
-    <br>
-
-    <label>
-        <input
-<input
-    type="checkbox"
-    class="production-part"
-    data-uid="${item.uid}"
-    data-part="stem">
-
-        Stonek
-    </label>
-
-    <br>
-
-    <label>
-<input
-    type="checkbox"
-    class="production-part"
-    data-uid="${item.uid}"
-    data-part="leaf">
-
-        List
-    </label>
-
-</div>
-
-<hr>
 
 <button
     class="remove-item"
