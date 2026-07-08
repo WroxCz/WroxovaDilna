@@ -92,6 +92,8 @@ let needsSave = false;
 
 order.items.forEach(item => {
 
+    console.log(item.productId);
+
     if (!item.production) {
 
         item.production = {};
@@ -232,6 +234,8 @@ ${order.customer.zip}
 let itemsHtml = "";
 
 order.items.forEach(item => {
+
+    console.log(item.productId);
 
 switch (item.productId) {
 
