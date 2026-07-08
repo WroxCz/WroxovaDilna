@@ -12,7 +12,13 @@ import {
     updateDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-
+import {
+    renderUnknown,
+    renderStock,
+    renderRose,
+    renderHelenka,
+    renderTulip
+} from "../../objednavka/renders/index.js";
 
 
 function getPaymentMethodName(method){
@@ -207,7 +213,7 @@ order.items.forEach(item => {
     switch (item.productId) {
 
         case "tulip-with-stem":
-            itemsHtml += renderTulipan(item);
+            itemsHtml += renderTulip(item);
             break;
 
         case "rose-spiral-vase":
