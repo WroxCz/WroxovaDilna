@@ -6,7 +6,7 @@ import {
     renderTulip
 } from "./renders/index.js";
 
-const cart = JSON.parse(localStorage.getItem("lm-cart")) || [];
+let cart = JSON.parse(localStorage.getItem("lm-cart")) || [];
 
 renderCart();
 
@@ -31,12 +31,40 @@ function renderCart() {
 
         html += renderCartItem(item);
 
-        total += Number(item.totalPrice ?? (
-            item.unitPrice * item.quantity
-        ));
+        total += item.unitPrice * item.quantity;
     }
 
     container.innerHTML = html;
+
+    document.querySelectorAll(".remove-item").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        removeItem(button.dataset.uid);
+
+    });
+
+});
+
+document.querySelectorAll(".qty-plus").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        changeQuantity(button.dataset.uid, 1);
+
+    });
+
+});
+
+document.querySelectorAll(".qty-minus").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        changeQuantity(button.dataset.uid, -1);
+
+    });
+
+});
 
     document.getElementById("cart-total").textContent =
         total.toLocaleString("cs-CZ") + " Kč";
@@ -66,5 +94,37 @@ if (item.type === "helenka") {
             return renderUnknown(item);
 
     }
+
+}
+function removeItem(uid) {
+
+    cart = cart.filter(item => item.uid !== uid);
+
+    localStorage.setItem(
+        "lm-cart",
+        JSON.stringify(cart)
+    );
+
+    renderCart();
+
+}
+function changeQuantity(uid, delta) {
+
+    const item = cart.find(item => item.uid === uid);
+
+    if (!item) return;
+
+    item.quantity += delta;
+
+    if (item.quantity < 1) {
+        item.quantity = 1;
+    }
+
+    localStorage.setItem(
+        "lm-cart",
+        JSON.stringify(cart)
+    );
+
+    renderCart();
 
 }

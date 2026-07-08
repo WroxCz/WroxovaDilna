@@ -78,20 +78,47 @@ export function renderTulip(item) {
 
             <hr>
 
-            <p>
-                <strong>Hmotnost:</strong>
-                ${formatWeight(item.unitWeight)}
-            </p>
+<p>
+    <strong>Hmotnost:</strong>
+    ${formatWeight(item.unitWeight * item.quantity)}
+</p>
 
-            <p>
-                <strong>Doba tisku:</strong>
-                ${formatPrintTime(item.unitPrintTime)}
-            </p>
+<p>
+    <strong>Doba tisku:</strong>
+    ${formatPrintTime(item.unitPrintTime * item.quantity)}
+</p>
 
-            <p>
-                <strong>Cena:</strong>
-                ${formatPrice(item.unitPrice)}
-            </p>
+<p>
+    <strong>Cena:</strong>
+    ${formatPrice(item.unitPrice * item.quantity)}
+</p>
+            <hr>
+
+<div class="quantity-controls">
+
+    <button
+        class="qty-minus"
+        data-uid="${item.uid}">
+        −
+    </button>
+
+    <strong>${item.quantity} ks</strong>
+
+    <button
+        class="qty-plus"
+        data-uid="${item.uid}">
+        +
+    </button>
+
+</div>
+
+<hr>
+
+<button
+    class="remove-item"
+    data-uid="${item.uid}">
+    🗑 Odebrat z košíku
+</button>
 
         </div>
 

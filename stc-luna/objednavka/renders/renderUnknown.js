@@ -10,9 +10,23 @@ export function renderUnknown(item) {
                 Tento typ produktu zatím nemá renderer.
             </p>
 
-            <p>
-                Množství: ${item.quantity}
-            </p>
+<div class="quantity-controls">
+
+    <button
+        class="qty-minus"
+        data-uid="${item.uid}">
+        −
+    </button>
+
+    <strong>${item.quantity} ks</strong>
+
+    <button
+        class="qty-plus"
+        data-uid="${item.uid}">
+        +
+    </button>
+
+</div>
 
             <p>
                 ${Number(
@@ -20,7 +34,13 @@ export function renderUnknown(item) {
                     (item.unitPrice * item.quantity)
                 ).toLocaleString("cs-CZ")} Kč
             </p>
+<hr>
 
+<button
+    class="remove-item"
+    data-uid="${item.uid}">
+    🗑 Odebrat z košíku
+</button>
         </div>
 
     `;

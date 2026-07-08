@@ -22,6 +22,32 @@ export function renderStock(item) {
                 <strong>Cena za kus:</strong>
                 ${item.unitPrice} Kč
             </p>
+<hr>
+
+<div class="quantity-controls">
+
+    <button
+        class="qty-minus"
+        data-uid="${item.uid}">
+        −
+    </button>
+
+    <strong>${item.quantity} ks</strong>
+
+    <button
+        class="qty-plus"
+        data-uid="${item.uid}">
+        +
+    </button>
+
+</div>
+<hr>
+
+<button
+    class="remove-item"
+    data-uid="${item.uid}">
+    🗑 Odebrat z košíku
+</button>
 
             <p>
                 <strong>Celkem:</strong>
