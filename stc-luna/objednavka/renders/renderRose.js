@@ -2,7 +2,7 @@ import { formatPrice } from "../shared/formatPrice.js";
 import { formatWeight } from "../shared/formatWeight.js";
 import { formatPrintTime } from "../shared/formatPrintTime.js";
 
-export function renderRose(item) {
+export function renderRose(item, showProduction = false) {
 
     const sizeNames = {
         s: "5 cm",
@@ -44,6 +44,7 @@ item.production.rose ??= false;
                 <strong>Barva:</strong>
                 ${item.config.color}
             </p>
+${showProduction ? `
 <h3>
     Růže
     <input
@@ -54,6 +55,9 @@ item.production.rose ??= false;
         ${item.production?.rose ? "checked" : ""}>
     Hotovo
 </h3>
+` : `
+<h3>Růže</h3>
+`}
             <hr>
 
 <p>

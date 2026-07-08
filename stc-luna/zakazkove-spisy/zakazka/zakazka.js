@@ -244,11 +244,11 @@ switch (item.productId ?? item.type) {
         break;
 
     case "rose-spiral-vase":
-        itemsHtml += renderRose(item);
+        itemsHtml += renderRose(item, true);
         break;
 
     case "helenka":
-        itemsHtml += renderHelenka(item);
+        itemsHtml += renderHelenka(item, true);
         break;
 
     default:

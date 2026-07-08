@@ -2,7 +2,7 @@ import { formatPrice } from "../shared/formatPrice.js";
 import { formatWeight } from "../shared/formatWeight.js";
 import { formatPrintTime } from "../shared/formatPrintTime.js";
 
-export function renderHelenka(item) {
+export function renderHelenka(item, showProduction = false) {
 
     const plateCount = item.plates?.length ?? 0;
     const frameCount = item.frames?.length ?? 0;
@@ -48,7 +48,8 @@ while (item.production.frames.length < frameCount) {
                         <div class="cart-subitem">
 
                             <p>
-                                <h3>
+${showProduction ? `
+<h3>
     Destička ${index + 1}
     <input
         type="checkbox"
@@ -59,6 +60,9 @@ while (item.production.frames.length < frameCount) {
         ${item.production.plates[index] ? "checked" : ""}>
     Hotovo
 </h3>
+` : `
+<h3>Destička ${index + 1}</h3>
+`}
                             </p>
 
                             <p>
@@ -92,7 +96,8 @@ while (item.production.frames.length < frameCount) {
                         <div class="cart-subitem">
 
                             <p>
-                                <h3>
+${showProduction ? `
+<h3>
     Rámeček ${index + 1}
     <input
         type="checkbox"
@@ -103,6 +108,9 @@ while (item.production.frames.length < frameCount) {
         ${item.production.frames[index] ? "checked" : ""}>
     Hotovo
 </h3>
+` : `
+<h3>Rámeček ${index + 1}</h3>
+`}
                             </p>
 
                             <p>
