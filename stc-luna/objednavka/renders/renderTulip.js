@@ -58,6 +58,7 @@ ${showProduction ? `
 
             <hr>
 
+${showProduction ? `            
 <h3>
     Stonek
     <input
@@ -68,6 +69,9 @@ ${showProduction ? `
         ${item.production?.stem ? "checked" : ""}>
     Hotovo
 </h3>
+` : `
+<h3>Stonek</h3>
+`}
 
 
             <p>
@@ -86,7 +90,7 @@ ${showProduction ? `
             </p>
 
             <hr>
-
+${showProduction ? `
 <h3>
     List
     <input
@@ -97,6 +101,9 @@ ${showProduction ? `
         ${item.production?.leaf ? "checked" : ""}>
     Hotovo
 </h3>
+` : `
+<h3>List</h3>
+`}
 
 
 
