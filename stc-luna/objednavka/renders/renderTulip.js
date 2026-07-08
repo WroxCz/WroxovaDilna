@@ -16,21 +16,23 @@ export function renderTulip(item) {
 
             <hr>
 
-            <h3>Květ</h3>
+            <div class="part-header">
 
-<label>
+    <h3>Květ</h3>
 
-    <input
-        type="checkbox"
-        class="production-part"
-        data-uid="${item.uid}"
-        data-part="flower">
+    <label>
 
-    Hotovo
+        <input
+            type="checkbox"
+            class="production-part"
+            data-uid="${item.uid}"
+            data-part="flower">
 
-</label>
+        Hotovo
 
-<br><br>
+    </label>
+
+</div>
 
             <p>
                 <strong>Materiál:</strong>
