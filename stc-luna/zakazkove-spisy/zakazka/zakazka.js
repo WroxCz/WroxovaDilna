@@ -92,7 +92,7 @@ let needsSave = false;
 
 order.items.forEach(item => {
 
-    console.log(item.productId);
+    console.log(item);
 
     if (!item.production) {
 
@@ -235,7 +235,7 @@ let itemsHtml = "";
 
 order.items.forEach(item => {
 
-    console.log(item.productId);
+    console.log(item);
 
 switch (item.productId) {
 
