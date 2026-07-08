@@ -251,43 +251,48 @@ switch (item.productId) {
 document.getElementById("items").innerHTML = itemsHtml;
 
 document
-    checkbox.addEventListener("change", async () => {
+    .querySelectorAll(".production-part")
+    .forEach(checkbox => {
 
-    const uid =
-        checkbox.dataset.uid;
+        checkbox.addEventListener("change", async () => {
 
-    const part =
-        checkbox.dataset.part;
+            const uid =
+                checkbox.dataset.uid;
 
-    const item =
-        order.items.find(
-            item => item.uid === uid
-        );
+            const part =
+                checkbox.dataset.part;
 
-    if (!item) return;
+            const item =
+                order.items.find(
+                    item => item.uid === uid
+                );
 
-    item.production[part] =
-        checkbox.checked;
+            if (!item) return;
 
-    try{
+            item.production[part] =
+                checkbox.checked;
 
-        await updateDoc(orderRef, {
+            try{
 
-            items: order.items
+                await updateDoc(orderRef, {
+
+                    items: order.items
+
+                });
+
+            }
+
+            catch(error){
+
+                console.error(error);
+
+                alert("Nepodařilo se uložit stav výroby.");
+
+            }
 
         });
 
-    }
-
-    catch(error){
-
-        console.error(error);
-
-        alert("Nepodařilo se uložit stav výroby.");
-
-    }
-
-});
+    });
 
 document.getElementById(
     "payment"
