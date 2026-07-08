@@ -236,6 +236,22 @@ switch (item.productId) {
 
 document.getElementById("items").innerHTML = itemsHtml;
 
+document
+    .querySelectorAll(".production-part")
+    .forEach(checkbox => {
+
+        checkbox.addEventListener("change", () => {
+
+            console.log(
+                checkbox.dataset.uid,
+                checkbox.dataset.part,
+                checkbox.checked
+            );
+
+        });
+
+    });
+
 document.getElementById(
     "payment"
 ).innerHTML = `
@@ -396,90 +412,6 @@ let historyHtml = "";
 document.getElementById(
     "history"
 ).innerHTML = historyHtml;
-
-
-
-let productionHtml = "";
-
-order.items.forEach((item, index) => {
-
-    productionHtml += `
-
-<div style="margin-bottom:15px; display:flex; align-items:center; gap:12px;">
-
-<select class="production-status" data-index="${index}">
-
-    <option
-        value="Čeká"
-        ${item.productionStatus === "Čeká" ? "selected" : ""}>
-        Čeká
-    </option>
-
-    <option
-        value="Tisk"
-        ${item.productionStatus === "Tisk" ? "selected" : ""}>
-        Tisk
-    </option>
-
-    <option
-        value="Hotovo"
-        ${item.productionStatus === "Hotovo" ? "selected" : ""}>
-        Hotovo
-    </option>
-
-</select>
-
-    <b>${item.productName}</b>
-
-</div>
-
-`;
-
-});
-
-document.getElementById(
-    "production"
-).innerHTML = productionHtml;
-
-document
-    .querySelectorAll("#production .production-status")
-    .forEach(select => {
-
-        updateProductionColor(select);
-
-        select.addEventListener("change", async () => {
-
-            updateProductionColor(select);
-
-            const itemIndex =
-                Number(select.dataset.index);
-
-            order.items[itemIndex].productionStatus =
-                select.value;
-
-            try{
-
-                await updateDoc(orderRef, {
-
-                    items: order.items
-
-                });
-
-                console.log("Výroba uložena.");
-
-            }
-
-            catch(error){
-
-                console.error(error);
-
-                alert("Nepodařilo se uložit stav výroby.");
-
-            }
-
-        });
-
-    });
 
 updateShippingStatus(
     "NEODESLANO"

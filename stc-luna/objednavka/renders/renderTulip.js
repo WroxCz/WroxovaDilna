@@ -114,6 +114,49 @@ export function renderTulip(item) {
 
 <hr>
 
+<h3>Výroba</h3>
+
+<div class="production-panel">
+
+    <label>
+<input
+    type="checkbox"
+    class="production-part"
+    data-uid="${item.uid}"
+    data-part="flower">
+
+        Květ
+    </label>
+
+    <br>
+
+    <label>
+        <input
+<input
+    type="checkbox"
+    class="production-part"
+    data-uid="${item.uid}"
+    data-part="stem">
+
+        Stonek
+    </label>
+
+    <br>
+
+    <label>
+<input
+    type="checkbox"
+    class="production-part"
+    data-uid="${item.uid}"
+    data-part="leaf">
+
+        List
+    </label>
+
+</div>
+
+<hr>
+
 <button
     class="remove-item"
     data-uid="${item.uid}">
