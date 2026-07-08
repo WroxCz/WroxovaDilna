@@ -10,9 +10,9 @@ export function renderTulip(item, showProduction = false) {
 
 item.production ??= {};
 
-item.production.flower ??= false;
-item.production.stem ??= false;
-item.production.leaf ??= false;
+item.production.flower ??= "Čeká";
+item.production.stem ??= "Čeká";
+item.production.leaf ??= "Čeká";
 
     return `
 
@@ -41,15 +41,6 @@ ${showProduction ? `
 
     </select>
 
-    <input
-        type="checkbox"
-        class="production-part"
-        data-uid="${item.uid}"
-        data-part="flower"
-        ${item.production?.flower ? "checked" : ""}>
-
-    Hotovo
-
 </h3>
 ` : `
 <h3>Květ</h3>
@@ -77,13 +68,20 @@ ${showProduction ? `
 ${showProduction ? `            
 <h3>
     Stonek
-    <input
-        type="checkbox"
-        class="production-part"
+
+    Stav:
+
+    <select
+        class="part-status"
         data-uid="${item.uid}"
-        data-part="stem"
-        ${item.production?.stem ? "checked" : ""}>
-    Hotovo
+        data-part="stem">
+
+        <option value="Čeká">Čeká</option>
+        <option value="Tisk">Tisk</option>
+        <option value="Hotovo">Hotovo</option>
+
+    </select>
+
 </h3>
 ` : `
 <h3>Stonek</h3>
@@ -109,13 +107,20 @@ ${showProduction ? `
 ${showProduction ? `
 <h3>
     List
-    <input
-        type="checkbox"
-        class="production-part"
+
+    Stav:
+
+    <select
+        class="part-status"
         data-uid="${item.uid}"
-        data-part="leaf"
-        ${item.production?.leaf ? "checked" : ""}>
-    Hotovo
+        data-part="leaf">
+
+        <option value="Čeká">Čeká</option>
+        <option value="Tisk">Tisk</option>
+        <option value="Hotovo">Hotovo</option>
+
+    </select>
+
 </h3>
 ` : `
 <h3>List</h3>
