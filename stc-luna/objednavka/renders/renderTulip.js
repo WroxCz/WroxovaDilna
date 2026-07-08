@@ -2,7 +2,7 @@ import { formatPrice } from "../shared/formatPrice.js";
 import { formatWeight } from "../shared/formatWeight.js";
 import { formatPrintTime } from "../shared/formatPrintTime.js";
 
-export function renderTulip(item) {
+export function renderTulip(item, showProduction = false) {
 
     const flower = item.config.flower;
     const stem = item.config.stem;
@@ -24,6 +24,7 @@ item.production.leaf ??= false;
 
             <div class="part-header">
 
+${showProduction ? `
 <h3>
     Květ
     <input
@@ -34,6 +35,9 @@ item.production.leaf ??= false;
         ${item.production?.flower ? "checked" : ""}>
     Hotovo
 </h3>
+` : `
+<h3>Květ</h3>
+`}
 
 </div>
 

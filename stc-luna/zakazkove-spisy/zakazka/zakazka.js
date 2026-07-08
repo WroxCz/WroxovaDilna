@@ -240,7 +240,7 @@ switch (item.productId ?? item.type) {
         break;
 
     case "tulip-with-stem":
-        itemsHtml += renderTulip(item);
+        itemsHtml += renderTulip(item, true);
         break;
 
     case "rose-spiral-vase":
