@@ -237,7 +237,7 @@ order.items.forEach(item => {
 
     console.log(item);
 
-switch (item.productId) {
+switch (item.productId ?? item.type) {
 
     case "stock":
         itemsHtml += renderStock(item);
