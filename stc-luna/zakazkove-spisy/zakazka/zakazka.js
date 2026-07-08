@@ -92,8 +92,6 @@ let needsSave = false;
 
 order.items.forEach(item => {
 
-    console.log(item);
-
     if (!item.production) {
 
         item.production = {};
@@ -235,8 +233,6 @@ let itemsHtml = "";
 
 order.items.forEach(item => {
 
-    console.log(item);
-
 switch (item.productId ?? item.type) {
 
     case "stock":
@@ -275,6 +271,9 @@ document
             const part =
                 checkbox.dataset.part;
 
+            const index =
+                checkbox.dataset.index;
+
             const item =
                 order.items.find(
                     item => item.uid === uid
@@ -282,8 +281,19 @@ document
 
             if (!item) return;
 
-            item.production[part] =
-                checkbox.checked;
+            if (index !== undefined) {
+
+                item.production[part][Number(index)] =
+                    checkbox.checked;
+
+            }
+
+            else {
+
+                item.production[part] =
+                    checkbox.checked;
+
+            }
 
             try{
 

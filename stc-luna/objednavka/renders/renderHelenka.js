@@ -7,6 +7,19 @@ export function renderHelenka(item) {
     const plateCount = item.plates?.length ?? 0;
     const frameCount = item.frames?.length ?? 0;
 
+item.production ??= {};
+
+item.production.plates ??= [];
+item.production.frames ??= [];
+
+while (item.production.plates.length < plateCount) {
+    item.production.plates.push(false);
+}
+
+while (item.production.frames.length < frameCount) {
+    item.production.frames.push(false);
+}
+
     return `
 
         <div class="cart-item">
@@ -35,7 +48,17 @@ export function renderHelenka(item) {
                         <div class="cart-subitem">
 
                             <p>
-                                <strong>Destička ${index + 1}</strong>
+                                <h3>
+    Destička ${index + 1}
+    <input
+        type="checkbox"
+        class="production-part"
+        data-uid="${item.uid}"
+        data-part="plates"
+        data-index="${index}"
+        ${item.production.plates[index] ? "checked" : ""}>
+    Hotovo
+</h3>
                             </p>
 
                             <p>
