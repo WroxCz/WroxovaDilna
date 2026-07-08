@@ -20,28 +20,49 @@
   "valueFactor": 1.2,
 
   "sizes": [
-    {
-      "id": "s",
-      "name": "5 cm",
-      "weight": 120,
-      "printTime": 360
-    },
-    {
-      "id": "m",
-      "name": "7 cm",
-      "weight": 180,
-      "printTime": 520
-    },
-    {
-      "id": "l",
-      "name": "10 cm",
-      "weight": 260,
-      "printTime": 760
-    }
-  ],
+  {
+    "id": "s",
+    "name": "5 cm",
 
-  "bottom": {
-    "weight": 20,
-    "printTime": 40
+    "withoutBottom": {
+      "weight": 14,
+      "printTime": 394
+    },
+
+    "withBottom": {
+      "weight": 15,
+      "printTime": 390
+    }
+  },
+
+  {
+    "id": "m",
+    "name": "7 cm",
+
+    "withoutBottom": {
+      "weight": 27,
+      "printTime": 780
+    },
+
+    "withBottom": {
+      "weight": 28,
+      "printTime": 780
+    }
+  },
+
+  {
+    "id": "l",
+    "name": "10 cm",
+
+    "withoutBottom": {
+      "weight": 39,
+      "printTime": 1110
+    },
+
+    "withBottom": {
+      "weight": 40,
+      "printTime": 1110
+    }
   }
+]
 }

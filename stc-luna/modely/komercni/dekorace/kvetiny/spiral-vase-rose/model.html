@@ -113,24 +113,32 @@
 
     <h2>Souhrn konfigurace</h2>
 
-    <div class="stats-grid">
+<div class="stats-grid">
 
-        <div class="stat-card">
-            <span>Celková cena</span>
-            <strong id="total-price">Vyberte materiál</strong>
-        </div>
-
-        <div class="stat-card">
-            <span>Celková hmotnost</span>
-            <strong id="total-weight">-</strong>
-        </div>
-
-        <div class="stat-card">
-            <span>Doba tisku</span>
-            <strong id="total-print-time">-</strong>
-        </div>
- 
+    <div class="stat-card">
+        <span>Celková cena</span>
+        <strong id="total-price">Vyberte materiál</strong>
     </div>
+
+    <div class="stat-card">
+        <span>Celková hmotnost</span>
+        <strong id="total-weight">-</strong>
+    </div>
+
+    <div class="stat-card">
+        <span>Doba tisku</span>
+        <strong id="total-print-time">-</strong>
+    </div>
+
+    <button onclick="addToCart()">
+        Přidat do košíku
+    </button>
+
+    <button onclick="goToCart()">
+        Přejít do košíku
+    </button>
+
+</div>
 
 </section>
         <section
@@ -168,7 +176,7 @@ let model = null;
 
 let config = {
 
-    size: "m",
+    size: "s",
 
     bottom: false,
 
@@ -498,7 +506,7 @@ const materialOptions =
 function changeSize(value){
 
     config.size = value;
-
+console.log("Vybraná velikost:", config.size);
     updateSummary();
 
 }
@@ -606,22 +614,25 @@ variants.forEach(variant => {
 
 function createDefaultConfig(){
 
-    config = {
+config = {
 
-        size: "s",
+    size: "s",
 
-        bottom: false,
+    bottom: false,
 
-        material: "",
+    material: "",
 
-        variant: "",
+    variant: "",
 
-        color: ""
+    color: ""
 
-    };
+};
 
     updateDebug();
     updateSummary();
+
+    document.getElementById("size-select").value = config.size;
+    document.getElementById("bottom-checkbox").checked = config.bottom;
 
 }
 
@@ -684,29 +695,20 @@ if(selectedMaterial){
 function updateSummary(){
 
     const selectedSize =
-        model.sizes.find(
-            size => size.id === config.size
-        );
+    model.sizes.find(
+        size => size.id === config.size
+    );
 
-    if(!selectedSize){
-        return;
-    }
+if(!selectedSize){
+    return;
+}
 
-    totalWeight =
-        selectedSize.weight;
+const sizeData = config.bottom
+    ? selectedSize.withBottom
+    : selectedSize.withoutBottom;
 
-    totalPrintTime =
-        selectedSize.printTime;
-
-    if(config.bottom){
-
-        totalWeight +=
-            model.bottom.weight;
-
-        totalPrintTime +=
-            model.bottom.printTime;
-
-    }
+totalWeight = sizeData.weight;
+totalPrintTime = sizeData.printTime * 60;
 
     const selectedMaterial =
         materials.find(material =>
@@ -759,7 +761,15 @@ function updateSummary(){
             model.valueFactor
 
         );
-
+console.log({
+    totalWeight,
+    totalPrintTime,
+    materialPricePerGram,
+    multiplier: selectedMaterial.multiplier,
+    timeFactor: selectedMaterial.timeFactor,
+    valueFactor: model.valueFactor,
+    totalPrice
+});
     }
 
     else{
@@ -781,10 +791,12 @@ function updateSummary(){
     ).textContent =
     totalWeight.toFixed(2) + " g";
 
+    console.log("Čas pro výpočet:", totalPrintTime);
     document.getElementById(
         "total-print-time"
     ).textContent =
     formatPrintTime(totalPrintTime);
+    
 
 }
 function formatPrintTime(seconds){
@@ -902,6 +914,8 @@ function loadCart(){
 
 }
 function addToCart(){
+
+console.log(config);
 
     console.log(
         totalPrice,
