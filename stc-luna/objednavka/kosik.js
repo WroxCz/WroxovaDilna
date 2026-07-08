@@ -128,3 +128,9 @@ function changeQuantity(uid, delta) {
     renderCart();
 
 }
+function goToOrder() {
+    window.location.href = "objednavka.html";
+}
+
+// zpřístupnění pro onclick v HTML
+window.goToOrder = goToOrder;
