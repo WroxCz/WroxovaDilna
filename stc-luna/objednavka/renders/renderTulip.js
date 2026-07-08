@@ -27,13 +27,29 @@ item.production.leaf ??= false;
 ${showProduction ? `
 <h3>
     Květ
+
+    Stav:
+
+    <select
+        class="part-status"
+        data-uid="${item.uid}"
+        data-part="flower">
+
+        <option value="Čeká">Čeká</option>
+        <option value="Tisk">Tisk</option>
+        <option value="Hotovo">Hotovo</option>
+
+    </select>
+
     <input
         type="checkbox"
         class="production-part"
         data-uid="${item.uid}"
         data-part="flower"
         ${item.production?.flower ? "checked" : ""}>
+
     Hotovo
+
 </h3>
 ` : `
 <h3>Květ</h3>
