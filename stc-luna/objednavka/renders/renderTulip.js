@@ -8,6 +8,12 @@ export function renderTulip(item) {
     const stem = item.config.stem;
     const leaf = item.config.leaf;
 
+item.production ??= {};
+
+item.production.flower ??= false;
+item.production.stem ??= false;
+item.production.leaf ??= false;
+
     return `
 
         <div class="cart-item">

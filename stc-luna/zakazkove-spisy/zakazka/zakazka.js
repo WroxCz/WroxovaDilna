@@ -88,19 +88,28 @@ async function loadOrder(){
     const order =
         snapshot.data();
 
+let needsSave = false;
+
 order.items.forEach(item => {
 
     if (!item.production) {
 
-        item.production = {
-            flower: false,
-            stem: false,
-            leaf: false
-        };
+        item.production = {};
+        needsSave = true;
 
     }
 
 });
+
+if (needsSave) {
+
+    await updateDoc(orderRef, {
+
+        items: order.items
+
+    });
+
+}
 
     document.getElementById(
         "order-number"
