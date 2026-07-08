@@ -282,8 +282,22 @@ document
 
             if (!item) return;
 
-            item.production[part] =
-                select.value;
+const index =
+    select.dataset.index;
+
+if (index !== undefined) {
+
+    item.production[part][Number(index)] =
+        select.value;
+
+}
+
+else {
+
+    item.production[part] =
+        select.value;
+
+}
 
             try{
 

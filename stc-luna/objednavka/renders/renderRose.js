@@ -12,7 +12,19 @@ export function renderRose(item, showProduction = false) {
 
 item.production ??= {};
 
-item.production.rose ??= false;
+if (item.production.rose === true) {
+
+    item.production.rose = "Hotovo";
+
+}
+
+else if (item.production.rose === false) {
+
+    item.production.rose = "Čeká";
+
+}
+
+item.production.rose ??= "Čeká";
 
     return `
 
@@ -44,16 +56,39 @@ item.production.rose ??= false;
                 <strong>Barva:</strong>
                 ${item.config.color}
             </p>
+            
 ${showProduction ? `
 <h3>
+
     Růže
-    <input
-        type="checkbox"
-        class="production-part"
+
+    Stav:
+
+    <select
+        class="part-status"
         data-uid="${item.uid}"
-        data-part="rose"
-        ${item.production?.rose ? "checked" : ""}>
-    Hotovo
+        data-part="rose">
+
+        <option
+            value="Čeká"
+            ${item.production.rose === "Čeká" ? "selected" : ""}>
+            Čeká
+        </option>
+
+        <option
+            value="Tisk"
+            ${item.production.rose === "Tisk" ? "selected" : ""}>
+            Tisk
+        </option>
+
+        <option
+            value="Hotovo"
+            ${item.production.rose === "Hotovo" ? "selected" : ""}>
+            Hotovo
+        </option>
+
+    </select>
+
 </h3>
 ` : `
 <h3>Růže</h3>

@@ -7,10 +7,25 @@ export function renderHelenka(item, showProduction = false) {
     const plateCount = item.plates?.length ?? 0;
     const frameCount = item.frames?.length ?? 0;
 
-item.production ??= {};
+item.production.plates =
+    item.production.plates.map(status => {
 
-item.production.plates ??= [];
-item.production.frames ??= [];
+        if (status === true) return "Hotovo";
+        if (status === false) return "Čeká";
+
+        return status;
+
+    });
+
+item.production.frames =
+    item.production.frames.map(status => {
+
+        if (status === true) return "Hotovo";
+        if (status === false) return "Čeká";
+
+        return status;
+
+    });
 
 while (item.production.plates.length < plateCount) {
     item.production.plates.push(false);
@@ -50,15 +65,37 @@ while (item.production.frames.length < frameCount) {
                             <p>
 ${showProduction ? `
 <h3>
+
     Destička ${index + 1}
-    <input
-        type="checkbox"
-        class="production-part"
+
+    Stav:
+
+    <select
+        class="part-status"
         data-uid="${item.uid}"
         data-part="plates"
-        data-index="${index}"
-        ${item.production.plates[index] ? "checked" : ""}>
-    Hotovo
+        data-index="${index}">
+
+        <option
+            value="Čeká"
+            ${item.production.plates[index] === "Čeká" ? "selected" : ""}>
+            Čeká
+        </option>
+
+        <option
+            value="Tisk"
+            ${item.production.plates[index] === "Tisk" ? "selected" : ""}>
+            Tisk
+        </option>
+
+        <option
+            value="Hotovo"
+            ${item.production.plates[index] === "Hotovo" ? "selected" : ""}>
+            Hotovo
+        </option>
+
+    </select>
+
 </h3>
 ` : `
 <h3>Destička ${index + 1}</h3>
@@ -98,15 +135,37 @@ ${showProduction ? `
                             <p>
 ${showProduction ? `
 <h3>
+
     Rámeček ${index + 1}
-    <input
-        type="checkbox"
-        class="production-part"
+
+    Stav:
+
+    <select
+        class="part-status"
         data-uid="${item.uid}"
         data-part="frames"
-        data-index="${index}"
-        ${item.production.frames[index] ? "checked" : ""}>
-    Hotovo
+        data-index="${index}">
+
+        <option
+            value="Čeká"
+            ${item.production.frames[index] === "Čeká" ? "selected" : ""}>
+            Čeká
+        </option>
+
+        <option
+            value="Tisk"
+            ${item.production.frames[index] === "Tisk" ? "selected" : ""}>
+            Tisk
+        </option>
+
+        <option
+            value="Hotovo"
+            ${item.production.frames[index] === "Hotovo" ? "selected" : ""}>
+            Hotovo
+        </option>
+
+    </select>
+
 </h3>
 ` : `
 <h3>Rámeček ${index + 1}</h3>
