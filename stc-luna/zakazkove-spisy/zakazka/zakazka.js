@@ -257,7 +257,82 @@ switch (item.productId ?? item.type) {
 
 });
 
+const itemStatuses = order.items.map(item => {
+
+    if (item.productId === "tulip-with-stem") {
+
+        const states = [
+            item.production.flower,
+            item.production.stem,
+            item.production.leaf
+        ];
+
+        if (states.every(state => state === "Hotovo")) {
+            return "Hotovo";
+        }
+
+        if (states.includes("Ve výrobě")) {
+            return "Ve výrobě";
+        }
+
+        return "Čeká";
+
+    }
+
+    if (item.productId === "rose-spiral-vase") {
+
+        return item.production.rose;
+
+    }
+
+    if ((item.productId ?? item.type) === "helenka") {
+
+        const states = [
+            ...item.production.plates,
+            ...item.production.frames
+        ];
+
+        if (states.every(state => state === "Hotovo")) {
+            return "Hotovo";
+        }
+
+        if (states.includes("Ve výrobě")) {
+            return "Ve výrobě";
+        }
+
+        return "Čeká";
+
+    }
+
+    return "Čeká";
+
+});
+
 document.getElementById("items").innerHTML = itemsHtml;
+
+let itemsStatus = "Čeká";
+
+if (itemStatuses.every(status => status === "Hotovo")) {
+
+    itemsStatus = "Hotovo";
+
+}
+
+else if (itemStatuses.includes("Ve výrobě")) {
+
+    itemsStatus = "Ve výrobě";
+
+}
+
+const itemsStatusSelect =
+    document.getElementById("items-status");
+
+itemsStatusSelect.value =
+    itemsStatus;
+
+updateProductionColor(
+    itemsStatusSelect
+);
 
 document
     .querySelectorAll(".part-status")
@@ -342,6 +417,12 @@ document.getElementById(
     </option>
 
     <option
+        value="HOTOVE"
+        ${order.customer.paymentStatus === "HOTOVE" ? "selected" : ""}>
+        Hotově
+    </option>
+
+    <option
         value="VRACENA_PLATBA"
         ${order.customer.paymentStatus === "VRACENA_PLATBA" ? "selected" : ""}>
         Vrácena platba
@@ -385,6 +466,12 @@ function updatePaymentStatus(status){
 
             badge.textContent = "Zaplaceno";
             badge.classList.add("status-finished");
+            break;
+
+        case "HOTOVE":
+
+            badge.textContent = "Hotově";
+            badge.classList.add("status-printing");
             break;
 
         case "VRACENA_PLATBA":
@@ -601,8 +688,9 @@ switch(select.value){
         element.classList.add("waiting");
         break;
 
-    case "Tisk":
+    case "Ve výrobě":
     case "Potvrzeno":
+    case "HOTOVE":    
         element.classList.add("printing");
         break;
 

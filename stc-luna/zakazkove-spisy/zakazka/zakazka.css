@@ -109,13 +109,30 @@ h1{
     box-shadow:0 0 6px rgba(214,164,74,.35);
 
 }
-.production-status.waiting,
-.production-status.printing,
-.production-status.finished,
+.production-status.waiting{
+
+    background:#d97706;
+    color:#fff;
+
+}
+
+.production-status.printing{
+
+    background:#2563eb;
+    color:#fff;
+
+}
+
+.production-status.finished{
+
+    background:#16a34a;
+    color:#fff;
+
+}
+
 .production-status.returned{
 
-    background:#1b2433;
-
+    background:#5a2d91;
     color:#fff;
 
 }
@@ -187,4 +204,38 @@ h1{
 
     gap: 6px;
 
+}
+.item-title{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+
+}
+
+.item-title h2{
+
+    margin: 0;
+
+}
+.item-status:disabled{
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 4px 10px;
+
+    font-weight: bold;
+
+    opacity: 1;
+
+    cursor: default;
 }

@@ -7,6 +7,32 @@ export function renderHelenka(item, showProduction = false) {
     const plateCount = item.plates?.length ?? 0;
     const frameCount = item.frames?.length ?? 0;
 
+let itemStatus = "Čeká";
+
+const states = [
+
+    ...item.production.plates,
+
+    ...item.production.frames
+
+];
+
+if (states.length > 0) {
+
+    if (states.every(state => state === "Hotovo")) {
+
+        itemStatus = "Hotovo";
+
+    }
+
+    else if (states.includes("Ve výrobě")) {
+
+        itemStatus = "Ve výrobě";
+
+    }
+
+}    
+
 item.production.plates =
     item.production.plates.map(status => {
 
@@ -39,7 +65,40 @@ while (item.production.frames.length < frameCount) {
 
         <div class="cart-item">
 
-            <h2>${item.productName}</h2>
+<div class="item-title">
+
+    <h2>${item.productName}</h2>
+
+    ${showProduction ? `
+
+        <select
+            class="item-status"
+            data-uid="${item.uid}"
+            disabled>
+
+            <option
+                value="Čeká"
+                ${itemStatus === "Čeká" ? "selected" : ""}>
+                Čeká
+            </option>
+
+            <option
+                value="Ve výrobě"
+                ${itemStatus === "Ve výrobě" ? "selected" : ""}>
+                Ve výrobě
+            </option>
+
+            <option
+                value="Hotovo"
+                ${itemStatus === "Hotovo" ? "selected" : ""}>
+                Hotovo
+            </option>
+
+        </select>
+
+    ` : ""}
+
+</div>
 
             <p>
                 <strong>Litofánové destičky:</strong>
@@ -83,9 +142,9 @@ ${showProduction ? `
         </option>
 
         <option
-            value="Tisk"
-            ${item.production.plates[index] === "Tisk" ? "selected" : ""}>
-            Tisk
+            value="Ve výrobě"
+            ${item.production.plates[index] === "Ve výrobě" ? "selected" : ""}>
+            Ve výrobě
         </option>
 
         <option
@@ -153,9 +212,9 @@ ${showProduction ? `
         </option>
 
         <option
-            value="Tisk"
-            ${item.production.frames[index] === "Tisk" ? "selected" : ""}>
-            Tisk
+            value="Ve výrobě"
+            ${item.production.frames[index] === "Ve výrobě" ? "selected" : ""}>
+            Ve výrobě
         </option>
 
         <option

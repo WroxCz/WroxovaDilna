@@ -14,11 +14,62 @@ item.production.flower ??= "Čeká";
 item.production.stem ??= "Čeká";
 item.production.leaf ??= "Čeká";
 
+let itemStatus = "Čeká";
+
+const states = [
+    item.production.flower,
+    item.production.stem,
+    item.production.leaf
+];
+
+if (states.every(state => state === "Hotovo")) {
+
+    itemStatus = "Hotovo";
+
+}
+
+else if (states.includes("Ve výrobě")) {
+
+    itemStatus = "Ve výrobě";
+
+}
+
     return `
 
         <div class="cart-item">
 
-            <h2>${item.productName}</h2>
+<div class="item-title">
+
+    <h2>${item.productName}</h2>
+
+    ${showProduction ? `
+        <select
+            class="item-status"
+            data-uid="${item.uid}"
+            disabled>
+
+<option
+    value="Čeká"
+    ${itemStatus === "Čeká" ? "selected" : ""}>
+    Čeká
+</option>
+
+<option
+    value="Ve výrobě"
+    ${itemStatus === "Ve výrobě" ? "selected" : ""}>
+    Ve výrobě
+</option>
+
+<option
+    value="Hotovo"
+    ${itemStatus === "Hotovo" ? "selected" : ""}>
+    Hotovo
+</option>
+
+        </select>
+    ` : ""}
+
+</div>
 
             <hr>
 
@@ -42,9 +93,9 @@ ${showProduction ? `
 </option>
 
 <option
-    value="Tisk"
-    ${item.production.flower === "Tisk" ? "selected" : ""}>
-    Tisk
+    value="Ve výrobě"
+    ${item.production.flower === "Ve výrobě" ? "selected" : ""}>
+    Ve výrobě
 </option>
 
 <option
@@ -97,9 +148,9 @@ ${showProduction ? `
 </option>
 
 <option
-    value="Tisk"
-    ${item.production.stem === "Tisk" ? "selected" : ""}>
-    Tisk
+    value="Ve výrobě"
+    ${item.production.stem === "Ve výrobě" ? "selected" : ""}>
+    Ve výrobě
 </option>
 
 <option
@@ -150,9 +201,9 @@ ${showProduction ? `
 </option>
 
 <option
-    value="Tisk"
-    ${item.production.leaf === "Tisk" ? "selected" : ""}>
-    Tisk
+    value="Ve výrobě"
+    ${item.production.leaf === "Ve výrobě" ? "selected" : ""}>
+    Ve výrobě
 </option>
 
 <option

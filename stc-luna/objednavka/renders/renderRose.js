@@ -26,11 +26,47 @@ else if (item.production.rose === false) {
 
 item.production.rose ??= "Čeká";
 
+let itemStatus =
+    item.production.rose;
+
     return `
 
         <div class="cart-item">
 
-            <h2>${item.productName}</h2>
+<div class="item-title">
+
+    <h2>${item.productName}</h2>
+
+    ${showProduction ? `
+
+        <select
+            class="item-status"
+            data-uid="${item.uid}"
+            disabled>
+
+            <option
+                value="Čeká"
+                ${itemStatus === "Čeká" ? "selected" : ""}>
+                Čeká
+            </option>
+
+            <option
+                value="Ve výrobě"
+                ${itemStatus === "Ve výrobě" ? "selected" : ""}>
+                Ve výrobě
+            </option>
+
+            <option
+                value="Hotovo"
+                ${itemStatus === "Hotovo" ? "selected" : ""}>
+                Hotovo
+            </option>
+
+        </select>
+
+    ` : ""}
+
+</div>
 
             <p>
                 <strong>Velikost:</strong>
@@ -76,9 +112,9 @@ ${showProduction ? `
         </option>
 
         <option
-            value="Tisk"
-            ${item.production.rose === "Tisk" ? "selected" : ""}>
-            Tisk
+            value="Ve výrobě"
+            ${item.production.rose === "Ve výrobě" ? "selected" : ""}>
+            Ve výrobě
         </option>
 
         <option
