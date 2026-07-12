@@ -4,6 +4,10 @@ import { formatPrintTime } from "../shared/formatPrintTime.js";
 
 export function renderHelenka(item, showProduction = false) {
 
+    item.production ??= {};
+    item.production.plates ??= [];
+    item.production.frames ??= [];
+
     const plateCount = item.plates?.length ?? 0;
     const frameCount = item.frames?.length ?? 0;
 
