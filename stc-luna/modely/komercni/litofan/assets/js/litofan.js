@@ -526,8 +526,8 @@ class Frame {
         this.root = fragment.querySelector(".frame-card");
 this.title = fragment.querySelector(".frame-title h4");
 
-this.materialSelect =
-    fragment.querySelector(".frame-material");
+this.typeSelect =
+    fragment.querySelector(".frame-type");
  this.colorSelect =
     fragment.querySelector(".frame-color");
 
@@ -579,7 +579,9 @@ this.setTitle(index);
 
 this.loadData();
 
-this.loadMaterials();
+this.loadFilaments();
+
+this.bindType();
 
 this.bindColor();
 
@@ -590,41 +592,82 @@ this.bindLed();
 
         this.title.textContent = `Rámeček ${i}`;
     }
-    async loadMaterials() {
+    
+async loadFilaments() {
 
-    this.materials = await loadMaterials();
+    this.typeMap = {
 
-    const materialTypes = [
-        ...new Set(
-            this.materials.map(m => m.material)
-        )
-    ];
+        standard: "pla-standard.json",
 
-    this.materialSelect.innerHTML =
-        `<option value="">-- Vyberte materiál --</option>`;
+        matte: "pla-matte.json",
 
-    materialTypes.forEach(type => {
+        silk: "pla-silk.json"
 
-        const option = document.createElement("option");
+    };
 
-        option.value = type;
-        option.textContent = type;
+}
 
-        this.materialSelect.appendChild(option);
+bindType() {
+
+    this.typeSelect.addEventListener("change", async () => {
+
+        const source = this.typeMap[this.typeSelect.value];
+
+        if (!source) {
+
+            this.materials = [];
+
+            this.populateColors();
+
+            return;
+
+        }
+
+        this.materials = await loadModule(source);
+
+        console.log("Načtený typ:", this.typeSelect.value);
+        console.log(this.materials);
+
+        this.populateColors();
 
     });
 
-    this.materialSelect.addEventListener("change", () => {
+}
 
-    this.state.filament = null;
+async bindType() {
 
-    this.updateColors();
+    this.typeSelect.addEventListener("change", async () => {
 
-    refreshSummary();
+        const source =
+            this.typeMap[this.typeSelect.value];
 
-});
+        if (!source) {
+
+            this.materials = [];
+
+            this.colorSelect.innerHTML = `
+                <option value="">
+                    -- Vyberte barvu --
+                </option>
+            `;
+
+            this.state.filament = null;
+
+            refreshSummary();
+
+            return;
+
+        }
+
+        this.materials =
+            await loadModule(source);
+
+        this.populateColors();
+
+    });
 
 }
+
 async loadData() {
 
     const group = await getGroup("frames");
@@ -652,10 +695,7 @@ this.adapterGroup.style.display =
     refreshSummary();
 
 }
-updateColors() {
-
-    const material =
-        this.materialSelect.value;
+populateColors() {
 
     this.colorSelect.innerHTML = `
 
@@ -666,15 +706,11 @@ updateColors() {
     `;
 this.state.filament = null;
 
-    if (!material) return;
+const colors = this.materials.filter(m =>
 
-    const colors = this.materials.filter(m =>
+    m.status !== "unavailable"
 
-        m.material === material
-        &&
-        m.status !== "unavailable"
-
-    );
+);
 
     colors.forEach(color => {
 
@@ -693,6 +729,7 @@ this.state.filament = null;
 this.colorSelect.selectedIndex = 0;
 refreshSummary();
 }
+
 bindColor() {
 
     this.colorSelect.addEventListener("change", () => {
