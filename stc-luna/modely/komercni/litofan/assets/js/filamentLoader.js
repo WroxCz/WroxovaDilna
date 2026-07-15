@@ -6,6 +6,11 @@
 
 const cache = {};
 
+const BASE =
+    window.location.hostname === "wroxcz.github.io"
+        ? "/WroxovaDilna/stc-luna/sklad/data/"
+        : "/stc-luna/sklad/data/";
+
 // ==========================================
 // Načtení typu filamentu
 // ==========================================
@@ -18,13 +23,11 @@ export async function loadFilamentType(source) {
 
     }
 
-    const response =
-        await fetch(`/stc-luna/sklad/data/${source}`)
+    const response = await fetch(`${BASE}${source}`);
 
-    cache[source] =
-        await response.json();
+    cache[source] = await response.json();
 
-console.log("Načten filament:", source, cache[source]);
+    console.log("Načten filament:", source, cache[source]);
 
     return cache[source];
 
