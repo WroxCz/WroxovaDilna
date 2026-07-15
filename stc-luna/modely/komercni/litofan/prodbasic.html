@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Helenka | STC Luna</title>
+
+    <link rel="stylesheet" href="../../model.css">
+    <link rel="stylesheet" href="assets/css/litofan.css">
+
+</head>
+
+<body>
+
+    <main class="project-page">
+
+    <!-- ==========================================
+         Hlavička
+    =========================================== -->
+
+   <header class="project-header">
+
+<div class="project-panel">
+
+    <h1>Projekt Helenka – Litofán z vlastní fotografie</h1>
+
+    <p>
+        Proměňte svou oblíbenou fotografii v jedinečný litofán – 3D tištěný obraz,
+        který ožívá světlem. Každý litofán vyrábíme na zakázku podle vaší fotografie
+        a umožňujeme vám sestavit vlastní kombinaci litofánových destiček, rámečků
+        i LED podsvícení přesně podle vašich představ.
+    </p>
+
+    <h2>Co je litofán?</h2>
+
+    <p>
+        Litofán je speciální 3D tištěná destička, ve které obraz vzniká díky
+        rozdílné tloušťce materiálu. Bez podsvícení připomíná jemný reliéf,
+        po prosvícení LED panelem se však objeví věrný černobílý obraz
+        s překvapivou hloubkou, kontrastem a množstvím detailů.
+    </p>
+
+    <p>
+        <strong>💡 Tip:</strong> Nejlepších výsledků dosáhnete s ostrou fotografií
+        ve vysokém rozlišení. Ideální jsou snímky s dobrým osvětlením a dobře
+        viditelnými obličeji.
+    </p>
+
+</div>
+
+</header>
+
+<!-- ==========================================
+     Galerie
+========================================== -->
+
+<section class="project-gallery">
+
+    <div class="project-panel">
+
+        <h2>Galerie projektu</h2>
+
+        <p>
+            Podívejte se na ukázky dokončených litofánů, detailů jednotlivých
+            částí i výsledného vzhledu po sestavení projektu.
+        </p>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+
+                <img src="galerie/01.webp" alt="Projekt Helenka">
+                <span>rám Basic-návrh</span>
+            </div>
+
+            <div class="gallery-item">
+
+                <img src="galerie/02.png" alt="Projekt Helenka">
+                <span>Led panel</span>
+
+            </div>
+
+            <div class="gallery-item">
+
+                <img src="galerie/03.jpg" alt="Projekt Helenka">
+                <span>Vzorová destička - bez podsvícení</span>
+
+            </div>
+
+            <div class="gallery-item">
+
+                <img src="galerie/04.jpg" alt="Projekt Helenka">
+                <span>Vzorová destička - s podsvícení</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+ <!-- ==========================================
+     Konfigurace
+========================================== -->
+
+<section class="project-config">
+
+    <div class="project-panel">
+
+        <h2>Konfigurace projektu</h2>
+
+        <p>
+            Sestavte si svůj projekt přesně podle svých představ. Litofánové
+            destičky, rámečky i LED panely můžete přidávat nebo odebírat
+            nezávisle na sobě.
+        </p>
+
+        <!-- ==========================================
+             Litofánové destičky
+        =========================================== -->
+
+        <div class="config-section">
+
+            <div class="config-header">
+
+                <h3>Litofánové destičky</h3>
+
+                <div class="config-actions">
+
+                    <button type="button" class="btn-add-plate">
+
+                        + Přidat destičku
+
+                    </button>
+
+                    <button type="button" class="btn-remove-plate">
+
+                        − Ubrat destičku
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="plates-container">
+
+                <!-- ==========================================
+     Šablona litofánové destičky
+========================================== -->
+
+<template id="plate-template">
+
+    <div class="plate-card">
+
+        <div class="plate-title">
+
+            <h4></h4>
+
+        </div>
+
+        <div class="plate-content">
+
+    <!-- ==========================
+         Fotografie
+    ========================== -->
+
+    <div class="plate-photo">
+
+        <label>Fotografie</label>
+
+        <label class="upload-box">
+
+            <input type="file" accept="image/*">
+
+            <img class="photo-image" src="" alt="Fotografie">
+
+            <span class="upload-text">
+
+                📷<br>
+                Klikněte pro výběr fotografie
+
+            </span>
+
+        </label>
+
+    </div>
+
+<!-- ==========================
+     Orientace
+========================== -->
+
+<div class="plate-orientation">
+
+    <label>Orientace</label>
+
+    <label>
+        <input type="radio" class="orientation-radio" value="portrait" checked>
+        Na výšku
+    </label>
+
+    <label>
+        <input type="radio" class="orientation-radio" value="landscape">
+        Na šířku
+    </label>
+
+    <div class="preview-mode">
+
+        <span>Zobrazení</span>
+
+        <label>
+    <input type="radio"
+           class="preview-mode-radio"
+           value="unlit">
+
+    Nepodsvícený
+</label>
+
+<label>
+    <input type="radio"
+           class="preview-mode-radio"
+           value="lit"
+           checked>
+
+    Podsvícený
+</label>
+
+    </div>
+
+</div>
+
+    <!-- ==========================
+         Náhled litofánu
+    ========================== -->
+
+    <div class="plate-preview">
+
+        <label>Náhled litofánu</label>
+
+        <div class="preview-box">
+
+    <canvas class="preview-canvas"></canvas>
+
+</div>
+
+    </div>
+
+</div>
+
+</template>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================================
+             Rámečky
+        =========================================== -->
+
+        <div class="config-section">
+
+            <div class="config-header">
+
+                <h3>Rámečky</h3>
+
+                <div class="config-actions">
+
+                    <button type="button" class="btn-add-frame">
+
+                        + Přidat rámeček
+
+                    </button>
+
+                    <button type="button" class="btn-remove-frame">
+
+                        − Ubrat rámeček
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="frames-container">
+
+                <!-- Sem se budou dynamicky přidávat rámečky -->
+
+            </div>
+
+<template id="frame-template">
+
+    <div class="frame-card">
+
+        <div class="frame-title">
+
+            <h4></h4>
+
+        </div>
+
+        <div class="frame-content">
+
+            <!-- ==========================
+                 LEVÝ SLOUPEC
+            ========================== -->
+
+            <div class="frame-left">
+
+                <!-- Model rámečku -->
+                <div class="frame-group">
+
+                    <label>Model rámečku</label>
+
+                    <select class="frame-model">
+
+                        <option value="basic">
+                            Basic
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Materiál -->
+                <div class="frame-group">
+
+                    <label>Materiál</label>
+
+                    <select class="frame-material">
+
+                        <option value="">
+                            -- Vyberte materiál --
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Barva -->
+                <div class="frame-group">
+
+                    <label>Barva</label>
+
+                    <select class="frame-color">
+
+                        <option value="">
+                            -- Vyberte barvu --
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <!-- ==========================
+                 PRAVÝ SLOUPEC
+            ========================== -->
+
+            <div class="frame-right">
+
+                <!-- Podsvícení -->
+                <div class="frame-group">
+
+                    <label>Podsvícení</label>
+
+                    <select class="frame-led">
+
+                        <option value="none">
+                            Bez podsvícení
+                        </option>
+
+                        <option value="basic">
+                            LED panel Basic
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Síťový adaptér -->
+                <div class="frame-group frame-adapter">
+
+                    <label>Síťový adaptér</label>
+
+                    <select class="frame-power">
+
+                        <option value="no">
+                            Ne
+                        </option>
+
+                        <option value="yes">
+                            Ano
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+    <!-- ==========================================
+         Shrnutí
+    =========================================== -->
+
+<section class="project-summary">
+
+    <div class="project-panel">
+
+        <h2>Shrnutí objednávky</h2>
+
+        <div id="summary-container">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+     Souhlas se zpracováním fotografií
+========================================== -->
+
+<section class="project-consent">
+
+    <div class="project-panel">
+
+        <label class="photo-consent">
+
+            <input
+                type="checkbox"
+                id="photoConsent">
+
+            <span>
+
+                Souhlasím se zpracováním nahraných fotografií
+                výhradně za účelem výroby objednaného litofánu.
+                Fotografie budou po dokončení zakázky odstraněny
+                z úložiště STC Luna.
+
+            </span>
+
+        </label>
+
+    </div>
+
+</section>
+
+
+
+    <!-- ==========================================
+         Košík
+    =========================================== -->
+
+    <section class="project-cart">
+
+        <button class="cart-button">
+
+            Přidat do košíku
+
+        </button>
+
+    </section>
+
+    <!-- ==========================================
+         Zpět
+    =========================================== -->
+
+    <footer class="project-footer">
+
+        <a href="../../indexmodely.html">
+
+            ← Zpět do 3D modelů
+
+        </a>
+
+    </footer>
+
+</main>
+
+<script type="module" src="assets/js/litofan.js"></script>
+
+</body>
+</html>

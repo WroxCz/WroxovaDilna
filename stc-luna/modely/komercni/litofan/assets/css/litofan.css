@@ -822,6 +822,265 @@ body{
     flex:1;
 
 }
+.process-list {
+
+    margin-top: 15px;
+
+    padding-left: 24px;
+
+    line-height: 1.6;
+
+}
+
+.process-list li {
+
+    margin-bottom: 8px;
+
+}
+.advantages-list {
+
+    list-style-position: inside;
+
+    padding-left: 0;
+
+    margin-top: 15px;
+
+    line-height: 1.6;
+
+}
+
+.advantages-list li {
+
+    margin-bottom: 8px;
+
+}
+.product-card {
+
+    display: flex;
+
+    gap: 30px;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(214,177,95,0.15);
+
+}
+
+.product-card-image {
+
+    width: 280px;
+
+    border-radius: 16px;
+
+    object-fit: cover;
+
+}
+
+.product-card-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    flex: 1;
+
+}
+
+.product-card h3 {
+
+    color: #d8c28f;
+
+    font-size: 32px;
+
+}
+
+.product-card p {
+
+    line-height: 1.6;
+
+}
+
+.product-card .primary-button {
+
+    width: fit-content;
+
+}
+.project-footer{
+
+    margin:60px 0;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.back-models-button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:18px 28px;
+
+    text-decoration:none;
+
+    color:white;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(214,177,95,.18);
+
+    transition:.25s;
+
+}
+
+.back-models-button:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#d8c28f;
+
+    background:rgba(255,255,255,.07);
+
+}
+
+.back-models-button span{
+
+    font-size:34px;
+
+    color:#d8c28f;
+
+}
+
+.back-models-button strong{
+
+    display:block;
+
+    font-size:18px;
+
+    color:#d8c28f;
+
+}
+
+.back-models-button small{
+
+    display:block;
+
+    color:#bcbcbc;
+
+    margin-top:4px;
+
+}
+.gallery-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.88);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.25s;
+
+    z-index:9999;
+
+}
+
+.gallery-overlay.open{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.gallery-image{
+
+    max-width:90vw;
+
+    max-height:85vh;
+
+    border-radius:16px;
+
+}
+
+.gallery-close,
+.gallery-prev,
+.gallery-next{
+
+    position:absolute;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.gallery-close{
+
+    top:30px;
+
+    right:40px;
+
+    font-size:42px;
+
+}
+
+.gallery-prev{
+
+    left:30px;
+
+    font-size:56px;
+
+}
+
+.gallery-next{
+
+    right:30px;
+
+    font-size:56px;
+
+}
+
+.gallery-counter{
+
+    position:absolute;
+
+    bottom:25px;
+
+    color:white;
+
+    font-size:18px;
+
+}
 /* ==========================================
    Košík
 ========================================== */

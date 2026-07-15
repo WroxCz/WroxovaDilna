@@ -1,6 +1,20 @@
-export const modely = [
+export const sekce = [
+
     {
-        name: "Litofan",
+        name: "Co je litofan",
         path: "./komercni/litofan/model.html"
+    },
+
+    {
+        name: "Produkty",
+        children: [
+
+            {
+                name: "Litofan - Basic",
+                path: "./komercni/litofan/prodbasic.html"
+            }
+
+        ]
     }
+
 ];

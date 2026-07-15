@@ -41,7 +41,8 @@ import { sekce as komercni } from "./komercni/komercni.js";
 console.log("Komerční:", komercni);
 
 
-
+const litofan =
+    await import("./komercni/litofan/lit.js");
 const dekorace = 
     await import("./komercni/dekorace/dekorace.js");
 const testovaci = 
@@ -123,6 +124,14 @@ else if (item.file) {
         }
     });
 }
+
+const litofanContainer =
+    document.getElementById("litofan-list");
+
+vykresliStrom(
+    litofan.sekce,
+    litofanContainer
+);
 const dekoraceContainer =
     document.getElementById("dekorace-list");
 
@@ -151,15 +160,3 @@ vykresliStrom(
     projekty.sekce,
     projektyContainer
 );
-
-
-
-document
-    .querySelector("#litofan-link summary")
-    .addEventListener("click", (e) => {
-
-        e.preventDefault();
-
-        window.location.href = "./komercni/litofan/model.html";
-
-    });
