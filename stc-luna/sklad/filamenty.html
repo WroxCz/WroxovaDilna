@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>STC Luna – Filamenty</title>
+
+    <link rel="stylesheet" href="assets/css/filamenty.css">
+</head>
+
+<body>
+
+<div class="background-overlay"></div>
+
+<header class="warehouse-header">
+
+    <a href="sklad.html" class="zone zpet">
+
+        <div class="zone-label">
+            <span>Návrat do sekce →</span>
+            <strong>Materiálový sklad</strong>
+        </div>
+
+    </a>
+
+</header>
+
+<main class="filament-page">
+
+    <h1>Filamenty</h1>
+
+    <p class="intro">
+        Přehled všech tiskových materiálů používaných při výrobě produktů Luna Mechanica.
+    </p>
+
+    <section class="material-section">
+
+        <h2>PLA</h2>
+
+        <div class="card-grid">
+
+<div class="material-card expandable" id="pla-standard">
+
+    <h3>PLA Standard</h3>
+
+    <p>Klasický univerzální materiál.</p>
+
+    <div
+        class="filament-list"
+        id="pla-standard-list">
+
+    </div>
+
+</div>
+
+            <div class="material-card" id="pla-matte">
+                <h3>PLA Matte</h3>
+                <p>Matný povrch s elegantním vzhledem.</p>
+            </div>
+
+            <div class="material-card" id="pla-silk">
+                <h3>PLA Silk</h3>
+                <p>Lesklé dekorativní filamenty.</p>
+            </div>
+
+            <div class="material-card" id="pla-wood">
+                <h3>PLA Wood</h3>
+                <p>Filament s imitací dřeva.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="material-section">
+
+        <h2>PETG</h2>
+
+        <div class="card-grid">
+
+            <div class="material-card" id="petg-standard">
+                <h3>PETG Standard</h3>
+                <p>Odolný technický materiál.</p>
+            </div>
+
+            <div class="material-card" id="petg-matte">
+                <h3>PETG Matte</h3>
+                <p>Matný technický vzhled.</p>
+            </div>
+
+            <div class="material-card" id="petg-cf">
+                <h3>PETG CF</h3>
+                <p>Karbonem plněný PETG.</p>
+            </div>
+
+            <div class="material-card" id="petg-special">
+                <h3>PETG Special</h3>
+                <p>Speciální efektní materiály.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+<section class="details-panel">
+
+    <div class="details-header">
+
+        <h2 id="details-title">
+            Katalog filamentů
+        </h2>
+
+        <p id="details-description">
+            Vyberte jednu z kategorií filamentů kliknutím na některou z karet výše.
+            Zobrazí se všechny filamenty, které jsou aktuálně skladem nebo na cestě.
+        </p>
+
+    </div>
+
+    <div id="details-content">
+
+        <!-- Sem se budou načítat filamenty -->
+
+    </div>
+
+</section>    
+
+</main>
+
+<script type="module" src="assets/js/filamenty.js"></script>
+
+</body>
+
+</html>

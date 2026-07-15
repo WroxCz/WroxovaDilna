@@ -76,8 +76,8 @@
     "multiplier": 2.5,
     "timeFactor": 1,
 
-    "status": "unavailable",
-    "statusText": "Nedostupné",
+    "status": "available",
+    "statusText": "Dostupné",
 
     "printTemperatureMin": "230",
     "printTemperatureMax": "250",

@@ -1,0 +1,264 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family: Segoe UI, sans-serif;
+    color: #f5f2ea;
+
+    background:
+        url("../images/stc-luna-sklad-filamenty-BG.jpg")
+        center center / cover no-repeat fixed;
+}
+.background-overlay{
+
+    position:fixed;
+    inset:0;
+    z-index:-1;
+}
+
+.warehouse-header{
+
+    padding:30px;
+}
+
+.zpet{
+
+    text-decoration:none;
+}
+
+.zone-label{
+
+    display:inline-block;
+
+    background:#1a1208;
+
+    padding:14px 20px;
+
+    border-radius:12px;
+
+    color:white;
+
+    transition:.25s;
+}
+
+.zone-label:hover{
+
+    transform:translateY(-3px);
+}
+
+.filament-page{
+
+    width:min(1200px,92%);
+    margin:auto;
+    padding-bottom:60px;
+}
+
+h1{
+
+    text-align:center;
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.intro{
+
+    text-align:center;
+    color:#d5d5d5;
+    margin-bottom:60px;
+}
+
+.material-section{
+
+    margin-bottom:60px;
+}
+
+.material-section h2{
+
+    margin-bottom:25px;
+    border-left:5px solid #c69b6d;
+    padding-left:15px;
+}
+
+.card-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+}
+
+.material-card{
+
+    background:rgba(25,25,25,.45);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    transition:.25s;
+
+    cursor:pointer;
+}
+
+.material-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#c69b6d;
+}
+
+.material-card h3{
+
+    margin-bottom:12px;
+}
+
+.material-card p{
+
+    color:#cfcfcf;
+    line-height:1.6;
+}
+.filament-list{
+
+    display:none;
+
+    margin-top:20px;
+}
+
+.filament-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:15px;
+
+    padding-top:15px;
+
+    border-top:1px solid rgba(255,255,255,.12);
+}
+
+.filament-item img{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:contain;
+
+    border-radius:10px;
+}
+/* ==========================================
+   DETAIL FILAMENTŮ
+========================================== */
+
+.details-panel{
+
+    margin-top:60px;
+
+    background:rgba(25,25,25,.45);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    transition:.35s;
+}
+
+.details-header{
+
+    text-align:center;
+}
+
+.details-header h2{
+
+    font-size:2rem;
+
+    margin-bottom:15px;
+}
+
+.details-header p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:#d4d4d4;
+
+    line-height:1.7;
+}
+
+#details-content{
+
+    margin-top:35px;
+}
+.filament-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:18px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.filament-row img{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:contain;
+}
+
+.filament-info{
+
+    flex:1;
+}
+
+.filament-info h3{
+
+    margin-bottom:6px;
+}
+
+.filament-info p{
+
+    color:#bfbfbf;
+}
+
+.filament-status{
+
+    font-weight:700;
+}
+
+.filament-status.available{
+
+    color:#56d45d;
+}
+
+.filament-status.ordered{
+
+    color:#ffbf3f;
+}
+.material-card.active{
+
+    border:2px solid #c69b6d;
+
+    box-shadow:0 0 25px rgba(198,155,109,.35);
+
+    transform:translateY(-6px);
+}

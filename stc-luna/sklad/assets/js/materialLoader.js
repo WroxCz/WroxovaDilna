@@ -26,12 +26,20 @@ export async function loadMaterials() {
 
     const data = await Promise.all(
 
-        materialFiles.map(file =>
+        materialFiles.map(async file => {
 
-            fetch(`${BASE}${file}`)
-                .then(r => r.json())
+            const response = await fetch(`${BASE}${file}`);
+            const json = await response.json();
 
-        )
+            return json.map(material => ({
+
+                ...material,
+
+                source: file.replace(".json", "")
+
+            }));
+
+        })
 
     );
 
