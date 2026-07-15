@@ -196,13 +196,8 @@ clear() {
             <h4>Rámeček ${index + 1}</h4>
 
             <div>
-                Model:
-                ${frame.state.model || "Basic"}
-            </div>
-
-            <div>
-                Materiál:
-                ${frame.state.filament?.material || "-"}
+                Typ:
+                ${frame.state.filament?.variant || "-"}
             </div>
 
             <div>

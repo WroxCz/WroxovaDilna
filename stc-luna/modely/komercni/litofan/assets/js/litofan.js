@@ -27,6 +27,8 @@ import {
 }
 from "../../../../../../firebase/firebase.js";
 
+import { loadFilamentType } from "./filamentLoader.js";
+
 // ==========================================
 // Aktualizace shrnutí
 // ==========================================
@@ -595,15 +597,17 @@ this.bindLed();
     
 async loadFilaments() {
 
-    this.typeMap = {
+this.typeMap = {
 
-        standard: "pla-standard.json",
+    standard: "pla-standard.json",
 
-        matte: "pla-matte.json",
+    matte: "pla-matte.json",
 
-        silk: "pla-silk.json"
+    silk: "pla-silk.json",
 
-    };
+    wood: "pla-wood.json"
+
+};
 
 }
 
@@ -623,44 +627,10 @@ bindType() {
 
         }
 
-        this.materials = await loadModule(source);
+        this.materials = await loadFilamentType(source);
 
         console.log("Načtený typ:", this.typeSelect.value);
         console.log(this.materials);
-
-        this.populateColors();
-
-    });
-
-}
-
-async bindType() {
-
-    this.typeSelect.addEventListener("change", async () => {
-
-        const source =
-            this.typeMap[this.typeSelect.value];
-
-        if (!source) {
-
-            this.materials = [];
-
-            this.colorSelect.innerHTML = `
-                <option value="">
-                    -- Vyberte barvu --
-                </option>
-            `;
-
-            this.state.filament = null;
-
-            refreshSummary();
-
-            return;
-
-        }
-
-        this.materials =
-            await loadModule(source);
 
         this.populateColors();
 
@@ -689,8 +659,9 @@ async loadData() {
 this.ledSelect.parentElement.style.display =
     data.supports.led ? "" : "none";
 
-this.adapterGroup.style.display =
-    data.supports.adapter ? "flex" : "none";
+// Adaptér bude skrytý,
+// zobrazí se až po výběru LED panelu.
+this.adapterGroup.style.display = "none";
 
     refreshSummary();
 
@@ -720,7 +691,7 @@ const colors = this.materials.filter(m =>
         option.value = color.id;
 
         option.textContent =
-            `${color.name} (${color.manufacturer})`;
+            color.name;
 
         this.colorSelect.appendChild(option);
 
@@ -764,10 +735,17 @@ bindLed() {
     this.adapterGroup.style.display =
         panel ? "flex" : "none";
 
-    if (!panel) {
+ if (!panel) {
+
+    this.adapterGroup.style.display = "none";
 
     this.powerSelect.value = "no";
+
     this.state.adapter = null;
+
+} else {
+
+    this.adapterGroup.style.display = "flex";
 
 }
 
@@ -900,7 +878,7 @@ function validateConfiguration() {
         if (!frame.state.filament) {
 
             alert(
-                `${frame.title.textContent} nemá vybraný materiál a barvu.`
+                `${frame.title.textContent} nemá vybraný typ a barvu.`
             );
 
             return false;

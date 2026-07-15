@@ -10,7 +10,6 @@ const materialFiles = [
     "petg-standard.json",
 
     "pla-matte.json",
-    "pla-plus.json",
     "pla-silk.json",
     "pla-standard.json",
     "pla-wood.json"
