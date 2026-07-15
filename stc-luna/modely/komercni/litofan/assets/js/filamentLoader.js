@@ -18,9 +18,7 @@ const BASE =
 export async function loadFilamentType(source) {
 
     if (cache[source]) {
-
         return cache[source];
-
     }
 
     const response = await fetch(`${BASE}${source}`);
