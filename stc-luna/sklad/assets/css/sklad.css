@@ -1,510 +1,419 @@
+/* ===========================
+   STC Luna - Materiálový sklad
+=========================== */
+
+:root {
+    --bg-main: #0b0b0b;
+    --bg-card: rgba(20, 15, 10, 0.25);
+
+    --gold: #d4af37;
+    --gold-hover: #f0d67a;
+
+    --border: rgba(212,175,55,.35);
+
+    --text: #f2f2f2;
+    --text-muted: #c8c8c8;
+
+    --shadow: 0 10px 35px rgba(0,0,0,.45);
+
+    --radius: 18px;
+}
+
+/* ===========================
+   BODY
+=========================== */
+
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
 
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", sans-serif;
 
-    background:
-    linear-gradient(rgba(5,5,5,0.35),
-rgba(10,10,10,0.45)),
+    background:#0b0b0b;
 
-    url("../../webimages/stc-luna-skladBG.jpg");
+    color:var(--text);
 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-
-    color: #ddd;
-
-    min-height: 100vh;
-}
-@media (max-width: 768px){
-
-    *{
-        background-attachment: scroll !important;
-    }
+    min-height:100vh;
 
 }
 
-/* OVERLAY */
+/* ===========================
+   Pozadí
+=========================== */
 
-.background-overlay{
-
+/*.background-overlay{
     position: fixed;
-
     inset: 0;
 
     background:
-    radial-gradient(circle at center,
-    rgba(255,140,0,0.08),
-    transparent 70%);
+        url("../images/stc-luna-sklad-matsklad-BG.jpg") center/cover no-repeat;
 
-    pointer-events: none;
+    z-index: -1;
+}*/
+/* ===========================
+   HEADER
+=========================== */
+
+.warehouse-header{
+
+    text-align:center;
+
+    padding:60px 20px 35px;
+
 }
 
-/* NÁVRAT */
+.warehouse-header h1{
+
+    color:var(--gold);
+
+    font-size:2.7rem;
+
+    margin-bottom:8px;
+
+}
+
+.warehouse-header h2{
+
+    font-size:2rem;
+
+    margin-bottom:18px;
+
+}
+
+.warehouse-header p{
+
+    color:var(--text-muted);
+
+    max-width:650px;
+
+    margin:auto;
+
+    line-height:1.6;
+
+}
+
+/* ===========================
+   ZPĚT
+=========================== */
 
 .return-button{
 
-    display: inline-block;
+    display:inline-block;
 
-    margin-top: 25px;
+    margin-top:30px;
 
-    padding: 14px 34px;
+    padding:12px 26px;
 
-    background: rgba(20,15,10,0.35);
+    color:var(--gold);
 
-    border: 1px solid rgba(255,170,60,0.45);
+    text-decoration:none;
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    transition:.25s;
+
+}
+
+.return-button:hover{
+
+    background:rgba(212,175,55,.15);
+
+    color:var(--gold-hover);
+
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.warehouse-grid{
+
+    width:min(1200px,92%);
+
+    margin:30px auto 70px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:28px;
+
+}
+
+/* ===========================
+   KARTY
+=========================== */
+
+.warehouse-card{
+
+    background:var(--bg-card);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:30px;
+
+    text-decoration:none;
+
+    color:white;
+
+    box-shadow:var(--shadow);
+
+    transition:.25s ease;
+
+}
+
+.warehouse-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:var(--gold);
+
+}
+
+.card-icon{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+.warehouse-card h3{
+
+    color:var(--gold);
+
+    margin-bottom:14px;
+
+    font-size:1.5rem;
+
+}
+
+.warehouse-card p{
+
+    color:var(--text-muted);
+
+    line-height:1.6;
+
+    margin-bottom:22px;
+
+}
+
+.card-status{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:rgba(212,175,55,.12);
+
+    color:var(--gold);
+
+    font-size:.9rem;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:700px){
+
+    .warehouse-header h1{
+
+        font-size:2rem;
+
+    }
+
+    .warehouse-header h2{
+
+        font-size:1.5rem;
+
+    }
+
+}
+/* ===========================
+   MAPA SKLADU
+=========================== */
+
+.warehouse-map {
+
+    width: min(1200px, 95vw);
+
+    margin: 40px auto;
+
+    position: relative;
+
+}
+.warehouse-image {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+}
+
+
+
+.zone {
+
+    position: absolute;
+
+    background: transparent;
+
+    border: 2px solid transparent;
 
     border-radius: 12px;
 
-    color: #d8b36a;
+    cursor: pointer;
 
-    text-decoration: none;
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
 
-    font-size: 1.1rem;
+}
+.zone:hover {
 
-    transition: 0.3s;
+    background: rgba(212, 175, 55, 0.12);
+
+    border: 2px solid rgba(212, 175, 55, 0.9);
 
     box-shadow:
-    inset 0 0 12px rgba(255,140,0,0.05),
-    0 0 10px rgba(255,140,0,0.08);
+        0 0 18px rgba(212, 175, 55, 0.45);
+
 }
-.return-button:hover{
+.zone-label {
 
-    background: rgba(45,25,10,0.55);
+    position: absolute;
 
-    border-color: #ffb347;
+    left: 50%;
+    top: 50%;
 
-    transform: translateY(-2px);
+    transform: translate(-50%, -50%);
 
-    box-shadow:
-    0 0 18px rgba(255,140,0,0.18),
-    inset 0 0 10px rgba(255,180,80,0.08);
-}
+    background: rgba(20,15,10,.92);
 
-/* HEADER */
+    border: 1px solid rgba(212,175,55,.6);
 
-.forge-header{
+    border-radius: 10px;
+
+    padding: 12px 18px;
 
     text-align: center;
 
-    padding: 90px 20px 40px;
+    opacity: 0;
+
+    transition: .25s ease;
+
+    pointer-events: none;
+
+    min-width: 190px;
+
 }
 
-.forge-header h1{
+.zone:hover .zone-label {
 
-    font-size: 3rem;
+    opacity: 1;
 
-    color: #d8b36a;
-
-    margin-bottom: 15px;
-
-    text-shadow: 0 0 15px rgba(255,140,0,0.3);
 }
 
-.forge-header p{
+.zone-label span {
 
-    color: #aaa;
+    display: block;
 
-    font-size: 1.1rem;
-}
+    color: #d4af37;
 
-/* FILTRY */
-
-.filter-bar,
-.manufacturer-bar,
-.variant-bar{
-
-    width: 100%;
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-
-    margin-bottom: 20px;
-
-    padding: 0 20px;
-}
-
-.filter-button{
-    padding: 12px 26px;
-
-    background: rgba(20,15,10,0.35);
-
-    border: 1px solid rgba(255,170,60,0.45);
-
-    border-radius: 12px;
-
-    color: #d8b36a;
-
-    font-size: 1rem;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-
-    box-shadow:
-    inset 0 0 12px rgba(255,140,0,0.05),
-    0 0 10px rgba(255,140,0,0.08);
-}
-
-.filter-button:hover{
-
-    background: rgba(45,25,10,0.55);
-
-    border-color: #ffb347;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-    0 0 18px rgba(255,140,0,0.18),
-    inset 0 0 10px rgba(255,180,80,0.08);
-}
-
-.filter-button.active{
-  background: rgba(45,25,10,0.55);
-
-    border-color: #ffb347;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-    0 0 18px rgba(255,140,0,0.18),
-    inset 0 0 10px rgba(255,180,80,0.08);
-}
-
-/* GRID */
-
-.inventory-grid{
-
-    width: 90%;
-
-    max-width: 1400px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-    repeat(3, 1fr);
-
-    gap: 30px;
-
-    padding-bottom: 60px;
-}
-
-/* KARTY */
-
-.material-card{
-
-    background: rgba(18,18,18,0.15);
-
-    border: 1px solid #7a5a2a;
-
-    border-radius: 14px;
-
-    overflow: hidden;
-
-    transition: 0.3s;
-}
-
-.material-card:hover{
-
-    transform: translateY(-6px);
-
-    box-shadow: 0 0 25px rgba(255,140,0,0.2);
-}
-
-.material-card img{
-
-    width: 100%;
-
-    height: 240px;
-
-    object-fit: cover;
-
-    border-bottom: 1px solid #7a5a2a;
-}
-
-/* INFO */
-
-.material-info{
-
-    padding: 20px;
-}
-
-.material-info h2{
-
-    color: #d8b36a;
-
-    margin-bottom: 15px;
-}
-
-.material-info p{
-
-    margin-bottom: 8px;
-
-    color: #bbb;
-}
-
-/* STAVY */
-
-.stock{
-
-    display: inline-block;
-
-    margin-top: 15px;
-
-    padding: 8px 14px;
-
-    border-radius: 6px;
-
-    font-weight: bold;
-}
-
-.in-stock{
-
-    background: rgba(0,120,0,0.2);
-
-    color: #5cff7a;
-
-    border: 1px solid #2b8a3e;
-}
-
-.low-stock{
-
-    background: rgba(255,140,0,0.15);
-
-    color: #ffb347;
-
-    border: 1px solid #cc7a00;
-}
-
-.out-stock{
-
-    background: rgba(180,0,0,0.2);
-
-    color: #ff6b6b;
-
-    border: 1px solid #b22222;
-}
-.inventory-panel{
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    background: rgba(15,10,5,0.25);
-
-    border: 1px solid #7a5a2a;
-
-    margin-bottom: 20px;
-
-    padding: 15px;
-
-    transition: 0.3s;
-}
-
-.inventory-panel:hover{
-
-    background: rgba(25,15,10,0.35);
-
-    box-shadow: 0 0 15px rgba(255,140,0,0.15);
-}
-.inventory-panel img{
-
-    width: 140px;
-
-    height: 140px;
-
-    object-fit: cover;
-
-    border: 1px solid #7a5a2a;
-}
-.available{
-
-    color: #67ff8a;
-}
-
-.ordered{
-
-    color: #ffb347;
-}
-
-.unavailable{
-
-    color: #ff6b6b;
-}
-.inventory-panel{
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    background: rgba(18,18,18,0.15);
-
-    border: 1px solid #7a5a2a;
-
-    margin-bottom: 20px;
-
-    padding: 15px;
-
-    transition: 0.3s;
-}
-
-.inventory-panel:hover{
-
-    background: rgba(25,15,10,0.25);
-
-    box-shadow: 0 0 15px rgba(255,140,0,0.15);
-}
-
-.inventory-panel img{
-
-    width: 140px;
-
-    height: 140px;
-
-    object-fit: cover;
-
-    border: 1px solid #7a5a2a;
-}
-
-.panel-content h2{
-
-    color: #d8b36a;
-
-    margin-bottom: 10px;
-}
-
-.panel-content p{
+    font-size: .85rem;
 
     margin-bottom: 6px;
-}
-@media (max-width: 1000px){
 
-    .inventory-grid{
-
-        grid-template-columns:
-        repeat(2, 1fr);
-    }
 }
 
-@media (max-width: 700px){
+.zone-label strong {
 
-    .inventory-grid{
+    color: white;
 
-        grid-template-columns:
-        1fr;
-    }
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+}
+/* ===========================
+   FILAMENTY
+=========================== */
+
+.filamenty {
+
+    left: 1%;
+    top: 30%;
+
+    width: 17.5%;
+    height: 50%;
+
 }
 
-.manufacturer-button{
+/* ===========================
+   KOMPONENTY
+=========================== */
 
-    padding: 12px 26px;
+.komponenty {
 
-    background: rgba(20,15,10,0.35);
+    right: 62.5%;
+    top: 30%;
 
-    border: 1px solid rgba(255,170,60,0.45);
+    width: 17.5%;
+    height: 50%;
 
-    border-radius: 12px;
-
-    color: #d8b36a;
-
-    font-size: 1rem;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-
-    box-shadow:
-    inset 0 0 12px rgba(255,140,0,0.05),
-    0 0 10px rgba(255,140,0,0.08);
 }
 
-.manufacturer-button:hover{
+/* ===========================
+   ELEKTRONIKA
+=========================== */
 
-    background: rgba(45,25,10,0.55);
+.elektronika {
 
-    border-color: #ffb347;
+    left: 62%;
+    top: 30%;
 
-    transform: translateY(-2px);
+    width: 17.5%;
+    height: 50%;
 
-    box-shadow:
-    0 0 18px rgba(255,140,0,0.18),
-    inset 0 0 10px rgba(255,180,80,0.08);
 }
 
-.manufacturer-button.active{
-background: rgba(45,25,10,0.55);
+/* ===========================
+   SPOJOVACÍ MATERIÁL
+=========================== */
 
-    border-color: #ffb347;
+.spojovaci {
 
-    transform: translateY(-2px);
+    left: 81.5%;
+    top: 30%;
 
-    box-shadow:
-    0 0 18px rgba(255,140,0,0.18),
-    inset 0 0 10px rgba(255,180,80,0.08);
+    width: 17.5%;
+    height: 50%;
+
 }
+/* ===========================
+   zpět
+=========================== */
+.zpet {
 
-.variant-button{
+    left: 41%;
+    top: 60%;
 
-    padding: 12px 26px;
+    width: 18%;
+    height: 20%;
 
-    background: rgba(20,15,10,0.35);
-
-    border: 1px solid rgba(255,170,60,0.45);
-
-    border-radius: 12px;
-
-    color: #d8b36a;
-
-    font-size: 1rem;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-
-    box-shadow:
-    inset 0 0 12px rgba(255,140,0,0.05),
-    0 0 10px rgba(255,140,0,0.08);
-}
-
-.variant-button:hover{
-
-    background: rgba(45,25,10,0.55);
-
-    border-color: #ffb347;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-    0 0 18px rgba(255,140,0,0.18),
-    inset 0 0 10px rgba(255,180,80,0.08);
-}
-
-.variant-button.active{
-
-    background: rgba(45,25,10,0.55);
-
-    border-color: #ffb347;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-    0 0 18px rgba(255,140,0,0.18),
-    inset 0 0 10px rgba(255,180,80,0.08);
 }

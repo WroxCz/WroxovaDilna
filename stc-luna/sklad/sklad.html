@@ -2,60 +2,75 @@
 <html lang="cs">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>STC Luna — Sklad</title>
+    <title>STC Luna – Materiálový sklad</title>
 
-    <link rel="stylesheet" href="sklad.css">
-
+    <link rel="stylesheet" href="assets/css/sklad.css">
 </head>
 
 <body>
 
-    <!-- POZADÍ -->
-
     <div class="background-overlay"></div>
 
-    <!-- NÁVRAT -->
+    <header class="warehouse-header">
 
-
-    <!-- HEADER -->
-
-    <header class="forge-header">
-
-        <h1>STC Luna — Forge Inventory</h1>
-
-        <p>
-            Databáze výrobních materiálů manufactora Luna
-        </p>
-        <a href="../stc-luna.html" class="return-button">
-            ← Zpět do STC Luna
-        </a>
     </header>
 
-    <!-- FILTRY -->
+<main class="warehouse-map">
 
-<section class="filter-bar" id="filter-bar"></section>
+    <img
+        src="assets/images/stc-luna-sklad-matsklad-BG.jpg"
+        alt="Materiálový sklad"
+        class="warehouse-image">
 
-<section class="variant-bar" id="variant-bar"></section>
+<a href="filamenty.html" class="zone filamenty">
 
-<section class="manufacturer-bar" id="manufacturer-bar"></section>
+    <div class="zone-label">
+        <span>Vstoupit do sekce →</span>
+        <strong>Filamenty</strong>
+    </div>
 
+</a>
 
+<a href="komponenty.html" class="zone komponenty">
 
-    <!-- GRID -->
+    <div class="zone-label">
+        <span>Vstoupit do sekce →</span>
+        <strong>Komponenty</strong>
+    </div>
 
-    <main
-    class="inventory-grid"
+</a>
 
-    id="inventory-container">
+<a href="elektronika.html" class="zone elektronika">
+
+    <div class="zone-label">
+        <span>Vstoupit do sekce →</span>
+        <strong>Elektronika</strong>
+    </div>
+
+</a>
+
+<a href="spojovaci-material.html" class="zone spojovaci">
+
+    <div class="zone-label">
+        <span>Vstoupit do sekce →</span>
+        <strong>Spojovací materiál</strong>
+    </div>
+
+</a>
+
+<a href="../stc-luna.html" class="zone zpet">
+
+    <div class="zone-label">
+        <span>Opustit sklad →</span>
+        <strong>Zpět do STC Luna</strong>
+    </div>
+
+</a>
 
 </main>
-
-<script src="sklad.js"></script>
 
 </body>
 
