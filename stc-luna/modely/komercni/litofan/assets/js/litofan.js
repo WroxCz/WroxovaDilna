@@ -4,7 +4,7 @@
 "use strict";
 console.log("LITOFAN.JS VERZE 2026-07-03 A");
 
-import { loadMaterials } from "../../../../../sklad/materialLoader.js";
+import { loadMaterials } from "../../../../../sklad/assets/js/materialLoader.js";
 import { Summary } from "./summary.js";
 import { calculateProject } from "./priceCalculator.js";
 import {
